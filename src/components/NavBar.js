@@ -1,12 +1,25 @@
 import React, { useState } from 'react';
 import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
-import { Link } from 'react-router-dom';
-import { SidebarData } from './SidebarData';
+import { NavLink, Link, useLocation } from 'react-router-dom';import { SidebarData } from './SidebarData';
 import './NavBar.css';
 import { IconContext } from 'react-icons';
+import {Link as Linker,animateScroll as scroll } from "react-scroll";
 
 function Navbar() {
+    const path = useLocation().pathname;
+    const location = path.split('/')[1];
+    const scroller = scroll.scroller;
+  
+    const scrollToAnchor = () => {
+      scroller.scrollTo('anchor', {
+        duration: 1500,
+        delay: 100,
+        smooth: true,
+        offset: 50
+      });
+    };
+  
   const [sidebar, setSidebar] = useState(false);
 
   const showSidebar = () => setSidebar(!sidebar);
@@ -18,6 +31,10 @@ function Navbar() {
           <Link to='#' className='menu-bars'>
             <FaIcons.FaBars onClick={showSidebar} />
           </Link>
+          <div className='logo'>
+          <Link to="/" >
+          <img src={require('./logo.png')}/></Link>
+          </div>
         </div>
         <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
           <ul className='nav-menu-items' onClick={showSidebar}>
@@ -26,19 +43,36 @@ function Navbar() {
                 <AiIcons.AiOutlineClose />
               </Link>
             </li>
-            {SidebarData.map((item, index) => {
-              return (
-                <li key={index} className={item.cName}>
-                  <Link to={item.path}>
-                    {item.icon}
-                    <span>{item.title}</span>
-                  </Link>
-                </li>
-              );
-            })}
+            <li className='nav-text'>
+            {location === '' ? (
+       <Linker to="inicio" spy={true} smooth={true} offset={-90} duration={500}  onClick={showSidebar}>
+       <span>Inicio</span></Linker>
+      ) : (
+        <Link to="/" spy={true} smooth={true} offset={-90} duration={500} onClick={showSidebar}>
+       <span>Inicio</span></Link>
+      )}
+              
+            </li>
+            <li className='nav-text'>
+              <Linker to="about" spy={true} smooth={true} offset={-90} duration={500} onClick={showSidebar}>
+                <span>Acerca del Sitio</span></Linker>
+            </li>
+            <li className='nav-text'>
+              <Linker to="tutorial" spy={true} smooth={true} offset={-90} duration={500} onClick={showSidebar}>
+                <span>Como Funciona</span></Linker>
+            </li>
+            <li className='nav-text'>
+              <Link to="/login"onClick={showSidebar}>
+                <span>Iniciar Sesión</span></Link>
+            </li>
+            <li className='nav-text'>
+              <Link to="/registro" onClick={showSidebar}>
+                <span>Registrarse</span></Link>
+            </li>
           </ul>
         </nav>
       </IconContext.Provider>
+      
     </>
   );
 }
