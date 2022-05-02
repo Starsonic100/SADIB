@@ -9,7 +9,7 @@ function App() {
     
         <Router>
                       <Navbar/>
-
+                      
             <Routes>
               <Route exact path="/" element={<MainP/>} />
            </Routes>
