@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import '../css/style.css';
-import logo from '../img/logo.png';
 import ninio from '../img/ninio.png';
 import escribe from '../img/escribe.jpg';
 import{ createTheme, MuiThemeProvider, responsiveFontSizes, ThemeProvider, Typography} from "@material-ui/core";
@@ -12,13 +11,7 @@ class PrincipalPage extends Component {
     render(){
         return(
             <div className="container">
-                <div className="main row">
-                    <div className="col-12">
-                        <div className="banner">
-                            <div align="center"><img src={logo} alt="logoSADIB" title="logoSADIB" width="25%"/></div>
-                        </div>
-                    </div>
-                </div>
+                
 				
 				<div className="main row">
 					<div className="col-12">
