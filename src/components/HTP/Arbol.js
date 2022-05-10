@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import '../css/style.css';
-import logo from '../img/logo.png';
 import anterior from '../img/anterior.png';
 import siguiente from '../img/siguiente.png';
 import{ createTheme, MuiThemeProvider, responsiveFontSizes, Typography} from "@material-ui/core";
@@ -26,15 +25,6 @@ export class Arbol extends Component {
 
         return(
             <div className="container">
-                {/* Comienza Banner*/}
-                <div className="main row">
-                    <div className="col-12">
-                        <div className="banner">
-                            <div align="center"><img src={logo} alt="logoSADIB" title="logoSADIB" width="25%"/></div>
-                        </div>
-                    </div>
-                </div>
-                {/* Termina Banner*/}
                 
                 {/* Comienza sección de preguntas*/}
                 <div className="main row">
@@ -75,7 +65,7 @@ export class Arbol extends Component {
                                                         <Typography variant="h6" class="tamai">{"23. ¿Dónde se encuentra realmente ese árbol?"}</Typography>
                                                     </MuiThemeProvider>
                                                 </li>
-                                                <textarea class="form-control" name="p23" onChange={handleInputChange('p23')} defaultValue={values.p2}></textarea>
+                                                <textarea class="form-control" name="p23" onChange={handleInputChange('p23')} defaultValue={values.p23}></textarea>
                                             </ul>
                                         </div>
                                     </div>
@@ -88,7 +78,7 @@ export class Arbol extends Component {
                                                         <Typography variant="h6" class="tamai">{"24. ¿Aproximadamente qué edad tiene el árbol?"}</Typography>
                                                     </MuiThemeProvider>
                                                 </li>
-                                                <textarea class="form-control" name="p24" onChange={handleInputChange('p24')} defaultValue={values.p2}></textarea>
+                                                <textarea class="form-control" name="p24" onChange={handleInputChange('p24')} defaultValue={values.p24}></textarea>
                                             </ul>
                                         </div>
                                     </div>
@@ -101,7 +91,7 @@ export class Arbol extends Component {
                                                         <Typography variant="h6" class="tamai">{"25. ¿Está vivo el árbol?"}</Typography>
                                                     </MuiThemeProvider>
                                                 </li>
-                                                <textarea class="form-control" name="p25" onChange={handleInputChange('p25')} defaultValue={values.p2}></textarea>
+                                                <textarea class="form-control" name="p25" onChange={handleInputChange('p25')} defaultValue={values.p25}></textarea>
                                             </ul>
                                         </div>
                                     </div>

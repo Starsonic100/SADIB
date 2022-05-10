@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import '../css/style.css';
-import logo from '../img/logo.png';
 import anterior from '../img/anterior.png';
 import siguiente from '../img/siguiente.png';
 import{ createTheme, MuiThemeProvider, responsiveFontSizes, Typography} from "@material-ui/core";
@@ -26,15 +25,6 @@ export class Persona extends Component {
 
         return(
             <div className="container">
-                {/* Comienza Banner*/}
-                <div className="main row">
-                    <div className="col-12">
-                        <div className="banner">
-                            <div align="center"><img src={logo} alt="logoSADIB" title="logoSADIB" width="25%"/></div>
-                        </div>
-                    </div>
-                </div>
-                {/* Termina Banner*/}
                 
                 {/* Comienza sección de preguntas*/}
                 <div className="main row">
@@ -114,7 +104,7 @@ export class Persona extends Component {
                                                         <Typography variant="h6" class="tamai">{"49. ¿En quién estaba pensando cuando dibujaba?"}</Typography>
                                                     </MuiThemeProvider>
                                                 </li>
-                                                <textarea class="form-control" name="p49" onChange={handleInputChange('p49')} defaultValue={values.p44}></textarea>
+                                                <textarea class="form-control" name="p49" onChange={handleInputChange('p49')} defaultValue={values.p49}></textarea>
                                             </ul>
                                         </div>
                                     </div>

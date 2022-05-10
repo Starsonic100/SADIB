@@ -26,15 +26,6 @@ export class Casa extends Component {
 
         return(
             <div className="container">
-                {/* Comienza Banner*/}
-                <div className="main row">
-                    <div className="col-12">
-                        <div className="banner">
-                            <div align="center"><img src={logo} alt="logoSADIB" title="logoSADIB" width="25%"/></div>
-                        </div>
-                    </div>
-                </div>
-                {/* Termina Banner*/}
                 
                 {/* Comienza sección de preguntas*/}
                 <div className="main row">
