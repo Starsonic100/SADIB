@@ -1,0 +1,247 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Lato', sans-serif;
+}
+
+.main {
+  background-color: #b4dbdf;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  padding-top: 90px;
+  padding-bottom: 10px;
+}
+
+.mp1{
+  background-color: #b4dbdf;
+  box-sizing: border-box;
+  top: 10px;
+}
+
+.img1{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+  max-height: 100%;
+  width: 70%;
+    
+}
+.mp2{
+  background-color: white;
+  box-sizing: border-box;
+  top: 10px;
+}
+
+.img2{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+  max-height: 100%;
+  width: 70%;
+}
+
+.mp3{
+  background-color: #b4dbdf;
+  box-sizing: border-box;
+  top: 10px;
+}
+
+.img3{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+  max-height: 100%;
+  width: 70%;
+}
+
+
+.res-cont{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  max-width: 100%;
+  max-height: 100%;
+  height: 50%;
+  width: 70%;
+}
+
+.res-head{
+  background-color: #3F81A7;
+  color:white;
+  font-style:unset;
+  border-radius: 5px;
+  align-items: center;
+  display: flex;
+  justify-content: left;
+  flex:1;
+  flex-grow: 1;
+  padding-left: 20px;
+  padding-top: 15px;
+  padding-bottom: 10px;
+}
+
+.res{
+  background-color: white;
+  border-radius: 5px;
+  padding-left: 30px;
+  padding-top: 15px;
+  padding-bottom: 10px;
+}
+
+.formulario{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  margin-top:10px;
+  background: #FFFFFF;
+  border-radius: 10px 10px;
+  color: black;
+}
+
+.instrucciones{
+  width: 100%;
+  height: auto;
+  background: rgba(36, 105, 160, 0.76);
+  border-radius: 10px 10px 10px 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: #FFFFFF;
+}
+
+.preguntas{
+  
+  padding-left: 10px;
+  padding-bottom:10rem;
+}
+
+.btn-primary{
+  background-color: #2469A0;
+  float: right;
+  color: white;
+}
+
+h1{
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 4vw;
+  line-height: 7vw;
+  text-align: center;
+  color: #2469A0;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+h3{
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-style: normal;
+  font-size: 15px;
+  line-height: 20px;
+}
+
+h4{
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 2vw;
+  text-align: center;
+  color: #2469A0;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+h5{
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-style: normal;
+  font-size: 20px;
+  padding-top: 1.5%;
+  padding-bottom: 1.5%;
+  padding-left: 30px;
+ 
+}
+
+h6.tamai{
+  font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-style: normal;
+  font-size: 16px;
+  line-height: auto;
+}
+
+h6.form-check{
+  font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-style: normal;
+  font-size: 16px;
+  line-height: auto;
+}
+
+h6.tabla-tamai{
+  font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 16px;
+  line-height: auto;
+  font-style: initial;
+}
+
+ul.tamai{
+  padding-top: 20px;
+  padding-bottom: 20px;
+  list-style-image: url('../img/vineta.png');
+  list-style-position:initial;
+  padding-left: 2em;
+}
+
+.button-desp{
+  background-color: transparent;
+  border: none;
+  float:right;
+  cursor:pointer;
+}
+.button-ant{
+  background-color: transparent;
+  border: none;
+  float:left;
+  cursor:pointer;
+}
+
+table {
+  border-collapse: collapse;
+  width: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+td,  th {
+  border: 1px solid #ddd;
+  padding: 8px;
+  background-color: white;
+}
+
+ tr:nth-child(even){background-color: #f2f2f2;}
+
+ tr:hover {background-color: #ddd;}
+
+ th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  background-color: #3F81A7;
+  color: white;
+}
+
+td.sub{
+  padding-left: 2.5%;
+}
+
+td.sub1{
+  padding-left: 5%;
+}
+td.sub2{
+  padding-left: 7.5%
+}
+
