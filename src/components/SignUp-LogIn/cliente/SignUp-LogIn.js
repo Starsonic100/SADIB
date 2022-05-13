@@ -4,7 +4,6 @@ import lapiz from '../../img/lapiz.png';
 import { useState } from "react";
 import Axios from "axios";
 import{ createTheme, MuiThemeProvider, responsiveFontSizes, Typography} from "@material-ui/core";
-import axios from 'axios';
 
 let theme = createTheme();
 theme = responsiveFontSizes(theme);
@@ -25,9 +24,13 @@ function Registro(){
     const [Fcorreo, setFcorreo] = useState("");
     const [Ftelefono, setFtelefono] = useState("");
     const [Fcontrasenia, setFcontrasenia] = useState("");
+    
+    /*Para el formulario de inicio de sesión */
+    const [correol, setCorreol] = useState("");
+    const [contrasenial, setContrasenial] = useState("");
 
     const registro = () => {
-        axios.post("http://localhost:3001/registro",{
+        Axios.post("http://localhost:3001/registro",{
             usuario: Fusuario,
             nombre: Fnombre,
             papellido: Fpapellido,
@@ -35,6 +38,16 @@ function Registro(){
             correo: Fcorreo,
             telefono: Ftelefono,
             contrasenia: Fcontrasenia,
+        }).then((response) => {
+            console.log(response);
+            alert('Registro exitoso. Inicie sesión ahora');
+        });
+    };
+
+    const login = () => {
+        Axios.post("http://localhost:3001/login",{
+            correologin: correol,
+            contrasenialogin: contrasenial,
         }).then((response) => {
             console.log(response);
         });
@@ -85,7 +98,7 @@ function Registro(){
                                             <input type="text" class="form-control my-input" placeholder="Teléfono" onChange={(e) => {setFtelefono(e.target.value);}}/>
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" pattern=".{8,}" class="form-control my-input" placeholder="Contraseña" onChange={(e) => {setFcontrasenia(e.target.value);}}/>
+                                            <input type="password" class="form-control my-input" placeholder="Contraseña" onChange={(e) => {setFcontrasenia(e.target.value);}}/>
                                         </div>
                                     </div>
                                     <div class="text-center ">
@@ -100,14 +113,14 @@ function Registro(){
                                 <div class="myform form">
                                     <div align="center">
                                         <div class="form-group">
-                                            <input type="email" name="correoi" class="form-control my-input" placeholder="Correo electrónico"/>
+                                            <input type="email" class="form-control my-input" placeholder="Correo electrónico" onChange={(e) => {setCorreol(e.target.value);}} />
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" name="contraseniai" class="form-control my-input" placeholder="Contraseña"/>
+                                            <input type="password" class="form-control my-input" placeholder="Contraseña" onChange={(e) => {setContrasenial(e.target.value);}} />
                                         </div>
                                     </div>
                                     <div class="text-center ">
-                                        <button type="submit" class=" btn btn-block send-button tx-tfm">Iniciar sesión</button>
+                                        <button type="submit" class=" btn btn-block send-button tx-tfm" onClick={login}>Iniciar sesión</button>
                                     </div>
                                 </div>
                             </div>

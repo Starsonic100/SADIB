@@ -33,6 +33,26 @@ app.post("/registro", (req,res) =>{
   );
 });
 
+app.post("/login", (req,res) =>{
+  
+  const correo = req.body.correologin;
+  const contrasenia = md5(req.body.contrasenialogin);
+  
+  db.query(
+    "SELECT * FROM login WHERE correo = ? AND contrasenia = ?",[correo,contrasenia],(err,result) => {
+      if(err){
+        res.send({err: err})
+      }
+
+      if(result.length>0){
+        res.send(result)
+      }else{
+        res.send("Sesión no iniciada, vuelva a intentarlo")
+      }
+    }
+  );
+});
+
 app.listen(3001, () => {
   console.log("Servidor corriendo");
 });
