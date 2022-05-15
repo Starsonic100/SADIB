@@ -1,12 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import '../../css/sign-log.css';
 import lapiz from '../../img/lapiz.png';
 import { useState } from "react";
 import Axios from "axios";
-import{ createTheme, MuiThemeProvider, responsiveFontSizes, Typography} from "@material-ui/core";
-
-let theme = createTheme();
-theme = responsiveFontSizes(theme);
+import validacion from './validacion';
 
 function Registro(){ 
     /*Para el menú tabs*/
@@ -16,7 +13,6 @@ function Registro(){
       setToggleState(index);
     };
 
-    /*Para formulario de registro*/
     const [Fusuario, setFusuario] = useState("");
     const [Fnombre, setFnombre] = useState("");
     const [Fpapellido, setFpapellido] = useState("");
@@ -25,23 +21,25 @@ function Registro(){
     const [Ftelefono, setFtelefono] = useState("");
     const [Fcontrasenia, setFcontrasenia] = useState("");
     
-    /*Para el formulario de inicio de sesión */
     const [correol, setCorreol] = useState("");
     const [contrasenial, setContrasenial] = useState("");
+    
+    const [errors, setErrors] = useState({});
 
-    const registro = () => {
+    setErrors(validacion(Fusuario,Fnombre,Fpapellido,Fsapellido,Fcorreo,Ftelefono,Fcontrasenia));
+
+    const registro = () => { 
         Axios.post("http://localhost:3001/registro",{
-            usuario: Fusuario,
-            nombre: Fnombre,
-            papellido: Fpapellido,
-            sapellido: Fsapellido,
-            correo: Fcorreo,
-            telefono: Ftelefono,
-            contrasenia: Fcontrasenia,
+        usuario: Fusuario,
+        nombre: Fnombre,
+        papellido: Fpapellido,
+        sapellido: Fsapellido,
+        correo: Fcorreo,
+        telefono: Ftelefono,
+        contrasenia: Fcontrasenia,
         }).then((response) => {
             console.log(response);
-            alert('Registro exitoso. Inicie sesión ahora');
-        });
+        }); 
     };
 
     const login = () => {
@@ -81,24 +79,31 @@ function Registro(){
                                     <div align="center">
                                         <div class="form-group">
                                             <input type="text" class="form-control my-input" placeholder="Usuario" onChange={(e) => {setFusuario(e.target.value);}}/>
+                                            {errors.usuario && <h6 class="error">{errors.usuario}</h6>}
                                         </div>
                                         <div class="form-group">
                                             <input type="text" class="form-control my-input" placeholder="Nombre(s)" onChange={(e) => {setFnombre(e.target.value);}}/>
+                                            {errors.nombre && <h6 class="error">{errors.nombre}</h6>}
                                         </div>
                                         <div class="form-group">
                                             <input type="text" class="form-control my-input" placeholder="Primer apellido" onChange={(e) => {setFpapellido(e.target.value);}}/>
+                                            {errors.papellido && <h6 class="error">{errors.papellido}</h6>}
                                         </div>
                                         <div class="form-group">
                                             <input type="text" class="form-control my-input" placeholder="Segundo apellido" onChange={(e) => {setFsapellido(e.target.value);}}/>
+                                            {errors.sapellido && <h6 class="error">{errors.sapellido}</h6>}
                                         </div>
                                         <div class="form-group">
                                             <input type="email" class="form-control my-input" placeholder="Correo electrónico" onChange={(e) => {setFcorreo(e.target.value);}}/>
+                                            {errors.correo && <h6 class="error">{errors.correo}</h6>}
                                         </div>
                                         <div class="form-group">
-                                            <input type="text" class="form-control my-input" placeholder="Teléfono" onChange={(e) => {setFtelefono(e.target.value);}}/>
+                                            <input type="text" class="form-control my-input" placeholder="Teléfono" pattern="[0-9]" onChange={(e) => {setFtelefono(e.target.value);}}/>
+                                            {errors.telefono && <h6 class="error">{errors.telefono}</h6>}
                                         </div>
                                         <div class="form-group">
                                             <input type="password" class="form-control my-input" placeholder="Contraseña" onChange={(e) => {setFcontrasenia(e.target.value);}}/>
+                                            {errors.contrasenia && <h6 class="error">{errors.contrasenia}</h6>}
                                         </div>
                                     </div>
                                     <div class="text-center ">
@@ -113,10 +118,10 @@ function Registro(){
                                 <div class="myform form">
                                     <div align="center">
                                         <div class="form-group">
-                                            <input type="email" class="form-control my-input" placeholder="Correo electrónico" onChange={(e) => {setCorreol(e.target.value);}} />
+                                            <input type="email" class="form-control my-input" placeholder="Correo electrónico" onChange={(e) => {setCorreol(e.target.value);}}/>
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" class="form-control my-input" placeholder="Contraseña" onChange={(e) => {setContrasenial(e.target.value);}} />
+                                            <input type="password" class="form-control my-input" placeholder="Contraseña" onChange={(e) => {setContrasenial(e.target.value);}}/>
                                         </div>
                                     </div>
                                     <div class="text-center ">
