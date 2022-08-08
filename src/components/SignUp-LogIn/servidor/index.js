@@ -3,14 +3,39 @@ const app = express();
 const mysql = require("mysql");
 const cors = require("cors");
 const md5 =require("md5");
+const bodyParser = require("body-parser");
+const cookieParser = require("cookie-parser");
+const session = require("express-session");
 
-app.use(cors());
+
 app.use(express.json());
+app.use(
+  cors({
+    origin: ["http://localhost:3000"],
+    methods: ["GET", "POST"],
+    credentials: true,
+  })
+);
+app.use(cookieParser());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+app.use(
+  session({
+    key: "userId",
+    secret: "subscribe",
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+      expires: 60 * 60 * 24,
+    },
+  })
+);
 
 const db = mysql.createConnection({
   user: "root",
   host: "localhost",
-  password: "1234",
+  port: "1234",
+  password: "root",
   database: "sadib",
 });
 
@@ -33,25 +58,65 @@ app.post("/registro", (req,res) =>{
   );
 });
 
+app.get("/login", (req, res) => {
+  if (req.session.user) {
+    res.send({ loggedIn: true, user: req.session.user });
+  } else {
+    res.send({ loggedIn: false });
+  }
+});
+
 app.post("/login", (req,res) =>{
   
-  const correo = req.body.correologin;
-  const contrasenia = md5(req.body.contrasenialogin);
+  const correo = req.body.correo;
+  const contrasenia = md5(req.body.contrasenia);
   
   db.query(
-    "SELECT * FROM login WHERE correo = ? AND contrasenia = ?",[correo,contrasenia],(err,result) => {
-      if(err){
-        res.send({err: err})
+    "SELECT * FROM login WHERE correo = ? and contrasenia = ?;",
+    [correo,contrasenia],
+    (err, result) => {
+      if (err) {
+        res.send({ err: err });
       }
 
-      if(result.length>0){
-        res.send(result)
-      }else{
-        res.send("Sesión no iniciada, vuelva a intentarlo")
+      if (result.length > 0) {
+            req.session.user = result;
+            console.log(req.session.user);
+            res.send(result);
+      } else {
+        res.send({ message: "No se encuentra este usuario" });
       }
     }
   );
 });
+
+
+app.post("/access", (req,res) =>{
+  
+  const correo = req.body.correo;
+  const contrasenia = md5(req.body.contrasenia);
+  
+  db.query(
+    "SELECT * FROM token WHERE token = ?;",
+    correo,
+    (err, result) => {
+      if (err) {
+        res.send({ err: err });
+      }
+
+      if (result.length > 0) {
+        req.session.user = result;
+        console.log(req.session.user);
+        res.send(result);
+        res.send({message: "Accederá a la prueba"});
+          
+      } else {
+        res.send({ message: "No se encuentra este paciente" });
+      }
+    }
+  );
+});
+
 
 app.listen(3001, () => {
   console.log("Servidor corriendo");

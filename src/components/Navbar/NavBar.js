@@ -69,11 +69,11 @@ function Navbar() {
                 <span>Como Funciona</span></Linker>
             </li>
             <li className='nav-text'>
-              <Link to="/login"onClick={showSidebar}>
+              <Link to="/Login"onClick={showSidebar}>
                 <span>Iniciar Sesión</span></Link>
             </li>
             <li className='nav-text'>
-              <Link to="/registro" onClick={showSidebar}>
+              <Link to="/SignUp" onClick={showSidebar}>
                 <span>Registrarse</span></Link>
             </li>
           </ul>
