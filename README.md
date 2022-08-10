@@ -14,3 +14,9 @@ npm install axios
 npm install cors
 
 npm install md5
+
+npm install reactstrap
+
+npm install bootstrap
+
+npm install @material-ui/core-force
