@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { useSvgDrawing } from 'react-hooks-svgdrawing';
 import '../css/style.css';
 import siguiente from '../img/siguiente.png';
 import{ createTheme, MuiThemeProvider, responsiveFontSizes, Typography} from "@material-ui/core";
@@ -13,9 +14,19 @@ export class Dibujo extends Component {
         this.props.siguiente();
     };
 
+
     render(){
 
         const { values, handleInputChange } = this.props;
+
+        const Drawing = () => {
+            const [renderRef, draw] = useSvgDrawing({
+                penWidth: 1, // pen width
+                penColor: '#000000', // pen color
+              })
+            // Drawing area will be resized to fit the rendering area
+            return <div style={{ /*width: 500, */height: 500, border: 'solid', borderColor: '#8F8F8F' }} ref={renderRef} />
+          }
 
         return(
             <div className="container">
@@ -38,7 +49,9 @@ export class Dibujo extends Component {
                                 {/* Comienza div de preguntas*/}  
                                 <div className="preguntas">
                                     
-                                    <div>Aquí va la pantalla de dibujo</div>
+                                    <div className="dibujo">
+                                        <Drawing/>
+                                    </div>
 
                                     <div className="main row">
                                         <div className="col-lg-11">

@@ -71,6 +71,13 @@ html, body{
     padding-bottom: 4%;
 }
 
+.dibujo{
+    position:relative;
+    width: 85%;
+    height: auto;
+    padding-top: 1%;
+}
+
 .seccion{
     position: relative;
     width: 95%;
