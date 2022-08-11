@@ -24,6 +24,7 @@ const useLogin = (callback, validar) => {
             setErrores(validar(valores));
             setIsSubmitting(true);
             login();
+            
     } 
 
     const login = () => {
@@ -34,15 +35,18 @@ const useLogin = (callback, validar) => {
           if (response.data.message) {
             setLoginStatus(response.data.message);
           } else {
-            setLoginStatus(response.data[0].correo);
+            setLoginStatus(response.data[0].id_usuario);
+            navigate("/");
+            navigate(0); 
           }
         });
+        
       };
     
     useEffect(() => {
         Axios.get("http://localhost:3001/login").then((response) => {
           if (response.data.loggedIn == true) {
-            setLoginStatus(response.data.user[0].correo);
+            setLoginStatus(response.data.user[0].id_usuario);
           }
         });
       }, []);

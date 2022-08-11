@@ -26,7 +26,7 @@ app.use(
     resave: false,
     saveUninitialized: false,
     cookie: {
-      expires: 60 * 60 * 24,
+      maxAge: 60 * 60 * 24 * 1000,
     },
   })
 );
@@ -50,7 +50,7 @@ app.post("/registro", (req,res) =>{
   const contrasenia = md5(req.body.contrasenia);
 
   db.query(
-    "INSERT INTO psicologo (id_psic,nombre,apellidop,apellidom,correo,telefono) VALUES(?,?,?,?,?,?)",[usuario,nombre,papellido,sapellido,correo,telefono],(err,result) => { console.log(err); }
+    "INSERT INTO psicologo (id_psic,nombre,apellidop,apellidom,correo,telefono,rol) VALUES(?,?,?,?,?,?,2)",[usuario,nombre,papellido,sapellido,correo,telefono],(err,result) => { console.log(err); }
   );
 
   db.query(
@@ -59,6 +59,8 @@ app.post("/registro", (req,res) =>{
 });
 
 app.get("/login", (req, res) => {
+  console.log(req.session.user);
+
   if (req.session.user) {
     res.send({ loggedIn: true, user: req.session.user });
   } else {
@@ -72,7 +74,7 @@ app.post("/login", (req,res) =>{
   const contrasenia = md5(req.body.contrasenia);
   
   db.query(
-    "SELECT * FROM login WHERE correo = ? and contrasenia = ?;",
+    "SELECT nombre, rol, id_usuario, login.correo, login.contrasenia FROM login, psicologo WHERE login.correo = ? and login.contrasenia = ?;",
     [correo,contrasenia],
     (err, result) => {
       if (err) {
@@ -97,7 +99,7 @@ app.post("/access", (req,res) =>{
   const contrasenia = md5(req.body.contrasenia);
   
   db.query(
-    "SELECT * FROM token WHERE token = ?;",
+    "SELECT token, nombre, rol FROM token, paciente WHERE token = ? and  token.id_paci = paciente.id_paci;",
     correo,
     (err, result) => {
       if (err) {

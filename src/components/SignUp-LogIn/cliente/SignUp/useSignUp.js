@@ -40,7 +40,6 @@ const useSignUp = (callback, validar) => {
       useEffect(
         () => {
           if (Object.keys(errores).length === 0 && isSubmitting) {
-            callback();
             Axios.post("http://localhost:3001/registro",{
             usuario: valores.Fusuario,
             nombre: valores.Fnombre,
@@ -53,6 +52,7 @@ const useSignUp = (callback, validar) => {
         }).then((response) => {
           console.log(response);
       }); 
+            callback();
         navigate("/");
           }
         },
