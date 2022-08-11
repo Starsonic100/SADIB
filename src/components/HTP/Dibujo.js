@@ -39,10 +39,10 @@ export class Dibujo extends Component {
                 <Fragment>
                     <div className="barra-herramientas">
                         <label>
-                            <button class="button-herramientas" onClick={() => changePenWidth(2.25)}><img src={lapiz}/></button>
-                            <button class="button-herramientas" onClick={undo}><img src={deshacer}/></button>
-                            <button class="button-herramientas" onClick={clear}><img src={borrar}/></button>
-                            <button class="button-herramientas" onClick={() => download("svg")}><img src={descargar}/></button>
+                            <button class="button-herramientas" onClick={() => changePenWidth(2.25)}><img src={lapiz} alt="Lápiz" title="Lápiz"/></button>
+                            <button class="button-herramientas" onClick={undo}><img src={deshacer} alt="Borrar" title="Borrar"/></button>
+                            <button class="button-herramientas" onClick={clear}><img src={borrar} alt="Borrar pantalla" title="Borrar pantalla"/></button>
+                            <button class="button-herramientas" onClick={() => download("svg")}><img src={descargar} alt="Descargar dibujo" title="Descargar dibujo"/></button>
                         </label>
                     </div>
 

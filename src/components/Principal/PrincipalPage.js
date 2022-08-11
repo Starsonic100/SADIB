@@ -11,8 +11,6 @@ class PrincipalPage extends Component {
     render(){
         return(
             <div className="container">
-                
-				
 				<div className="main row">
 					<div className="col-12">
 						<div className="container">
