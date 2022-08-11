@@ -1,7 +1,11 @@
-import React, { Component } from 'react';
+import React, { Component, useEffect, useRef, Fragment, useCallback, useState } from 'react';
 import { useSvgDrawing } from 'react-hooks-svgdrawing';
 import '../css/style.css';
 import siguiente from '../img/siguiente.png';
+import lapiz from '../img/lapiz2.png';
+import deshacer from '../img/deshacer.png';
+import borrar from '../img/borrar.png';
+import descargar from '../img/descargar.png';
 import{ createTheme, MuiThemeProvider, responsiveFontSizes, Typography} from "@material-ui/core";
 
 let theme = createTheme();
@@ -20,12 +24,31 @@ export class Dibujo extends Component {
         const { values, handleInputChange } = this.props;
 
         const Drawing = () => {
-            const [renderRef, draw] = useSvgDrawing({
-                penWidth: 1, // pen width
-                penColor: '#000000', // pen color
-              })
-            // Drawing area will be resized to fit the rendering area
-            return <div style={{ /*width: 500, */height: 500, border: 'solid', borderColor: '#8F8F8F' }} ref={renderRef} />
+            const [renderRef, {
+                instance,
+                changePenWidth,
+                download,
+                undo,
+                clear
+              }] = useSvgDrawing({
+                penWidth: 2.25, // Ancho del lápiz
+                penColor: '#000000', // Color del lápiz
+            })
+            
+            return(
+                <Fragment>
+                    <div className="barra-herramientas">
+                        <label>
+                            <button class="button-herramientas" onClick={() => changePenWidth(2.25)}><img src={lapiz}/></button>
+                            <button class="button-herramientas" onClick={undo}><img src={deshacer}/></button>
+                            <button class="button-herramientas" onClick={clear}><img src={borrar}/></button>
+                            <button class="button-herramientas" onClick={() => download("svg")}><img src={descargar}/></button>
+                        </label>
+                    </div>
+
+                    <div style={{ /*width: 500, */height: 500, border: 'solid', borderColor: '#8F8F8F' }} ref={renderRef}/>
+                </Fragment>
+            )
           }
 
         return(
