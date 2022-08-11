@@ -7,6 +7,7 @@ import deshacer from '../img/deshacer.png';
 import borrar from '../img/borrar.png';
 import descargar from '../img/descargar.png';
 import{ createTheme, MuiThemeProvider, responsiveFontSizes, Typography} from "@material-ui/core";
+import { Canvg } from 'https://cdn.skypack.dev/canvg';
 
 let theme = createTheme();
 theme = responsiveFontSizes(theme);
@@ -59,7 +60,7 @@ export class Dibujo extends Component {
                     <div style={{ /*width: 500, */height: 500, border: 'solid', borderColor: '#8F8F8F' }} ref={renderRef} onTouchEnd={handleChangeXML} onMouseLeave={handleChangeXML}/>
 
                     <div>
-                        <div dangerouslySetInnerHTML={{ __html: xml}} />
+                        {xml}
                     </div>
                 </Fragment>
             )
