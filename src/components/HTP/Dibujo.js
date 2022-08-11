@@ -21,12 +21,11 @@ export class Dibujo extends Component {
 
     render(){
 
-        const { values, handleInputChange } = this.props;
-
         const Drawing = () => {
             const [renderRef, {
                 instance,
                 changePenWidth,
+                getSvgXML,
                 download,
                 undo,
                 clear
@@ -34,19 +33,34 @@ export class Dibujo extends Component {
                 penWidth: 2.25, // Ancho del lápiz
                 penColor: '#000000', // Color del lápiz
             })
+
+        const [xml, setXml] = useState('')
+
+        const handleChangeXML = useCallback(() => {
+            setXml(getSvgXML())
+        }, [getSvgXML])
             
             return(
                 <Fragment>
-                    <div className="barra-herramientas">
-                        <label>
-                            <button class="button-herramientas" onClick={() => changePenWidth(2.25)}><img src={lapiz} alt="Lápiz" title="Lápiz"/></button>
-                            <button class="button-herramientas" onClick={undo}><img src={deshacer} alt="Borrar" title="Borrar"/></button>
-                            <button class="button-herramientas" onClick={clear}><img src={borrar} alt="Borrar pantalla" title="Borrar pantalla"/></button>
-                            <button class="button-herramientas" onClick={() => download("svg")}><img src={descargar} alt="Descargar dibujo" title="Descargar dibujo"/></button>
-                        </label>
+                    <div className="container">
+                        <div className="barra-herramientas">
+                            <label>
+                                <button class="button-herramientas" onClick={() => changePenWidth(2.25)}><img src={lapiz} alt="Lápiz" title="Lápiz"/></button>
+
+                                <button class="button-herramientas" onClick={undo}><img src={deshacer} alt="Borrar" title="Borrar"/></button>
+
+                                <button class="button-herramientas" onClick={clear}><img src={borrar}  alt="Borrar pantalla" title="Borrar pantalla"/></button>
+
+                                <button class="button-herramientas" onClick={() => download("svg")}><img src={descargar} alt="Descargar dibujo" title="Descargar dibujo"/></button>
+                            </label>
+                        </div>
                     </div>
 
-                    <div style={{ /*width: 500, */height: 500, border: 'solid', borderColor: '#8F8F8F' }} ref={renderRef}/>
+                    <div style={{ /*width: 500, */height: 500, border: 'solid', borderColor: '#8F8F8F' }} ref={renderRef} onTouchEnd={handleChangeXML} onMouseLeave={handleChangeXML}/>
+
+                    <div>
+                        <div dangerouslySetInnerHTML={{ __html: xml}} />
+                    </div>
                 </Fragment>
             )
           }

@@ -18,6 +18,7 @@
     "react-dom": "^18.1.0",
     "react-hooks-svgdrawing": "^2.1.2",
     "react-icons": "^4.4.0",
+    "react-image-responsive": "^2.0.2",
     "react-pro-sidebar": "^0.7.1",
     "react-responsive-image": "^5.0.0",
     "react-router-dom": "^6.3.0",
