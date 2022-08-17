@@ -25,12 +25,9 @@ app.post("/registro", (req,res) =>{
   const contrasenia = md5(req.body.contrasenia);
 
   db.query(
-    "INSERT INTO psicologo (id_psic,nombre,apellidop,apellidom,correo,telefono) VALUES(?,?,?,?,?,?)",[usuario,nombre,papellido,sapellido,correo,telefono],(err,result) => { console.log(err); }
+    "INSERT INTO psicologo (id_psic,nombre,apellidop,apellidom,correo,telefono,contrasenia) VALUES(?,?,?,?,?,?,?)",[usuario,nombre,papellido,sapellido,correo,telefono,contrasenia],(err,result) => { console.log(err); }
   );
 
-  db.query(
-    "INSERT INTO login (id_usuario,correo,contrasenia) VALUES(?,?,?)",[usuario,correo,contrasenia],(err,result) => { console.log(err); }
-  );
 });
 
 app.post("/login", (req,res) =>{

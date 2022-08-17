@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import '../../css/sign-log.css';
 import lapiz from '../../img/lapiz.png';
+import { useState } from "react";
 import Axios from "axios";
 import validacion from './validacion';
 
-function SignUpLogIn(){ 
+function Registro(){ 
     /*Para el menú tabs*/
     const [toggleState, setToggleState] = useState(1);
 
@@ -25,9 +26,10 @@ function SignUpLogIn(){
     
     const [errors, setErrors] = useState({});
 
-    setErrors(validacion(Fusuario,Fnombre,Fpapellido,Fsapellido,Fcorreo,Ftelefono,Fcontrasenia));
+    
 
     const registro = () => { 
+        setErrors(validacion(Fusuario,Fnombre,Fpapellido,Fsapellido,Fcorreo,Ftelefono,Fcontrasenia));
         Axios.post("http://localhost:3001/registro",{
         usuario: Fusuario,
         nombre: Fnombre,
@@ -97,7 +99,7 @@ function SignUpLogIn(){
                                             {errors.correo && <h6 class="error">{errors.correo}</h6>}
                                         </div>
                                         <div class="form-group">
-                                            <input type="text" class="form-control my-input" placeholder="Teléfono" pattern="[0-9]" onChange={(e) => {setFtelefono(e.target.value);}}/>
+                                            <input type="text" class="form-control my-input" placeholder="Teléfono" onChange={(e) => {setFtelefono(e.target.value);}}/>
                                             {errors.telefono && <h6 class="error">{errors.telefono}</h6>}
                                         </div>
                                         <div class="form-group">
@@ -143,4 +145,4 @@ function SignUpLogIn(){
     );
 }
 
-export default SignUpLogIn;
+export default Registro;
