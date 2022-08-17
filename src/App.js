@@ -5,6 +5,7 @@ import TAMAI from './components/TAMAI/TAMAIPage';
 import HTP from './components/HTP/HTPPage';
 import SignLog from './components/SignUp-LogIn/cliente/SignUp-LogIn';
 import VerPaciente from './components/Pacientes/VerPaciente';
+import AgregarPaciente from './components/Pacientes/AgregarPaciente';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path='/TAMAI' element={<TAMAI/>}/>
           <Route path='/HTP' element={<HTP/>}/>
           <Route path='/VerPaciente' element={<VerPaciente/>}/>
+          <Route path='/AgregarPaciente' element={<AgregarPaciente/>}/>
         </Routes>
       </BrowserRouter>
     </div>
