@@ -241,12 +241,17 @@ export class EditarPaciente extends Component {
                                     </div>
                                 </div>
                                 {/*Termina div de preguntas*/}
+
+                                
                             </div>
                         </div>
                     </div>
                 </div>
                 {/*Termina sección de preguntas*/}
+                
+                
             </div>
+            
         );
     }
 }

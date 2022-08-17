@@ -1,11 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../../css/sign-log.css';
 import lapiz from '../../img/lapiz.png';
-import { useState } from "react";
 import Axios from "axios";
 import validacion from './validacion';
 
-function Registro(){ 
+function SignUpLogIn(){ 
     /*Para el menú tabs*/
     const [toggleState, setToggleState] = useState(1);
 
@@ -144,4 +143,4 @@ function Registro(){
     );
 }
 
-export default Registro;
+export default SignUpLogIn;

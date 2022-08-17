@@ -1,5 +1,6 @@
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
+import Footer from './components/footer/footer';
 import Principal from './components/Principal/PrincipalPage';
 import TAMAI from './components/TAMAI/TAMAIPage';
 import HTP from './components/HTP/HTPPage';
@@ -22,6 +23,7 @@ function App() {
           <Route path='/AgregarPaciente' element={<AgregarPaciente/>}/>
           <Route path='/EditarPaciente' element={<EditarPaciente/>}/>
         </Routes>
+        <Footer/>
       </BrowserRouter>
     </div>
   );
