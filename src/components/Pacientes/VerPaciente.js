@@ -42,34 +42,38 @@ export class VerPaciente extends Component {
                                                 <hr></hr>
                                                 <div class="form-group">
                                                     <div className="main row">
-                                                        <div className="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-                                                            <MuiThemeProvider theme={theme}>
-                                                                <Typography variant="h6" class="contenido">{"Seleccionar paciente"}</Typography>
-                                                            </MuiThemeProvider>
-                                                        </div>
                                                         <div className="col-xs-6 col-sm-6 col-md-7 col-lg-7">
-                                                            <select class="form-select" aria-label="Default select example">
-                                                                <option selected>Buscar paciente</option>
-                                                                <option value="1">One</option>
-                                                                <option value="2">Two</option>
-                                                                <option value="3">Three</option>
-                                                            </select>
+                                                            <div class="input-group input-group-sm mb-3">
+                                                                <span class="input-group-text" id="inputGroup-sizing-sm">
+                                                                    <MuiThemeProvider theme={theme}>
+                                                                        <Typography variant="h6" class="contenido">{"Paciente"}</Typography>
+                                                                    </MuiThemeProvider>
+                                                                </span>
+                                                                <select class="form-select" aria-label="Default select example">
+                                                                    <option selected>Buscar paciente</option>
+                                                                    <option value="1">One</option>
+                                                                    <option value="2">Two</option>
+                                                                    <option value="3">Three</option>
+                                                                </select>
+                                                            </div>
                                                         </div>
                                                     </div>
 
                                                     <div className="main row">
-                                                        <div className="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-                                                            <MuiThemeProvider theme={theme}>
-                                                                <Typography variant="h6" class="contenido">{"Seleccionar expediente"}</Typography>
-                                                            </MuiThemeProvider>
-                                                        </div>
-                                                        <div className="col-xs-6 col-sm-6 col-md-5 col-lg-5">
-                                                            <select class="form-select" aria-label="Default select example">
-                                                                <option selected>Buscar expediente</option>
-                                                                <option value="1">One</option>
-                                                                <option value="2">Two</option>
-                                                                <option value="3">Three</option>
-                                                            </select>
+                                                        <div className="col-xs-6 col-sm-6 col-md-7 col-lg-7">
+                                                            <div class="input-group input-group-sm mb-3">
+                                                                <span class="input-group-text" id="inputGroup-sizing-sm">
+                                                                    <MuiThemeProvider theme={theme}>
+                                                                        <Typography variant="h6" class="contenido">{"Expediente"}</Typography>
+                                                                    </MuiThemeProvider>
+                                                                </span>
+                                                                <select class="form-select" aria-label="Default select example">
+                                                                    <option selected>Buscar paciente</option>
+                                                                    <option value="1">One</option>
+                                                                    <option value="2">Two</option>
+                                                                    <option value="3">Three</option>
+                                                                </select>
+                                                            </div>
                                                         </div>
                                                     </div>
 
@@ -116,45 +120,34 @@ export class VerPaciente extends Component {
                                                     <div className="main row">
                                                         <div className="col-xs-12 col-sm-12 col-md-4 col-lg-4">
                                                             <div class="input-group input-group-sm mb-3">
-                                                                <span class="input-group-text" id="inputGroup-sizing-sm">Nombre(s)</span>
-                                                                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm"></input>
+                                                                <span class="input-group-text" id="inputGroup-sizing-sm">
+                                                                    <MuiThemeProvider theme={theme}>
+                                                                        <Typography variant="h6" class="contenido">{"Nombre(s)"}</Typography>
+                                                                    </MuiThemeProvider>
+                                                                </span>
+                                                                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" readonly="readonly"></input>
                                                             </div>
                                                         </div>
 
                                                         <div className="col-xs-12 col-sm-12 col-md-4 col-lg-4">
                                                             <div class="input-group input-group-sm mb-3">
-                                                                <span class="input-group-text" id="inputGroup-sizing-sm">Primer apellido</span>
-                                                                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm"></input>
+                                                                <span class="input-group-text" id="inputGroup-sizing-sm">
+                                                                    <MuiThemeProvider theme={theme}>
+                                                                        <Typography variant="h6" class="contenido">{"Primer apellido"}</Typography>
+                                                                    </MuiThemeProvider>
+                                                                </span>
+                                                                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" readonly="readonly"></input>
                                                             </div>
                                                         </div>
 
                                                         <div className="col-xs-12 col-sm-12 col-md-4 col-lg-4">
                                                             <div class="input-group input-group-sm mb-3">
-                                                                <span class="input-group-text" id="inputGroup-sizing-sm">Segundo apellido</span>
-                                                                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm"></input>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div className="main row">
-                                                        <div className="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-                                                            <div class="input-group input-group-sm mb-3">
-                                                                <span class="input-group-text" id="inputGroup-sizing-sm">Fecha de nacimiento</span>
-                                                                <input type="date" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm"></input>
-                                                            </div>
-                                                        </div>
-
-                                                        <div className="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-                                                            <div class="input-group input-group-sm mb-3">
-                                                                <span class="input-group-text" id="inputGroup-sizing-sm">Género</span>
-                                                                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm"></input>
-                                                            </div>
-                                                        </div>
-
-                                                        <div className="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-                                                            <div class="input-group input-group-sm mb-3">
-                                                                <span class="input-group-text" id="inputGroup-sizing-sm">Edad</span>
-                                                                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm"></input>
+                                                                <span class="input-group-text" id="inputGroup-sizing-sm">
+                                                                    <MuiThemeProvider theme={theme}>
+                                                                        <Typography variant="h6" class="contenido">{"Segundo apellido"}</Typography>
+                                                                    </MuiThemeProvider>
+                                                                </span>
+                                                                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" readonly="readonly"></input>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -162,15 +155,58 @@ export class VerPaciente extends Component {
                                                     <div className="main row">
                                                         <div className="col-xs-12 col-sm-12 col-md-4 col-lg-4">
                                                             <div class="input-group input-group-sm mb-3">
-                                                                <span class="input-group-text" id="inputGroup-sizing-sm">Correo electrónico</span>
-                                                                <input type="email" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm"></input>
+                                                                <span class="input-group-text" id="inputGroup-sizing-sm">
+                                                                    <MuiThemeProvider theme={theme}>
+                                                                        <Typography variant="h6" class="contenido">{"Fecha de nacimiento"}</Typography>
+                                                                    </MuiThemeProvider>
+                                                                </span>
+                                                                <input type="date" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" readonly="readonly"></input>
                                                             </div>
                                                         </div>
 
                                                         <div className="col-xs-12 col-sm-12 col-md-4 col-lg-4">
                                                             <div class="input-group input-group-sm mb-3">
-                                                                <span class="input-group-text" id="inputGroup-sizing-sm">Teléfono</span>
-                                                                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm"></input>
+                                                                <span class="input-group-text" id="inputGroup-sizing-sm">
+                                                                    <MuiThemeProvider theme={theme}>
+                                                                        <Typography variant="h6" class="contenido">{"Género"}</Typography>
+                                                                    </MuiThemeProvider>
+                                                                </span>
+                                                                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" readonly="readonly"></input>
+                                                            </div>
+                                                        </div>
+
+                                                        <div className="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                                                            <div class="input-group input-group-sm mb-3">
+                                                                <span class="input-group-text" id="inputGroup-sizing-sm">
+                                                                    <MuiThemeProvider theme={theme}>
+                                                                        <Typography variant="h6" class="contenido">{"Edad"}</Typography>
+                                                                    </MuiThemeProvider>
+                                                                </span>
+                                                                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" readonly="readonly"></input>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div className="main row">
+                                                        <div className="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                                                            <div class="input-group input-group-sm mb-3">
+                                                                <span class="input-group-text" id="inputGroup-sizing-sm">
+                                                                    <MuiThemeProvider theme={theme}>
+                                                                        <Typography variant="h6" class="contenido">{"Correo electrónico"}</Typography>
+                                                                    </MuiThemeProvider>
+                                                                </span>
+                                                                <input type="email" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" readonly="readonly"></input>
+                                                            </div>
+                                                        </div>
+
+                                                        <div className="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                                                            <div class="input-group input-group-sm mb-3">
+                                                                <span class="input-group-text" id="inputGroup-sizing-sm">
+                                                                    <MuiThemeProvider theme={theme}>
+                                                                        <Typography variant="h6" class="contenido">{"Teléfono"}</Typography>
+                                                                    </MuiThemeProvider>
+                                                                </span>
+                                                                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" readonly="readonly"></input>
                                                             </div>
                                                         </div>
                                                     </div>

@@ -5,7 +5,7 @@ import{ createTheme, MuiThemeProvider, responsiveFontSizes, Typography} from "@m
 let theme = createTheme();
 theme = responsiveFontSizes(theme);
 
-export class AgregarPaciente extends Component {
+export class EditarPaciente extends Component {
 
     render(){
 
@@ -21,12 +21,12 @@ export class AgregarPaciente extends Component {
                                 <div className="encabezado">
                                     <div align="center">
                                         <MuiThemeProvider theme={theme}>
-                                            <Typography variant="h5" class="encabezado">{"NUEVO PACIENTE"}</Typography>
+                                            <Typography variant="h5" class="encabezado">{"EDITAR PACIENTE"}</Typography>
                                         </MuiThemeProvider>
                                     </div>
                                 </div>
                                 {/*Termina div de instrucciones*/}
-    
+                                
                                 {/* Comienza div de preguntas*/}  
                                 <div className="contenido">
                                     <div class="myform form">
@@ -42,6 +42,20 @@ export class AgregarPaciente extends Component {
                                                 <hr></hr>
                                                 
                                                 <div class="form-group">
+                                                    <div className="main row">
+                                                        <div className="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+                                                            <div class="input-group input-group-sm mb-3">
+                                                                
+                                                                <span class="input-group-text" id="inputGroup-sizing-sm">
+                                                                    <MuiThemeProvider theme={theme}>
+                                                                        <Typography variant="h6" class="contenido">{"ID paciente"}</Typography>
+                                                                    </MuiThemeProvider>
+                                                                </span>
+                                                                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" readonly="readonly"></input>
+                                                            </div>
+                                                        </div> 
+                                                    </div>
+
                                                     <div className="main row">
                                                         <div className="col-xs-12 col-sm-12 col-md-4 col-lg-4">
                                                             <div class="input-group input-group-sm mb-3">
@@ -139,7 +153,9 @@ export class AgregarPaciente extends Component {
                                             </div>
                                         </div>
                                     </div>
+                                    
                                     <br></br>
+
                                     <div class="myform form">
                                         <div align="center">
                                             <div className="container">
@@ -216,7 +232,7 @@ export class AgregarPaciente extends Component {
                                                 <div className="main row">
                                                     <div className="col-7">
                                                         <div class="text-center">
-                                                            <button type="submit" class="btn">Agregar</button>
+                                                            <button type="submit" class="btn">Guardar</button>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -235,4 +251,4 @@ export class AgregarPaciente extends Component {
     }
 }
 	
-export default AgregarPaciente;
+export default EditarPaciente;

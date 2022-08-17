@@ -6,6 +6,7 @@ import HTP from './components/HTP/HTPPage';
 import SignLog from './components/SignUp-LogIn/cliente/SignUp-LogIn';
 import VerPaciente from './components/Pacientes/VerPaciente';
 import AgregarPaciente from './components/Pacientes/AgregarPaciente';
+import EditarPaciente from './components/Pacientes/EditarPaciente';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path='/HTP' element={<HTP/>}/>
           <Route path='/VerPaciente' element={<VerPaciente/>}/>
           <Route path='/AgregarPaciente' element={<AgregarPaciente/>}/>
+          <Route path='/EditarPaciente' element={<EditarPaciente/>}/>
         </Routes>
       </BrowserRouter>
     </div>
