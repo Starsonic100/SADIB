@@ -1,0 +1,88 @@
+html, body{
+    overflow-x: hidden;
+}
+
+.container{
+    width: 100%;
+    height: auto;
+}
+
+.formulario-pacientes{
+    position: relative;
+    width: 100%;
+    margin-top:6%;
+    background: rgba(26, 131, 255, 0.15);
+    border-radius: 10px 10px 10px 10px;
+}
+
+.titulo{
+    position:relative;
+    width: 100%;
+    height: auto;
+    background: #1a83ff;
+    border-radius: 10px 10px 0px 0px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.contenido{
+    position:relative;
+    width: 100%;
+    padding-left: 5%;
+    padding-top: 5%;
+    padding-bottom: 4%;
+}
+
+h5.titulo{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 200%;
+    text-align: center;
+    color: #FFFFFF;
+    letter-spacing: 4pt;
+    background:none;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+h3.seccion{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 150%;
+    text-align: center;
+    color: #393D42;
+    background:none;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding-top: 2%;
+}
+
+h6.contenido{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 100%;
+    text-align: center;
+    color: #2469A0;
+    background:none;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding-top: 2%;
+}
+
+.my-input{
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+    cursor: text;
+    padding: 8px 10px;
+    margin-bottom: 0%;
+    margin-top: 0%;
+    transition: border .1s linear;
+}
+
+fieldset{
+	border-style: solid;
+	border-width: 2px;
+	border-color: #0047AB;
+}

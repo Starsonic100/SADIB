@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
 import Principal from './components/Principal/PrincipalPage';
 import TAMAI from './components/TAMAI/TAMAIPage';
 import HTP from './components/HTP/HTPPage';
-import SignLog from './components/SignUp-LogIn/cliente/SignUp-LogIn'
+import SignLog from './components/SignUp-LogIn/cliente/SignUp-LogIn';
+import VerPaciente from './components/Pacientes/VerPaciente';
 
 function App() {
   return (
@@ -16,6 +16,7 @@ function App() {
           <Route path='/SignUp-LogIn' element={<SignLog/>}/>
           <Route path='/TAMAI' element={<TAMAI/>}/>
           <Route path='/HTP' element={<HTP/>}/>
+          <Route path='/VerPaciente' element={<VerPaciente/>}/>
         </Routes>
       </BrowserRouter>
     </div>
