@@ -93,6 +93,16 @@ html, body{
     float:right;
 }
 
+.button:hover {
+    transform: translateX(3px);
+}
+
+.button:active {
+    border-radius: 100%;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
 .button-herramientas{
     background-color: transparent;
     padding-bottom: 20%;
