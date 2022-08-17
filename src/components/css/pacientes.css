@@ -11,7 +11,7 @@ html, body{
     position: relative;
     width: 100%;
     margin-top:6%;
-    background: rgba(26, 131, 255, 0.15);
+    background: rgba(26, 131, 255, 0.14);
     border-radius: 10px 10px 10px 10px;
 }
 
@@ -19,7 +19,7 @@ html, body{
     position:relative;
     width: 100%;
     height: auto;
-    background: #1a83ff;
+    background: rgba(26, 131, 255, 0.75);
     border-radius: 10px 10px 0px 0px;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -72,17 +72,47 @@ h6.contenido{
     padding-top: 2%;
 }
 
-.my-input{
-    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
-    cursor: text;
-    padding: 8px 10px;
-    margin-bottom: 0%;
-    margin-top: 0%;
-    transition: border .1s linear;
+.form-select{
+    margin-bottom: 4%;
 }
 
-fieldset{
-	border-style: solid;
-	border-width: 2px;
-	border-color: #0047AB;
+.input-group-text, .form-control{
+    margin-bottom: 4%;
+}
+
+hr{
+    margin-bottom: 3%;
+}
+
+.btn{
+    float:right;
+    background-color: rgba(26, 131, 255, 0.75);
+    border-color: #2469A0;
+    border-width: 2px;
+    border-radius: 10px;
+}
+
+.btn:hover {
+    background-color:  rgba(62, 214, 175, 0.9);
+    border-radius: 10px;
+}
+
+.btn:active {
+    background-color: rgba(62, 214, 175, 0.5);
+    border-radius: 10px;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+.table{
+    margin-top: 3%;
+    margin-bottom: 5%;
+    background-color: #FFFFFF;
+    width: auto;
+}
+
+.my-input{
+    margin-top: 0%;
+    margin-bottom: 0%;
+    padding: 1%;
 }
