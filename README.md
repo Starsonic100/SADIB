@@ -19,6 +19,8 @@ npm install reactstrap
 
 npm install bootstrap
 
+npm install react-hook-form
+
 npm install @material-ui/core -force
 
 npm install react-hooks-svgdrawing --save
