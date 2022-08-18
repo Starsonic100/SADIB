@@ -35,7 +35,7 @@ export class VerPaciente extends Component {
                                                 <div className="main row">
                                                     <div className="col-xs-6 col-sm-6 col-md-3 col-lg-3">
                                                         <MuiThemeProvider theme={theme}>
-                                                            <Typography variant="h3" class="seccion">{"Consultar paciente"}</Typography>
+                                                            <Typography variant="h3" class="apartado">{"Consultar paciente"}</Typography>
                                                         </MuiThemeProvider>
                                                     </div>
                                                 </div>
@@ -110,7 +110,7 @@ export class VerPaciente extends Component {
                                                 <div className="main row">
                                                     <div className="col-xs-6 col-sm-6 col-md-3 col-lg-3">
                                                         <MuiThemeProvider theme={theme}>
-                                                            <Typography variant="h3" class="seccion">{"Datos del paciente"}</Typography>
+                                                            <Typography variant="h3" class="apartado">{"Datos del paciente"}</Typography>
                                                         </MuiThemeProvider>
                                                     </div>
                                                 </div>
@@ -215,7 +215,7 @@ export class VerPaciente extends Component {
                                                 <div className="main row">
                                                     <div className="col-7">
                                                         <div class="text-center">
-                                                            <button type="submit" class="btn">Editar</button>
+                                                            <button type="submit" class="boton">Editar</button>
                                                         </div>
                                                     </div>
                                                 </div>

@@ -61,15 +61,11 @@ function Registro(){
                             <button
                             className={toggleState === 1 ? "tabs active-tabs" : "tabs"}
                             onClick={() => toggleTab(1)}
-                            >
-                            Registrarse
-                            </button>
+                            >Registrarse</button>
                             <button
                             className={toggleState === 2 ? "tabs active-tabs" : "tabs"}
                             onClick={() => toggleTab(2)}
-                            >
-                            Iniciar sesión
-                            </button>
+                            >Iniciar sesión</button>
                         </div>
 
                         <div className="content-tabs">
@@ -126,7 +122,7 @@ function Registro(){
                                         </div>
                                     </div>
                                     <div class="text-center ">
-                                        <button type="submit" class=" btn btn-block send-button tx-tfm" onClick={login}>Iniciar sesión</button>
+                                        <button type="submit" class="btn btn-block send-button tx-tfm" onClick={login}>Iniciar sesión</button>
                                     </div>
                                 </div>
                             </div>

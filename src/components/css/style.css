@@ -87,9 +87,10 @@ html, body{
     padding-bottom: 5px;
 }
 
+
 .button{
     background-color: transparent;
-    border: none;
+    border-color: transparent;
     float:right;
 }
 
@@ -105,6 +106,7 @@ html, body{
 
 .button-herramientas{
     background-color: transparent;
+    border-color: transparent;
     padding-bottom: 20%;
     padding-top: 20%;
 }

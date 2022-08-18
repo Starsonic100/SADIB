@@ -54,6 +54,7 @@ border-bottom: 1px solid rgba(0, 0, 0, 0.274);
 box-sizing: content-box;
 position: relative;
 outline: none;
+border-color: transparent;
 }
 
 .tabs:not(:last-child){
@@ -63,6 +64,7 @@ border-right: 1px solid rgba(0, 0, 0, 0.274);
 .active-tabs  {
 background: white;
 border-bottom: 1px solid transparent;
+border-color: transparent;
 }
 
 .active-tabs::before {
@@ -77,7 +79,7 @@ height: 5px;
 background: rgb(88, 147, 241);
 }
 
-button {
+.button-registro{
 border: none;
 margin-top: 3%;
 }

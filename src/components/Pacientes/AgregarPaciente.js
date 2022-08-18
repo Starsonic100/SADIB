@@ -35,7 +35,7 @@ export class AgregarPaciente extends Component {
                                                 <div className="main row">
                                                     <div className="col-xs-6 col-sm-6 col-md-3 col-lg-3">
                                                         <MuiThemeProvider theme={theme}>
-                                                            <Typography variant="h3" class="seccion">{"Datos del paciente"}</Typography>
+                                                            <Typography variant="h3" class="apartado">{"Datos del paciente"}</Typography>
                                                         </MuiThemeProvider>
                                                     </div>
                                                 </div>
@@ -146,7 +146,7 @@ export class AgregarPaciente extends Component {
                                                 <div className="main row">
                                                     <div className="col-xs-6 col-sm-6 col-md-3 col-lg-3">
                                                         <MuiThemeProvider theme={theme}>
-                                                            <Typography variant="h3" class="seccion">{"Datos del tutor"}</Typography>
+                                                            <Typography variant="h3" class="apartado">{"Datos del tutor"}</Typography>
                                                         </MuiThemeProvider>
                                                     </div>
                                                 </div>
@@ -216,7 +216,7 @@ export class AgregarPaciente extends Component {
                                                 <div className="main row">
                                                     <div className="col-7">
                                                         <div class="text-center">
-                                                            <button type="submit" class="btn">Agregar</button>
+                                                            <button type="submit" class="boton">Agregar</button>
                                                         </div>
                                                     </div>
                                                 </div>
