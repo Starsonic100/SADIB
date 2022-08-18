@@ -135,28 +135,28 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .my-input{
-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
-cursor: text;
-padding: 8px 10px;
-margin-bottom: 2%;
-margin-top: 5%;
-transition: border .1s linear;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+    cursor: text;
+    padding: 8px 10px;
+    margin-bottom: 2%;
+    margin-top: 5%;
+    transition: border .1s linear;
 }
 
 .header-title{
-margin: 5rem 0;
+    margin: 5rem 0;
 }
 
 h1{
-font-size: 31px;
-line-height: 40px;
-font-weight: 600;
-color:#4c5357;
+    font-size: 31px;
+    line-height: 40px;
+    font-weight: 600;
+    color:#4c5357;
 }
 
 h2{
-color: #5e8396;
-font-size: 21px;
-line-height: 32px;
-font-weight: 400;
+    color: #5e8396;
+    font-size: 21px;
+    line-height: 32px;
+    font-weight: 400;
 }
