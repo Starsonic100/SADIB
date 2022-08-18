@@ -103,7 +103,7 @@ function Registro(){
                                             {errors.contrasenia && <h6 class="error">{errors.contrasenia}</h6>}
                                         </div>
                                     </div>
-                                    <div class="text-center ">
+                                    <div align="center">
                                         <button type="submit" class=" btn btn-block send-button tx-tfm" onClick={registro}>Crear cuenta</button>
                                     </div>
                                 </div>
@@ -121,7 +121,7 @@ function Registro(){
                                             <input type="password" class="form-control my-input" placeholder="Contraseña" onChange={(e) => {setContrasenial(e.target.value);}}/>
                                         </div>
                                     </div>
-                                    <div class="text-center ">
+                                    <div align="center">
                                         <button type="submit" class="btn btn-block send-button tx-tfm" onClick={login}>Iniciar sesión</button>
                                     </div>
                                 </div>
