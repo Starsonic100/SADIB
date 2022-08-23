@@ -8,6 +8,7 @@ import SignLog from './components/SignUp-LogIn/cliente/SignUp-LogIn';
 import VerPaciente from './components/Pacientes/VerPaciente';
 import AgregarPaciente from './components/Pacientes/AgregarPaciente';
 import EditarPaciente from './components/Pacientes/EditarPaciente';
+import ComenzarPrueba from './components/Pacientes/ComenzarPrueba';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path='/VerPaciente' element={<VerPaciente/>}/>
           <Route path='/AgregarPaciente' element={<AgregarPaciente/>}/>
           <Route path='/EditarPaciente' element={<EditarPaciente/>}/>
+          <Route path='/ComenzarPrueba' element={<ComenzarPrueba/>}/>
         </Routes>
         <Footer/>
       </BrowserRouter>
