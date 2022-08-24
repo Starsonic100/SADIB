@@ -16,30 +16,64 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `login`
+-- Table structure for table `tutor`
 --
 
-DROP TABLE IF EXISTS `login`;
+DROP TABLE IF EXISTS `tutor`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `login` (
-  `id_usuario` varchar(10) NOT NULL,
+CREATE TABLE `tutor` (
+  `id_tutor` int NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(30) DEFAULT NULL,
+  `apellidop` varchar(15) NOT NULL,
+  `apellidom` varchar(15) NOT NULL,
   `correo` varchar(30) DEFAULT NULL,
-  `contrasenia` varchar(40) NOT NULL,
-  PRIMARY KEY (`id_usuario`),
-  UNIQUE KEY `correo` (`correo`),
-  CONSTRAINT `FKPsLoC` FOREIGN KEY (`correo`) REFERENCES `psicologo` (`correo`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `FKPsLoId` FOREIGN KEY (`id_usuario`) REFERENCES `psicologo` (`id_psic`) ON DELETE CASCADE ON UPDATE CASCADE
+  `telefono` varchar(10) NOT NULL,
+  PRIMARY KEY (`id_tutor`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tutor`
+--
+
+LOCK TABLES `tutor` WRITE;
+/*!40000 ALTER TABLE `tutor` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tutor` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
+--
+-- Table structure for table `bitacora`
+--
+
+DROP TABLE IF EXISTS `bitacora`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `bitacora` (
+  `id_in` int NOT NULL AUTO_INCREMENT,
+  `id_psic` varchar(10) NOT NULL,
+  `id_paci` int NOT NULL,
+  `id_prueba` int NOT NULL,
+  `dateIn` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `dateOut` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id_in`),
+  KEY `Ps` (`id_psic`),
+  KEY `Pa` (`id_paci`),
+  KEY `Pr` (`id_prueba`),
+  CONSTRAINT `Pa` FOREIGN KEY (`id_paci`) REFERENCES `paciente` (`id_paci`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `Pr` FOREIGN KEY (`id_prueba`) REFERENCES `prueba` (`id_prueba`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `Ps` FOREIGN KEY (`id_psic`) REFERENCES `psicologo` (`id_psic`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `login`
+-- Dumping data for table `bitacora`
 --
 
-LOCK TABLES `login` WRITE;
-/*!40000 ALTER TABLE `login` DISABLE KEYS */;
-/*!40000 ALTER TABLE `login` ENABLE KEYS */;
+LOCK TABLES `bitacora` WRITE;
+/*!40000 ALTER TABLE `bitacora` DISABLE KEYS */;
+/*!40000 ALTER TABLE `bitacora` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -51,10 +85,13 @@ DROP TABLE IF EXISTS `paciente`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `paciente` (
   `id_paci` int NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(15) NOT NULL,
+  `nombre` varchar(30) DEFAULT NULL,
   `apellidop` varchar(15) NOT NULL,
   `apellidom` varchar(15) NOT NULL,
   `fecha_nac` date NOT NULL,
+  `genero` varchar(9) NOT NULL,
+  `correo` varchar(30) DEFAULT NULL,
+  `telefono` varchar(10) DEFAULT NULL,
   `id_tutor` int NOT NULL,
   PRIMARY KEY (`id_paci`),
   KEY `FKPT` (`id_tutor`),
@@ -109,6 +146,7 @@ CREATE TABLE `psicologo` (
   `apellidom` varchar(15) NOT NULL,
   `correo` varchar(30) NOT NULL,
   `telefono` varchar(10) NOT NULL,
+  `contrasenia` varchar(40) NOT NULL,
   PRIMARY KEY (`id_psic`),
   UNIQUE KEY `correo` (`correo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -189,32 +227,6 @@ LOCK TABLES `token` WRITE;
 /*!40000 ALTER TABLE `token` ENABLE KEYS */;
 UNLOCK TABLES;
 
---
--- Table structure for table `tutor`
---
-
-DROP TABLE IF EXISTS `tutor`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `tutor` (
-  `id_tutor` int NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(15) NOT NULL,
-  `apellidop` varchar(15) NOT NULL,
-  `apellidom` varchar(15) NOT NULL,
-  `correo` varchar(30) DEFAULT NULL,
-  `telefono` varchar(10) NOT NULL,
-  PRIMARY KEY (`id_tutor`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `tutor`
---
-
-LOCK TABLES `tutor` WRITE;
-/*!40000 ALTER TABLE `tutor` DISABLE KEYS */;
-/*!40000 ALTER TABLE `tutor` ENABLE KEYS */;
-UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -225,4 +237,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-05-11 22:31:18
+-- Dump completed on 2022-08-23 18:31:53

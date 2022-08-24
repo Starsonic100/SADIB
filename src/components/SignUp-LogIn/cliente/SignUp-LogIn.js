@@ -1,7 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../../css/sign-log.css';
 import lapiz from '../../img/lapiz.png';
-import { useState } from "react";
 import Axios from "axios";
 import validacion from './validacion';
 
@@ -25,8 +24,6 @@ function Registro(){
     const [contrasenial, setContrasenial] = useState("");
     
     const [errors, setErrors] = useState({});
-
-    
 
     const registro = () => { 
         setErrors(validacion(Fusuario,Fnombre,Fpapellido,Fsapellido,Fcorreo,Ftelefono,Fcontrasenia));
