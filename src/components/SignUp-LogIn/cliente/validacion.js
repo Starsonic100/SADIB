@@ -2,7 +2,7 @@ const validacion = (usuario,nombre,papellido,sapellido,correo,telefono,contrasen
     
     let errors={};
 
-        if(!usuario){
+        if(usuario.length===0){
             errors.usuario="El usuario es requerido";
         }else if(usuario.length<5){
             errors.usuario="El usuario debe tener mínimo 5 caracteres"
@@ -32,7 +32,7 @@ const validacion = (usuario,nombre,papellido,sapellido,correo,telefono,contrasen
             errors.telefono="El teléfono debe tener 10 dígitos";
         }
     
-        if(!contrasenia){
+        if(contrasenia.length===0){
             errors.contrasenia="La contraseña es requerida";
         }else if (contrasenia.length<8){
             errors.contrasenia="La contraseña debe tener mínimo ocho caracteres";

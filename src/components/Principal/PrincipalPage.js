@@ -46,7 +46,9 @@ class PrincipalPage extends Component {
 							<div className="descripcion">
 								<div className="main row">
 									<div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-									 	Aquí va la descripción que todavía no pongo :v
+									 	<div align="center">
+										 	descripción
+										</div>
 									</div>
 									<div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
 										<div align="center"><img src={escribe} width="40%"/></div>
