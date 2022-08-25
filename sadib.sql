@@ -24,13 +24,13 @@ DROP TABLE IF EXISTS `tutor`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `tutor` (
   `id_tutor` int NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(30) DEFAULT NULL,
-  `apellidop` varchar(15) NOT NULL,
-  `apellidom` varchar(15) NOT NULL,
-  `correo` varchar(30) DEFAULT NULL,
+  `nombre` varchar(30) NOT NULL,
+  `apellidop` varchar(20) NOT NULL,
+  `apellidom` varchar(20) NOT NULL,
+  `correo` varchar(30) NOT NULL,
   `telefono` varchar(10) NOT NULL,
   PRIMARY KEY (`id_tutor`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -41,7 +41,6 @@ LOCK TABLES `tutor` WRITE;
 /*!40000 ALTER TABLE `tutor` DISABLE KEYS */;
 /*!40000 ALTER TABLE `tutor` ENABLE KEYS */;
 UNLOCK TABLES;
-
 
 --
 -- Table structure for table `bitacora`
@@ -85,7 +84,7 @@ DROP TABLE IF EXISTS `paciente`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `paciente` (
   `id_paci` int NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(30) DEFAULT NULL,
+  `nombre` varchar(30) NOT NULL,
   `apellidop` varchar(15) NOT NULL,
   `apellidom` varchar(15) NOT NULL,
   `fecha_nac` date NOT NULL,
@@ -142,8 +141,8 @@ DROP TABLE IF EXISTS `psicologo`;
 CREATE TABLE `psicologo` (
   `id_psic` varchar(10) NOT NULL,
   `nombre` varchar(35) NOT NULL,
-  `apellidop` varchar(15) NOT NULL,
-  `apellidom` varchar(15) NOT NULL,
+  `apellidop` varchar(20) NOT NULL,
+  `apellidom` varchar(20) NOT NULL,
   `correo` varchar(30) NOT NULL,
   `telefono` varchar(10) NOT NULL,
   `contrasenia` varchar(40) NOT NULL,
@@ -227,6 +226,7 @@ LOCK TABLES `token` WRITE;
 /*!40000 ALTER TABLE `token` ENABLE KEYS */;
 UNLOCK TABLES;
 
+
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -237,4 +237,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-08-23 18:31:53
+-- Dump completed on 2022-08-25 17:00:16
