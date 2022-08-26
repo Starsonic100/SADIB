@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import '../css/style.css';
 import ninio from '../img/ninio.png';
 import escribe from '../img/escribe.jpg';
-import{ createTheme, MuiThemeProvider, responsiveFontSizes, ThemeProvider, Typography} from "@material-ui/core";
+import{ createTheme, MuiThemeProvider, responsiveFontSizes, Typography} from "@material-ui/core";
 
 let theme = createTheme();
 theme = responsiveFontSizes(theme);
@@ -17,7 +17,7 @@ class PrincipalPage extends Component {
 							<div className="bienvenida">
 								<div className="main row">
 									<div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-										<div align="center"><img src={ninio} width="70%"/></div>
+										<div align="center"><img src={ninio} width="70%" alt="Niño" title="Niño"/></div>
 									</div>
 									<div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
 										<div align="center">

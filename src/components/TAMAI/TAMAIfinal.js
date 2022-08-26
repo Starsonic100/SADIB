@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
 import '../css/style.css';
 import { List, ListItem, ListItemText } from '@material-ui/core/';
-import{ createTheme, MuiThemeProvider, responsiveFontSizes, Typography} from "@material-ui/core";
-
-let theme = createTheme();
-theme = responsiveFontSizes(theme);
 
 export class TAMAIfinal extends Component {
     

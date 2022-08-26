@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import { Link } from "react-router-dom";
 import '../css/pacientes.css';
 import{ createTheme, MuiThemeProvider, responsiveFontSizes, Typography} from "@material-ui/core";
 import Axios from "axios";
 import validacionPaciente from './validacionPaciente';
+
 
 let theme = createTheme();
 theme = responsiveFontSizes(theme);
@@ -277,9 +279,18 @@ function EditarPaciente(){
                                             </div>
                                             
                                             <div className="main row">
-                                                <div className="col-7">
-                                                    <div class="text-center">
-                                                        <button type="submit" class="boton" onClick={actualizar_paciente}>Guardar</button>
+                                                <div align="center">
+                                                    <div className="col-lg-3">
+                                                        <div class="text-center">
+                                                            <Link to="/VerPaciente">
+                                                                <button type="submit" class="boton">Regresar</button>
+                                                            </Link>
+                                                        </div>
+                                                    </div>
+                                                    <div className="col-lg-3">
+                                                        <div class="text-center">
+                                                            <button type="submit" class="boton" onClick={actualizar_paciente}>Guardar</button>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>

@@ -3,6 +3,7 @@ import Dibujo from './Dibujo';
 import Casa from './Casa';
 import Arbol from './Arbol';
 import Persona from './Persona';
+import HTPFinal from './HTPFinal';
 
 export class HTPPage extends Component {
 
@@ -90,6 +91,16 @@ export class HTPPage extends Component {
             case 4:
                 return (
                     <Persona
+                        handleInputChange={this.handleInputChange}
+                        siguiente={this.siguiente}
+                        anterior={this.anterior}
+                        values={values}
+                    />
+                );
+
+            case 5:
+                return(
+                    <HTPFinal
                         handleInputChange={this.handleInputChange}
                         siguiente={this.siguiente}
                         anterior={this.anterior}

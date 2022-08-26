@@ -1,4 +1,4 @@
-import React, { Component, useEffect, useRef, Fragment, useCallback, useState } from 'react';
+import React, { Component, Fragment, useCallback, useState } from 'react';
 import { useSvgDrawing } from 'react-hooks-svgdrawing';
 import '../css/style.css';
 import siguiente from '../img/siguiente.png';
@@ -17,7 +17,6 @@ export class Dibujo extends Component {
         e.preventDefault();
         this.props.siguiente();
     };
-
 
     render(){
 
