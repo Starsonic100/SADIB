@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from "react-router-dom";
 import '../css/pacientes.css';
 import{ createTheme, MuiThemeProvider, responsiveFontSizes, Typography} from "@material-ui/core";
 import Axios from "axios";
@@ -260,9 +261,18 @@ function AgregarPaciente(){
                                             </div>
                                             
                                             <div className="main row">
-                                                <div className="col-7">
-                                                    <div class="text-center">
-                                                        <button type="submit" class="boton" onClick={crear_paciente}>Agregar</button>
+                                                <div align="center">
+                                                    <div className="col-lg-3">
+                                                        <div className="text-center">
+                                                            <Link to="/VerPaciente">
+                                                                <button type="submit" class="boton">Regresar</button>
+                                                            </Link>
+                                                        </div>
+                                                    </div>
+                                                    <div className="col-lg-3">
+                                                        <div class="text-center">
+                                                            <button type="submit" class="boton" onClick={crear_paciente}>Guardar</button>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>

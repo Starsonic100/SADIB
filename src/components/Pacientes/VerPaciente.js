@@ -33,6 +33,16 @@ export class VerPaciente extends Component {
                                         <div align="center">
                                             <div className="container">
                                                 <div className="main row">
+                                                    <div className="col-xs-6 col-sm-6 col-md-12 col-lg-12">
+                                                        <div align="right">
+                                                            <Link to="/AgregarPaciente">
+                                                                <button type="submit" class="boton">Nuevo paciente</button>
+                                                            </Link>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <br></br>
+                                                <div className="main row">
                                                     <div className="col-xs-6 col-sm-6 col-md-3 col-lg-3">
                                                         <MuiThemeProvider theme={theme}>
                                                             <Typography variant="h3" class="apartado">{"Consultar paciente"}</Typography>
@@ -95,7 +105,7 @@ export class VerPaciente extends Component {
                                             </div>
                                         </div>
                                     </div>
-
+                                    <br></br>
                                     <div class="myform form">
                                         <div align="center">
                                             <div className="container">

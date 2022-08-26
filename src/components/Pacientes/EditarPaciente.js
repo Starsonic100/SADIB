@@ -281,7 +281,7 @@ function EditarPaciente(){
                                             <div className="main row">
                                                 <div align="center">
                                                     <div className="col-lg-3">
-                                                        <div class="text-center">
+                                                        <div className="text-center">
                                                             <Link to="/VerPaciente">
                                                                 <button type="submit" class="boton">Regresar</button>
                                                             </Link>
