@@ -42,7 +42,7 @@ export class VerPaciente extends Component {
                                                 <hr></hr>
                                                 <div class="form-group">
                                                     <div className="main row">
-                                                        <div className="col-xs-6 col-sm-6 col-md-7 col-lg-7">
+                                                        <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                                                             <div class="input-group input-group-sm mb-3">
                                                                 <span class="input-group-text" id="inputGroup-sizing-sm">
                                                                     <MuiThemeProvider theme={theme}>
@@ -59,44 +59,37 @@ export class VerPaciente extends Component {
                                                         </div>
                                                     </div>
 
-                                                    <div className="main row">
-                                                        <div className="col-xs-6 col-sm-6 col-md-7 col-lg-7">
-                                                            <div class="input-group input-group-sm mb-3">
-                                                                <span class="input-group-text" id="inputGroup-sizing-sm">
-                                                                    <MuiThemeProvider theme={theme}>
-                                                                        <Typography variant="h6" class="contenido">{"Expediente"}</Typography>
-                                                                    </MuiThemeProvider>
-                                                                </span>
-                                                                <select class="form-select" aria-label="Default select example">
-                                                                    <option selected>Buscar paciente</option>
-                                                                    <option value="1">One</option>
-                                                                    <option value="2">Two</option>
-                                                                    <option value="3">Three</option>
-                                                                </select>
+                                                    <div className="container-fluid">
+                                                        <div className="main row">
+                                                            <div className="col-xs-6 col-sm-6 col-md-12 col-lg-12">
+                                                                <div className="table-responsive">
+                                                                    <table className="table table-striped">
+                                                                        <thead>
+                                                                            <tr>
+                                                                                <th>Folio</th>
+                                                                                <th>Documento</th>
+                                                                                <th>Fecha</th>
+                                                                                <th>Estado</th>
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                            <tr>
+                                                                                <td>0123456789</td>
+                                                                                <td>Documento.pdf</td>
+                                                                                <td>25/08/2022</td>
+                                                                                <td>Completado</td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>987654321</td>
+                                                                                <td>Documento2.pdf</td>
+                                                                                <td>25/08/2022</td>
+                                                                                <td>Incompleto</td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-
-                                                    <div className="container">
-                                                        <table class="table">
-                                                            <thead>
-                                                                <tr>
-                                                                <th scope="col">Folio</th>
-                                                                <th scope="col">Documento</th>
-                                                                <th scope="col">Fecha</th>
-                                                                <th scope="col">Estado</th>
-                                                                </tr>
-                                                            </thead>
-                                                    
-                                                            <tbody>
-                                                                <tr>
-                                                                    <th scope="row">123456789</th>
-                                                                    <td>Resultado_folio.pdf</td>
-                                                                    <td>16/08/22 11:52:13</td>
-                                                                    <td>Concluido</td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
                                                     </div>
                                                 </div>
                                             </div>
