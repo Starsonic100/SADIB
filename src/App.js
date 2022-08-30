@@ -11,7 +11,8 @@ import HTPPage from './components/HTP/HTPPage';
 import TAMAIPage from './components/TAMAI/TAMAIPage';
 import FormSignUp from './components/SignUp-LogIn/cliente/SignUp/FormSignUp';
 import FormLogin from './components/SignUp-LogIn/cliente/Login/FormLogin';
-
+import EditarDatos from './components/Psicologo/EditarDatos/FormEditarDatos';
+import AsignarPrueba from './components/Psicologo/AsignarPrueba/FormAsignarPrueba';
 
 function App() {
   const [rol, setRol] = useState(0);
@@ -21,6 +22,9 @@ function App() {
       Axios.get("http://localhost:3001/login").then((response) => {
         if (response.data.loggedIn == true) {
           setRol(response.data.user[0].rol);
+        }
+        else{
+          setRol(0);
         }
       });
     }, []);
@@ -38,6 +42,8 @@ function App() {
               <Route exact path="/TAMAIPage" element={<TAMAIPage/>}/>
               <Route exact path="/SignUp" element={<FormSignUp/>}/>
               <Route exact path="/Login" element={<FormLogin/>}/>
+              <Route exact path="/EditarPsic" element={<EditarDatos/>}/>
+              <Route exact path="/AsignarPrueba" element={<AsignarPrueba/>}/>
            </Routes>
 
         </Router>

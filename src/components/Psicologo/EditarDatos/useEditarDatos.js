@@ -3,7 +3,7 @@ import {useNavigate} from 'react-router-dom';
 import Axios from "axios";
 import props from 'prop-types';
 
-const useSignUp = (callback, validar) => {
+const useEditarDatos = (callback, validar) => {
   const navigate = useNavigate();
     const[valores,setValores]=useState({
         Fusuario:'',
@@ -23,12 +23,7 @@ const useSignUp = (callback, validar) => {
         [name]: value
       });
     };
-    /*const handleSubmit = e => {
-        e.preventDefault();
-    
-        setErrores(validacion(valores));
-        setIsSubmitting(true);
-      };*/
+
     const handleSubmit = e => {
         e.preventDefault();
             setErrores(validar(valores));
@@ -40,7 +35,7 @@ const useSignUp = (callback, validar) => {
       useEffect(
         () => {
           if (Object.keys(errores).length === 0 && isSubmitting) {
-            Axios.post("http://localhost:3001/registro",{
+            Axios.put("http://localhost:3001/editarPsic",{
             usuario: valores.Fusuario,
             nombre: valores.Fnombre,
             papellido: valores.Fapellido,
@@ -53,7 +48,7 @@ const useSignUp = (callback, validar) => {
           console.log(response);
       }); 
             callback();
-        navigate("/");
+            navigate("/");
           }
         },
         [errores]
@@ -62,4 +57,4 @@ const useSignUp = (callback, validar) => {
       return { handleChange, handleSubmit, valores, errores };
 }
 
-export default useSignUp;
+export default useEditarDatos;

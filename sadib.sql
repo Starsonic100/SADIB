@@ -58,11 +58,14 @@ CREATE TABLE `paciente` (
   `apellidop` varchar(15) NOT NULL,
   `apellidom` varchar(15) NOT NULL,
   `fecha_nac` date NOT NULL,
+  `id_psic` varchar(10) NOT NULL,
   `id_tutor` int NOT NULL,
   `rol` int NOT NULL,
   PRIMARY KEY (`id_paci`),
   KEY `FKPT` (`id_tutor`),
-  CONSTRAINT `FKPT` FOREIGN KEY (`id_tutor`) REFERENCES `tutor` (`id_tutor`) ON DELETE CASCADE ON UPDATE CASCADE
+  KEY `FKPS` (`id_psic`),
+  CONSTRAINT `FKPT` FOREIGN KEY (`id_tutor`) REFERENCES `tutor` (`id_tutor`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `FKPS` FOREIGN KEY (`id_psic`) REFERENCES `psicologo`(`id_psic`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 

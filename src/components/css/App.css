@@ -26,6 +26,7 @@
   padding-bottom: 10px;
 }
 
+
 .mp1{
   background-color: #b4dbdf;
   box-sizing: border-box;
@@ -267,5 +268,27 @@ ul.htp{
   list-style-image: url('../img/vineta.png');
   list-style-position:initial;
   padding-left: 2em;
+}
+
+.draw-area{
+  width: 100%;
+  height: 100vh;
+  border: 2px solid black;
+  background-color: white;
+}
+.dibujo{
+  margin: auto;
+  width: 85%;
+  height: 100%;
+  padding-top: 1%;
+  background-color: white;
+}
+.Menu {
+  size:10vh;
+  display: flex;
+  justify-content: space-evenly;
+  border-radius: 5px;
+  align-items: center;
+  background-color: #a3a3a32d;
 }
 

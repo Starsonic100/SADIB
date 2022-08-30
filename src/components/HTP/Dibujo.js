@@ -1,7 +1,18 @@
-import React, { Component } from 'react';
+import React, { Component, useEffect, useRef, Fragment, useCallback, useState } from 'react';
+import { useSvgDrawing } from 'react-hooks-svgdrawing';
 import '../css/App.css';
+import Menu from "./components/Menu";
+
 import siguiente from '../img/siguiente.png';
+import lapiz from '../img/lapiz2.png';
+import deshacer from '../img/deshacer.png';
+import borrar from '../img/borrar.png';
+import descargar from '../img/descargar.png';
+import Axios from "axios";
+
 import{ createTheme, MuiThemeProvider, responsiveFontSizes, Typography} from "@material-ui/core";
+import { Canvg } from 'https://cdn.skypack.dev/canvg';
+import { get } from 'react-scroll/modules/mixins/scroller';
 
 let theme = createTheme();
 theme = responsiveFontSizes(theme);
@@ -13,13 +24,122 @@ export class Dibujo extends Component {
         this.props.siguiente();
     };
 
-    render(){
+    render(){   
+        const {values, handleInputChange} = this.props;     
+        const Drawing = () => {
+            const canvasRef = useRef(null);
+            const ctxRef = useRef(null);
+            const [isDrawing, setIsDrawing] = useState(false);
+            const [lineWidth, setLineWidth] = useState(2.5);
+            const [lineColor, setLineColor] = useState("black");
+            const [lineOpacity, setLineOpacity] = useState(100);
+            const [base,setBase] = useState("");
 
-        const { values, handleInputChange } = this.props;
+            useEffect(() => {
+                const canvas = canvasRef.current;
+                canvas.style.width = "100%";
+                canvas.style.height = "100%";
+                canvas.width = canvas.offsetWidth;
+                canvas.height = canvas.offsetHeight;
+                const ctx = canvas.getContext("2d");
+                ctx.lineCap = "round";
+                ctx.lineJoin = "round";
+                ctx.fillStyle = "white";
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                ctx.globalAlpha = lineOpacity;
+                ctx.strokeStyle = lineColor;
+                ctx.lineWidth = lineWidth;
+                ctxRef.current = ctx;
+            }, [lineColor, lineOpacity, lineWidth]);
+
+            // Function for starting the drawing
+            const startDrawing = (e) => {
+                ctxRef.current.beginPath();
+                ctxRef.current.moveTo(
+                e.nativeEvent.offsetX,
+                e.nativeEvent.offsetY
+                );
+                setIsDrawing(true);
+            };
+
+            // Function for ending the drawing
+            const endDrawing = () => {
+                ctxRef.current.closePath();
+                setIsDrawing(false);
+            };
+
+            const draw = (e) => {
+                if (!isDrawing) {
+                return;
+                }
+                ctxRef.current.lineTo(
+                e.nativeEvent.offsetX,
+                e.nativeEvent.offsetY
+                );
+                
+                ctxRef.current.stroke();
+            };
+
+            const setToDraw = () =>{
+                ctxRef.current.globalCompositeOperation = 'source-over';
+            }
+
+            const setToErase = () =>{
+                ctxRef.current.globalCompositeOperation = 'destination-out';
+            }
+            const setToClear = () =>{
+                let canvas=document.getElementById("canvas");
+                let context=canvas.getContext("2d");
+                context.clearRect(0,0,canvas.width,canvas.height);
+            }
+
+
+            const setToDownload = () =>{
+                let canvas=document.getElementById("canvas");
+                let image = canvas.toDataURL("image/png", 1.0).replace("image/png", "image/octet-stream");
+                let link = document.createElement('a');
+                link.download = "my-image.png";
+                link.href = image;
+                link.click();
+             
+            };
+            const uploadFile =() => {
+                setBase(document.getElementById("canvas").toDataURL().split(";base64")[1]);
+                
+            };
+
+            return(  
+                <Fragment>     
+               <div>
+                <button onClick={setToDraw}>Draw
+                        </button>  
+                    <button onClick={setToErase}>Erase
+                        </button>    
+                    <button onClick={setToClear}>Clear
+                        </button> 
+                        <button onClick={setToDownload}>Download
+                        </button>
+                        <button onClick={uploadFile}>Upload
+                        </button>
+
+                <div className='draw-area'>
+                    
+                    <canvas id='canvas'
+                    onMouseDown={startDrawing}
+                    onMouseUp={endDrawing}
+                    onMouseMove={draw}
+                    ref={canvasRef}
+                    />
+                </div>   
+                </div>  
+                </Fragment>               
+            )
+        }
+
+
 
         return(
             <div className="container">
-                
                 {/* Comienza sección de preguntas*/}
                 <div className="main-row">
                     <div className="col-12">
@@ -38,7 +158,9 @@ export class Dibujo extends Component {
                                 {/* Comienza div de preguntas*/}  
                                 <div className="preguntas">
                                     
-                                    <div>Aquí va la pantalla de dibujo</div>
+                                    <div className="dibujo">
+                                        <Drawing setBase={values.p0}/>
+                                    </div>
 
                                     <div className="main-row">
                                         <div className="col-lg-11">

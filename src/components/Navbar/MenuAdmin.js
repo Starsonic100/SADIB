@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
-import { NavLink, Link, useLocation } from 'react-router-dom';import { SidebarData } from './SidebarData';
+import Axios from "axios";
+
+import { NavLink, Link, useLocation, useNavigate } from 'react-router-dom';import { SidebarData } from './SidebarData';
 import '../css/NavBar.css';
 import { IconContext } from 'react-icons';
 import {Link as Linker,animateScroll as scroll } from "react-scroll";
@@ -17,7 +19,7 @@ function MenuAdmin() {
     const path = useLocation().pathname;
     const location = path.split('/')[1];
     const scroller = scroll.scroller;
-  
+    const navigate = useNavigate();
     const scrollToAnchor = () => {
       scroller.scrollTo('anchor', {
         duration: 1500,
@@ -26,11 +28,27 @@ function MenuAdmin() {
         offset: 50
       });
     };
+    Axios.defaults.withCredentials = true;
+
   
   const [sidebar, setSidebar] = useState(false);
 
   const showSidebar = () => setSidebar(!sidebar);
 
+  const logoutUser  =  () => {
+    showSidebar();
+
+      Axios.get("http://localhost:3001/logout").then((response) => {
+        if (response.data === 'SUCCESS') {
+          navigate("/");
+          navigate(0);
+      } else {
+        navigate("/");
+          navigate(0);
+      }
+      });
+        
+};
   return (
     <MuiThemeProvider theme={theme}>
       <IconContext.Provider value={{ color: '#2469A0' }}>
@@ -77,11 +95,15 @@ function MenuAdmin() {
                 <span>Ver Pacientes</span></Link>
             </li>
             <li className='nav-text'>
-              <Link to="/SignUp" onClick={showSidebar}>
+              <Link to="/AsignarPrueba" onClick={showSidebar}>
                 <span>Asignar Prueba</span></Link>
             </li>
             <li className='nav-text'>
-              <Link to="/SignUp" onClick={showSidebar}>
+              <Link to="/EditarPsic" onClick={showSidebar}>
+                <span>Editar Mis Datos</span></Link>
+            </li>
+            <li className='nav-text'>
+              <Link to="/" onClick={logoutUser}>
                 <span>Cerrar Sesión</span></Link>
             </li>
           </ul>

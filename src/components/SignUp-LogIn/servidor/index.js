@@ -12,7 +12,7 @@ app.use(express.json());
 app.use(
   cors({
     origin: ["http://localhost:3000"],
-    methods: ["GET", "POST"],
+    methods: ["GET", "POST","PUT","DELETE"],
     credentials: true,
   })
 );
@@ -58,6 +58,87 @@ app.post("/registro", (req,res) =>{
   );
 });
 
+app.get("/datosPaciente",(req,res)=>{
+  console.log();
+  db.query(
+    "SELECT * from paciente where id_psic=?",req.session.user[0].id_usuario,(err, result)=>{
+      res.send(result);
+      
+      console.log(result);
+    }
+  );
+
+});
+
+app.post("/asignarPrueba", (req,res) =>{
+  
+  const token = req.body.token
+  const paciente = req.body.paciente
+  const prueba1 = req.body.prueba1
+  const prueba = req.body.prueba
+  console.log("HTP"+prueba1);
+  console.log("TAMAI"+prueba);
+
+  if(prueba1!=""){
+    db.query(
+      "INSERT INTO token (token,id_psic,id_paci,id_prueba,fecha,estado) VALUES(?,?,?,?,now(),'Asignado')",[token,req.session.user[0].id_usuario,paciente,prueba1],(err,result) => { console.log(err); }
+    );
+  }
+  else{
+    db.query(
+      "INSERT INTO token (token,id_psic,id_paci,id_prueba,fecha,estado) VALUES(?,?,?,?,now(),'Asignado')",[token,req.session.user[0].id_usuario,paciente,prueba],(err,result) => { console.log(err); }
+    );
+  }
+
+});
+
+
+app.put("/editarPsic", (req,res) =>{
+
+  const usuario = req.body.usuario
+  const nombre = req.body.nombre
+  const papellido = req.body.papellido
+  const sapellido = req.body.sapellido
+  const correo = req.body.correo
+  const telefono = req.body.telefono
+  const contrasenia = md5(req.body.contrasenia);
+
+
+  db.query(
+    "UPDATE psicologo SET nombre=?,apellidop=?,apellidom=?,correo=?,telefono=? WHERE id_psic=?",[nombre,papellido,sapellido,correo,telefono,usuario],(err,result) => { console.log(); }
+  );
+
+  db.query(
+    "UPDATE login SET correo=?, contrasenia=? WHERE id_usuario=?",[correo,contrasenia,usuario],(err,result) => { console.log(err); }
+  );
+  db.query(
+    "SELECT nombre, apellidop, apellidop,apellidom, telefono, rol, id_usuario, login.correo, login.contrasenia FROM login, psicologo WHERE id_usuario = ?;",
+    [usuario],
+    (err, result) => {
+      
+            req.session.user = result;
+            res.send(result);
+    }
+  );
+});
+
+app.get("/editarPsic", (req, res) => {
+  console.log(req.session.user);
+
+  if (req.session.user) {
+    res.send({ user: req.session.user });
+  } else {
+    res.send({ loggedIn: false });
+  }
+});
+
+app.post("/dibujo", (req,res) =>{
+
+  const dibujo = req.body.dibujo;
+  console.log(dibujo);
+
+});
+
 app.get("/login", (req, res) => {
   console.log(req.session.user);
 
@@ -68,13 +149,23 @@ app.get("/login", (req, res) => {
   }
 });
 
+app.get('/logout',  (req, res) => {
+  console.log("Cierre sesion: "+req.session.user);
+  if (req.session.user) {
+      delete req.session.user;
+      res.send({result: 'SUCCESS'});
+  } else {
+      res.send({result: 'ERROR', message: 'User is not logged in.'});
+  }
+});
+
 app.post("/login", (req,res) =>{
   
   const correo = req.body.correo;
   const contrasenia = md5(req.body.contrasenia);
   
   db.query(
-    "SELECT nombre, rol, id_usuario, login.correo, login.contrasenia FROM login, psicologo WHERE login.correo = ? and login.contrasenia = ?;",
+    "SELECT nombre, apellidop, apellidop,apellidom, telefono, rol, id_usuario, login.correo, login.contrasenia FROM login, psicologo WHERE login.correo = ? and login.contrasenia = ?;",
     [correo,contrasenia],
     (err, result) => {
       if (err) {
@@ -91,6 +182,7 @@ app.post("/login", (req,res) =>{
     }
   );
 });
+
 
 
 app.post("/access", (req,res) =>{
