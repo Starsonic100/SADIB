@@ -1,11 +1,11 @@
-import React, { Component, Fragment, useCallback, useState } from 'react';
-import { useSvgDrawing } from 'react-hooks-svgdrawing';
+import React, { Component, useEffect, useRef, Fragment, useCallback, useState  } from 'react';
 import '../css/style.css';
 import siguiente from '../img/siguiente.png';
 import lapiz from '../img/lapiz2.png';
 import deshacer from '../img/deshacer.png';
 import borrar from '../img/borrar.png';
 import descargar from '../img/descargar.png';
+import finalizar from '../img/finalizado.png'
 import{ createTheme, MuiThemeProvider, responsiveFontSizes, Typography} from "@material-ui/core";
 
 let theme = createTheme();
@@ -20,70 +20,128 @@ export class Dibujo extends Component {
 
     render(){
 
+        const {values, handleInputChange} = this.props;  
+
         const Drawing = () => {
             
-            const [renderRef, {
-                instance,
-                changePenWidth,
-                getSvgXML,
-                download,
-                undo,
-                clear
-              }] = useSvgDrawing({
-                penWidth: 2, // Ancho del lápiz
-                penColor: '#000000', // Color del lápiz
-            })
+            const canvasRef = useRef(null);
+            const ctxRef = useRef(null);
+            const [isDrawing, setIsDrawing] = useState(false);
+            const [lineWidth, setLineWidth] = useState(1.5);
+            const [lineColor, setLineColor] = useState("black");
+            const [lineOpacity, setLineOpacity] = useState(100);
+            const [base,setBase] = useState("");
 
-            const [xml, setXml] = useState('')
+            useEffect(() => {
+                const canvas = canvasRef.current;
+                canvas.style.width = "100%";
+                canvas.style.height = "100%";
+                canvas.width = canvas.offsetWidth;
+                canvas.height = canvas.offsetHeight;
+                const ctx = canvas.getContext("2d");
+                ctx.lineCap = "round";
+                ctx.lineJoin = "round";
+                ctx.fillStyle = "white";
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                ctx.globalAlpha = lineOpacity;
+                ctx.strokeStyle = lineColor;
+                ctx.lineWidth = lineWidth;
+                ctxRef.current = ctx;
+            }, [lineColor, lineOpacity, lineWidth]);
 
-            const handleChangeXML = useCallback(() => {
-                setXml(getSvgXML())
-            }, [getSvgXML])
+            // Function for starting the drawing
+            const startDrawing = (e) => {
+                ctxRef.current.beginPath();
+                ctxRef.current.moveTo(
+                e.nativeEvent.offsetX,
+                e.nativeEvent.offsetY
+                );
+                setIsDrawing(true);
+            };
 
-            function getBase64Img() {
-                return "data:image/svg+xml;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQBAMAAAB8P++eAAAAMFBMVEX////7+/vr6+vNzc2qqqplywBWrQD/Y5T/JTf+AADmAABeeEQvNydqAAAGBAMAAAGoF14oAAAEBUlEQVR42u2WTUwUVxzA/2925LIojsyqCLtMqSQeFJeFROPHstjdNkZdkaiX9mRTovYgSYNFE43Rg5IeNG5SqyaVcGzXkvTm7hZWq9bKriAYYzSLBI3WAplp0jY2kV3fzPuYGcBxD/bmO0zevPeb//f7v0FQ5EDvwf8LFG89ixYDol9Wo+smKal2sHF6kM6q7qbE5tY03d7SHR6ygiuvwY1txkzIlPaD3NQ4Zryk/PCP1wKibBlI97dq+idXUxqgcEkVnruS/smRpuWaCbrHU5pc/wyTQsata0U77wVBTlRP9UNkT9oE61K9AHL9VERbeTVurMjNm54mqrFw8CwKmWBfpf6V2Dx/TdxN3YjMf2JwIEZ8JnjnEbEjvLAQZ1EKlxkciJ9UcdD1Z5ztDmgsgPIrMkWtMgfd41xOYXZOIjUcLB3tdchypHWIgb5k2gH0nE0zMHjRCRTLWxgY/VQrDuybcAQ/DDEwmwEn8COlSDBcTUE0GXcEjRzqoDDhDH7sfccg2szAt9hogjBFQFRmDyd9N1VTEFegXXKEVKQFJHEUd0DSKhLthIm0HSQpnNdCNizgq147GP0m7QTygNMye6NqM9ekwlG4kLI5I4cMZ+bVhMA8MwX1rw9oIjakAYX6jXlBRRJ4BF6PwmRSfQyLFhJwWy/IG8khKuirljODG0DfGAd3qCBNEol5vCqFAxqYLeUyB0H2A2Q0DspRD3BQfJEc5KBl6KprG6pNEPqqfkKzOQBsha2bQeVw6g3nSySaGYgb99ylhsLDLVYQ3E+oozOGHKzVbCBs+HkuUm6ivd4E0ZYeNTPTTrn51+0wA9TJgpZVLeaV1y+4yS8c64W0/AcFTBCHK/fFEMwFAmo4KRldE0ZxsF8cGbTuzYqHtOz8t6e8TMk5CcjNSC+kdcfgPyag9AoDhUQARmvAcIiAW3v0JzWJg64BJXdBQ21+/b4zwMqRW5dA2h3I7+onYJd+Y4i3FbyMxz4hxE7hS2MBdSq6Fgq6Bny/dxv6Sk76COj6Yz91ZG8dToQ7oYNCqu4QjX9FK5UoPt/PXO701mruhwcxGP2ecahzzxBtUtlzLHclsXtBA6wc+a2brlUc8TCvg5cPM7LiaOPT8Y4ub3bpAbqy+MQ18xRmvIe5nr83YXDt8Nca0/GveWniSHByybEVwx1dD1ccYB/6yF8DTaGcYLFA391o6DjjohaWfKXQ/xCWazmhPDhNbYf2WH4fse9zhRUkLwrXlUD+9iVD5HR77KWheclxkqsZ1bM+pqcWZ2xVe0zXjPb6pyO8IK1l5trcA7mLKuo48+VpQG0BuPmZeTbs9Vi+9oQyqv6Ieyou4FybU+HqRS4o+TH1VG7MvgFFjvfguwFfA4FobmCxcnTPAAAAAElFTkSuQmCC";
+            // Function for ending the drawing
+            const endDrawing = () => {
+                ctxRef.current.closePath();
+                setIsDrawing(false);
+            };
+
+            const draw = (e) => {
+                if (!isDrawing) {
+                return;
+                }
+                ctxRef.current.lineTo(
+                e.nativeEvent.offsetX,
+                e.nativeEvent.offsetY
+                );
+                
+                ctxRef.current.stroke();
+            };
+
+            const setToDraw = () =>{
+                ctxRef.current.globalCompositeOperation = 'source-over';
             }
 
-            const base64img = getBase64Img();
-            function Base64ToImage(base64img, callback) {
-                var img = new Image();
-                img.onload = function() {
-                    callback(img);
-                };
-                img.src = base64img;
+            const setToErase = () =>{
+                ctxRef.current.globalCompositeOperation = 'destination-out';
             }
+            const setToClear = () =>{
+                let canvas=document.getElementById("canvas");
+                let context=canvas.getContext("2d");
+                context.clearRect(0,0,canvas.width,canvas.height);
+            }
+
+
+            const setToDownload = () =>{
+                let canvas=document.getElementById("canvas");
+                let image = canvas.toDataURL("image/png", 1.0).replace("image/png", "image/octet-stream");
+                let link = document.createElement('a');
+                link.download = "my-image.png";
+                link.href = image;
+                link.click();
+             
+            };
+            const uploadFile = () => {
+                setBase(document.getElementById("canvas").toDataURL().split(";base64")[1]);
+                
+            };
 
             return(
                 <Fragment>
                     <div className="container">
                         <div className="barra-herramientas">
                             <label>
-                                <button class="button-herramientas" onClick={() => changePenWidth(2)}><img src={lapiz} alt="Lápiz" title="Lápiz"/></button>
+                                <button class="button-herramientas" onClick={setToDraw}><img src={lapiz} alt="Lápiz" title="Lápiz"/></button>
 
-                                <button class="button-herramientas" onClick={undo}><img src={deshacer} alt="Borrar" title="Borrar"/></button>
+                                <button class="button-herramientas" onClick={setToErase}><img src={deshacer} alt="Borrar" title="Borrar"/></button>
 
-                                <button class="button-herramientas" onClick={clear}><img src={borrar}  alt="Borrar pantalla" title="Borrar pantalla"/></button>
+                                <button class="button-herramientas" onClick={setToClear}><img src={borrar}  alt="Borrar pantalla" title="Borrar pantalla"/></button>
 
-                                <button class="button-herramientas" onClick={() => download()}><img src={descargar} alt="Descargar dibujo" title="Descargar dibujo"/></button>
+                                <button class="button-herramientas" onClick={setToDownload}><img src={descargar} alt="Descargar dibujo" title="Descargar dibujo"/></button>
+
+                                <button class="button-herramientas" onClick={uploadFile}><img src={finalizar} alt="Finalizar dibujo" title="Finalizar dibujo"/></button>
                             </label>
                         </div>
                     </div>
 
-                    <div style={{height: 500, border: 'solid', borderColor: '#8F8F8F' }} ref={renderRef} onTouchEnd={handleChangeXML} onMouseLeave={handleChangeXML}/>
-
-                    <div>
-                        <img src={base64img}/>
-                        {xml}
+                    <div style={{height: 510, border: 'solid', borderColor: '#8F8F8F' }}>
+                        <div className='draw-area' style={{height: 500}}>
+                            <canvas id='canvas'
+                            onMouseDown={startDrawing}
+                            onMouseUp={endDrawing}
+                            onMouseMove={draw}
+                            ref={canvasRef}/>
+                        </div>
                     </div>
+
+                    {/*<div style={{height: 500, border: 'solid', borderColor: '#8F8F8F' }} ref={renderRef} onTouchEnd={handleChangeXML} onMouseLeave={handleChangeXML}/>*/}
                 </Fragment>
             )
           }
 
         return(
             <div className="container">
-                
                 {/* Comienza sección de preguntas*/}
-                <div className="main row">
+                <div className="main-row">
                     <div className="col-12">
                         <div className="container">
                             <div className="formulario">
@@ -101,10 +159,10 @@ export class Dibujo extends Component {
                                 <div className="preguntas">
                                     
                                     <div className="dibujo">
-                                        <Drawing/>
+                                        <Drawing setBase={values.p0}/>
                                     </div>
 
-                                    <div className="main row">
+                                    <div className="main-row">
                                         <div className="col-lg-11">
                                             <button class="button" onClick={this.continuar}><img src={siguiente}/></button>
                                         </div>
