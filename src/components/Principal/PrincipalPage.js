@@ -102,7 +102,7 @@ class PrincipalPage extends Component {
 									 	<div className="cuadro">
 											<div align="center">
 												<div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-													<div align="center"><img src={sesion} width="60%"/></div>
+													<div align="center"><img src={sesion} width="60%" alt="Iniciar sesión" title="Iniciar sesión"/></div>
 												</div>
 												<br></br>
 												<p>
@@ -118,7 +118,7 @@ class PrincipalPage extends Component {
 									 	<div className="cuadro">
 											<div align="center">
 												<div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-													<div align="center"><img src={agregar} width="60%"/></div>
+													<div align="center"><img src={agregar} width="60%" alt="Agregar paciente" title="Agregar paciente"/></div>
 												</div>
 												<br></br>
 												<p>
@@ -136,7 +136,7 @@ class PrincipalPage extends Component {
 									 	<div className="cuadro">
 											<div align="center">
 												<div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-													<div align="center"><img src={seleccionar} width="60%"/></div>
+													<div align="center"><img src={seleccionar} width="60%" alt="Seleccionar prueba" title="Seleccionar prueba"/></div>
 												</div>
 												<br></br>
 												<p>
@@ -152,7 +152,7 @@ class PrincipalPage extends Component {
 									 	<div className="cuadro">
 											<div align="center">
 												<div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-													<div align="center"><img src={paciente} width="60%"/></div>
+													<div align="center"><img src={paciente} width="60%" alt="Realizar prueba" title="Realizar prueba"/></div>
 												</div>
 												<br></br>
 												<p>
@@ -170,7 +170,7 @@ class PrincipalPage extends Component {
 									 	<div className="cuadro">
 											<div align="center">
 												<div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-													<div align="center"><img src={prediagnostico} width="60%"/></div>
+													<div align="center"><img src={prediagnostico} width="60%" alt="Prediagnóstico" title="Prediagnóstico"/></div>
 												</div>
 												<br></br>
 												<p>
@@ -186,7 +186,7 @@ class PrincipalPage extends Component {
 									 	<div className="cuadro">
 											<div align="center">
 												<div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-													<div align="center"><img src={expediente} width="60%"/></div>
+													<div align="center"><img src={expediente} width="60%" alt="Guardar expediente" title="Guardar expediente"/></div>
 												</div>
 												<br></br>
 												<p>
