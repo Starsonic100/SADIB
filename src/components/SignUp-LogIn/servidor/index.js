@@ -3,9 +3,25 @@ const app = express();
 const mysql = require("mysql");
 const cors = require("cors");
 const md5 =require("md5");
+const multer = require('multer');
+const upload = multer();
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const session = require("express-session");
+const fs = require('fs');
+const { Readable } = require('stream');
+const readline = require ('readline');
+const {google} = require('googleapis');
+// service account key file from Google Cloud console.
+const KEYFILEPATH = 'cryptic-lattice-361623-36680065feaa.json';
+
+// Request full drive access.
+const SCOPES = ['https://www.googleapis.com/auth/drive'];
+// Create a service account initialize with the service account key file and scope needed
+const auth = new google.auth.GoogleAuth({
+  keyFile: KEYFILEPATH,
+  scopes: SCOPES
+});
 
 
 app.use(express.json());
@@ -132,12 +148,6 @@ app.get("/editarPsic", (req, res) => {
   }
 });
 
-app.post("/dibujo", (req,res) =>{
-
-  const dibujo = req.body.dibujo;
-  console.log(dibujo);
-
-});
 
 app.get("/login", (req, res) => {
   console.log(req.session.user);
@@ -210,6 +220,49 @@ app.post("/access", (req,res) =>{
     }
   );
 });
+
+app.post("/dibujo", upload.single('dibujo'), (req,res)=>{
+  
+  //console.log(Readable.from(req.file.buffer));
+  createAndUploadFile(auth,req.file).catch(console.error);
+
+});
+
+async function createAndUploadFile(auth,dibujo){
+  let today = new Date();
+  let dd = String(today.getDate()).padStart(2, '0');
+  let mm = String(today.getMonth() + 1).padStart(2, '0'); 
+  let yyyy = today.getFullYear();
+
+  filename = mm + '-' + dd + '-' + yyyy + '.jpg';
+  const driveService = google.drive(  {version:'v3',auth});
+    
+  let fileMetadata = {
+    'name': filename,
+    'parents':  [  '1WF_S3p_S6TJht9NCRs94MMcW3nKuC2Eu'  ]
+  };
+  let media = {
+    mimeType: 'image/jpeg',
+    body:Readable.from(dibujo.buffer)
+  };
+
+
+  let response = await driveService.files.create({
+  resource: fileMetadata,
+  media: media,
+  fields: 'id'
+  })
+
+  switch(response.status){
+  case 200:
+      let file = response.result;
+      console.log('Created File Id: ', response.data.id);
+      break;
+  default:
+      console.error('Error creating the file, ' + response.errors);
+      break;
+  }
+}
 
 
 app.listen(3001, () => {

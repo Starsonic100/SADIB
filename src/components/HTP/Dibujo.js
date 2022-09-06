@@ -8,6 +8,7 @@ import lapiz from '../img/lapiz2.png';
 import deshacer from '../img/deshacer.png';
 import borrar from '../img/borrar.png';
 import descargar from '../img/descargar.png';
+import finalizar from '../img/finalizado.png'
 import Axios from "axios";
 
 import{ createTheme, MuiThemeProvider, responsiveFontSizes, Typography} from "@material-ui/core";
@@ -103,25 +104,50 @@ export class Dibujo extends Component {
                 link.click();
              
             };
+
+            function dataURItoBlob(dataURI) {
+                let binary = atob(dataURI.split(',')[1]);
+                let array = [];
+                for(let i = 0; i < binary.length; i++) {
+                    array.push(binary.charCodeAt(i));
+                }
+                return new Blob([new Uint8Array(array)], {type: 'image/jpeg'});
+            }
+            
+            
             const uploadFile =() => {
-                setBase(document.getElementById("canvas").toDataURL().split(";base64")[1]);
+               let dibujoB = document.getElementById("canvas").toDataURL();
+               let dibujo = dataURItoBlob(dibujoB);
+               let fd = new FormData(document.forms[0]);
+                fd.append('dibujo', dibujo);
+                Axios({
+                    url: 'http://localhost:3001/dibujo',
+                    method: "POST",
+                    data: fd,
+                    headers: {
+                      'Content-Type': 'multipart/form-data'
+                    }
+                })
                 
             };
 
             return(  
                 <Fragment>     
                <div>
-                <button onClick={setToDraw}>Draw
-                        </button>  
-                    <button onClick={setToErase}>Erase
-                        </button>    
-                    <button onClick={setToClear}>Clear
-                        </button> 
-                        <button onClick={setToDownload}>Download
-                        </button>
-                        <button onClick={uploadFile}>Upload
-                        </button>
+                    <div className="container">
+                        <div className="barra-herramientas">
+                            <label>
+                                <button class="button-herramientas" onClick={setToDraw}><img src={lapiz} alt="Lápiz" title="Lápiz"/></button>
 
+                                <button class="button-herramientas" onClick={setToErase}><img src={deshacer} alt="Borrar" title="Borrar"/></button>
+
+                                <button class="button-herramientas" onClick={setToClear}><img src={borrar}  alt="Borrar pantalla" title="Borrar pantalla"/></button>
+
+                                <button class="button-herramientas" onClick={setToDownload}><img src={descargar} alt="Descargar dibujo" title="Descargar dibujo"/></button>
+                                <button class="button-herramientas" onClick={uploadFile}><img src={finalizar} alt="Finalizar dibujo" title="Finalizar dibujo"/></button>
+                            </label>
+                        </div>
+                    </div>
                 <div className='draw-area'>
                     
                     <canvas id='canvas'
