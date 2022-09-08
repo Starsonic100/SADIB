@@ -1,0 +1,169 @@
+html, body{
+    overflow-x: hidden;
+}
+
+.container{
+    width: 100%;
+    height: auto;
+    align-items: center;
+  justify-content: center;
+}
+
+.frame{
+    align-items: center;
+  justify-content: center;
+    height: auto;
+    left: 5%;
+    background: rgba(36, 105, 160, 0.2);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 25px;
+    padding-top: 5%;
+    padding-right: 5%;
+    padding-bottom: 5%;
+    padding-left: 5%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    margin-top:10px;
+}
+
+h3.titulo{
+    font-family: 'Gothic A1';
+    font-style: normal;
+    font-weight: 700;
+    line-height: 5vw;
+    margin-bottom: 10%;
+    font-size: 300%;
+    color: #2469A0;
+}
+
+h6.error{
+    color: #0000FF;
+    font-family: 'Gothic A1';
+    font-style: normal;
+    font-size: 12px;
+    margin-top: 0px;
+}
+
+.bloc-tabs {
+    display: flex;
+    align-items: center;
+  justify-content: center;
+}
+
+.tabs {
+padding: 15px;
+text-align: center;
+width: 50%;
+background: rgba(128, 128, 128, 0.075);
+cursor: pointer;
+border-bottom: 1px solid rgba(0, 0, 0, 0.274);
+box-sizing: content-box;
+outline: none;
+}
+
+.tabs:not(:last-child){
+border-right: 1px solid rgba(0, 0, 0, 0.274);
+}
+
+.active-tabs  {
+background: white;
+border-bottom: 1px solid transparent;
+}
+
+.active-tabs::before {
+content: "";
+display: block;
+position: absolute;
+top: -5px;
+left: 50%;
+transform: translateX(-50%);
+width: calc(100% + 2px);
+height: 5px;
+background: rgb(88, 147, 241);
+}
+
+
+button {
+border: none;
+margin-top: 3%;
+}
+
+.content-tabs {
+flex-grow : 1;
+}
+
+.content {
+background: white;
+padding: 20px;
+width: 100%;
+height: 100%;
+display: none;
+border-radius: 0px 0px 25px 25px;
+}
+
+.content h2 {
+padding: 0px 0 5px 0px;
+}
+
+.content hr {
+width: 100px;
+height: 2px;
+background: #222;
+margin-bottom: 5px;
+}
+
+.content p {
+width: 100%;
+height: 100%;
+}
+
+.active-content {
+display: block;
+}
+
+.send-button{
+    background: #54C7C3;
+    width:100%;
+    font-weight: 600;
+    color:#fff;
+    padding: 8px 25px;
+}
+
+
+
+.my-input{
+box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+cursor: text;
+padding: 8px 10px;
+margin-bottom: 2%;
+margin-top: 5%;
+transition: border .1s linear;
+}
+
+.header-title{
+margin: 5rem 0;
+}
+
+h1{
+font-size: 31px;
+line-height: 40px;
+font-weight: 600;
+color:#4c5357;
+}
+
+h2{
+color: #5e8396;
+font-size: 21px;
+line-height: 32px;
+font-weight: 400;
+}
+
+button{
+    background: #7ba3d6;
+    width:100%;
+    font-weight: 600;
+    color:rgb(70, 66, 66);
+    padding: 8px 25px;
+}
+
