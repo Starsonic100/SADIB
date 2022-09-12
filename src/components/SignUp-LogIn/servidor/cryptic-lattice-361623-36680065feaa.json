@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "cryptic-lattice-361623",
+  "private_key_id": "36680065feaa95d7357fd07e53740b7b438e441e",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCpMFr/mLpFbNqz\nVW1HPYxM5jw09XCJa+ZVbHLOz0rDkY6XGCCvFXgM/CZ8qYOLuQhDwUMu2j8krsdE\n6S5GFODE06Tg7OmSZ8Lza1wdrL2GAM6pJTqHccqHSuTRRTqN26fjaPrazvNVJbor\nCPt/aMTi+8svM2uhyCC5lXr/YYgANm1z5TbnhuR4sUjK90KnjdUuZWBL0HzSTp+D\nn7lxgPYdgZk7K8sKgvRY995/ER+PLGc2s65XSmeqKT3/+StbqJAJZpendqZB1Tey\nH9Xb6+kOe92NBnzuAHzpr7iKhedzrFsCCZLIGC6bz7ZEFO2B5EhxdE1jWM7OxFFp\nQGjEhevTAgMBAAECggEAFxGo1sEUZPL6vwke5V/XCYU7IF13AsXbmjo3TUumfhQS\nxTdc/YKH4/1dohHbBeos3lAzwOexRGcwdIz26kdefnf9O04SawwK4PX6kXFERklF\n5HpXCLDTVK85k+9ElKMmuTNPQRaGx01lnQiUgkLe1bRPeBgizORk0ek35CqASMbp\n6wcswd5O3N8afQLLEES723xQk2yiaPA7gRHpdYLndpB/pyG+IsXeUVeKq9fybcoB\nT9aVPH4/W59V5o9c6cBBPSrHo7D3XokEdkf2j3gOabfDRg/1i90KnatR9yCr6rd6\nYJhndrpDHo49wxOo5VRZLfR+cq/KM2Y9jKaxIYWxgQKBgQDqwb9b2gw7Axou+pwy\nqaUSUix+ej3I/+JRIC0FSmJcJjYEchWlPJTnTkTMMpBAxcRodaNJmqS3FhgrA79Z\nCxdC1dcuv7UcVksm2viKahoU2dDsFDrK1T6xBVvqZFbLWdZOJM8qhXng1/gwXRNF\n2dgf8e+aFKqroWVap2VcyFQjSwKBgQC4f7IfjJbUryyMSebdBmUXMbQRRHmN2MO6\nTCUqqHv3bnkCzhavL61jskuYC8xSXGqKu8u4woGY6zHN1OJnBinadBNIZ5/CxbZx\nHk2ovULgwpXxw2rgSFp6OWoL9YVs6AFzFCcnbPfcwNLQzua59oIAjctkfba02QSj\nQD6TqB38mQKBgGePhwpPG5wg1zkoRyW2XuLBK220IXN9JmqhZhryYIfEN4oohdH5\n8rpDdega2jYoyGdIlfsPZGB8N7cqFQyD7wQF78Jowc25Z7fBW2k8Ozs9h4PNvM3j\n2p8e/RheoUdd30Njy5w3e7erroovVSQ4YLZe9VMkkNHcBilCtV2D5lIXAoGAI51q\n2hI+j4HdPJuLeEEixI5wryCjwlEEv3KxfgGWJJZrv7HeySSP+P3S/9/PKlryqiNE\nWT8a21UTgSNGLRMQgz4C9ugh++xEoqNx5E/cmByX61qIyBDPfmaU5QgZIIPMu9U5\nFbBATJngWDSIb395avf0OkrWOSTnc0gUjFZYq4kCgYAYtRHSlrYaVQHAWfw3iVSQ\n5SBYtu4/1RhH2c+iIyUqgJ4Vwj9LCExjTU7GVsMqrmonvxmP1hRx0W7J8K+/ADed\n/U2OVtRk4y15ZMOfL9fY4sKDGxm8oTrgxZzfi9vzBGfoc3WYaLqanHLJqbyyzciC\nSWCCtYZWOwijdbYmRHrVUw==\n-----END PRIVATE KEY-----\n",
+  "client_email": "googledriveserviceaccount@cryptic-lattice-361623.iam.gserviceaccount.com",
+  "client_id": "106263138989854311456",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/googledriveserviceaccount%40cryptic-lattice-361623.iam.gserviceaccount.com"
+}

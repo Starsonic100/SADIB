@@ -32,7 +32,7 @@ function EditarPaciente(){
     //Función para crear un paciente
     const actualizar_paciente = () => {
         setErrors(validacionPaciente(Nombre,Papellido,Sapellido,FNacimiento,Genero,Email,Telefono,TNombre,TPapellido,TSapellido,TEmail,TTelefono));
-        Axios.post("http://localhost:3002/update",{
+        Axios.post("http://localhost:3001/update",{
         /*Datos del paciente*/    
             pnombre: Nombre,
             ppapellido: Papellido,

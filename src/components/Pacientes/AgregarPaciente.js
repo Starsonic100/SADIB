@@ -31,7 +31,7 @@ function AgregarPaciente(){
     //Función para crear un paciente
     const crear_paciente = () => {
         setErrors(validacionPaciente(Nombre,Papellido,Sapellido,FNacimiento,Genero,Email,Telefono,TNombre,TPapellido,TSapellido,TEmail,TTelefono));
-        Axios.post("http://localhost:3002/create",{
+        Axios.post("http://localhost:3001/create",{
         /*Datos del paciente*/    
             pnombre: Nombre,
             ppapellido: Papellido,

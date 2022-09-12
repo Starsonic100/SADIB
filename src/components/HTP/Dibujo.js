@@ -5,7 +5,8 @@ import lapiz from '../img/lapiz2.png';
 import deshacer from '../img/deshacer.png';
 import borrar from '../img/borrar.png';
 import descargar from '../img/descargar.png';
-import finalizar from '../img/finalizado.png'
+import finalizar from '../img/finalizado.png';
+import Axios from "axios";
 import{ createTheme, MuiThemeProvider, responsiveFontSizes, Typography} from "@material-ui/core";
 
 let theme = createTheme();
@@ -27,7 +28,7 @@ export class Dibujo extends Component {
             const canvasRef = useRef(null);
             const ctxRef = useRef(null);
             const [isDrawing, setIsDrawing] = useState(false);
-            const [lineWidth, setLineWidth] = useState(1.5);
+            const [lineWidth, setLineWidth] = useState(1.75);
             const [lineColor, setLineColor] = useState("black");
             const [lineOpacity, setLineOpacity] = useState(100);
             const [base,setBase] = useState("");
@@ -84,12 +85,12 @@ export class Dibujo extends Component {
             const setToErase = () =>{
                 ctxRef.current.globalCompositeOperation = 'destination-out';
             }
+
             const setToClear = () =>{
                 let canvas=document.getElementById("canvas");
                 let context=canvas.getContext("2d");
                 context.clearRect(0,0,canvas.width,canvas.height);
             }
-
 
             const setToDownload = () =>{
                 let canvas=document.getElementById("canvas");
@@ -98,11 +99,30 @@ export class Dibujo extends Component {
                 link.download = "my-image.png";
                 link.href = image;
                 link.click();
-             
             };
+
+            function dataURItoBlob(dataURI) {
+                let binary = atob(dataURI.split(',')[1]);
+                let array = [];
+                for(let i = 0; i < binary.length; i++) {
+                    array.push(binary.charCodeAt(i));
+                }
+                return new Blob([new Uint8Array(array)], {type: 'image/jpeg'});
+            }
+
             const uploadFile = () => {
-                setBase(document.getElementById("canvas").toDataURL().split(";base64")[1]);
-                
+                let dibujoB = document.getElementById("canvas").toDataURL();
+                let dibujo = dataURItoBlob(dibujoB);
+                let fd = new FormData(document.forms[0]);
+                fd.append('dibujo', dibujo);
+                Axios({
+                    url: 'http://localhost:3001/dibujo',
+                    method: "POST",
+                    data: fd,
+                    headers: {
+                      'Content-Type': 'multipart/form-data'
+                    }
+                })
             };
 
             return(
@@ -132,8 +152,7 @@ export class Dibujo extends Component {
                             ref={canvasRef}/>
                         </div>
                     </div>
-
-                    {/*<div style={{height: 500, border: 'solid', borderColor: '#8F8F8F' }} ref={renderRef} onTouchEnd={handleChangeXML} onMouseLeave={handleChangeXML}/>*/}
+                    
                 </Fragment>
             )
           }
