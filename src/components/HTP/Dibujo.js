@@ -96,8 +96,16 @@ export class Dibujo extends Component {
 
 
             const setToDownload = () =>{
+                let resizedCanvas = document.createElement("canvas");
+                let resizedContext = resizedCanvas.getContext("2d");
+
+                resizedCanvas.height = "500";
+                resizedCanvas.width = "500";
+
                 let canvas=document.getElementById("canvas");
-                let image = canvas.toDataURL("image/png", 1.0).replace("image/png", "image/octet-stream");
+                
+                resizedContext.drawImage(canvas, 0, 0, 500, 500);
+                let image = resizedCanvas.toDataURL("image/png", 1.0).replace("image/png", "image/octet-stream");
                 let link = document.createElement('a');
                 link.download = "my-image.png";
                 link.href = image;
@@ -116,9 +124,15 @@ export class Dibujo extends Component {
             
             
             const uploadFile =() => {
-               let dibujoB = document.getElementById("canvas").toDataURL();
-               let dibujo = dataURItoBlob(dibujoB);
-               let fd = new FormData(document.forms[0]);
+                let resizedCanvas = document.createElement("canvas");
+                let resizedContext = resizedCanvas.getContext("2d");
+                resizedCanvas.height = "500";
+                resizedCanvas.width = "500";
+                let canvas=document.getElementById("canvas");
+                resizedContext.drawImage(canvas, 0, 0, 500, 500);
+                let dibujoB = resizedCanvas.toDataURL();
+                let dibujo = dataURItoBlob(dibujoB);
+                let fd = new FormData(document.forms[0]);
                 fd.append('dibujo', dibujo);
                 Axios({
                     url: 'http://localhost:3001/dibujo',

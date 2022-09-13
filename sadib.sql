@@ -58,6 +58,9 @@ CREATE TABLE `paciente` (
   `apellidop` varchar(15) NOT NULL,
   `apellidom` varchar(15) NOT NULL,
   `fecha_nac` date NOT NULL,
+   `genero` varchar(9) NOT NULL,
+  `correo` varchar(30) DEFAULT NULL,
+  `telefono` varchar(10) NOT NULL,
   `id_psic` varchar(10) NOT NULL,
   `id_tutor` int NOT NULL,
   `rol` int NOT NULL,
@@ -166,6 +169,23 @@ UNLOCK TABLES;
 --
 -- Table structure for table `token`
 --
+CREATE TABLE `bitacora` (
+  `id_in` int NOT NULL AUTO_INCREMENT,
+  `id_psic` varchar(10) NOT NULL,
+  `id_paci` int NOT NULL,
+  `id_prueba` int NOT NULL,
+  `dateIn` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `dateOut` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id_in`),
+  KEY `Ps` (`id_psic`),
+  KEY `Pa` (`id_paci`),
+  KEY `Pr` (`id_prueba`),
+  CONSTRAINT `Pa` FOREIGN KEY (`id_paci`) REFERENCES `paciente` (`id_paci`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `Pr` FOREIGN KEY (`id_prueba`) REFERENCES `prueba` (`id_prueba`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `Ps` FOREIGN KEY (`id_psic`) REFERENCES `psicologo` (`id_psic`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
 
 DROP TABLE IF EXISTS `token`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
