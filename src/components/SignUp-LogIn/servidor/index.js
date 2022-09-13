@@ -155,6 +155,13 @@ app.post("/update", (req,res) =>{
   
 });
 
+app.get("/pacientes", (req,res) =>{
+
+  db.query(
+    "SELECT id_paci,apellidop,apellidom,nombre FROM paciente",(err,result) => { console.log(err); res.send(JSON.stringify(result));}
+  );
+});
+
 app.post("/dibujo", upload.single('dibujo'), (req,res)=>{
   //console.log(Readable.from(req.file.buffer));
   createAndUploadFile(auth,req.file).catch(console.error);
