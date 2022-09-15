@@ -5,9 +5,8 @@ import Principal from './components/Principal/PrincipalPage';
 import TAMAI from './components/TAMAI/TAMAIPage';
 import HTP from './components/HTP/HTPPage';
 import SignLog from './components/SignUp-LogIn/cliente/SignUp-LogIn';
-import VerPaciente from './components/Pacientes/VerPaciente';
+import Pacientes from './components/Pacientes/PacientesPage';
 import AgregarPaciente from './components/Pacientes/AgregarPaciente';
-import EditarPaciente from './components/Pacientes/EditarPaciente';
 
 function App() {
   return (
@@ -19,9 +18,8 @@ function App() {
           <Route path='/SignUp-LogIn' element={<SignLog/>}/>
           <Route path='/TAMAI' element={<TAMAI/>}/>
           <Route path='/HTP' element={<HTP/>}/>
-          <Route path='/VerPaciente' element={<VerPaciente/>}/>
+          <Route path='/Pacientes' element={<Pacientes/>}/>
           <Route path='/AgregarPaciente' element={<AgregarPaciente/>}/>
-          <Route path='/EditarPaciente' element={<EditarPaciente/>}/>
         </Routes>
         <Footer/>
       </BrowserRouter>

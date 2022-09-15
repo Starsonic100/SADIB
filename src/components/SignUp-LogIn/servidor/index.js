@@ -162,6 +162,15 @@ app.get("/pacientes", (req,res) =>{
   );
 });
 
+app.get("/obtenerDatos",(req,res)=>{
+
+  const id_paci= req.query;
+
+  db.query(
+    "SELECT paciente.nombre,paciente.apellidop,paciente.apellidom,CONCAT(YEAR(fecha_nac),'/',MONTH(fecha_nac),'/',DAY(fecha_nac)) as fecha_nac,genero,paciente.correo,paciente.telefono,tutor.nombre AS nombret,tutor.apellidop AS apellidopt,tutor.apellidom AS apellidomt,tutor.correo AS correot,tutor.telefono AS telefonot FROM paciente INNER JOIN tutor ON paciente.id_tutor=tutor.id_tutor AND id_paci=?;",[id_paci.id_paci],(err,result) => { console.log(err); res.send(JSON.stringify(result));}
+  );
+});
+
 app.post("/dibujo", upload.single('dibujo'), (req,res)=>{
   //console.log(Readable.from(req.file.buffer));
   createAndUploadFile(auth,req.file).catch(console.error);

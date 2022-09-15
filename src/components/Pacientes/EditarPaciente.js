@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Link } from "react-router-dom";
 import '../css/pacientes.css';
 import{ createTheme, MuiThemeProvider, responsiveFontSizes, Typography} from "@material-ui/core";
 import Axios from "axios";
@@ -51,6 +50,7 @@ function EditarPaciente(){
             console.log(response);
         });
     };
+    
 
     return(
         <div className="container">
@@ -282,9 +282,7 @@ function EditarPaciente(){
                                                 <div align="center">
                                                     <div className="col-lg-3">
                                                         <div className="text-center">
-                                                            <Link to="/VerPaciente">
-                                                                <button type="submit" class="boton">Regresar</button>
-                                                            </Link>
+                                                            <button type="submit" class="boton" onClick={() => window.location.reload()}>Regresar</button>
                                                         </div>
                                                     </div>
                                                     <div className="col-lg-3">

@@ -319,7 +319,7 @@ export class Casa extends Component {
 
                                     <div className="main row">
                                         <div className="col-lg-10">
-                                            <button class="button"onClick={this.regresar}><img src={anterior}/></button>
+                                            <button class="button" onClick={this.regresar}><img src={anterior}/></button>
                                         </div>
                                         <div className="col-lg-1">
                                             <button class="button" onClick={this.continuar}><img src={siguiente}/></button>
