@@ -56,8 +56,7 @@ export class PacientesPage extends Component {
                         values={values}
                     />
                 );
-
-
+                
             default:
                 return <div>Error</div>;
         }

@@ -127,7 +127,7 @@ app.post("/create", (req,res) =>{
 
 app.post("/update", (req,res) =>{
 
-  const id_paciente=301909;
+  const id_paci=req.body.id_paci;
 
   //Datos del tutor
   const tnombre = req.body.tnombre
@@ -146,11 +146,11 @@ app.post("/update", (req,res) =>{
   const telefono = req.body.ptelefono
 
   db.query(
-    "UPDATE tutor SET nombre=?,apellidop=?,apellidom=?,correo=?,telefono=? WHERE id_tutor IN (SELECT id_tutor FROM paciente WHERE id_paci=?)",[tnombre,tpapellido,tsapellido,temail,ttelefono,id_paciente],(err,result) => { console.log(err); }
+    "UPDATE tutor SET nombre=?,apellidop=?,apellidom=?,correo=?,telefono=? WHERE id_tutor IN (SELECT id_tutor FROM paciente WHERE id_paci=?)",[tnombre,tpapellido,tsapellido,temail,ttelefono,id_paci],(err,result) => { console.log(err); }
   );
 
   db.query(
-    "UPDATE paciente SET nombre=?,apellidop=?,apellidom=?,fecha_nac=?,genero=?,correo=?,telefono=? WHERE id_paci=?",[nombre,papellido,sapellido,fecha_nac,genero,email,telefono,id_paciente],(err,result) => { console.log(err); }
+    "UPDATE paciente SET nombre=?,apellidop=?,apellidom=?,fecha_nac=?,genero=?,correo=?,telefono=? WHERE id_paci=?",[nombre,papellido,sapellido,fecha_nac,genero,email,telefono,id_paci],(err,result) => { console.log(err); }
   );
   
 });

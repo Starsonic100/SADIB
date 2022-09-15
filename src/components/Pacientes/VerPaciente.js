@@ -31,7 +31,6 @@ class VerPaciente extends Component{
         });
     }
 
-
     render(){
 
         const { values, handleInputChange } = this.props;
@@ -204,7 +203,7 @@ class VerPaciente extends Component{
                                                                 </span>
                                                                 <span class="form-control">
                                                                     {this.state.datosPaciente.map(e => (
-                                                                       <a>{e.apellidom}</a>
+                                                                       <t>{e.apellidom}</t>
                                                                     ))}
                                                                 </span>
                                                             </div>
@@ -221,7 +220,7 @@ class VerPaciente extends Component{
                                                                 </span>
                                                                 <span class="form-control">
                                                                     {this.state.datosPaciente.map(e => (
-                                                                       <a>{e.fecha_nac}</a>
+                                                                       <t>{e.fecha_nac}</t>
                                                                     ))}
                                                                 </span>
                                                             </div>
@@ -236,7 +235,7 @@ class VerPaciente extends Component{
                                                                 </span>
                                                                 <span class="form-control">
                                                                     {this.state.datosPaciente.map(e => (
-                                                                       <a>{e.genero}</a>
+                                                                       <t>{e.genero}</t>
                                                                     ))}
                                                                 </span>
                                                             </div>
@@ -251,7 +250,7 @@ class VerPaciente extends Component{
                                                                 </span>
                                                                 <span class="form-control">
                                                                     {this.state.datosPaciente.map(e => (
-                                                                       <a>{e.correo}</a>
+                                                                       <t>{e.correo}</t>
                                                                     ))}
                                                                 </span>
                                                             </div>
@@ -268,7 +267,7 @@ class VerPaciente extends Component{
                                                                 </span>
                                                                 <span class="form-control">
                                                                     {this.state.datosPaciente.map(e => (
-                                                                       <a>{e.telefono}</a>
+                                                                       <t>{e.telefono}</t>
                                                                     ))}
                                                                 </span>
                                                             </div>
@@ -303,7 +302,7 @@ class VerPaciente extends Component{
                                                                 </span>
                                                                 <span class="form-control">
                                                                     {this.state.datosPaciente.map(e => (
-                                                                       <a>{e.nombret}</a>
+                                                                       <t>{e.nombret}</t>
                                                                     ))}
                                                                 </span>
                                                             </div>
@@ -318,7 +317,7 @@ class VerPaciente extends Component{
                                                                 </span>
                                                                 <span class="form-control">
                                                                     {this.state.datosPaciente.map(e => (
-                                                                       <a>{e.apellidopt}</a>
+                                                                       <t>{e.apellidopt}</t>
                                                                     ))}
                                                                 </span>
                                                             </div>
@@ -333,7 +332,7 @@ class VerPaciente extends Component{
                                                                 </span>
                                                                 <span class="form-control">
                                                                     {this.state.datosPaciente.map(e => (
-                                                                       <a>{e.apellidomt}</a>
+                                                                       <t>{e.apellidomt}</t>
                                                                     ))}
                                                                 </span>
                                                             </div>
@@ -350,7 +349,7 @@ class VerPaciente extends Component{
                                                                 </span>
                                                                 <span class="form-control">
                                                                     {this.state.datosPaciente.map(e => (
-                                                                       <a>{e.correot}</a>
+                                                                       <t>{e.correot}</t>
                                                                     ))}
                                                                 </span>
                                                             </div>
@@ -365,7 +364,7 @@ class VerPaciente extends Component{
                                                                 </span>
                                                                 <span class="form-control">
                                                                     {this.state.datosPaciente.map(e => (
-                                                                       <a>{e.telefonot}</a>
+                                                                       <t>{e.telefonot}</t>
                                                                     ))}
                                                                 </span>
                                                             </div>

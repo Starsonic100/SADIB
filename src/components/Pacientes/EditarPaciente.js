@@ -8,7 +8,7 @@ import validacionPaciente from './validacionPaciente';
 let theme = createTheme();
 theme = responsiveFontSizes(theme);
 
-function EditarPaciente(){
+function EditarPaciente(props,state){
 
     /*Datos del paciente*/
     const [Nombre, setNombre] = useState("");
@@ -28,11 +28,14 @@ function EditarPaciente(){
 
     const [errors, setErrors] = useState({});
 
-    //Función para crear un paciente
+    const id_paciente=props.values.id_paciente;
+
+    //Función para editar un paciente
     const actualizar_paciente = () => {
         setErrors(validacionPaciente(Nombre,Papellido,Sapellido,FNacimiento,Genero,Email,Telefono,TNombre,TPapellido,TSapellido,TEmail,TTelefono));
         Axios.post("http://localhost:3001/update",{
-        /*Datos del paciente*/    
+        /*Datos del paciente*/
+            id_paci: id_paciente,    
             pnombre: Nombre,
             ppapellido: Papellido,
             psapellido: Sapellido,
@@ -50,7 +53,6 @@ function EditarPaciente(){
             console.log(response);
         });
     };
-    
 
     return(
         <div className="container">
@@ -94,11 +96,11 @@ function EditarPaciente(){
                                                                     <Typography variant="h6" class="contenido">{"ID paciente"}</Typography>
                                                                 </MuiThemeProvider>
                                                             </span>
-                                                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" readonly="readonly"></input>
+                                                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" readonly="readonly" value={id_paciente}></input>
                                                         </div>
                                                     </div> 
                                                 </div>
-
+                                                
                                                 <div className="main row">
                                                     <div className="col-xs-12 col-sm-12 col-md-4 col-lg-4">
                                                         <div class="input-group input-group-sm mb-3">
