@@ -3,14 +3,27 @@ import '../../css/sign-log.css';
 import lapiz from '../../img/lapiz.png';
 import Axios from "axios";
 import validacion from './validacion';
+import validacion2 from './validacion2';
+import useLogin from './useLogin';
 
-function Registro(){ 
+const Login = ({ submitForm }) =>{
+    const { handleChange, handleSubmit, valores, errores, loginStatus } = useLogin(
+        submitForm,
+        validacion2
+    );
+
     /*Para el menú tabs*/
     const [toggleState, setToggleState] = useState(1);
 
     const toggleTab = (index) => {
       setToggleState(index);
     };
+
+    const [isSubmitted, setIsSubmitted] = useState(false);
+
+    function submitForm() {
+        setIsSubmitted(true);
+    }
 
     const [Fusuario, setFusuario] = useState("");
     const [Fnombre, setFnombre] = useState("");
@@ -19,9 +32,6 @@ function Registro(){
     const [Fcorreo, setFcorreo] = useState("");
     const [Ftelefono, setFtelefono] = useState("");
     const [Fcontrasenia, setFcontrasenia] = useState("");
-    
-    const [correol, setCorreol] = useState("");
-    const [contrasenial, setContrasenial] = useState("");
     
     const [errors, setErrors] = useState({});
 
@@ -38,15 +48,6 @@ function Registro(){
         }).then((response) => {
             console.log(response);
         }); 
-    };
-
-    const login = () => {
-        Axios.post("http://localhost:3001/login",{
-            correologin: correol,
-            contrasenialogin: contrasenial,
-        }).then((response) => {
-            console.log(response);
-        });
     };
 
     return(
@@ -109,19 +110,24 @@ function Registro(){
                             <div
                             className={toggleState === 2 ? "content  active-content" : "content"}
                             >
-                                <div class="myform form">
-                                    <div align="center">
-                                        <div class="form-group">
-                                            <input type="email" class="form-control my-input" placeholder="Correo electrónico" onChange={(e) => {setCorreol(e.target.value);}}/>
+                                <form onSubmit={handleSubmit} className='form' noValidate>
+                                    <div class="myform form">
+                                        <div align="center">
+                                            <div class="form-group">
+                                                <input type="email" class="form-control my-input" placeholder="Correo electrónico" name='Fcorreo' value={valores.Fcorreo} onChange={handleChange}/>
+                                                {errores.correo && <h6 class="error">{errores.correo}</h6>}
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="password" class="form-control my-input" placeholder="Contraseña" name='Fcontrasenia' value={valores.Fcontrasenia} onChange={handleChange}/>
+                                                {errores.contrasenia && <h6 class="error">{errores.contrasenia}</h6>}
+                                            </div>
                                         </div>
-                                        <div class="form-group">
-                                            <input type="password" class="form-control my-input" placeholder="Contraseña" onChange={(e) => {setContrasenial(e.target.value);}}/>
+                                        <div align="center">
+                                            <h6>{loginStatus}</h6>
+                                            <button type="submit" class="btn btn-block send-button tx-tfm">Iniciar sesión</button>
                                         </div>
                                     </div>
-                                    <div align="center">
-                                        <button type="submit" class="btn btn-block send-button tx-tfm" onClick={login}>Iniciar sesión</button>
-                                    </div>
-                                </div>
+                                </form>
                             </div>
                         </div>
 
@@ -138,4 +144,4 @@ function Registro(){
     );
 }
 
-export default Registro;
+export default Login;

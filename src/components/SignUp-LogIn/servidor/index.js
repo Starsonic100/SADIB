@@ -66,26 +66,53 @@ app.post("/registro", (req,res) =>{
   const contrasenia = md5(req.body.contrasenia);
 
   db.query(
-    "INSERT INTO psicologo (id_psic,nombre,apellidop,apellidom,correo,telefono,contrasenia) VALUES(?,?,?,?,?,?,?)",[usuario,nombre,papellido,sapellido,correo,telefono,contrasenia],(err,result) => { console.log(err); }
+    "INSERT INTO psicologo (id_psic,nombre,apellidop,apellidom,correo,telefono,rol) VALUES(?,?,?,?,?,?,2)",[usuario,nombre,papellido,sapellido,correo,telefono],(err,result) => { console.log(err); }
   );
 
+  db.query(
+    "INSERT INTO login (id_usuario,correo,contrasenia) VALUES(?,?,?)",[usuario,correo,contrasenia],(err,result) => { console.log(err); }
+  );
+});
+
+app.get("/login", (req, res) => {
+  console.log(req.session.user);
+
+  if (req.session.user) {
+    res.send({ loggedIn: true, user: req.session.user });
+  } else {
+    res.send({ loggedIn: false });
+  }
+});
+
+app.get('/logout',  (req, res) => {
+  console.log("Cierre sesion: "+req.session.user);
+  if (req.session.user) {
+      delete req.session.user;
+      res.send({result: 'SUCCESS'});
+  } else {
+      res.send({result: 'ERROR', message: 'User is not logged in.'});
+  }
 });
 
 app.post("/login", (req,res) =>{
   
-  const correo = req.body.correologin;
-  const contrasenia = md5(req.body.contrasenialogin);
+  const correo = req.body.correo;
+  const contrasenia = md5(req.body.contrasenia);
   
   db.query(
-    "SELECT * FROM login WHERE correo = ? AND contrasenia = ?",[correo,contrasenia],(err,result) => {
-      if(err){
-        res.send({err: err})
+    "SELECT nombre, apellidop, apellidop,apellidom, telefono, rol, id_usuario, login.correo, login.contrasenia FROM login, psicologo WHERE login.correo = ? and login.contrasenia = ?;",
+    [correo,contrasenia],
+    (err, result) => {
+      if (err) {
+        res.send({ err: err });
       }
 
-      if(result.length>0){
-        res.send(result)
-      }else{
-        res.send("Sesión no iniciada, vuelva a intentarlo")
+      if (result.length > 0) {
+            req.session.user = result;
+            console.log(req.session.user);
+            res.send(result);
+      } else {
+        res.send({ message: "No se encuentra este usuario" });
       }
     }
   );
@@ -165,9 +192,7 @@ app.get("/pacientes", (req,res) =>{
 app.get("/obtenerDatos",(req,res)=>{
 
   const id_paci= req.query;
-
   
-
   db.query(
     "SELECT paciente.nombre,paciente.apellidop,paciente.apellidom,CONCAT(YEAR(fecha_nac),'-',DATE_FORMAT(fecha_nac,'%m'),'-',DATE_FORMAT(fecha_nac,'%d')) as fecha_nac,genero,paciente.correo,paciente.telefono,tutor.nombre AS nombret,tutor.apellidop AS apellidopt,tutor.apellidom AS apellidomt,tutor.correo AS correot,tutor.telefono AS telefonot FROM paciente INNER JOIN tutor ON paciente.id_tutor=tutor.id_tutor AND id_paci=?;",[id_paci.id_paci],(err,result) => { console.log(err); res.send(JSON.stringify(result));}
   );
