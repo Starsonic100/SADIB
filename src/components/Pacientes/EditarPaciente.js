@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../css/pacientes.css';
 import{ createTheme, MuiThemeProvider, responsiveFontSizes, Typography} from "@material-ui/core";
 import Axios from "axios";
@@ -8,7 +8,7 @@ import validacionPaciente from './validacionPaciente';
 let theme = createTheme();
 theme = responsiveFontSizes(theme);
 
-function EditarPaciente(props,state){
+function EditarPaciente(props){
 
     /*Datos del paciente*/
     const [Nombre, setNombre] = useState("");
@@ -27,6 +27,8 @@ function EditarPaciente(props,state){
     const [TTelefono, setTTelefono] = useState("");
 
     const [errors, setErrors] = useState({});
+
+    const [post, setPost] = useState([]);
 
     const id_paciente=props.values.id_paciente;
 
@@ -53,6 +55,16 @@ function EditarPaciente(props,state){
             console.log(response);
         });
     };
+
+    useEffect(() => {
+        Axios.get("http://localhost:3001/obtenerDatos",{
+            params: {
+                id_paci: id_paciente
+            }
+        }).then((response) => {
+            setPost(response.data);
+        });
+    }, [setPost]);
 
     return(
         <div className="container">
@@ -85,7 +97,7 @@ function EditarPaciente(props,state){
                                                 </div>
                                             </div>
                                             <hr></hr>
-                                            
+
                                             <div class="form-group">
                                                 <div className="main row">
                                                     <div className="col-xs-6 col-sm-6 col-md-3 col-lg-3">
@@ -100,7 +112,7 @@ function EditarPaciente(props,state){
                                                         </div>
                                                     </div> 
                                                 </div>
-                                                
+
                                                 <div className="main row">
                                                     <div className="col-xs-12 col-sm-12 col-md-4 col-lg-4">
                                                         <div class="input-group input-group-sm mb-3">
@@ -109,8 +121,10 @@ function EditarPaciente(props,state){
                                                                     <Typography variant="h6" class="contenido">{"Nombre(s)"}</Typography>
                                                                 </MuiThemeProvider>
                                                             </span>
-                                                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" onChange={(e) => {setNombre(e.target.value);}}>
-                                                            </input>
+                                                            {post.map((item) => (
+                                                                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" onChange={(e) => {setNombre(e.target.value);}} defaultValue={item.nombre}>
+                                                                </input>
+                                                            ))}
                                                         </div>
                                                         {errors.pnombre && <h6 class="error">{errors.pnombre}</h6>}
                                                     </div>
@@ -122,7 +136,9 @@ function EditarPaciente(props,state){
                                                                     <Typography variant="h6" class="contenido">{"Primer apellido"}</Typography>
                                                                 </MuiThemeProvider>
                                                             </span>
-                                                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" onChange={(e) => {setPapellido(e.target.value);}}></input>
+                                                            {post.map((item) => (
+                                                                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" onChange={(e) => {setPapellido(e.target.value);}} defaultValue={item.apellidop}></input>
+                                                            ))}
                                                         </div>
                                                         {errors.ppapellido && <h6 class="error">{errors.ppapellido}</h6>}
                                                     </div>
@@ -134,7 +150,9 @@ function EditarPaciente(props,state){
                                                                     <Typography variant="h6" class="contenido">{"Segundo apellido"}</Typography>
                                                                 </MuiThemeProvider>
                                                             </span>
-                                                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" onChange={(e) => {setSapellido(e.target.value);}}></input>
+                                                            {post.map((item) => (
+                                                                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" onChange={(e) => {setSapellido(e.target.value);}} defaultValue={item.apellidom}></input>
+                                                            ))}
                                                         </div>
                                                         {errors.psapellido && <h6 class="error">{errors.psapellido}</h6>}
                                                     </div>
@@ -148,7 +166,9 @@ function EditarPaciente(props,state){
                                                                     <Typography variant="h6" class="contenido">{"Fecha de nacimiento"}</Typography>
                                                                 </MuiThemeProvider>
                                                             </span>
-                                                            <input type="date" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" onChange={(e) => {setFNacimiento(e.target.value);}}></input>
+                                                            {post.map((item) => (
+                                                                <input type="date" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" onChange={(e) => {setFNacimiento(e.target.value);}} defaultValue={item.fecha_nac}></input>
+                                                            ))} 
                                                         </div>
                                                         {errors.pfnacimiento && <h6 class="error">{errors.pfnacimiento}</h6>}
                                                     </div>
@@ -160,11 +180,13 @@ function EditarPaciente(props,state){
                                                                     <Typography variant="h6" class="contenido">{"Género"}</Typography>
                                                                 </MuiThemeProvider>
                                                             </span>
-                                                            <select class="form-select" aria-label="Default select example" onChange={(e) => {setGenero(e.target.value);}}>
+                                                            {post.map((item) => (
+                                                                <select class="form-select" aria-label="Default select example" onChange={(e) => {setGenero(e.target.value);}} defaultValue={item.genero}>
                                                                 <option selected>Seleccionar</option>
                                                                 <option value="Femenino">Femenino</option>
                                                                 <option value="Masculino">Masculino</option>
                                                             </select>
+                                                            ))}
                                                         </div>
                                                         {errors.pgenero && <h6 class="error">{errors.pgenero}</h6>}
                                                     </div>
@@ -176,7 +198,9 @@ function EditarPaciente(props,state){
                                                                     <Typography variant="h6" class="contenido">{"Correo electrónico"}</Typography>
                                                                 </MuiThemeProvider>
                                                             </span>
-                                                            <input type="email" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" onChange={(e) => {setEmail(e.target.value);}}></input>
+                                                            {post.map((item) => (
+                                                                <input type="email" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" onChange={(e) => {setEmail(e.target.value);}} defaultValue={item.correo}></input>
+                                                            ))}
                                                         </div>
                                                         {errors.pemail && <h6 class="error">{errors.pemail}</h6>}
                                                     </div>
@@ -190,7 +214,9 @@ function EditarPaciente(props,state){
                                                                     <Typography variant="h6" class="contenido">{"Teléfono"}</Typography>
                                                                 </MuiThemeProvider>
                                                             </span>
-                                                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" onChange={(e) => {setTelefono(e.target.value);}}></input>
+                                                            {post.map((item) => (
+                                                                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" onChange={(e) => {setTelefono(e.target.value);}} defaultValue={item.telefono}></input>
+                                                            ))}
                                                         </div>
                                                         {errors.ptelefono && <h6 class="error">{errors.ptelefono}</h6>}
                                                     </div>
@@ -223,7 +249,9 @@ function EditarPaciente(props,state){
                                                                     <Typography variant="h6" class="contenido">{"Nombre(s)"}</Typography>
                                                                 </MuiThemeProvider>
                                                             </span>
-                                                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" onChange={(e) => {setTNombre(e.target.value);}}></input>
+                                                            {post.map((item) => (
+                                                                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" onChange={(e) => {setTNombre(e.target.value);}} defaultValue={item.nombret}></input>
+                                                            ))}
                                                         </div>
                                                         {errors.tnombre && <h6 class="error">{errors.tnombre}</h6>}
                                                     </div>
@@ -235,7 +263,9 @@ function EditarPaciente(props,state){
                                                                     <Typography variant="h6" class="contenido">{"Primer apellido"}</Typography>
                                                                 </MuiThemeProvider>
                                                             </span>
-                                                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" onChange={(e) => {setTPapellido(e.target.value);}}></input>
+                                                            {post.map((item) => (
+                                                                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" onChange={(e) => {setTPapellido(e.target.value);}} defaultValue={item.apellidopt}></input>
+                                                            ))}
                                                         </div>
                                                         {errors.tpapellido && <h6 class="error">{errors.tpapellido}</h6>}
                                                     </div>
@@ -247,7 +277,9 @@ function EditarPaciente(props,state){
                                                                     <Typography variant="h6" class="contenido">{"Segundo apellido"}</Typography>
                                                                 </MuiThemeProvider>
                                                             </span>
-                                                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" onChange={(e) => {setTSapellido(e.target.value);}}></input>
+                                                            {post.map((item) => (
+                                                                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" onChange={(e) => {setTSapellido(e.target.value);}} defaultValue={item.apellidomt}></input>
+                                                            ))}
                                                         </div>
                                                         {errors.tsapellido && <h6 class="error">{errors.tsapellido}</h6>}
                                                     </div>
@@ -261,7 +293,9 @@ function EditarPaciente(props,state){
                                                                     <Typography variant="h6" class="contenido">{"Correo electrónico"}</Typography>
                                                                 </MuiThemeProvider>
                                                             </span>
-                                                            <input type="email" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" onChange={(e) => {setTEmail(e.target.value);}}></input>
+                                                            {post.map((item) => (
+                                                                <input type="email" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" onChange={(e) => {setTEmail(e.target.value);}} defaultValue={item.correot}></input>
+                                                            ))}
                                                         </div>
                                                         {errors.temail && <h6 class="error">{errors.temail}</h6>}
                                                     </div>
@@ -273,7 +307,9 @@ function EditarPaciente(props,state){
                                                                     <Typography variant="h6" class="contenido">{"Teléfono"}</Typography>
                                                                 </MuiThemeProvider>
                                                             </span>
-                                                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" onChange={(e) => {setTTelefono(e.target.value);}}></input>
+                                                            {post.map((item) => (
+                                                                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" onChange={(e) => {setTTelefono(e.target.value);}} defaultValue={item.telefonot}></input>
+                                                            ))}
                                                         </div>
                                                         {errors.ttelefono && <h6 class="error">{errors.ttelefono}</h6>}
                                                     </div>
