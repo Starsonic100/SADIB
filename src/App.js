@@ -10,6 +10,8 @@ import HTP from './components/HTP/HTPPage';
 import SignLog from './components/SignUp-LogIn/cliente/SignUp-LogIn';
 import Pacientes from './components/Pacientes/PacientesPage';
 import AgregarPaciente from './components/Pacientes/AgregarPaciente';
+import EditarDatos from './components/Psicologo/EditarDatos/FormEditarDatos';
+import AsignarPrueba from './components/Psicologo/AsignarPrueba/FormAsignarPrueba';
 
 function App() {
   
@@ -39,6 +41,8 @@ function App() {
         <Route path='/HTP' element={<HTP/>}/>
         <Route path='/Pacientes' element={<Pacientes/>}/>
         <Route path='/AgregarPaciente' element={<AgregarPaciente/>}/>
+        <Route path="/EditarPsic" element={<EditarDatos/>}/>
+        <Route path="/AsignarPrueba" element={<AsignarPrueba/>}/>
       </Routes>
       <Footer/>
     </Router>

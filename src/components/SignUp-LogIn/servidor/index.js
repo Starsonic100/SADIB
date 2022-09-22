@@ -152,7 +152,7 @@ app.post("/create", (req,res) =>{
   
 });
 
-app.post("/update", (req,res) =>{
+app.put("/update", (req,res) =>{
 
   const id_paci=req.body.id_paci;
 
@@ -196,6 +196,45 @@ app.get("/obtenerDatos",(req,res)=>{
   db.query(
     "SELECT paciente.nombre,paciente.apellidop,paciente.apellidom,CONCAT(YEAR(fecha_nac),'-',DATE_FORMAT(fecha_nac,'%m'),'-',DATE_FORMAT(fecha_nac,'%d')) as fecha_nac,genero,paciente.correo,paciente.telefono,tutor.nombre AS nombret,tutor.apellidop AS apellidopt,tutor.apellidom AS apellidomt,tutor.correo AS correot,tutor.telefono AS telefonot FROM paciente INNER JOIN tutor ON paciente.id_tutor=tutor.id_tutor AND id_paci=?;",[id_paci.id_paci],(err,result) => { console.log(err); res.send(JSON.stringify(result));}
   );
+});
+
+app.put("/editarPsic", (req,res) =>{
+
+  const usuario = req.body.usuario
+  const nombre = req.body.nombre
+  const papellido = req.body.papellido
+  const sapellido = req.body.sapellido
+  const correo = req.body.correo
+  const telefono = req.body.telefono
+  const contrasenia = md5(req.body.contrasenia);
+
+
+  db.query(
+    "UPDATE psicologo SET nombre=?,apellidop=?,apellidom=?,correo=?,telefono=? WHERE id_psic=?",[nombre,papellido,sapellido,correo,telefono,usuario],(err,result) => { console.log(); }
+  );
+
+  db.query(
+    "UPDATE login SET correo=?, contrasenia=? WHERE id_usuario=?",[correo,contrasenia,usuario],(err,result) => { console.log(err); }
+  );
+  db.query(
+    "SELECT nombre, apellidop, apellidop,apellidom, telefono, rol, id_usuario, login.correo, login.contrasenia FROM login, psicologo WHERE id_usuario = ?;",
+    [usuario],
+    (err, result) => {
+      
+            req.session.user = result;
+            res.send(result);
+    }
+  );
+});
+
+app.get("/editarPsic", (req, res) => {
+  console.log(req.session.user);
+
+  if (req.session.user) {
+    res.send({ user: req.session.user });
+  } else {
+    res.send({ loggedIn: false });
+  }
 });
 
 app.post("/dibujo", upload.single('dibujo'), (req,res)=>{

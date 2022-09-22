@@ -160,3 +160,9 @@ h2{
     line-height: 32px;
     font-weight: 400;
 }
+
+.image-center{
+    position: relative;
+    top: 15%;
+    margin-bottom: 20%;
+}

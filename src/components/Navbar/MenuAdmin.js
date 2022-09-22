@@ -87,11 +87,11 @@ function MenuAdmin() {
                 <span>Como Funciona</span></Linker>
             </li>
             <li className='nav-text'>
-              <Link to="/Login"onClick={showSidebar}>
+              <Link to="/AgregarPaciente"onClick={showSidebar}>
                 <span>Registrar Paciente</span></Link>
             </li>
             <li className='nav-text'>
-              <Link to="/SignUp" onClick={showSidebar}>
+              <Link to="/Pacientes" onClick={showSidebar}>
                 <span>Ver Pacientes</span></Link>
             </li>
             <li className='nav-text'>

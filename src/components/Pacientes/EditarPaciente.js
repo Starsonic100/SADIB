@@ -35,7 +35,7 @@ function EditarPaciente(props){
     //Función para editar un paciente
     const actualizar_paciente = () => {
         setErrors(validacionPaciente(Nombre,Papellido,Sapellido,FNacimiento,Genero,Email,Telefono,TNombre,TPapellido,TSapellido,TEmail,TTelefono));
-        Axios.post("http://localhost:3001/update",{
+        Axios.put("http://localhost:3001/update",{
         /*Datos del paciente*/
             id_paci: id_paciente,    
             pnombre: Nombre,
@@ -122,7 +122,7 @@ function EditarPaciente(props){
                                                                 </MuiThemeProvider>
                                                             </span>
                                                             {post.map((item) => (
-                                                                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" onChange={(e) => {setNombre(e.target.value);}} defaultValue={item.nombre}>
+                                                                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" defaultValue={item.nombre} onChange={(e) => {setNombre(e.target.value);}} >
                                                                 </input>
                                                             ))}
                                                         </div>
@@ -333,6 +333,7 @@ function EditarPaciente(props){
                                         </div>
                                     </div>
                                 </div>
+                                
                             </div>
                             {/*Termina div de preguntas*/}
 

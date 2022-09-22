@@ -134,8 +134,10 @@ const Login = ({ submitForm }) =>{
                     </div>
                     
                     <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                        <div align="center">
-                            <img src={lapiz} width="90%" alt="Lápiz" title="Lápiz"/>
+                        <div className="image-center">
+                            <div align="center">
+                                <img src={lapiz} width="90%" alt="Lápiz" title="Lápiz"/>
+                            </div>
                         </div>
                     </div>
                 </div>
