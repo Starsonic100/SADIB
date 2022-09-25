@@ -237,6 +237,39 @@ app.get("/editarPsic", (req, res) => {
   }
 });
 
+app.get("/datosPaciente",(req,res)=>{
+  console.log();
+  db.query(
+    "SELECT * from paciente where id_psic=?",req.session.user[0].id_usuario,(err, result)=>{
+      res.send(result);
+      
+      console.log(result);
+    }
+  );
+});
+
+app.post("/asignarPrueba", (req,res) =>{
+  
+  const token = req.body.token
+  const paciente = req.body.paciente
+  const prueba1 = req.body.prueba1
+  const prueba = req.body.prueba
+  console.log("HTP"+prueba1);
+  console.log("TAMAI"+prueba);
+
+  if(prueba1!=""){
+    db.query(
+      "INSERT INTO token (token,id_psic,id_paci,id_prueba,fecha,estado) VALUES(?,?,?,?,now(),'Asignado')",[token,req.session.user[0].id_usuario,paciente,prueba1],(err,result) => { console.log(err); }
+    );
+  }
+  else{
+    db.query(
+      "INSERT INTO token (token,id_psic,id_paci,id_prueba,fecha,estado) VALUES(?,?,?,?,now(),'Asignado')",[token,req.session.user[0].id_usuario,paciente,prueba],(err,result) => { console.log(err); }
+    );
+  }
+
+});
+
 app.post("/dibujo", upload.single('dibujo'), (req,res)=>{
   //console.log(Readable.from(req.file.buffer));
   createAndUploadFile(auth,req.file).catch(console.error);

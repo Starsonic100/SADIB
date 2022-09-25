@@ -5,6 +5,7 @@ html, body{
 .container{
     width: 100%;
     height: auto;
+    margin-top: 2%;
 }
 
 .formulario-psicologo{
@@ -81,7 +82,7 @@ h6.contenido-psicologo{
 }
 
 hr{
-    margin-bottom: 3%;
+    margin-bottom: 5%;
 }
 
 .botonp{
