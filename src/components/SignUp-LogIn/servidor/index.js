@@ -147,7 +147,7 @@ app.post("/create", (req,res) =>{
   );
 
   db.query(
-    "INSERT INTO paciente (id_paci,nombre,apellidop,apellidom,fecha_nac,genero,correo,telefono,id_tutor) VALUES(?,?,?,?,?,?,?,?,?)",[id_paciente,nombre,papellido,sapellido,fecha_nac,genero,email,telefono,id_tutor],(err,result) => { console.log(err); }
+    "INSERT INTO paciente (id_paci,nombre,apellidop,apellidom,fecha_nac,genero,correo,telefono,id_tutor,rol,id_psic) VALUES(?,?,?,?,?,?,?,?,?,?,?)",[id_paciente,nombre,papellido,sapellido,fecha_nac,genero,email,telefono,id_tutor,0,req.session.user[0].id_usuario],(err,result) => { console.log(err); }
   );
   
 });
