@@ -82,9 +82,9 @@ const EditarDatos = ({ submitForm }) => {
                                                                 </span>
                                                                 <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" name='Fnombre' id='Fnombre' value={valores.Fnombre} onChange={handleChange}>
                                                                 </input>
-                                                                {errores.nombre && <h6 class="error">{errores.nombre}</h6>}
                                                             </div>
                                                         </div>
+                                                        {errores.nombre && <h6 class="error">{errores.nombre}</h6>}
                                                     </div>
 
                                                     <div className="main row">
@@ -96,9 +96,9 @@ const EditarDatos = ({ submitForm }) => {
                                                                     </MuiThemeProvider>
                                                                 </span>
                                                                 <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" name='Fapellido' id='Fapellido' value={valores.Fapellido} onChange={handleChange}></input>
-                                                                {errores.papellido && <h6 class="error">{errores.papellido}</h6>}
                                                             </div>
                                                         </div>
+                                                        {errores.papellido && <h6 class="error">{errores.papellido}</h6>}
                                                     </div>
 
                                                     <div className="main row">
@@ -110,9 +110,9 @@ const EditarDatos = ({ submitForm }) => {
                                                                     </MuiThemeProvider>
                                                                 </span>
                                                                 <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" name='Fsapellido' id='Fsapellido' value={valores.Fsapellido} onChange={handleChange}></input>
-                                                                {errores.sapellido && <h6 class="error">{errores.sapellido}</h6>}
                                                             </div>
                                                         </div>
+                                                        {errores.sapellido && <h6 class="error">{errores.sapellido}</h6>}
                                                     </div>
 
                                                     <div className="main row">
@@ -124,9 +124,9 @@ const EditarDatos = ({ submitForm }) => {
                                                                     </MuiThemeProvider>
                                                                 </span>
                                                                 <input type="email" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" name='Fcorreo' id='Fcorreo' value={valores.Fcorreo} onChange={handleChange}></input>
-                                                                {errores.correo && <h6 class="error">{errores.correo}</h6>}
                                                             </div>
                                                         </div>
+                                                        {errores.correo && <h6 class="error">{errores.correo}</h6>}
                                                     </div>
 
                                                     <div className="main row">
@@ -138,9 +138,9 @@ const EditarDatos = ({ submitForm }) => {
                                                                     </MuiThemeProvider>
                                                                 </span>
                                                                 <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" pattern="[0-9]" name='Ftelefono' id='Ftelefono' value={valores.Ftelefono} onChange={handleChange}></input>
-                                                                {errores.telefono && <h6 class="error">{errores.telefono}</h6>}
                                                             </div>
                                                         </div>
+                                                        {errores.telefono && <h6 class="error">{errores.telefono}</h6>}
                                                     </div>
 
                                                     <div className="main row">
@@ -152,9 +152,9 @@ const EditarDatos = ({ submitForm }) => {
                                                                     </MuiThemeProvider>
                                                                 </span>
                                                                 <input type="password" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" name='Fcontrasenia' id='Fcontrasenia' value={valores.Fcontrasenia} onChange={handleChange}></input>
-                                                                {errores.contrasenia && <h6 class="error">{errores.contrasenia}</h6>}
                                                             </div>
                                                         </div>
+                                                        {errores.contrasenia && <h6 class="error">{errores.contrasenia}</h6>}
                                                     </div>
 
 

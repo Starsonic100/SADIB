@@ -14,15 +14,18 @@ const AsignarPrueba = ({ submitForm }) => {
       validar
     );
     const [pacientes,setPacientes]=useState([]);
+    
     useEffect(() => {
-        Axios.get("http://localhost:3001/datosPaciente").then((response) => {
-            console.log(response.data);
-            for(let i=0;i<response.data.length;i++){
-                pacientes.push(response.data[i]);
-            }
-            console.log(pacientes);
+        Axios.get("http://localhost:3001/datosPaciente")
+        .then((response) =>{
+            console.log(response);
+            setPacientes(response.data);
+        })
+        .catch((error)=> {
+            console.log(error);
         });
-      }, []);
+    }, [setPacientes]);
+
     return(
         <div className="container">
             {/* Comienza sección de preguntas*/}
