@@ -9,7 +9,7 @@ let theme = createTheme();
 theme = responsiveFontSizes(theme);
 
 function EditarPaciente(props){
-
+    
     /*Datos del paciente*/
     const [Nombre, setNombre] = useState("");
     const [Papellido, setPapellido] = useState("");

@@ -155,7 +155,7 @@ export class Dibujo extends Component {
                     
                 </Fragment>
             )
-          }
+        }
 
         return(
             <div className="container">
