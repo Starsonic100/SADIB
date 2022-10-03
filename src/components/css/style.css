@@ -299,3 +299,20 @@ ul.htp{
     height: auto;
     margin-top: 25%;
 }
+
+.enviar{
+    background-color: rgba(26, 131, 255, 0.6);
+    border-color: #2469A0;
+    border-width: 2px;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.enviar:hover {
+    transform: translateX(3px);
+}
+
+.enviar:active {
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
