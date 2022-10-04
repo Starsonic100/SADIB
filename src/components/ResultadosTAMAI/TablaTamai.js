@@ -1,5 +1,5 @@
 import React from 'react';
-import '../css/App.css';
+import '../css/style.css';
 import {createTheme, 
   responsiveFontSizes,
   MuiThemeProvider,
@@ -27,7 +27,7 @@ export class TablaTamai extends React.Component {
         return(
             <MuiThemeProvider theme={theme}>
                 <div className="container">
-                    <div className="main-row">
+                    <div className="main row">
                         <div className="col-12">
                             <div className="container">
                                 <div className="formulario">

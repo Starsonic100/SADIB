@@ -4,6 +4,7 @@ import Axios from "axios";
 
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar/NavBar';
+import Footer from './components/footer/footer';
 import MenuAdmin from './components/Navbar/MenuAdmin';
 import ResultadosHTP from './components/ResultadosHTP/ResultadosHTP';
 import ResultadosTAMAI from './components/ResultadosTAMAI/ResultadosTAMAI';
@@ -33,7 +34,7 @@ function App() {
       });
     }, []);
   return (
-    
+        <div className="App">
         <Router>
                       {rol == 0 && <Navbar/>}
                       {rol == 2 && <MenuAdmin/>}
@@ -52,8 +53,9 @@ function App() {
               <Route path='/AgregarPaciente' element={<AgregarPaciente/>}/>
               <Route path='/EditarPaciente' element={<EditarPaciente/>}/>
            </Routes>
-
+           <Footer/>
         </Router>
+        </div>
   ); 
 }
 

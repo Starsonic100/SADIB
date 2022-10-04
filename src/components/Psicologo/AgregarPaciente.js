@@ -264,7 +264,7 @@ function AgregarPaciente(){
                                                 <div align="center">
                                                     <div className="col-lg-3">
                                                         <div className="text-center">
-                                                            <Link to="/VerPaciente">
+                                                            <Link to="/Pacientes">
                                                                 <button type="submit" class="boton">Regresar</button>
                                                             </Link>
                                                         </div>

@@ -1,6 +1,6 @@
 import React, { Component, useEffect, useRef, Fragment, useCallback, useState } from 'react';
 import { useSvgDrawing } from 'react-hooks-svgdrawing';
-import '../css/App.css';
+import '../css/style.css';
 import Menu from "./components/Menu";
 
 import siguiente from '../img/siguiente.png';
@@ -147,31 +147,23 @@ export class Dibujo extends Component {
 
             return(  
                 <Fragment>     
-               <div>
-                    <div className="container">
                         <div className="barra-herramientas">
                             <label>
                                 <button class="button-herramientas" onClick={setToDraw}><img src={lapiz} alt="Lápiz" title="Lápiz"/></button>
-
                                 <button class="button-herramientas" onClick={setToErase}><img src={deshacer} alt="Borrar" title="Borrar"/></button>
-
                                 <button class="button-herramientas" onClick={setToClear}><img src={borrar}  alt="Borrar pantalla" title="Borrar pantalla"/></button>
-
                                 <button class="button-herramientas" onClick={setToDownload}><img src={descargar} alt="Descargar dibujo" title="Descargar dibujo"/></button>
                                 <button class="button-herramientas" onClick={uploadFile}><img src={finalizar} alt="Finalizar dibujo" title="Finalizar dibujo"/></button>
                             </label>
                         </div>
-                    </div>
-                <div className='draw-area'>
-                    
-                    <canvas id='canvas'
-                    onMouseDown={startDrawing}
-                    onMouseUp={endDrawing}
-                    onMouseMove={draw}
-                    ref={canvasRef}
-                    />
-                </div>   
-                </div>  
+                        <div className='draw-area'>
+                            <canvas id='canvas'
+                            onMouseDown={startDrawing}
+                            onMouseUp={endDrawing}
+                            onMouseMove={draw}
+                            ref={canvasRef}
+                            />
+                        </div>   
                 </Fragment>               
             )
         }
@@ -181,7 +173,7 @@ export class Dibujo extends Component {
         return(
             <div className="container">
                 {/* Comienza sección de preguntas*/}
-                <div className="main-row">
+                <div className="main row">
                     <div className="col-12">
                         <div className="container">
                             <div className="formulario">
@@ -197,12 +189,10 @@ export class Dibujo extends Component {
     
                                 {/* Comienza div de preguntas*/}  
                                 <div className="preguntas">
-                                    
-                                    <div className="dibujo">
-                                        <Drawing setBase={values.p0}/>
-                                    </div>
-
-                                    <div className="main-row">
+                                    <div className="main row">
+                                        <div className="dibujo">
+                                            <Drawing setBase={values.p0}/>
+                                        </div>
                                         <div className="col-lg-11">
                                             <button class="button" onClick={this.continuar}><img src={siguiente}/></button>
                                         </div>

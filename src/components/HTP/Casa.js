@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../css/App.css';
+import '../css/style.css';
 import anterior from '../img/anterior.png';
 import siguiente from '../img/siguiente.png';
 import{ createTheme, MuiThemeProvider, responsiveFontSizes, Typography} from "@material-ui/core";
@@ -27,7 +27,7 @@ export class Casa extends Component {
             <div className="container">
                 
                 {/* Comienza sección de preguntas*/}
-                <div className="main-row">
+                <div className="main row">
                     <div className="col-12">
                         <div className="container">
                             <div className="formulario">
@@ -44,7 +44,7 @@ export class Casa extends Component {
                                 {/* Comienza div de preguntas*/}  
                                 <div className="preguntas">
                                     
-                                    <div className="main-row">
+                                    <div className="main row">
                                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                             <ul class="htp">
                                                 <li>
@@ -57,7 +57,7 @@ export class Casa extends Component {
                                         </div>
                                     </div>
 
-                                    <div className="main-row">
+                                    <div className="main row">
                                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                             <ul class="htp">
                                                 <li>
@@ -70,7 +70,7 @@ export class Casa extends Component {
                                         </div>
                                     </div>
 
-                                    <div className="main-row">
+                                    <div className="main row">
                                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                             <ul class="htp">
                                                 <li>
@@ -83,7 +83,7 @@ export class Casa extends Component {
                                         </div>
                                     </div>
 
-                                    <div className="main-row">
+                                    <div className="main row">
                                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                             <ul class="htp">
                                                 <li>
@@ -96,7 +96,7 @@ export class Casa extends Component {
                                         </div>
                                     </div>
 
-                                    <div className="main-row">
+                                    <div className="main row">
                                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                             <ul class="htp">
                                                 <li>
@@ -109,7 +109,7 @@ export class Casa extends Component {
                                         </div>
                                     </div>
 
-                                    <div className="main-row">
+                                    <div className="main row">
                                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                             <ul class="htp">
                                                 <li>
@@ -122,7 +122,7 @@ export class Casa extends Component {
                                         </div>
                                     </div>
 
-                                    <div className="main-row">
+                                    <div className="main row">
                                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                             <ul class="htp">
                                                 <li>
@@ -135,7 +135,7 @@ export class Casa extends Component {
                                         </div>
                                     </div>
 
-                                    <div className="main-row">
+                                    <div className="main row">
                                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                             <ul class="htp">
                                                 <li>
@@ -148,7 +148,7 @@ export class Casa extends Component {
                                         </div>
                                     </div>
 
-                                    <div className="main-row">
+                                    <div className="main row">
                                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                             <ul class="htp">
                                                 <li>
@@ -161,7 +161,7 @@ export class Casa extends Component {
                                         </div>
                                     </div>
 
-                                    <div className="main-row">
+                                    <div className="main row">
                                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                             <ul class="htp">
                                                 <li>
@@ -174,7 +174,7 @@ export class Casa extends Component {
                                         </div>
                                     </div>
 
-                                    <div className="main-row">
+                                    <div className="main row">
                                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                             <ul class="htp">
                                                 <li>
@@ -187,7 +187,7 @@ export class Casa extends Component {
                                         </div>
                                     </div>
 
-                                    <div className="main-row">
+                                    <div className="main row">
                                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                             <ul class="htp">
                                                 <li>
@@ -200,7 +200,7 @@ export class Casa extends Component {
                                         </div>
                                     </div>
 
-                                    <div className="main-row">
+                                    <div className="main row">
                                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                             <ul class="htp">
                                                 <li>
@@ -213,7 +213,7 @@ export class Casa extends Component {
                                         </div>
                                     </div>
 
-                                    <div className="main-row">
+                                    <div className="main row">
                                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                             <ul class="htp">
                                                 <li>
@@ -226,7 +226,7 @@ export class Casa extends Component {
                                         </div>
                                     </div>
 
-                                    <div className="main-row">
+                                    <div className="main row">
                                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                             <ul class="htp">
                                                 <li>
@@ -239,7 +239,7 @@ export class Casa extends Component {
                                         </div>
                                     </div>
 
-                                    <div className="main-row">
+                                    <div className="main row">
                                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                             <ul class="htp">
                                                 <li>
@@ -252,7 +252,7 @@ export class Casa extends Component {
                                         </div>
                                     </div>
 
-                                    <div className="main-row">
+                                    <div className="main row">
                                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                             <ul class="htp">
                                                 <li>
@@ -265,7 +265,7 @@ export class Casa extends Component {
                                         </div>
                                     </div>
 
-                                    <div className="main-row">
+                                    <div className="main row">
                                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                             <ul class="htp">
                                                 <li>
@@ -278,7 +278,7 @@ export class Casa extends Component {
                                         </div>
                                     </div>
 
-                                    <div className="main-row">
+                                    <div className="main row">
                                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                             <ul class="htp">
                                                 <li>
@@ -291,7 +291,7 @@ export class Casa extends Component {
                                         </div>
                                     </div>
 
-                                    <div className="main-row">
+                                    <div className="main row">
                                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                             <ul class="htp">
                                                 <li>
@@ -304,7 +304,7 @@ export class Casa extends Component {
                                         </div>
                                     </div>
 
-                                    <div className="main-row">
+                                    <div className="main row">
                                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                             <ul class="htp">
                                                 <li>
@@ -317,7 +317,7 @@ export class Casa extends Component {
                                         </div>
                                     </div>
 
-                                    <div className="main-row">
+                                    <div className="main row">
                                         <div className="col-lg-10">
                                             <button class="button"onClick={this.regresar}><img src={anterior}/></button>
                                         </div>

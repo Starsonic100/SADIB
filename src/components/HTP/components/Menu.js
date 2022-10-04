@@ -1,5 +1,5 @@
 import React from "react";
-import "../../css/App.css";
+import "../../css/style.css";
 
 const Menu = ({ setLineColor, setLineWidth,
 setLineOpacity }) => {

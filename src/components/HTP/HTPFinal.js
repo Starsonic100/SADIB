@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../css/App.css';
+import '../css/style.css';
 import { List, ListItem, ListItemText } from '@material-ui/core/';
 import{ createTheme, MuiThemeProvider, responsiveFontSizes, Typography} from "@material-ui/core";
 
@@ -22,11 +22,11 @@ export class HTPFinal extends Component{
         return(
             <div className="container">
 
-                <div className="main-row">
+                <div className="main row">
                     <div className="col-12">
                         <div className="container">
                             <div className="formulario">
-                                <div className="main-row">
+                                <div className="main row">
                                     <div className="col-xs-12 col-sm-12 col-md-3 col-lg-3">
                                         <List>
                                             <ListItem>

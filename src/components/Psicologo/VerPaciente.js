@@ -1,19 +1,63 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import '../css/pacientes.css';
+import Axios from "axios";
 import{ createTheme, MuiThemeProvider, responsiveFontSizes, Typography} from "@material-ui/core";
 
 let theme = createTheme();
 theme = responsiveFontSizes(theme);
 
-export class VerPaciente extends Component {
+
+class VerPaciente extends Component{
+    
+    continuar = e => {
+        e.preventDefault();
+        this.props.siguiente();
+    };
+
+    state={
+        pacientes:[],
+        datosPaciente:[]
+    }
+
+    componentDidMount(){
+        Axios.get("http://localhost:3001/pacientes")
+        .then((response) =>{
+            console.log(response);
+            this.setState({pacientes: response.data})
+        })
+        .catch((error)=> {
+            console.log(error)
+        });
+    }
 
     render(){
 
+        const { values, handleInputChange } = this.props;
+        const{
+            values: {id_paciente}
+        } = this.props;
+
+        const obtener_datos = () =>{
+            Axios.get("http://localhost:3001/obtenerDatos",{
+                params: {
+                    id_paci: id_paciente
+                }
+            })
+            .then((response) =>{
+                console.log(response);
+                this.setState({datosPaciente: response.data})
+            })
+            .catch((error)=> {
+                console.log(error)
+            });
+        }
+
         return(
+            
             <div className="container">
                 {/* Comienza sección de preguntas*/}
-                <div className="main-row">
+                <div className="main row">
                     <div className="col-12">
                         <div className="container">
                             <div className="formulario-pacientes">
@@ -26,7 +70,7 @@ export class VerPaciente extends Component {
                                     </div>
                                 </div>
                                 {/*Termina div de instrucciones*/}
-    
+
                                 {/* Comienza div de preguntas*/}  
                                 <div className="contenido">
                                     <div class="myform form">
@@ -59,11 +103,11 @@ export class VerPaciente extends Component {
                                                                         <Typography variant="h6" class="contenido">{"Paciente"}</Typography>
                                                                     </MuiThemeProvider>
                                                                 </span>
-                                                                <select class="form-select" aria-label="Default select example">
+                                                                <select id="pac_sel" class="form-select" aria-label="Default select example" name="id_paciente" onChange={handleInputChange('id_paciente')} defaultValue={values.id_paciente} onClick={obtener_datos}>
                                                                     <option selected>Buscar paciente</option>
-                                                                    <option value="1">One</option>
-                                                                    <option value="2">Two</option>
-                                                                    <option value="3">Three</option>
+                                                                    {this.state.pacientes.map(elemento => (
+                                                                        <option key={elemento.id_paci} value={elemento.id_paci}>{elemento.id_paci} - {elemento.apellidop} {elemento.apellidom} {elemento.nombre} </option>
+                                                                    ))}
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -127,7 +171,11 @@ export class VerPaciente extends Component {
                                                                         <Typography variant="h6" class="contenido">{"Nombre(s)"}</Typography>
                                                                     </MuiThemeProvider>
                                                                 </span>
-                                                                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" readonly="readonly"></input>
+                                                                <span class="form-control">
+                                                                    {this.state.datosPaciente.map(e => (
+                                                                       <t>{e.nombre}</t>
+                                                                    ))}
+                                                                </span>
                                                             </div>
                                                         </div>
 
@@ -138,7 +186,11 @@ export class VerPaciente extends Component {
                                                                         <Typography variant="h6" class="contenido">{"Primer apellido"}</Typography>
                                                                     </MuiThemeProvider>
                                                                 </span>
-                                                                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" readonly="readonly"></input>
+                                                                <span class="form-control">
+                                                                    {this.state.datosPaciente.map(e => (
+                                                                       <t>{e.apellidop}</t>
+                                                                    ))}
+                                                                </span>
                                                             </div>
                                                         </div>
 
@@ -149,7 +201,11 @@ export class VerPaciente extends Component {
                                                                         <Typography variant="h6" class="contenido">{"Segundo apellido"}</Typography>
                                                                     </MuiThemeProvider>
                                                                 </span>
-                                                                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" readonly="readonly"></input>
+                                                                <span class="form-control">
+                                                                    {this.state.datosPaciente.map(e => (
+                                                                       <t>{e.apellidom}</t>
+                                                                    ))}
+                                                                </span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -162,7 +218,11 @@ export class VerPaciente extends Component {
                                                                         <Typography variant="h6" class="contenido">{"Fecha de nacimiento"}</Typography>
                                                                     </MuiThemeProvider>
                                                                 </span>
-                                                                <input type="date" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" readonly="readonly"></input>
+                                                                <span class="form-control">
+                                                                    {this.state.datosPaciente.map(e => (
+                                                                       <t>{e.fecha_nac}</t>
+                                                                    ))}
+                                                                </span>
                                                             </div>
                                                         </div>
 
@@ -173,7 +233,11 @@ export class VerPaciente extends Component {
                                                                         <Typography variant="h6" class="contenido">{"Género"}</Typography>
                                                                     </MuiThemeProvider>
                                                                 </span>
-                                                                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" readonly="readonly"></input>
+                                                                <span class="form-control">
+                                                                    {this.state.datosPaciente.map(e => (
+                                                                       <t>{e.genero}</t>
+                                                                    ))}
+                                                                </span>
                                                             </div>
                                                         </div>
 
@@ -184,7 +248,11 @@ export class VerPaciente extends Component {
                                                                         <Typography variant="h6" class="contenido">{"Correo electrónico"}</Typography>
                                                                     </MuiThemeProvider>
                                                                 </span>
-                                                                <input type="email" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" readonly="readonly"></input>
+                                                                <span class="form-control">
+                                                                    {this.state.datosPaciente.map(e => (
+                                                                       <t>{e.correo}</t>
+                                                                    ))}
+                                                                </span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -197,7 +265,11 @@ export class VerPaciente extends Component {
                                                                         <Typography variant="h6" class="contenido">{"Teléfono"}</Typography>
                                                                     </MuiThemeProvider>
                                                                 </span>
-                                                                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" readonly="readonly"></input>
+                                                                <span class="form-control">
+                                                                    {this.state.datosPaciente.map(e => (
+                                                                       <t>{e.telefono}</t>
+                                                                    ))}
+                                                                </span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -228,7 +300,11 @@ export class VerPaciente extends Component {
                                                                         <Typography variant="h6" class="contenido">{"Nombre(s)"}</Typography>
                                                                     </MuiThemeProvider>
                                                                 </span>
-                                                                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" readonly="readonly"></input>
+                                                                <span class="form-control">
+                                                                    {this.state.datosPaciente.map(e => (
+                                                                       <t>{e.nombret}</t>
+                                                                    ))}
+                                                                </span>
                                                             </div>
                                                         </div>
 
@@ -239,7 +315,11 @@ export class VerPaciente extends Component {
                                                                         <Typography variant="h6" class="contenido">{"Primer apellido"}</Typography>
                                                                     </MuiThemeProvider>
                                                                 </span>
-                                                                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" readonly="readonly"></input>
+                                                                <span class="form-control">
+                                                                    {this.state.datosPaciente.map(e => (
+                                                                       <t>{e.apellidopt}</t>
+                                                                    ))}
+                                                                </span>
                                                             </div>
                                                         </div>
 
@@ -250,7 +330,11 @@ export class VerPaciente extends Component {
                                                                         <Typography variant="h6" class="contenido">{"Segundo apellido"}</Typography>
                                                                     </MuiThemeProvider>
                                                                 </span>
-                                                                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" readonly="readonly"></input>
+                                                                <span class="form-control">
+                                                                    {this.state.datosPaciente.map(e => (
+                                                                       <t>{e.apellidomt}</t>
+                                                                    ))}
+                                                                </span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -263,7 +347,11 @@ export class VerPaciente extends Component {
                                                                         <Typography variant="h6" class="contenido">{"Correo electrónico"}</Typography>
                                                                     </MuiThemeProvider>
                                                                 </span>
-                                                                <input type="email" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" readonly="readonly"></input>
+                                                                <span class="form-control">
+                                                                    {this.state.datosPaciente.map(e => (
+                                                                       <t>{e.correot}</t>
+                                                                    ))}
+                                                                </span>
                                                             </div>
                                                         </div>
 
@@ -274,7 +362,11 @@ export class VerPaciente extends Component {
                                                                         <Typography variant="h6" class="contenido">{"Teléfono"}</Typography>
                                                                     </MuiThemeProvider>
                                                                 </span>
-                                                                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" readonly="readonly"></input>
+                                                                <span class="form-control">
+                                                                    {this.state.datosPaciente.map(e => (
+                                                                       <t>{e.telefonot}</t>
+                                                                    ))}
+                                                                </span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -283,9 +375,7 @@ export class VerPaciente extends Component {
                                                 <div className="main row">
                                                     <div className="col-lg-7">
                                                         <div class="text-center">
-                                                            <Link to="/EditarPaciente">
-                                                                <button type="submit" class="boton">Editar</button>
-                                                            </Link>
+                                                            <button type="submit" class="boton" onClick={this.continuar}>Editar</button>
                                                         </div>
                                                     </div>
                                                 </div>
