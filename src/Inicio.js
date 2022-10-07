@@ -1,12 +1,12 @@
 import React from 'react';
-import './components/css/App.css';
+import './components/css/style.css';
 
 
 
 const Inicio = () =>{
 
      return (
-        <div className='mp1' id='inicio'>
+        <div className='bienvenida' id='inicio'>
          <span className='img1'> <img src={require('./components/img/MainImage 1.png')} alt="bienvenida"/> <br/></span>
         </div>
   );

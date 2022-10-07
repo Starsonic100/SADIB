@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../css/App.css';
+import '../css/style.css';
 import anterior from '../img/anterior.png';
 import siguiente from '../img/siguiente.png';
 import{ createTheme, MuiThemeProvider, responsiveFontSizes, Typography} from "@material-ui/core";

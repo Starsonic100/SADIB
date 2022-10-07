@@ -11,7 +11,7 @@ const FormEditarDatos = () => {
   return (
     <div className="container">
     <div className="frame">
-        <div className="main-row">
+        <div className="main row">
             <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                 <div className="content-tabs">
                 <div
