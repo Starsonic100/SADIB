@@ -131,6 +131,8 @@ html, body{
     width: 80%;
     height: 100vh;
     background-color: white;
+    outline: black 3px solid;
+    border-color: black;
   }
 
 .seccion{

@@ -142,15 +142,13 @@ export class Dibujo extends Component {
             return(  
                 <Fragment>     
                         <div className="barra-herramientas">
-                            <label>
                                 <button class="button-herramientas" onClick={setToDraw}><img src={lapiz} alt="Lapiz" title="Lapiz"/></button>
                                 <button class="button-herramientas" onClick={setToErase}><img src={deshacer} alt="Borrar" title="Borrar"/></button>
                                 <button class="button-herramientas" onClick={setToClear}><img src={borrar}  alt="Borrar pantalla" title="Borrar pantalla"/></button>
                                 <button class="button-herramientas" onClick={setToDownload}><img src={descargar} alt="Descargar dibujo" title="Descargar dibujo"/></button>
                                 <button class="button-herramientas" onClick={uploadFile}><img src={finalizar} alt="Finalizar dibujo" title="Finalizar dibujo"/></button>
-                            </label>
                         </div>
-                        <div className='draw-area'>
+                        <div className='draw-area' >
                             <canvas id='canvas'
                             onMouseDown={startDrawing}
                             onMouseUp={endDrawing}
