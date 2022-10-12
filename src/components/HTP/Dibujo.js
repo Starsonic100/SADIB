@@ -143,7 +143,7 @@ export class Dibujo extends Component {
                 <Fragment>     
                         <div className="barra-herramientas">
                             <label>
-                                <button class="button-herramientas" onClick={setToDraw}><img src={lapiz} alt="Lápiz" title="Lápiz"/></button>
+                                <button class="button-herramientas" onClick={setToDraw}><img src={lapiz} alt="Lapiz" title="Lapiz"/></button>
                                 <button class="button-herramientas" onClick={setToErase}><img src={deshacer} alt="Borrar" title="Borrar"/></button>
                                 <button class="button-herramientas" onClick={setToClear}><img src={borrar}  alt="Borrar pantalla" title="Borrar pantalla"/></button>
                                 <button class="button-herramientas" onClick={setToDownload}><img src={descargar} alt="Descargar dibujo" title="Descargar dibujo"/></button>
@@ -155,6 +155,9 @@ export class Dibujo extends Component {
                             onMouseDown={startDrawing}
                             onMouseUp={endDrawing}
                             onMouseMove={draw}
+                            onTouchStart={startDrawing}
+                            onTouchEnd={endDrawing}
+                            onTouchMove={draw}
                             ref={canvasRef}
                             />
                         </div>   
