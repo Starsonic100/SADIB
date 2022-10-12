@@ -281,8 +281,11 @@ async function createAndUploadFile(auth,dibujo){
   let dd = String(today.getDate()).padStart(2, '0');
   let mm = String(today.getMonth() + 1).padStart(2, '0'); 
   let yyyy = today.getFullYear();
+  let hh = String(today.getHours());
+  let min = String(today.getMinutes());
+  let ss = String(today.getSeconds());
 
-  filename = mm + '-' + dd + '-' + yyyy + '.jpg';
+  filename = mm + '-' + dd + '-' + yyyy +'-'+hh+ '-'+min+'-'+ss+ '.jpg';
   const driveService = google.drive(  {version:'v3',auth});
     
   let fileMetadata = {
@@ -311,6 +314,7 @@ async function createAndUploadFile(auth,dibujo){
       break;
   }
 }
+
 
 app.listen(3001, () => {
   console.log("Servidor corriendo");

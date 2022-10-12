@@ -90,7 +90,7 @@ function EditarPaciente(props){
                                     <div align="center">
                                         <div className="container">
                                             <div className="main row">
-                                                <div className="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+                                                <div className="col-xs-6 col-sm-6 col-md-4 col-lg-4">
                                                     <MuiThemeProvider theme={theme}>
                                                         <Typography variant="h3" class="apartado">{"Datos del paciente"}</Typography>
                                                     </MuiThemeProvider>
@@ -318,12 +318,10 @@ function EditarPaciente(props){
                                             
                                             <div className="main row">
                                                 <div align="center">
-                                                    <div className="col-lg-3">
+                                                    <div className="col-xs-12 col-sm-12 col-md-4 col-lg-4">
                                                         <div className="text-center">
                                                             <button type="submit" class="boton" onClick={() => window.location.reload()}>Regresar</button>
                                                         </div>
-                                                    </div>
-                                                    <div className="col-lg-3">
                                                         <div class="text-center">
                                                             <button type="submit" class="boton" onClick={actualizar_paciente}>Guardar</button>
                                                         </div>

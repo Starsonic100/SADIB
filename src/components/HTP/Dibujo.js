@@ -143,12 +143,14 @@ export class Dibujo extends Component {
                         </div>
                     </div>
 
-                    <div style={{height: 510, border: 'solid', borderColor: '#8F8F8F' }}>
-                        <div className='draw-area' style={{height: 500}}>
+                    <div style={{height: 510, border: 'solid', borderColor: '#8F8F8F', touchAction: 'none' }}>
+                        <div className='draw-area' style={{height: 500, cursor:'pointer'}}>
                             <canvas id='canvas'
                             onMouseDown={startDrawing}
                             onMouseUp={endDrawing}
                             onMouseMove={draw}
+                            onTouchStart={startDrawing}
+                            onPointerDown={startDrawing}
                             ref={canvasRef}/>
                         </div>
                     </div>
