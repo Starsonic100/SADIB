@@ -123,6 +123,9 @@ html, body{
     padding-bottom: 5px;
 }
 
+.draw-area{
+    touch-action: none;
+}
 
 .button{
     background-color: transparent;

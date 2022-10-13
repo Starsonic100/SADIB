@@ -52,6 +52,8 @@ export class Dibujo extends Component {
 
             // Function for starting the drawing
             const startDrawing = (e) => {
+                e.preventDefault();
+                document.body.style.overflow = "hidden";
                 ctxRef.current.beginPath();
                 ctxRef.current.moveTo(
                 e.nativeEvent.offsetX,
@@ -63,6 +65,7 @@ export class Dibujo extends Component {
             // Function for ending the drawing
             const endDrawing = () => {
                 ctxRef.current.closePath();
+                document.body.style.overflow = "auto";
                 setIsDrawing(false);
             };
 
@@ -70,6 +73,7 @@ export class Dibujo extends Component {
                 if (!isDrawing) {
                 return;
                 }
+                e.preventDefault();
                 ctxRef.current.lineTo(
                 e.nativeEvent.offsetX,
                 e.nativeEvent.offsetY
@@ -93,8 +97,16 @@ export class Dibujo extends Component {
             }
 
             const setToDownload = () =>{
+                let resizedCanvas = document.createElement("canvas");
+                let resizedContext = resizedCanvas.getContext("2d");
+
+                resizedCanvas.height = "500";
+                resizedCanvas.width = "500";
+
                 let canvas=document.getElementById("canvas");
-                let image = canvas.toDataURL("image/png", 1.0).replace("image/png", "image/octet-stream");
+                
+                resizedContext.drawImage(canvas, 0, 0, 500, 500);
+                let image = resizedCanvas.toDataURL("image/png", 1.0).replace("image/png", "image/octet-stream");
                 let link = document.createElement('a');
                 link.download = "my-image.png";
                 link.href = image;
@@ -111,7 +123,13 @@ export class Dibujo extends Component {
             }
 
             const uploadFile = () => {
-                let dibujoB = document.getElementById("canvas").toDataURL();
+                let resizedCanvas = document.createElement("canvas");
+                let resizedContext = resizedCanvas.getContext("2d");
+                resizedCanvas.height = "500";
+                resizedCanvas.width = "500";
+                let canvas=document.getElementById("canvas");
+                resizedContext.drawImage(canvas, 0, 0, 500, 500);
+                let dibujoB = resizedCanvas.toDataURL();
                 let dibujo = dataURItoBlob(dibujoB);
                 let fd = new FormData(document.forms[0]);
                 fd.append('dibujo', dibujo);
@@ -129,7 +147,6 @@ export class Dibujo extends Component {
                 <Fragment>
                     <div className="container">
                         <div className="barra-herramientas">
-                            <label>
                                 <button class="button-herramientas" onClick={setToDraw}><img src={lapiz} alt="Lápiz" title="Lápiz"/></button>
 
                                 <button class="button-herramientas" onClick={setToErase}><img src={deshacer} alt="Borrar" title="Borrar"/></button>
@@ -139,18 +156,18 @@ export class Dibujo extends Component {
                                 <button class="button-herramientas" onClick={setToDownload}><img src={descargar} alt="Descargar dibujo" title="Descargar dibujo"/></button>
 
                                 <button class="button-herramientas" onClick={uploadFile}><img src={finalizar} alt="Finalizar dibujo" title="Finalizar dibujo"/></button>
-                            </label>
                         </div>
                     </div>
 
-                    <div style={{height: 510, border: 'solid', borderColor: '#8F8F8F', touchAction: 'none' }}>
+                    <div style={{height: 510, border: 'solid', borderColor: '#8F8F8F'  }}>
                         <div className='draw-area' style={{height: 500, cursor:'pointer'}}>
                             <canvas id='canvas'
                             onMouseDown={startDrawing}
                             onMouseUp={endDrawing}
                             onMouseMove={draw}
                             onTouchStart={startDrawing}
-                            onPointerDown={startDrawing}
+                            onTouchEnd={endDrawing}
+                            onTouchMove={draw}
                             ref={canvasRef}/>
                         </div>
                     </div>
