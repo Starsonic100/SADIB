@@ -52,32 +52,40 @@ export class Dibujo extends Component {
 
             // Function for starting the drawing
             const startDrawing = (e) => {
-                e.preventDefault();
-                document.body.style.overflow = "hidden";
+                let canvas=document.getElementById("canvas");
                 ctxRef.current.beginPath();
+                if (e.type == 'touchstart'){
+                    ctxRef.current.moveTo(e.touches[0].clientX-canvas.offsetLeft, e.touches[0].clientY-canvas.offsetTop);
+                  }
+                else if(e.type=="mousedown"){
                 ctxRef.current.moveTo(
                 e.nativeEvent.offsetX,
                 e.nativeEvent.offsetY
                 );
+            }
                 setIsDrawing(true);
             };
 
             // Function for ending the drawing
             const endDrawing = () => {
                 ctxRef.current.closePath();
-                document.body.style.overflow = "auto";
                 setIsDrawing(false);
             };
 
             const draw = (e) => {
+                let canvas=document.getElementById("canvas");
                 if (!isDrawing) {
                 return;
                 }
                 e.preventDefault();
+                if (e.type == 'touchmove'){
+                    ctxRef.current.lineTo(e.touches[0].clientX-canvas.offsetLeft, e.touches[0].clientY-canvas.offsetTop);
+                  } else if (e.type == 'mousemove'){
                 ctxRef.current.lineTo(
                 e.nativeEvent.offsetX,
                 e.nativeEvent.offsetY
                 );
+            }
                 
                 ctxRef.current.stroke();
             };
