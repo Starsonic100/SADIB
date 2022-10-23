@@ -28,7 +28,7 @@ const auth = new google.auth.GoogleAuth({
 app.use(express.json());
 app.use(
   cors({
-    origin: ["http://localhost:3000"],
+    origin: ["http://sadib.com.s3-website-us-east-1.amazonaws.com"],
     methods: ["GET", "POST","PUT","DELETE"],
     credentials: true,
   })
@@ -49,9 +49,9 @@ app.use(
 );
 
 const db = mysql.createConnection({
-  user: "root",
-  host: "localhost",
-  password: "1234",
+  user: "admin",
+  host: "sadib.c1vwo3ltss0h.us-east-1.rds.amazonaws.com",
+  password: "Lexi2303",
   database: "sadib",
 });
 
@@ -317,5 +317,5 @@ async function createAndUploadFile(auth,dibujo){
 
 
 app.listen(3001, () => {
-  console.log("Servidor corriendo");
+  console.log("Servidor 3001 corriendo");
 });

@@ -55,7 +55,8 @@ export class Dibujo extends Component {
                 let canvas=document.getElementById("canvas");
                 ctxRef.current.beginPath();
                 if (e.type == 'touchstart'){
-                    ctxRef.current.moveTo(e.touches[0].clientX-canvas.offsetLeft, e.touches[0].clientY-canvas.offsetTop);
+                    let elementRect = e.target.getBoundingClientRect();
+                    ctxRef.current.moveTo(e.touches[0].clientX-elementRect.left, e.touches[0].clientY-elementRect.top);
                   }
                 else if(e.type=="mousedown"){
                 ctxRef.current.moveTo(
@@ -79,15 +80,19 @@ export class Dibujo extends Component {
                 }
                 e.preventDefault();
                 if (e.type == 'touchmove'){
-                    ctxRef.current.lineTo(e.touches[0].clientX-canvas.offsetLeft, e.touches[0].clientY-canvas.offsetTop);
+                    let elementRect = e.target.getBoundingClientRect();
+                    ctxRef.current.lineTo(e.touches[0].clientX- elementRect.left, e.touches[0].clientY-elementRect.top);
+                    ctxRef.current.stroke();
                   } else if (e.type == 'mousemove'){
                 ctxRef.current.lineTo(
                 e.nativeEvent.offsetX,
                 e.nativeEvent.offsetY
+                
                 );
+                ctxRef.current.stroke();
             }
                 
-                ctxRef.current.stroke();
+                
             };
 
             const setToDraw = () =>{
@@ -142,7 +147,7 @@ export class Dibujo extends Component {
                 let fd = new FormData(document.forms[0]);
                 fd.append('dibujo', dibujo);
                 Axios({
-                    url: 'http://localhost:3001/dibujo',
+                    url: 'http://3.215.192.63:3001/dibujo',
                     method: "POST",
                     data: fd,
                     headers: {

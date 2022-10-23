@@ -16,7 +16,7 @@ const AsignarPrueba = ({ submitForm }) => {
     const [pacientes,setPacientes]=useState([]);
     
     useEffect(() => {
-        Axios.get("http://localhost:3001/datosPaciente")
+        Axios.get("http://3.215.192.63:3001/datosPaciente")
         .then((response) =>{
             console.log(response);
             setPacientes(response.data);

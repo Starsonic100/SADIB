@@ -28,7 +28,7 @@ const useLogin = (callback, validar) => {
     } 
 
     const login = () => {
-        Axios.post("http://localhost:3001/login", {
+        Axios.post("http://3.215.192.63:3001/login", {
             correo: valores.Fcorreo,
             contrasenia: valores.Fcontrasenia
         }).then((response) => {
@@ -44,7 +44,7 @@ const useLogin = (callback, validar) => {
       };
     
     useEffect(() => {
-        Axios.get("http://localhost:3001/login").then((response) => {
+        Axios.get("http://3.215.192.63:3001/login").then((response) => {
           if (response.data.loggedIn == true) {
             setLoginStatus(response.data.user[0].id_usuario);
           }
