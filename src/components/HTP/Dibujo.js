@@ -158,21 +158,7 @@ export class Dibujo extends Component {
 
             return(
                 <Fragment>
-                    <div className="container">
-                        <div className="barra-herramientas">
-                                <button class="button-herramientas" onClick={setToDraw}><img src={lapiz} alt="Lápiz" title="Lápiz"/></button>
-
-                                <button class="button-herramientas" onClick={setToErase}><img src={deshacer} alt="Borrar" title="Borrar"/></button>
-
-                                <button class="button-herramientas" onClick={setToClear}><img src={borrar}  alt="Borrar pantalla" title="Borrar pantalla"/></button>
-
-                                <button class="button-herramientas" onClick={setToDownload}><img src={descargar} alt="Descargar dibujo" title="Descargar dibujo"/></button>
-
-                                <button class="button-herramientas" onClick={uploadFile}><img src={finalizar} alt="Finalizar dibujo" title="Finalizar dibujo"/></button>
-                        </div>
-                    </div>
-
-                    <div style={{height: 510, border: 'solid', borderColor: '#8F8F8F'  }}>
+                    <div style={{height: 510, border: 'solid', borderColor: '#8F8F8F', touchAction:'none'}}>
                         <div className='draw-area' style={{height: 500, cursor:'pointer'}}>
                             <canvas id='canvas'
                             onMouseDown={startDrawing}
@@ -184,7 +170,22 @@ export class Dibujo extends Component {
                             ref={canvasRef}/>
                         </div>
                     </div>
-                    
+
+                    <div className="container">
+                        <div align="center">
+                            <div className="barra-herramientas">
+                                <button class="button-herramientas" onClick={setToDraw}><img src={lapiz} alt="Lápiz" title="Lápiz"/></button>
+
+                                <button class="button-herramientas" onClick={setToErase}><img src={deshacer} alt="Borrar" title="Borrar"/></button>
+
+                                <button class="button-herramientas" onClick={setToClear}><img src={borrar}  alt="Borrar pantalla" title="Borrar pantalla"/></button>
+
+                                <button class="button-herramientas" onClick={setToDownload}><img src={descargar} alt="Descargar dibujo" title="Descargar dibujo"/></button>
+
+                                <button class="button-herramientas" onClick={uploadFile}><img src={finalizar} alt="Finalizar dibujo" title="Finalizar dibujo"/></button>
+                            </div>
+                        </div>
+                    </div> 
                 </Fragment>
             )
         }
