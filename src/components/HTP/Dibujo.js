@@ -83,7 +83,7 @@ export class Dibujo extends Component {
                     let elementRect = e.target.getBoundingClientRect();
                     ctxRef.current.lineTo(e.touches[0].clientX- elementRect.left, e.touches[0].clientY-elementRect.top);
                     ctxRef.current.stroke();
-                  } else if (e.type == 'mousemove'){
+                } else if (e.type == 'mousemove'){
                 ctxRef.current.lineTo(
                 e.nativeEvent.offsetX,
                 e.nativeEvent.offsetY
