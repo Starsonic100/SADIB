@@ -11,8 +11,44 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: rgba(62, 214, 175, 0.2);
   overflow-x: hidden;
+  display: block;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',monospace;
+}
+
+@media only screen and (orientation:portrait){
+  body{  
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+}
+
+#landscape {
+  display: none;
+  z-index: -100;
+}
+
+@media screen and (orientation: landscape) {
+  #landscape {
+    display: flex;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: rgba(62, 214, 175);
+    z-index: 999999;
+    width: 100%;
+    height: 100vh;
+    font-size: 180%;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: #2469A0;
+    align-items: center;
+    justify-content: center;
+  }
 }
