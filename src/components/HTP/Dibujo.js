@@ -55,7 +55,8 @@ export class Dibujo extends Component {
                 let canvas=document.getElementById("canvas");
                 ctxRef.current.beginPath();
                 if (e.type == 'touchstart'){
-                    ctxRef.current.moveTo(e.touches[0].clientX-canvas.offsetLeft, e.touches[0].clientY-canvas.offsetTop);
+                    let elementRect = e.target.getBoundingClientRect();
+                    ctxRef.current.moveTo(e.touches[0].clientX-elementRect.left, e.touches[0].clientY-elementRect.top);
                   }
                 else if(e.type=="mousedown"){
                 ctxRef.current.moveTo(
@@ -79,15 +80,19 @@ export class Dibujo extends Component {
                 }
                 e.preventDefault();
                 if (e.type == 'touchmove'){
-                    ctxRef.current.lineTo(e.touches[0].clientX-canvas.offsetLeft, e.touches[0].clientY-canvas.offsetTop);
+                    let elementRect = e.target.getBoundingClientRect();
+                    ctxRef.current.lineTo(e.touches[0].clientX- elementRect.left, e.touches[0].clientY-elementRect.top);
+                    ctxRef.current.stroke();
                   } else if (e.type == 'mousemove'){
                 ctxRef.current.lineTo(
                 e.nativeEvent.offsetX,
                 e.nativeEvent.offsetY
+                
                 );
+                ctxRef.current.stroke();
             }
                 
-                ctxRef.current.stroke();
+                
             };
 
             const setToDraw = () =>{
@@ -142,7 +147,7 @@ export class Dibujo extends Component {
                 let fd = new FormData(document.forms[0]);
                 fd.append('dibujo', dibujo);
                 Axios({
-                    url: 'http://localhost:3001/dibujo',
+                    url: 'http://3.215.192.63:3001/dibujo',
                     method: "POST",
                     data: fd,
                     headers: {
@@ -153,20 +158,6 @@ export class Dibujo extends Component {
 
             return(
                 <Fragment>
-                    <div className="container">
-                        <div className="barra-herramientas">
-                                <button class="button-herramientas" onClick={setToDraw}><img src={lapiz} alt="Lápiz" title="Lápiz"/></button>
-
-                                <button class="button-herramientas" onClick={setToErase}><img src={deshacer} alt="Borrar" title="Borrar"/></button>
-
-                                <button class="button-herramientas" onClick={setToClear}><img src={borrar}  alt="Borrar pantalla" title="Borrar pantalla"/></button>
-
-                                <button class="button-herramientas" onClick={setToDownload}><img src={descargar} alt="Descargar dibujo" title="Descargar dibujo"/></button>
-
-                                <button class="button-herramientas" onClick={uploadFile}><img src={finalizar} alt="Finalizar dibujo" title="Finalizar dibujo"/></button>
-                        </div>
-                    </div>
-
                     <div style={{height: 510, border: 'solid', borderColor: '#8F8F8F'  }}>
                         <div className='draw-area' style={{height: 500, cursor:'pointer'}}>
                             <canvas id='canvas'
@@ -179,7 +170,22 @@ export class Dibujo extends Component {
                             ref={canvasRef}/>
                         </div>
                     </div>
-                    
+
+                    <div className="container">
+                        <div align="center">
+                            <div className="barra-herramientas">
+                                <button class="button-herramientas" onClick={setToDraw}><img src={lapiz} alt="Lápiz" title="Lápiz"/></button>
+
+                                <button class="button-herramientas" onClick={setToErase}><img src={deshacer} alt="Borrar" title="Borrar"/></button>
+
+                                <button class="button-herramientas" onClick={setToClear}><img src={borrar}  alt="Borrar pantalla" title="Borrar pantalla"/></button>
+
+                                <button class="button-herramientas" onClick={setToDownload}><img src={descargar} alt="Descargar dibujo" title="Descargar dibujo"/></button>
+
+                                <button class="button-herramientas" onClick={uploadFile}><img src={finalizar} alt="Finalizar dibujo" title="Finalizar dibujo"/></button>
+                            </div>
+                        </div>
+                    </div> 
                 </Fragment>
             )
         }

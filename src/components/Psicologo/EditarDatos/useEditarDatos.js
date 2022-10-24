@@ -35,7 +35,7 @@ const useEditarDatos = (callback, validar) => {
       useEffect(
         () => {
           if (Object.keys(errores).length === 0 && isSubmitting) {
-            Axios.put("http://localhost:3001/editarPsic",{
+            Axios.put("http://3.215.192.63:3001/editarPsic",{
             usuario: valores.Fusuario,
             nombre: valores.Fnombre,
             papellido: valores.Fapellido,
