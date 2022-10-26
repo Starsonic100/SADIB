@@ -1,0 +1,592 @@
+import React, { Component } from 'react';
+import '../css/style.css';
+import {createTheme, responsiveFontSizes, MuiThemeProvider, Typography} from "@material-ui/core";
+
+
+let theme=createTheme();
+theme=responsiveFontSizes(theme);
+
+export class ResultadosTAMAI extends Component {
+
+    render(){
+        const { values, handleInputChange } = this.props;
+        return(
+            <MuiThemeProvider theme={theme}>
+                <div className="container">
+                    <div className="main-row">
+                        <div className="col-12">
+                            <div className="container">
+                                <div className="formulario">
+                                    <div className="instrucciones">
+                                        <div align="center">
+                                            <Typography variant="h5" gutterBottom>Resultado prueba TAMAI</Typography>
+                                        </div>
+                                    </div>
+                                    <div className="preguntas">
+                                        <div className="container-fluid">
+                                            <div className="main row">
+                                                <div className="col-xs-6 col-sm-6 col-md-12 col-lg-12">
+                                                    <Typography variant="h6" gutterBottom class="tabla-tamai">
+                                                        <table class="table-tamai">
+                                                            <thead class="table-tamai">
+                                                                <tr>
+                                                                    <th class="table-tamai">Nivel 2</th>
+                                                                    <th class="table-tamai"></th>
+                                                                    <th class="table-tamai">PD</th>
+                                                                    <th class="table-tamai">Muy bajo</th>
+                                                                    <th class="table-tamai">Bajo</th>
+                                                                    <th class="table-tamai">Medio bajo</th>
+                                                                    <th class="table-tamai">Medio</th>
+                                                                    <th class="table-tamai">Medio alto</th>
+                                                                    <th class="table-tamai">Alto</th>
+                                                                    <th class="table-tamai">Muy alto</th>
+                                                                </tr>
+                                                            </thead>
+                                                            
+                                                            <tbody class="table-tamai">
+                                                                <tr>
+                                                                    <td class="table-tamai">Inadaptación General</td>
+                                                                    <td class="table-tamai">G</td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="table-tamai">Inadaptación Personal</td>
+                                                                    <td class="table-tamai">P</td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="sub table-tamai">Insatisfacción personal</td>
+                                                                    <td class="table-tamai">P1</td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                </tr>
+                                                                <tr >
+                                                                    <td class="sub table-tamai">Desajuste afectivo</td>
+                                                                    <td class="table-tamai">P2</td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="sub1 table-tamai">Cogniafección</td>
+                                                                    <td class="table-tamai">P21</td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="sub1 table-tamai">Cognipunición</td>
+                                                                    <td class="table-tamai">P22</td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="sub2 table-tamai">Somatización</td>
+                                                                    <td class="table-tamai">P221</td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="sub2 table-tamai">Depresión-intrapunición</td>
+                                                                    <td class="table-tamai">P222</td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="sub table-tamai">Autosuficiencia defensiva</td>
+                                                                    <td class="table-tamai">P3</td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="table-tamai">INADAPTACIÓN ESCOLAR</td>
+                                                                    <td class="table-tamai">E</td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="sub table-tamai">Aversión a la instrucción</td>
+                                                                    <td class="table-tamai">E1</td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="sub1 table-tamai">Hipolaboriosidad</td>
+                                                                    <td class="table-tamai">E11</td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="sub1 table-tamai">Hipomotivación</td>
+                                                                    <td class="table-tamai">E12</td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="sub1 table-tamai">Aversión al profesor</td>
+                                                                    <td class="table-tamai">E13</td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="sub table-tamai">Indisciplina</td>
+                                                                    <td class="table-tamai">E2</td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="table-tamai">INADAPTACIÓN SOCIAL</td>
+                                                                    <td class="table-tamai">S</td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="sub table-tamai">Autodesajuste social</td>
+                                                                    <td class="table-tamai">S1</td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="sub1 table-tamai">Agresividad social</td>
+                                                                    <td class="table-tamai">S11</td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="sub1 table-tamai">Disnomia</td>
+                                                                    <td class="table-tamai">S12</td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="sub table-tamai">Restricción social</td>
+                                                                    <td class="table-tamai">S2</td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="table-tamai">INSATISFACCIÓN AMBIENTE FAMILIAR</td>
+                                                                    <td class="table-tamai">F</td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="table-tamai">INSATISFACCIÓN CON LOS HERMANOS</td>
+                                                                    <td class="table-tamai">H</td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="table-tamai">EDUCACIÓN ADECUADA PADRE</td>
+                                                                    <td class="table-tamai">Pa</td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="sub table-tamai">Educación asistencial personal</td>
+                                                                    <td class="table-tamai">Pa1</td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="sub table-tamai">Permisivismo</td>
+                                                                    <td class="table-tamai">Pa2</td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="sub table-tamai">Restricción</td>
+                                                                    <td class="table-tamai">Pa3</td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="sub1 table-tamai">Perfeccionismo hipernómico</td>
+                                                                    <td class="table-tamai">Pa31</td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="sub1 table-tamai">Estilo aversivo</td>
+                                                                    <td class="table-tamai">Pa32</td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="sub2 table-tamai">Rechazo afectivo</td>
+                                                                    <td class="table-tamai">Pa321</td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="sub2 table-tamai">Perfeccionismo hostil</td>
+                                                                    <td class="table-tamai">Pa322</td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="sub2 table-tamai">Marginación afectiva</td>
+                                                                    <td class="table-tamai">Pa323</td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="table-tamai">EDUCACIÓN ADECUADA MADRE</td>
+                                                                    <td class="table-tamai">M</td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="sub table-tamai">Educación asistencial-personal</td>
+                                                                    <td class="table-tamai">M1</td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="sub table-tamai">Permisivismo</td>
+                                                                    <td class="table-tamai">M2</td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="sub table-tamai">Restricción</td>
+                                                                    <td class="table-tamai">M3</td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="sub1 table-tamai">Asistencia restrictiva</td>
+                                                                    <td class="table-tamai">M31</td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="sub2 table-tamai">Marginación afectiva</td>
+                                                                    <td class="table-tamai">M311</td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="sub2 table-tamai">Rechazo afectivo</td>
+                                                                    <td class="table-tamai">M312</td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="sub1 table-tamai">Personalización restrictiva</td>
+                                                                    <td class="table-tamai">M32</td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="sub2 table-tamai">Perfección. hostil</td>
+                                                                    <td class="table-tamai">M321</td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="sub2 table-tamai">Perfección. hipernómico</td>
+                                                                    <td class="table-tamai">M322</td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="table-tamai">DISCREPANCIA EDUCATIVA</td>
+                                                                    <td class="table-tamai">Dis</td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="table-tamai">PRO-IMAGEN</td>
+                                                                    <td class="table-tamai">PI</td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="table-tamai">CONTRADICCIONES</td>
+                                                                    <td class="table-tamai">Contr</td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"></td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </Typography>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </MuiThemeProvider>
+        )
+    }
+}
+
+export default ResultadosTAMAI;
