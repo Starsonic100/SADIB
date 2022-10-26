@@ -147,7 +147,7 @@ export class Dibujo extends Component {
                 let fd = new FormData(document.forms[0]);
                 fd.append('dibujo', dibujo);
                 Axios({
-                    url: 'http://3.215.192.63:3001/dibujo',
+                    url: 'http://localhost:3001/dibujo',
                     method: "POST",
                     data: fd,
                     headers: {

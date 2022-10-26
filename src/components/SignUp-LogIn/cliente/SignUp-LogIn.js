@@ -37,7 +37,7 @@ const Login = ({ submitForm }) =>{
 
     const registro = () => { 
         setErrors(validacion(Fusuario,Fnombre,Fpapellido,Fsapellido,Fcorreo,Ftelefono,Fcontrasenia));
-        Axios.post("http://3.215.192.63:3001/registro",{
+        Axios.post("http://localhost:3001/registro",{
         usuario: Fusuario,
         nombre: Fnombre,
         papellido: Fpapellido,
