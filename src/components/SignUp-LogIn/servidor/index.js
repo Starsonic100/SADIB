@@ -28,7 +28,7 @@ const auth = new google.auth.GoogleAuth({
 app.use(express.json());
 app.use(
   cors({
-    origin: ["http://sadib.com.s3-website-us-east-1.amazonaws.com"],
+    origin: ["http://localhost:3000"],
     methods: ["GET", "POST","PUT","DELETE"],
     credentials: true,
   })
@@ -49,9 +49,9 @@ app.use(
 );
 
 const db = mysql.createConnection({
-  user: "admin",
-  host: "sadib.c1vwo3ltss0h.us-east-1.rds.amazonaws.com",
-  password: "Lexi2303",
+  user: "root",
+  host: "localhost",
+  password: "1234",
   database: "sadib",
 });
 
@@ -194,7 +194,7 @@ app.get("/obtenerDatos",(req,res)=>{
   const id_paci= req.query;
   
   db.query(
-    "SELECT paciente.nombre,paciente.apellidop,paciente.apellidom,CONCAT(YEAR(fecha_nac),'-',DATE_FORMAT(fecha_nac,'%m'),'-',DATE_FORMAT(fecha_nac,'%d')) as fecha_nac,genero,paciente.correo,paciente.telefono,tutor.nombre AS nombret,tutor.apellidop AS apellidopt,tutor.apellidom AS apellidomt,tutor.correo AS correot,tutor.telefono AS telefonot FROM paciente INNER JOIN tutor ON paciente.id_tutor=tutor.id_tutor AND id_paci=?;",[id_paci.id_paci],(err,result) => { console.log(err); res.send(JSON.stringify(result));}
+    "SELECT paciente.nombre,paciente.apellidop,paciente.apellidom,CONCAT(YEAR(fecha_nac),'-',DATE_FORMAT(fecha_nac,'%m'),'-',DATE_FORMAT(fecha_nac,'%d')) as fecha_nac,genero,paciente.correo,paciente.telefono,tutor.nombre AS nombret,tutor.apellidop AS apellidopt,tutor.apellidom AS apellidomt,tutor.correo AS correot,tutor.telefono AS telefonot, CONCAT(year(CURDATE())-year(fecha_nac), ' años ', month(CURDATE())-month(fecha_nac), ' meses ', day(CURDATE())-day(fecha_nac), ' días ') AS edad FROM paciente INNER JOIN tutor ON paciente.id_tutor=tutor.id_tutor AND id_paci=?;",[id_paci.id_paci],(err,result) => { console.log(err); res.send(JSON.stringify(result));}
   );
 });
 
@@ -317,5 +317,5 @@ async function createAndUploadFile(auth,dibujo){
 
 
 app.listen(3001, () => {
-  console.log("Servidor 3001 corriendo");
+  console.log("Servidor corriendo");
 });

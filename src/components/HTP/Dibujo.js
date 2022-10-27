@@ -83,7 +83,7 @@ export class Dibujo extends Component {
                     let elementRect = e.target.getBoundingClientRect();
                     ctxRef.current.lineTo(e.touches[0].clientX- elementRect.left, e.touches[0].clientY-elementRect.top);
                     ctxRef.current.stroke();
-                } else if (e.type == 'mousemove'){
+                  } else if (e.type == 'mousemove'){
                 ctxRef.current.lineTo(
                 e.nativeEvent.offsetX,
                 e.nativeEvent.offsetY
@@ -158,7 +158,7 @@ export class Dibujo extends Component {
 
             return(
                 <Fragment>
-                    <div style={{height: 510, border: 'solid', borderColor: '#8F8F8F', touchAction:'none'}}>
+                    <div style={{height: 510, border: 'solid', borderColor: '#8F8F8F'  }}>
                         <div className='draw-area' style={{height: 500, cursor:'pointer'}}>
                             <canvas id='canvas'
                             onMouseDown={startDrawing}

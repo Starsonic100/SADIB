@@ -8,6 +8,11 @@ theme = responsiveFontSizes(theme);
 
 export class TAMAIfinal extends Component {
     
+    continuar = e => {
+        e.preventDefault();
+        this.props.siguiente();
+    };
+
     render() {
 
         const {
