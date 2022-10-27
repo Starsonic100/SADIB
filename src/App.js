@@ -6,6 +6,7 @@ import MenuAdmin from './components/Navbar/MenuAdmin';
 import Footer from './components/footer/footer';
 import Principal from './components/Principal/PrincipalPage';
 import TAMAI from './components/TAMAI/TAMAIPage';
+import ResultadosTAMAI from './components/TAMAI/ResultadosTAMAI';
 import HTP from './components/HTP/HTPPage';
 import SignLog from './components/SignUp-LogIn/cliente/SignUp-LogIn';
 import Pacientes from './components/Pacientes/PacientesPage';
@@ -38,6 +39,7 @@ function App() {
         <Route path='/' element={<Principal/>}/>
         <Route path='/SignUp-LogIn' element={<SignLog/>}/>
         <Route path='/TAMAI' element={<TAMAI/>}/>
+        <Route path='/ResultadosTAMAI' element={<ResultadosTAMAI/>}/>
         <Route path='/HTP' element={<HTP/>}/>
         <Route path='/Pacientes' element={<Pacientes/>}/>
         <Route path='/AgregarPaciente' element={<AgregarPaciente/>}/>

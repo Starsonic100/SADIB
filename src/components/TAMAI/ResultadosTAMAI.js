@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import '../css/style.css';
+import Axios from "axios";
 import {createTheme, responsiveFontSizes, MuiThemeProvider, Typography} from "@material-ui/core";
 
 
@@ -8,8 +9,30 @@ theme=responsiveFontSizes(theme);
 
 export class ResultadosTAMAI extends Component {
 
+    state={
+        pacientes:[],
+        datosPaciente:[],
+    }
+
+    componentDidMount(){
+        Axios.get("http://localhost:3001/obtenerDatos",{
+            params: {
+                id_paci: 833239
+            }
+        })
+        .then((response) =>{
+            console.log(response);
+            this.setState({datosPaciente: response.data})
+        })
+        .catch((error)=> {
+            console.log(error)
+        });
+    }
+
     render(){
         const { values, handleInputChange } = this.props;
+        const fecha=new Date();
+
         return(
             <MuiThemeProvider theme={theme}>
                 <div className="container">
@@ -25,6 +48,58 @@ export class ResultadosTAMAI extends Component {
                                     <div className="preguntas">
                                         <div className="container-fluid">
                                             <div className="main row">
+                                                <div className="col-xs-6 col-sm-6 col-md-12 col-lg-12">
+                                                    <div class="myform form">
+                                                        
+                                                            <div className="main row">
+                                                                <div className="col-xs-12 col-sm-12 col-md-5 col-lg-5">
+                                                                    <div class="input-group input-group-sm mb-3">
+                                                                        <span class="input-group-text" id="inputGroup-sizing-sm">
+                                                                            <MuiThemeProvider theme={theme}>
+                                                                                <Typography variant="h6" class="contenido">{"Paciente"}</Typography>
+                                                                            </MuiThemeProvider>
+                                                                        </span>
+                                                                        <span class="form-control">
+                                                                            {this.state.datosPaciente.map(e => (
+                                                                            <t>{e.nombre} {e.apellidop} {e.apellidom}</t>
+                                                                            ))}
+                                                                        </span>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div className="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                                                                    <div class="input-group input-group-sm mb-3">
+                                                                        <span class="input-group-text" id="inputGroup-sizing-sm">
+                                                                            <MuiThemeProvider theme={theme}>
+                                                                                <Typography variant="h6" class="contenido">{"Género"}</Typography>
+                                                                            </MuiThemeProvider>
+                                                                        </span>
+                                                                        <span class="form-control">
+                                                                            {this.state.datosPaciente.map(e => (
+                                                                            <t>{e.genero}</t>
+                                                                            ))}
+                                                                        </span>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div className="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                                                                    <div class="input-group input-group-sm mb-3">
+                                                                        <span class="input-group-text" id="inputGroup-sizing-sm">
+                                                                            <MuiThemeProvider theme={theme}>
+                                                                                <Typography variant="h6" class="contenido">{"Edad"}</Typography>
+                                                                            </MuiThemeProvider>
+                                                                        </span>
+                                                                        <span class="form-control">
+                                                                            {this.state.datosPaciente.map(e => (
+                                                                            <t>{e.edad}</t>
+                                                                            ))}
+                                                                        </span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        
+                                                    </div>
+                                                </div>
                                                 <div className="col-xs-6 col-sm-6 col-md-12 col-lg-12">
                                                     <Typography variant="h6" gutterBottom class="tabla-tamai">
                                                         <table class="table-tamai">
@@ -576,6 +651,14 @@ export class ResultadosTAMAI extends Component {
                                                         </table>
                                                     </Typography>
                                                 </div>
+                                            </div>
+                                            <div className="main row">
+                                                <MuiThemeProvider theme={theme}>
+                                                    <Typography variant="h6" class="pie-tabla">{fecha.toString()}</Typography>
+                                                </MuiThemeProvider>
+                                                <MuiThemeProvider theme={theme}>
+                                                    <Typography variant="h6" class="pie-tabla">{"Este documento carece de validez oficial y requiere de un profesional para un diagnóstico más preciso y seguimiento."}</Typography>
+                                                </MuiThemeProvider>
                                             </div>
                                         </div>
                                     </div>
