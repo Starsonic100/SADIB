@@ -16,3 +16,5 @@ npm install cors
 npm install md5
 
 npm install @material-ui/core --force
+
+npm install @react-pdf/renderer --save
