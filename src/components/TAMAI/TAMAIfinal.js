@@ -1,7 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import '../css/style.css';
 import unicornio from '../img/unicornio.png';
-import siguiente from '../img/siguiente.png';
 import{ createTheme, MuiThemeProvider, responsiveFontSizes, Typography} from "@material-ui/core";
 
 let theme = createTheme();
@@ -83,11 +82,6 @@ export class TAMAIfinal extends Component {
                     <div className="container">
                         <div align="center">
                             <button type="submit" class="enviar" onClick={evaluacion}>Enviar</button>
-                        </div>
-                    </div>
-                    <div className="main row">
-                        <div className="col-11">
-                            <button class="button" onClick={this.continuar}><img src={siguiente}/></button>
                         </div>
                     </div>
                 </Fragment>

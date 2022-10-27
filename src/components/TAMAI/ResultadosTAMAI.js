@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect }  from 'react';
 import '../css/style.css';
 import Axios from "axios";
 import {createTheme, responsiveFontSizes, MuiThemeProvider, Typography} from "@material-ui/core";
@@ -7,31 +7,23 @@ import {createTheme, responsiveFontSizes, MuiThemeProvider, Typography} from "@m
 let theme=createTheme();
 theme=responsiveFontSizes(theme);
 
-export class ResultadosTAMAI extends Component {
+function ResultadosTAMAI(props){
 
-    state={
-        pacientes:[],
-        datosPaciente:[],
-    }
+    /*const id_paciente=props.values.id_paciente;*/
+    const id_paciente=833239;
+    const [post, setPost] = useState([]);
 
-    componentDidMount(){
+    useEffect(() => {
         Axios.get("http://localhost:3001/obtenerDatos",{
             params: {
-                id_paci: 833239
+                id_paci: id_paciente
             }
-        })
-        .then((response) =>{
-            console.log(response);
-            this.setState({datosPaciente: response.data})
-        })
-        .catch((error)=> {
-            console.log(error)
+        }).then((response) => {
+            setPost(response.data);
         });
-    }
+    }, [setPost]);
 
-    render(){
-        const { values, handleInputChange } = this.props;
-        const fecha=new Date();
+    const fecha=new Date();
 
         return(
             <MuiThemeProvider theme={theme}>
@@ -59,11 +51,10 @@ export class ResultadosTAMAI extends Component {
                                                                                 <Typography variant="h6" class="contenido">{"Paciente"}</Typography>
                                                                             </MuiThemeProvider>
                                                                         </span>
-                                                                        <span class="form-control">
-                                                                            {this.state.datosPaciente.map(e => (
-                                                                            <t>{e.nombre} {e.apellidop} {e.apellidom}</t>
-                                                                            ))}
-                                                                        </span>
+                                                                        {post.map((item) => (
+                                                                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" value={item.apellidop+' '+item.apellidom+' '+item.nombre}>
+                                                                            </input>
+                                                                        ))}
                                                                     </div>
                                                                 </div>
 
@@ -74,11 +65,10 @@ export class ResultadosTAMAI extends Component {
                                                                                 <Typography variant="h6" class="contenido">{"Género"}</Typography>
                                                                             </MuiThemeProvider>
                                                                         </span>
-                                                                        <span class="form-control">
-                                                                            {this.state.datosPaciente.map(e => (
-                                                                            <t>{e.genero}</t>
-                                                                            ))}
-                                                                        </span>
+                                                                        {post.map((item) => (
+                                                                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" value={item.genero}>
+                                                                            </input>
+                                                                        ))}
                                                                     </div>
                                                                 </div>
 
@@ -89,11 +79,10 @@ export class ResultadosTAMAI extends Component {
                                                                                 <Typography variant="h6" class="contenido">{"Edad"}</Typography>
                                                                             </MuiThemeProvider>
                                                                         </span>
-                                                                        <span class="form-control">
-                                                                            {this.state.datosPaciente.map(e => (
-                                                                            <t>{e.edad}</t>
-                                                                            ))}
-                                                                        </span>
+                                                                        {post.map((item) => (
+                                                                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" value={item.edad}>
+                                                                            </input>
+                                                                        ))}
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -669,7 +658,6 @@ export class ResultadosTAMAI extends Component {
                 </div>
             </MuiThemeProvider>
         )
-    }
 }
 
 export default ResultadosTAMAI;
