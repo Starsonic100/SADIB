@@ -29,7 +29,13 @@ export class TAMAIPage extends Component {
         p141: 0,p142: 0,p143: 0,p144: 0,p145: 0,p146: 0,p147: 0,p148: 0,p149: 0,p150:0,
         p151: 0,p152: 0,p153: 0,p154: 0,p155: 0,p156: 0,p157: 0,p158: 0,p159: 0,p160:0,
         p161: 0,p162: 0,p163: 0,p164: 0,p165: 0,p166: 0,p167: 0,p168: 0,p169: 0,p170:0,
-        p171: 0,p172: 0,p173: 0,p174: 0,p175: 0
+        p171: 0,p172: 0,p173: 0,p174: 0,p175: 0,
+        rG: 0,rP: 0,rP1: 0,rP2: 0,rP21: 0,rP22: 0,rP221: 0,rP222: 0,rP3: 0,
+        rE: 0,rE1: 0,rE11: 0,rE12: 0,rE13: 0,rE2: 0,
+        rS: 0,rS1: 0,rS11: 0,rS12: 0,rS2: 0,rF: 0,rH: 0,
+        rPa: 0,rPa1: 0,rPa2: 0,rPa3: 0,rPa31: 0,rPa32: 0,rPa321: 0,rPa322: 0,rPa323: 0,
+        rM: 0,rM1: 0,rM2: 0,rM3: 0,rM31: 0,rM311: 0,rM312: 0,rM32: 0,rM321: 0,rM322: 0,
+        rDis: 0,rPI: 0,rContr: 0
     }
 
     /*Pasa a la siguiente página */
@@ -74,7 +80,10 @@ export class TAMAIPage extends Component {
                 p141,p142,p143,p144,p145,p146,p147,p148,p149,p150,
                 p151,p152,p153,p154,p155,p156,p157,p158,p159,p160,
                 p161,p162,p163,p164,p165,p166,p167,p168,p169,p170,
-                p171,p172,p173,p174,p175} =this.state;
+                p171,p172,p173,p174,p175,rG,rP,rP1,rP2,rP21,rP22,rP221,rP222,rP3,
+                rE,rE1,rE11,rE12,rE13,rE2,rS,rS1,rS11,rS12,rS2,rF,rH,rPa,rPa1,
+                rPa2,rPa3,rPa31,rPa32,rPa321,rPa322,rPa323,rM,rM1,rM2,rM3,rM31,
+                rM311,rM312,rM32,rM321,rM322,rDis,rPI,rContr} =this.state;
 
         const values = {p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,
                         p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,
@@ -93,7 +102,11 @@ export class TAMAIPage extends Component {
                         p141,p142,p143,p144,p145,p146,p147,p148,p149,p150,
                         p151,p152,p153,p154,p155,p156,p157,p158,p159,p160,
                         p161,p162,p163,p164,p165,p166,p167,p168,p169,p170,
-                        p171,p172,p173,p174,p175}
+                        p171,p172,p173,p174,p175,rG,rP,rP1,rP2,rP21,rP22,
+                        rP221,rP222,rP3,rE,rE1,rE11,rE12,rE13,rE2,rS,rS1,rS11,
+                        rS12,rS2,rF,rH,rPa,rPa1,rPa2,rPa3,rPa31,rPa32,rPa321,
+                        rPa322,rPa323,rM,rM1,rM2,rM3,rM31,rM311,rM312,rM32,
+                        rM321,rM322,rDis,rPI,rContr}
         
         switch (this.state.page){
             case 1:

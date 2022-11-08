@@ -28,7 +28,7 @@ export class Dibujo extends Component {
             const canvasRef = useRef(null);
             const ctxRef = useRef(null);
             const [isDrawing, setIsDrawing] = useState(false);
-            const [lineWidth, setLineWidth] = useState(1.75);
+            const [lineWidth, setLineWidth] = useState(2.5);
             const [lineColor, setLineColor] = useState("black");
             const [lineOpacity, setLineOpacity] = useState(100);
             const [base,setBase] = useState("");
