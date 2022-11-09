@@ -4,7 +4,7 @@ import * as AiIcons from 'react-icons/ai';
 import Axios from "axios";
 
 import { NavLink, Link, useLocation, useNavigate } from 'react-router-dom';import { SidebarData } from './SidebarData';
-import '../css/NavBar.css';
+import '../css/navbar.css';
 import { IconContext } from 'react-icons';
 import {Link as Linker,animateScroll as scroll } from "react-scroll";
 import {createMuiTheme, 

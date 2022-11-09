@@ -32,6 +32,8 @@ export class Dibujo extends Component {
             const [lineColor, setLineColor] = useState("black");
             const [lineOpacity, setLineOpacity] = useState(100);
             const [base,setBase] = useState("");
+            var inMemCanvas = document.createElement('canvas');
+            var inMemCtx = inMemCanvas.getContext('2d');
 
             useEffect(() => {
                 const canvas = canvasRef.current;
@@ -46,9 +48,22 @@ export class Dibujo extends Component {
                 ctx.fillRect(0, 0, canvas.width, canvas.height);
                 ctx.globalAlpha = lineOpacity;
                 ctx.strokeStyle = lineColor;
-                ctx.lineWidth = lineWidth;
+                ctx.lineWidth = 1.75;
                 ctxRef.current = ctx;
+                window.addEventListener('resize', resizeCanvas, false);
+                window.addEventListener('deviceorientation', resizeCanvas,false);
             }, [lineColor, lineOpacity, lineWidth]);
+
+                   
+  function resizeCanvas() {
+    let canvas=document.getElementById("canvas");
+    ctxRef.current.width = ctxRef.current.offsetWidth;
+                ctxRef.current.height = ctxRef.current.offsetHeight;
+                ctxRef.current.drawImage(ctxRef, 0, 0);
+                
+    ;
+  }
+  
 
             // Function for starting the drawing
             const startDrawing = (e) => {
@@ -96,11 +111,17 @@ export class Dibujo extends Component {
             };
 
             const setToDraw = () =>{
+                let canvas=document.getElementById("canvas");
+                let context=canvas.getContext("2d");
                 ctxRef.current.globalCompositeOperation = 'source-over';
+                context.lineWidth = 1.75;
             }
 
             const setToErase = () =>{
+                let canvas=document.getElementById("canvas");
+                let context=canvas.getContext("2d");
                 ctxRef.current.globalCompositeOperation = 'destination-out';
+                context.lineWidth = 20;
             }
 
             const setToClear = () =>{

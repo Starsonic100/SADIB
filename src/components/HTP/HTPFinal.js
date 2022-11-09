@@ -22,9 +22,7 @@ export class HTPFinal extends Component{
         const Evaluar = () =>{
 
             const evaluacion= () =>{
-                /* Aquí va el código para 
-                    enviar las respuestas 
-                    a un PDF (después lo hago :V)*/
+                
             }
 
             return(

@@ -100,7 +100,7 @@ app.post("/login", (req,res) =>{
   const contrasenia = md5(req.body.contrasenia);
   
   db.query(
-    "SELECT nombre, apellidop, apellidop,apellidom, telefono, rol, id_usuario, login.correo, login.contrasenia FROM login, psicologo WHERE login.correo = ? and login.contrasenia = ?;",
+    "SELECT nombre, apellidop, apellidom, telefono, rol, id_usuario, login.correo, login.contrasenia FROM login, psicologo WHERE login.correo = ? and login.contrasenia = ?;",
     [correo,contrasenia],
     (err, result) => {
       if (err) {
