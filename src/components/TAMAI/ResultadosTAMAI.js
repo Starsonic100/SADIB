@@ -7,14 +7,13 @@ import {createTheme, responsiveFontSizes, MuiThemeProvider, Typography} from "@m
 let theme=createTheme();
 theme=responsiveFontSizes(theme);
 
-function ResultadosTAMAI(props){
+function ResultadosTAMAI(){
 
-    /*const id_paciente=props.values.id_paciente;*/
     const id_paciente=833239;
     const [post, setPost] = useState([]);
 
     useEffect(() => {
-        Axios.get("http://3.215.192.63:3001/obtenerDatos",{
+        Axios.get("http://localhost:3001/obtenerDatos",{
             params: {
                 id_paci: id_paciente
             }

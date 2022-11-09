@@ -15,9 +15,7 @@ export class TAMAIfinal extends Component {
 
     render() {
 
-        const { values, handleInputChange } = this.props;
-
-        let {
+        const {
             values: { p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,
                 p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,
                 p21,p22,p23,p24,p25,p26,p27,p28,p29,p30,
@@ -35,157 +33,153 @@ export class TAMAIfinal extends Component {
                 p141,p142,p143,p144,p145,p146,p147,p148,p149,p150,
                 p151,p152,p153,p154,p155,p156,p157,p158,p159,p160,
                 p161,p162,p163,p164,p165,p166,p167,p168,p169,p170,
-                p171,p172,p173,p174,p175,rG,rP,rP1,rP2,rP21,rP22,
-                rP221,rP222,rP3,rE,rE1,rE11,rE12,rE13,rE2,rS,rS1,rS11,
-                rS12,rS2,rF,rH,rPa,rPa1,rPa2,rPa3,rPa31,rPa32,rPa321,
-                rPa322,rPa323,rM,rM1,rM2,rM3,rM31,rM311,rM312,rM32,
-                rM321,rM322,rDis,rPI,rContr}
+                p171,p172,p173,p174,p175}
         } = this.props;
 
         const Evaluar = () =>{
             
             const evaluacion= () =>{
                 /*Inadaptación personal*/
-                rP1=parseFloat(p2)+parseFloat(p6)+parseFloat(p13)
+                const rP1=parseFloat(p2)+parseFloat(p6)+parseFloat(p13)
 
-                rP2=parseFloat(p1)+parseFloat(p5)+parseFloat(p7)+parseFloat(p9)+parseFloat(p14)
+                const rP2=parseFloat(p1)+parseFloat(p5)+parseFloat(p7)+parseFloat(p9)+parseFloat(p14)
 
-                rP21=parseFloat(p4)+parseFloat(p8)+parseFloat(p20)+parseFloat(p62)+parseFloat(p65)
+                const rP21=parseFloat(p4)+parseFloat(p8)+parseFloat(p20)+parseFloat(p62)+parseFloat(p65)
                 +parseFloat(p68)+parseFloat(p69)+parseFloat(p70)+parseFloat(p71)+parseFloat(p72)
                 +parseFloat(p73)+parseFloat(p74)+parseFloat(p77)
 
-                rP22=parseFloat(p3)+parseFloat(p11)+parseFloat(p12)+parseFloat(p15)+parseFloat(p16)
+                const rP22=parseFloat(p3)+parseFloat(p11)+parseFloat(p12)+parseFloat(p15)+parseFloat(p16)
                 +parseFloat(p19)+parseFloat(p22)+parseFloat(p64)+parseFloat(p66)+parseFloat(p75)+parseFloat(p76)
 
-                rP221=parseFloat(p67)+parseFloat(p61)+parseFloat(p63)+parseFloat(p10)+parseFloat(p17)
+                const rP221=parseFloat(p67)+parseFloat(p61)+parseFloat(p63)+parseFloat(p10)+parseFloat(p17)
                 +parseFloat(p18)+parseFloat(p21)
 
-                rP222=rP1+rP2+rP21
+                const rP222=rP1+rP2+rP21
 
-                rP3=rP22+rP221
+                const rP3=rP22+rP221
 
-                rP=rP1+rP2+rP21+rP22+rP221
+                const rP=rP1+rP2+rP21+rP22+rP221
                 /*----------------------------------*/
 
                 /*Inadaptación escolar*/
-                rE1=parseFloat(p24)+parseFloat(p25)+parseFloat(p26)+parseFloat(p27)+parseFloat(p78)+parseFloat(p79)
+                const rE1=parseFloat(p24)+parseFloat(p25)+parseFloat(p26)+parseFloat(p27)+parseFloat(p78)+parseFloat(p79)
 
-                rE11=parseFloat(p23)+parseFloat(p28)+parseFloat(p33)+parseFloat(p34)+parseFloat(p38)+parseFloat(p39)
+                const rE11=parseFloat(p23)+parseFloat(p28)+parseFloat(p33)+parseFloat(p34)+parseFloat(p38)+parseFloat(p39)
                 +parseFloat(p40)+parseFloat(p83)+parseFloat(p84)+parseFloat(p85)
                 
-                rE12=parseFloat(p35)+parseFloat(p36)+parseFloat(p37)+parseFloat(p41)+parseFloat(p86)+parseFloat(p87)
+                const rE12=parseFloat(p35)+parseFloat(p36)+parseFloat(p37)+parseFloat(p41)+parseFloat(p86)+parseFloat(p87)
                 
-                rE13=parseFloat(p29)+parseFloat(p30)+parseFloat(p31)+parseFloat(p32)+parseFloat(p42)+parseFloat(p80)+parseFloat(p81)+parseFloat(p82)+parseFloat(p88)
+                const rE13=parseFloat(p29)+parseFloat(p30)+parseFloat(p31)+parseFloat(p32)+parseFloat(p42)+parseFloat(p80)+parseFloat(p81)+parseFloat(p82)+parseFloat(p88)
 
-                rE2=rE1+rE11+rE12
+                const rE2=rE1+rE11+rE12
 
-                rE=rE1+rE11+rE12+rE13
+                const rE=rE1+rE11+rE12+rE13
                 /*----------------------------------*/
 
                 /*Inadaptación social*/
-                rS1=parseFloat(p51)+parseFloat(p52)+parseFloat(p60)
+                const rS1=parseFloat(p51)+parseFloat(p52)+parseFloat(p60)
 
-                rS11=parseFloat(p50)+parseFloat(p53)+parseFloat(p54)+parseFloat(p55)+parseFloat(p56)+parseFloat(p57)+parseFloat(p58)+parseFloat(p59)+parseFloat(p94)+parseFloat(p97)+parseFloat(p100)+parseFloat(p101)+parseFloat(p102)+parseFloat(p104)+parseFloat(p105)
+                const rS11=parseFloat(p50)+parseFloat(p53)+parseFloat(p54)+parseFloat(p55)+parseFloat(p56)+parseFloat(p57)+parseFloat(p58)+parseFloat(p59)+parseFloat(p94)+parseFloat(p97)+parseFloat(p100)+parseFloat(p101)+parseFloat(p102)+parseFloat(p104)+parseFloat(p105)
                 
-                rS12=parseFloat(p43)+parseFloat(p44)+parseFloat(p45)+parseFloat(p46)+parseFloat(p47)+parseFloat(p48)
+                const rS12=parseFloat(p43)+parseFloat(p44)+parseFloat(p45)+parseFloat(p46)+parseFloat(p47)+parseFloat(p48)
                 +parseFloat(p49)+parseFloat(p89)+parseFloat(p90)+parseFloat(p91)+parseFloat(p92)+parseFloat(p93)
                 +parseFloat(p95)+parseFloat(p96)+parseFloat(p98)+parseFloat(p99)+parseFloat(p103)
 
-                rS2=rS1+rS11
+                const rS2=rS1+rS11
 
-                rS=rS1+rS11+rS12
+                const rS=rS1+rS11+rS12
                 /*----------------------------------*/
 
                 /*Inadaptación familiar*/
-                rF=parseFloat(p106)+parseFloat(p107)+parseFloat(p108)+parseFloat(p109)+parseFloat(p110)
+                const rF=parseFloat(p106)+parseFloat(p107)+parseFloat(p108)+parseFloat(p109)+parseFloat(p110)
                 /*----------------------------------*/
 
                 /*Relación con los hermanos*/
-                rH=parseFloat(p111)+parseFloat(p112)+parseFloat(p113)+parseFloat(p114)+parseFloat(p115)
+                const rH=parseFloat(p111)+parseFloat(p112)+parseFloat(p113)+parseFloat(p114)+parseFloat(p115)
                 /*----------------------------------*/
 
                 /*Relación con el padre*/
-                rPa1=parseFloat(p116)+parseFloat(p117)+parseFloat(p118)+parseFloat(p119)+parseFloat(p120)
+                const rPa1=parseFloat(p116)+parseFloat(p117)+parseFloat(p118)+parseFloat(p119)+parseFloat(p120)
                 +parseFloat(p121)+parseFloat(p122)+parseFloat(p123)+parseFloat(p124)+parseFloat(p125)
 
-                rPa2=parseFloat(p126)+parseFloat(p127)+parseFloat(p128)+parseFloat(p129)+parseFloat(p130)
+                const rPa2=parseFloat(p126)+parseFloat(p127)+parseFloat(p128)+parseFloat(p129)+parseFloat(p130)
 
-                rPa3=parseFloat(p131)+parseFloat(p132)
+                const rPa3=parseFloat(p131)+parseFloat(p132)
 
-                rPa31=parseFloat(p133)+parseFloat(p134)+parseFloat(p135)
+                const rPa31=parseFloat(p133)+parseFloat(p134)+parseFloat(p135)
 
-                rPa32=parseFloat(p136)+parseFloat(p137)
+                const rPa32=parseFloat(p136)+parseFloat(p137)
                 
-                rPa321=parseFloat(p138)+parseFloat(p139)+parseFloat(p140)
+                const rPa321=parseFloat(p138)+parseFloat(p139)+parseFloat(p140)
 
-                rPa322=parseFloat(p141)+parseFloat(p142)
+                const rPa322=parseFloat(p141)+parseFloat(p142)
 
-                rPa323=+parseFloat(p143)+parseFloat(p144)+parseFloat(p145)
+                const rPa323=+parseFloat(p143)+parseFloat(p144)+parseFloat(p145)
 
-                rPa=rPa1+rPa2+rPa3+rPa31+rPa32
+                const rPa=rPa1+rPa2+rPa3+rPa31+rPa32
                 /*----------------------------------*/
 
                 /*Relación con la madre*/
-                rM1=parseFloat(p146)+parseFloat(p147)+parseFloat(p148)+parseFloat(p149)+parseFloat(p150)
+                const rM1=parseFloat(p146)+parseFloat(p147)+parseFloat(p148)+parseFloat(p149)+parseFloat(p150)
                 +parseFloat(p151)+parseFloat(p152)+parseFloat(p153)+parseFloat(p154)+parseFloat(p155)
 
-                rM2=parseFloat(p156)+parseFloat(p157)+parseFloat(p158)+parseFloat(p159)+parseFloat(p160)
+                const rM2=parseFloat(p156)+parseFloat(p157)+parseFloat(p158)+parseFloat(p159)+parseFloat(p160)
 
-                rM3=parseFloat(p161)+parseFloat(p162)
+                const rM3=parseFloat(p161)+parseFloat(p162)
 
-                rM31=parseFloat(p163)+parseFloat(p164)+parseFloat(p165)
+                const rM31=parseFloat(p163)+parseFloat(p164)+parseFloat(p165)
 
-                rM32=parseFloat(p166)+parseFloat(p167)
+                const rM32=parseFloat(p166)+parseFloat(p167)
 
-                rM311=parseFloat(p168)+parseFloat(p169)
+                const rM311=parseFloat(p168)+parseFloat(p169)
 
-                rM312=parseFloat(p170)+parseFloat(p171)
+                const rM312=parseFloat(p170)+parseFloat(p171)
 
-                rM321=parseFloat(p172)+parseFloat(p173)
+                const rM321=parseFloat(p172)+parseFloat(p173)
 
-                rM322=parseFloat(p174)+parseFloat(p175)
+                const rM322=parseFloat(p174)+parseFloat(p175)
 
-                rM=rM1+rM2+rM3+rM31+rM32
+                const rM=rM1+rM2+rM3+rM31+rM32
                 /*----------------------------------*/
 
                 /*Puntaje general*/
-                rG=rP+rE+rS
+                const rG=rP+rE+rS
                 /*----------------------------------*/
 
                 /*Discrepancia educativa*/
-                rDis=Math.abs(rPa1-rM1)+Math.abs(rPa2-rM2)+Math.abs(rPa3-rM3)
+                const rDis=Math.abs(rPa1-rM1)+Math.abs(rPa2-rM2)+Math.abs(rPa3-rM3)
                 /*----------------------------------*/
 
                 /*Puntaje proimagen*/
-                rPI=parseFloat(p61)+parseFloat(p62)+parseFloat(p88)+parseFloat(p90)+parseFloat(p94)
+                const rPI=parseFloat(p61)+parseFloat(p62)+parseFloat(p88)+parseFloat(p90)+parseFloat(p94)
                 +parseFloat(p97)+parseFloat(p98)+parseFloat(p104)+parseFloat(p105)
                 /*----------------------------------*/
 
                 /*Contraindicaciones*/
-                rContr=parseFloat(0)
+                let rContr=0
 
                 if(p14===p75){
-                    rContr=rContr+parseFloat(2)
+                    rContr=rContr+2
                 }
 
                 if(p26===p82){
-                    rContr=rContr+parseFloat(2)
+                    rContr=rContr+2
                 }
 
                 if(p41===p88){
-                    rContr=rContr+parseFloat(2)
+                    rContr=rContr+2
                 }
 
                 if(p76===p93){
-                    rContr=rContr+parseFloat(2)
+                    rContr=rContr+2
                 }
 
                 if(p49===p95){
-                    rContr=rContr+parseFloat(2)
+                    rContr=rContr+2
                 }
 
                 if(p51===p96){
-                    rContr=rContr+parseFloat(2)
+                    rContr=rContr+2
                 }
                 /*----------------------------------*/
 
@@ -196,7 +190,7 @@ export class TAMAIfinal extends Component {
                 <Fragment>
                     <div className="container">
                         <div align="center">
-                            <button type="submit" class="enviar" onClickCapture={evaluacion} onClick={this.continuar} >Enviar</button>
+                            <button type="submit" class="enviar" onClick={evaluacion} >Enviar</button>
                         </div>
                     </div>
                 </Fragment>
