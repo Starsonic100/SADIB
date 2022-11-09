@@ -111,7 +111,7 @@ function ResultadosTAMAI(props){
                                                                 <tr>
                                                                     <td class="table-tamai">Inadaptación General</td>
                                                                     <td class="table-tamai">G</td>
-                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"><div align="center">{props.values.rG}</div></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
@@ -123,7 +123,7 @@ function ResultadosTAMAI(props){
                                                                 <tr>
                                                                     <td class="table-tamai">Inadaptación Personal</td>
                                                                     <td class="table-tamai">P</td>
-                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"><div align="center">{props.values.rP}</div></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
@@ -135,7 +135,7 @@ function ResultadosTAMAI(props){
                                                                 <tr>
                                                                     <td class="sub table-tamai">Insatisfacción personal</td>
                                                                     <td class="table-tamai">P1</td>
-                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"><div align="center">{props.values.rP1}</div></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
@@ -147,7 +147,7 @@ function ResultadosTAMAI(props){
                                                                 <tr >
                                                                     <td class="sub table-tamai">Desajuste afectivo</td>
                                                                     <td class="table-tamai">P2</td>
-                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"><div align="center">{props.values.rP2}</div></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
@@ -159,7 +159,7 @@ function ResultadosTAMAI(props){
                                                                 <tr>
                                                                     <td class="sub1 table-tamai">Cogniafección</td>
                                                                     <td class="table-tamai">P21</td>
-                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"><div align="center">{props.values.rP21}</div></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
@@ -171,7 +171,7 @@ function ResultadosTAMAI(props){
                                                                 <tr>
                                                                     <td class="sub1 table-tamai">Cognipunición</td>
                                                                     <td class="table-tamai">P22</td>
-                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"><div align="center">{props.values.rP22}</div></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
@@ -183,7 +183,7 @@ function ResultadosTAMAI(props){
                                                                 <tr>
                                                                     <td class="sub2 table-tamai">Somatización</td>
                                                                     <td class="table-tamai">P221</td>
-                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"><div align="center">{props.values.rP221}</div></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
@@ -195,7 +195,7 @@ function ResultadosTAMAI(props){
                                                                 <tr>
                                                                     <td class="sub2 table-tamai">Depresión-intrapunición</td>
                                                                     <td class="table-tamai">P222</td>
-                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"><div align="center">{props.values.rP222}</div></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
@@ -207,7 +207,7 @@ function ResultadosTAMAI(props){
                                                                 <tr>
                                                                     <td class="sub table-tamai">Autosuficiencia defensiva</td>
                                                                     <td class="table-tamai">P3</td>
-                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"><div align="center">{props.values.rP3}</div></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
@@ -219,7 +219,7 @@ function ResultadosTAMAI(props){
                                                                 <tr>
                                                                     <td class="table-tamai">INADAPTACIÓN ESCOLAR</td>
                                                                     <td class="table-tamai">E</td>
-                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"><div align="center">{props.values.rE}</div></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
@@ -231,7 +231,7 @@ function ResultadosTAMAI(props){
                                                                 <tr>
                                                                     <td class="sub table-tamai">Aversión a la instrucción</td>
                                                                     <td class="table-tamai">E1</td>
-                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"><div align="center">{props.values.rE1}</div></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
@@ -243,7 +243,7 @@ function ResultadosTAMAI(props){
                                                                 <tr>
                                                                     <td class="sub1 table-tamai">Hipolaboriosidad</td>
                                                                     <td class="table-tamai">E11</td>
-                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"><div align="center">{props.values.rE11}</div></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
@@ -255,7 +255,7 @@ function ResultadosTAMAI(props){
                                                                 <tr>
                                                                     <td class="sub1 table-tamai">Hipomotivación</td>
                                                                     <td class="table-tamai">E12</td>
-                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"><div align="center">{props.values.rE12}</div></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
@@ -267,7 +267,7 @@ function ResultadosTAMAI(props){
                                                                 <tr>
                                                                     <td class="sub1 table-tamai">Aversión al profesor</td>
                                                                     <td class="table-tamai">E13</td>
-                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"><div align="center">{props.values.rE13}</div></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
@@ -279,7 +279,7 @@ function ResultadosTAMAI(props){
                                                                 <tr>
                                                                     <td class="sub table-tamai">Indisciplina</td>
                                                                     <td class="table-tamai">E2</td>
-                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"><div align="center">{props.values.rE2}</div></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
@@ -291,7 +291,7 @@ function ResultadosTAMAI(props){
                                                                 <tr>
                                                                     <td class="table-tamai">INADAPTACIÓN SOCIAL</td>
                                                                     <td class="table-tamai">S</td>
-                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"><div align="center">{props.values.rS}</div></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
@@ -303,7 +303,7 @@ function ResultadosTAMAI(props){
                                                                 <tr>
                                                                     <td class="sub table-tamai">Autodesajuste social</td>
                                                                     <td class="table-tamai">S1</td>
-                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"><div align="center">{props.values.rS1}</div></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
@@ -315,7 +315,7 @@ function ResultadosTAMAI(props){
                                                                 <tr>
                                                                     <td class="sub1 table-tamai">Agresividad social</td>
                                                                     <td class="table-tamai">S11</td>
-                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"><div align="center">{props.values.rS11}</div></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
@@ -327,7 +327,7 @@ function ResultadosTAMAI(props){
                                                                 <tr>
                                                                     <td class="sub1 table-tamai">Disnomia</td>
                                                                     <td class="table-tamai">S12</td>
-                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"><div align="center">{props.values.rS12}</div></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
@@ -339,7 +339,7 @@ function ResultadosTAMAI(props){
                                                                 <tr>
                                                                     <td class="sub table-tamai">Restricción social</td>
                                                                     <td class="table-tamai">S2</td>
-                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"><div align="center">{props.values.rS2}</div></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
@@ -351,7 +351,7 @@ function ResultadosTAMAI(props){
                                                                 <tr>
                                                                     <td class="table-tamai">INSATISFACCIÓN AMBIENTE FAMILIAR</td>
                                                                     <td class="table-tamai">F</td>
-                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"><div align="center">{props.values.rF}</div></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
@@ -363,7 +363,7 @@ function ResultadosTAMAI(props){
                                                                 <tr>
                                                                     <td class="table-tamai">INSATISFACCIÓN CON LOS HERMANOS</td>
                                                                     <td class="table-tamai">H</td>
-                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"><div align="center">{props.values.rH}</div></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
@@ -375,7 +375,7 @@ function ResultadosTAMAI(props){
                                                                 <tr>
                                                                     <td class="table-tamai">EDUCACIÓN ADECUADA PADRE</td>
                                                                     <td class="table-tamai">Pa</td>
-                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"><div align="center">{props.values.rPa}</div></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
@@ -387,7 +387,7 @@ function ResultadosTAMAI(props){
                                                                 <tr>
                                                                     <td class="sub table-tamai">Educación asistencial personal</td>
                                                                     <td class="table-tamai">Pa1</td>
-                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"><div align="center">{props.values.rPa1}</div></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
@@ -399,7 +399,7 @@ function ResultadosTAMAI(props){
                                                                 <tr>
                                                                     <td class="sub table-tamai">Permisivismo</td>
                                                                     <td class="table-tamai">Pa2</td>
-                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"><div align="center">{props.values.rPa2}</div></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
@@ -411,7 +411,7 @@ function ResultadosTAMAI(props){
                                                                 <tr>
                                                                     <td class="sub table-tamai">Restricción</td>
                                                                     <td class="table-tamai">Pa3</td>
-                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"><div align="center">{props.values.rPa3}</div></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
@@ -423,7 +423,7 @@ function ResultadosTAMAI(props){
                                                                 <tr>
                                                                     <td class="sub1 table-tamai">Perfeccionismo hipernómico</td>
                                                                     <td class="table-tamai">Pa31</td>
-                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"><div align="center">{props.values.rPa31}</div></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
@@ -435,7 +435,7 @@ function ResultadosTAMAI(props){
                                                                 <tr>
                                                                     <td class="sub1 table-tamai">Estilo aversivo</td>
                                                                     <td class="table-tamai">Pa32</td>
-                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"><div align="center">{props.values.rPa32}</div></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
@@ -447,7 +447,7 @@ function ResultadosTAMAI(props){
                                                                 <tr>
                                                                     <td class="sub2 table-tamai">Rechazo afectivo</td>
                                                                     <td class="table-tamai">Pa321</td>
-                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"><div align="center">{props.values.rPa321}</div></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
@@ -459,7 +459,7 @@ function ResultadosTAMAI(props){
                                                                 <tr>
                                                                     <td class="sub2 table-tamai">Perfeccionismo hostil</td>
                                                                     <td class="table-tamai">Pa322</td>
-                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"><div align="center">{props.values.rPa322}</div></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
@@ -471,7 +471,7 @@ function ResultadosTAMAI(props){
                                                                 <tr>
                                                                     <td class="sub2 table-tamai">Marginación afectiva</td>
                                                                     <td class="table-tamai">Pa323</td>
-                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"><div align="center">{props.values.rPa323}</div></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
@@ -483,7 +483,7 @@ function ResultadosTAMAI(props){
                                                                 <tr>
                                                                     <td class="table-tamai">EDUCACIÓN ADECUADA MADRE</td>
                                                                     <td class="table-tamai">M</td>
-                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"><div align="center">{props.values.rM}</div></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
@@ -495,7 +495,7 @@ function ResultadosTAMAI(props){
                                                                 <tr>
                                                                     <td class="sub table-tamai">Educación asistencial-personal</td>
                                                                     <td class="table-tamai">M1</td>
-                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"><div align="center">{props.values.rM1}</div></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
@@ -507,7 +507,7 @@ function ResultadosTAMAI(props){
                                                                 <tr>
                                                                     <td class="sub table-tamai">Permisivismo</td>
                                                                     <td class="table-tamai">M2</td>
-                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"><div align="center">{props.values.rM2}</div></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
@@ -519,7 +519,7 @@ function ResultadosTAMAI(props){
                                                                 <tr>
                                                                     <td class="sub table-tamai">Restricción</td>
                                                                     <td class="table-tamai">M3</td>
-                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"><div align="center">{props.values.rM3}</div></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
@@ -531,7 +531,7 @@ function ResultadosTAMAI(props){
                                                                 <tr>
                                                                     <td class="sub1 table-tamai">Asistencia restrictiva</td>
                                                                     <td class="table-tamai">M31</td>
-                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"><div align="center">{props.values.rM31}</div></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
@@ -543,7 +543,7 @@ function ResultadosTAMAI(props){
                                                                 <tr>
                                                                     <td class="sub2 table-tamai">Marginación afectiva</td>
                                                                     <td class="table-tamai">M311</td>
-                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"><div align="center">{props.values.rM311}</div></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
@@ -555,7 +555,7 @@ function ResultadosTAMAI(props){
                                                                 <tr>
                                                                     <td class="sub2 table-tamai">Rechazo afectivo</td>
                                                                     <td class="table-tamai">M312</td>
-                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"><div align="center">{props.values.rM312}</div></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
@@ -567,7 +567,7 @@ function ResultadosTAMAI(props){
                                                                 <tr>
                                                                     <td class="sub1 table-tamai">Personalización restrictiva</td>
                                                                     <td class="table-tamai">M32</td>
-                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"><div align="center">{props.values.rM32}</div></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
@@ -579,7 +579,7 @@ function ResultadosTAMAI(props){
                                                                 <tr>
                                                                     <td class="sub2 table-tamai">Perfección. hostil</td>
                                                                     <td class="table-tamai">M321</td>
-                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"><div align="center">{props.values.rM321}</div></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
@@ -591,7 +591,7 @@ function ResultadosTAMAI(props){
                                                                 <tr>
                                                                     <td class="sub2 table-tamai">Perfección. hipernómico</td>
                                                                     <td class="table-tamai">M322</td>
-                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"><div align="center">{props.values.rM322}</div></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
@@ -603,7 +603,7 @@ function ResultadosTAMAI(props){
                                                                 <tr>
                                                                     <td class="table-tamai">DISCREPANCIA EDUCATIVA</td>
                                                                     <td class="table-tamai">Dis</td>
-                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"><div align="center">{props.values.rDis}</div></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
@@ -615,7 +615,7 @@ function ResultadosTAMAI(props){
                                                                 <tr>
                                                                     <td class="table-tamai">PRO-IMAGEN</td>
                                                                     <td class="table-tamai">PI</td>
-                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"><div align="center">{props.values.rPI}</div></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
@@ -627,7 +627,7 @@ function ResultadosTAMAI(props){
                                                                 <tr>
                                                                     <td class="table-tamai">CONTRADICCIONES</td>
                                                                     <td class="table-tamai">Contr</td>
-                                                                    <td class="table-tamai"></td>
+                                                                    <td class="table-tamai"><div align="center">{props.values.rContr}</div></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>

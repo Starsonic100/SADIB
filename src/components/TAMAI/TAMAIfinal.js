@@ -15,7 +15,9 @@ export class TAMAIfinal extends Component {
 
     render() {
 
-        const {
+        const { values, handleInputChange } = this.props;
+
+        let {
             values: { p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,
                 p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,
                 p21,p22,p23,p24,p25,p26,p27,p28,p29,p30,
@@ -151,7 +153,7 @@ export class TAMAIfinal extends Component {
                 /*----------------------------------*/
 
                 /*Discrepancia educativa*/
-                rDis=round(rPa1-rM1)+round(rPa2-rM2)+round(rPa3-rM3)
+                rDis=Math.abs(rPa1-rM1)+Math.abs(rPa2-rM2)+Math.abs(rPa3-rM3)
                 /*----------------------------------*/
 
                 /*Puntaje proimagen*/
@@ -162,37 +164,39 @@ export class TAMAIfinal extends Component {
                 /*Contraindicaciones*/
                 rContr=parseFloat(0)
 
-                if(p14==p75){
+                if(p14===p75){
                     rContr=rContr+parseFloat(2)
                 }
 
-                if(p26==p82){
+                if(p26===p82){
                     rContr=rContr+parseFloat(2)
                 }
 
-                if(p41==p88){
+                if(p41===p88){
                     rContr=rContr+parseFloat(2)
                 }
 
-                if(p76==p93){
+                if(p76===p93){
                     rContr=rContr+parseFloat(2)
                 }
 
-                if(p49==p95){
+                if(p49===p95){
                     rContr=rContr+parseFloat(2)
                 }
 
-                if(p51==p96){
+                if(p51===p96){
                     rContr=rContr+parseFloat(2)
                 }
                 /*----------------------------------*/
+
+                console.log(rG)
             }
 
             return(
                 <Fragment>
                     <div className="container">
                         <div align="center">
-                            <button type="submit" class="enviar" onClick={evaluacion}>Enviar</button>
+                            <button type="submit" class="enviar" onClickCapture={evaluacion} onClick={this.continuar} >Enviar</button>
                         </div>
                     </div>
                 </Fragment>
