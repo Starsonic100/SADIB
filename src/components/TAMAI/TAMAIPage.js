@@ -6,6 +6,7 @@ import TAMAI4 from './TAMAI4';
 import TAMAI5 from './TAMAI5';
 import TAMAI6 from './TAMAI6';
 import TAMAIfinal from './TAMAIfinal';
+import ResultadosTAMAI from './ResultadosTAMAI';
 
 export class TAMAIPage extends Component {
 
@@ -156,6 +157,16 @@ export class TAMAIPage extends Component {
             case 7:
                 return (
                     <TAMAIfinal
+                        handleInputChange={this.handleInputChange}
+                        siguiente={this.siguiente}
+                        anterior={this.anterior}
+                        values={values}
+                    />
+                );
+
+            case 8:
+                return (
+                    <ResultadosTAMAI
                         handleInputChange={this.handleInputChange}
                         siguiente={this.siguiente}
                         anterior={this.anterior}

@@ -50,11 +50,11 @@ export class TAMAI3 extends Component {
                                                     </MuiThemeProvider>
                                                 </li>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="p61" onChange={handleInputChange('p61')} value="1" defaultValue={values.p61}/>
+                                                    <input class="form-check-input" type="radio" name="p61" onChange={handleInputChange('p61')} value="0" defaultValue={values.p61}/>
                                                     <label class="form-check-label" for="inlineRadio1"><h3>S&iacute;</h3></label>
                                                 </div>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="p61" onChange={handleInputChange('p61')} value="0" defaultValue={values.p61}/>
+                                                    <input class="form-check-input" type="radio" name="p61" onChange={handleInputChange('p61')} value="1" defaultValue={values.p61}/>
                                                     <label class="form-check-label" for="inlineRadio2"><h3>No</h3></label>
                                                 </div>
                                             </ul>
@@ -68,11 +68,11 @@ export class TAMAI3 extends Component {
                                                     </MuiThemeProvider>
                                                 </li>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="p62" onChange={handleInputChange('p62')} value="1" defaultValue={values.p62}/>
+                                                    <input class="form-check-input" type="radio" name="p62" onChange={handleInputChange('p62')} value="0" defaultValue={values.p62}/>
                                                     <label class="form-check-label" for="inlineRadio1"><h3>S&iacute;</h3></label>
                                                 </div>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="p62" onChange={handleInputChange('p62')} value="0" defaultValue={values.p62}/>
+                                                    <input class="form-check-input" type="radio" name="p62" onChange={handleInputChange('p62')} value="1" defaultValue={values.p62}/>
                                                     <label class="form-check-label" for="inlineRadio2"><h3>No</h3></label>
                                                 </div>
                                             </ul>
@@ -88,11 +88,11 @@ export class TAMAI3 extends Component {
                                                     </MuiThemeProvider>
                                                 </li>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="p63" onChange={handleInputChange('p63')} value="1" defaultValue={values.p63}/>
+                                                    <input class="form-check-input" type="radio" name="p63" onChange={handleInputChange('p63')} value="0" defaultValue={values.p63}/>
                                                     <label class="form-check-label" for="inlineRadio1"><h3>S&iacute;</h3></label>
                                                 </div>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="p63" onChange={handleInputChange('p63')} value="0" defaultValue={values.p63}/>
+                                                    <input class="form-check-input" type="radio" name="p63" onChange={handleInputChange('p63')} value="1" defaultValue={values.p63}/>
                                                     <label class="form-check-label" for="inlineRadio2"><h3>No</h3></label>
                                                 </div>
                                             </ul>
@@ -106,11 +106,11 @@ export class TAMAI3 extends Component {
                                                     </MuiThemeProvider>
                                                 </li>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="p64" onChange={handleInputChange('p64')} value="1" defaultValue={values.p64}/>
+                                                    <input class="form-check-input" type="radio" name="p64" onChange={handleInputChange('p64')} value="0" defaultValue={values.p64}/>
                                                     <label class="form-check-label" for="inlineRadio1"><h3>S&iacute;</h3></label>
                                                 </div>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="p64" onChange={handleInputChange('p64')} value="0" defaultValue={values.p64}/>
+                                                    <input class="form-check-input" type="radio" name="p64" onChange={handleInputChange('p64')} value="1" defaultValue={values.p64}/>
                                                     <label class="form-check-label" for="inlineRadio2"><h3>No</h3></label>
                                                 </div>
                                             </ul>
@@ -126,11 +126,11 @@ export class TAMAI3 extends Component {
                                                     </MuiThemeProvider>
                                                 </li>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="p65" onChange={handleInputChange('p65')} value="1" defaultValue={values.p65}/>
+                                                    <input class="form-check-input" type="radio" name="p65" onChange={handleInputChange('p65')} value="0" defaultValue={values.p65}/>
                                                     <label class="form-check-label" for="inlineRadio1"><h3>S&iacute;</h3></label>
                                                 </div>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="p65" onChange={handleInputChange('p65')} value="0" defaultValue={values.p65}/>
+                                                    <input class="form-check-input" type="radio" name="p65" onChange={handleInputChange('p65')} value="1" defaultValue={values.p65}/>
                                                     <label class="form-check-label" for="inlineRadio2"><h3>No</h3></label>
                                                 </div>
                                             </ul>
@@ -144,11 +144,11 @@ export class TAMAI3 extends Component {
                                                     </MuiThemeProvider>
                                                 </li>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="p66" onChange={handleInputChange('p66')} value="1" defaultValue={values.p66}/>
+                                                    <input class="form-check-input" type="radio" name="p66" onChange={handleInputChange('p66')} value="0" defaultValue={values.p66}/>
                                                     <label class="form-check-label" for="inlineRadio1"><h3>S&iacute;</h3></label>
                                                 </div>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="p66" onChange={handleInputChange('p66')} value="0" defaultValue={values.p66}/>
+                                                    <input class="form-check-input" type="radio" name="p66" onChange={handleInputChange('p66')} value="1" defaultValue={values.p66}/>
                                                     <label class="form-check-label" for="inlineRadio2"><h3>No</h3></label>
                                                 </div>
                                             </ul>
@@ -182,11 +182,11 @@ export class TAMAI3 extends Component {
                                                     </MuiThemeProvider>
                                                 </li>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="p68" onChange={handleInputChange('p68')} value="1" defaultValue={values.p68}/>
+                                                    <input class="form-check-input" type="radio" name="p68" onChange={handleInputChange('p68')} value="0" defaultValue={values.p68}/>
                                                     <label class="form-check-label" for="inlineRadio1"><h3>S&iacute;</h3></label>
                                                 </div>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="p68" onChange={handleInputChange('p68')} value="0" defaultValue={values.p68}/>
+                                                    <input class="form-check-input" type="radio" name="p68" onChange={handleInputChange('p68')} value="1" defaultValue={values.p68}/>
                                                     <label class="form-check-label" for="inlineRadio2"><h3>No</h3></label>
                                                 </div>
                                             </ul>
@@ -202,11 +202,11 @@ export class TAMAI3 extends Component {
                                                     </MuiThemeProvider>
                                                 </li>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="p69" onChange={handleInputChange('p69')} value="1" defaultValue={values.p69}/>
+                                                    <input class="form-check-input" type="radio" name="p69" onChange={handleInputChange('p69')} value="0" defaultValue={values.p69}/>
                                                     <label class="form-check-label" for="inlineRadio1"><h3>S&iacute;</h3></label>
                                                 </div>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="p69" onChange={handleInputChange('p69')} value="0" defaultValue={values.p69}/>
+                                                    <input class="form-check-input" type="radio" name="p69" onChange={handleInputChange('p69')} value="1" defaultValue={values.p69}/>
                                                     <label class="form-check-label" for="inlineRadio2"><h3>No</h3></label>
                                                 </div>
                                             </ul>
@@ -220,11 +220,11 @@ export class TAMAI3 extends Component {
                                                     </MuiThemeProvider>
                                                 </li>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="p70" onChange={handleInputChange('p70')} value="1" defaultValue={values.p70}/>
+                                                    <input class="form-check-input" type="radio" name="p70" onChange={handleInputChange('p70')} value="0" defaultValue={values.p70}/>
                                                     <label class="form-check-label" for="inlineRadio1"><h3>S&iacute;</h3></label>
                                                 </div>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="p70" onChange={handleInputChange('p70')} value="0" defaultValue={values.p70}/>
+                                                    <input class="form-check-input" type="radio" name="p70" onChange={handleInputChange('p70')} value="1" defaultValue={values.p70}/>
                                                     <label class="form-check-label" for="inlineRadio2"><h3>No</h3></label>
                                                 </div>
                                             </ul>
@@ -240,11 +240,11 @@ export class TAMAI3 extends Component {
                                                     </MuiThemeProvider>
                                                 </li>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="p71" onChange={handleInputChange('p71')} value="1" defaultValue={values.p71}/>
+                                                    <input class="form-check-input" type="radio" name="p71" onChange={handleInputChange('p71')} value="0" defaultValue={values.p71}/>
                                                     <label class="form-check-label" for="inlineRadio1"><h3>S&iacute;</h3></label>
                                                 </div>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="p71" onChange={handleInputChange('p71')} value="0" defaultValue={values.p71}/>
+                                                    <input class="form-check-input" type="radio" name="p71" onChange={handleInputChange('p71')} value="1" defaultValue={values.p71}/>
                                                     <label class="form-check-label" for="inlineRadio2"><h3>No</h3></label>
                                                 </div>
                                             </ul>
@@ -258,11 +258,11 @@ export class TAMAI3 extends Component {
                                                     </MuiThemeProvider>
                                                 </li>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="p72" onChange={handleInputChange('p72')} value="1" defaultValue={values.p72}/>
+                                                    <input class="form-check-input" type="radio" name="p72" onChange={handleInputChange('p72')} value="0" defaultValue={values.p72}/>
                                                     <label class="form-check-label" for="inlineRadio1"><h3>S&iacute;</h3></label>
                                                 </div>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="p72" onChange={handleInputChange('p72')} value="0" defaultValue={values.p72}/>
+                                                    <input class="form-check-input" type="radio" name="p72" onChange={handleInputChange('p72')} value="1" defaultValue={values.p72}/>
                                                     <label class="form-check-label" for="inlineRadio2"><h3>No</h3></label>
                                                 </div>
                                             </ul>
@@ -278,11 +278,11 @@ export class TAMAI3 extends Component {
                                                     </MuiThemeProvider>
                                                 </li>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="p73" onChange={handleInputChange('p73')} value="1" defaultValue={values.p73}/>
+                                                    <input class="form-check-input" type="radio" name="p73" onChange={handleInputChange('p73')} value="0" defaultValue={values.p73}/>
                                                     <label class="form-check-label" for="inlineRadio1"><h3>S&iacute;</h3></label>
                                                 </div>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="p73" onChange={handleInputChange('p73')} value="0" defaultValue={values.p73}/>
+                                                    <input class="form-check-input" type="radio" name="p73" onChange={handleInputChange('p73')} value="1" defaultValue={values.p73}/>
                                                     <label class="form-check-label" for="inlineRadio2"><h3>No</h3></label>
                                                 </div>
                                             </ul>
@@ -296,11 +296,11 @@ export class TAMAI3 extends Component {
                                                     </MuiThemeProvider>
                                                 </li>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="p74" onChange={handleInputChange('p74')} value="1" defaultValue={values.p74}/>
+                                                    <input class="form-check-input" type="radio" name="p74" onChange={handleInputChange('p74')} value="0" defaultValue={values.p74}/>
                                                     <label class="form-check-label" for="inlineRadio1"><h3>S&iacute;</h3></label>
                                                 </div>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="p74" onChange={handleInputChange('p74')} value="0" defaultValue={values.p74}/>
+                                                    <input class="form-check-input" type="radio" name="p74" onChange={handleInputChange('p74')} value="1" defaultValue={values.p74}/>
                                                     <label class="form-check-label" for="inlineRadio2"><h3>No</h3></label>
                                                 </div>
                                             </ul>
@@ -316,11 +316,11 @@ export class TAMAI3 extends Component {
                                                     </MuiThemeProvider>
                                                 </li>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="p75" onChange={handleInputChange('p75')} value="1" defaultValue={values.p75}/>
+                                                    <input class="form-check-input" type="radio" name="p75" onChange={handleInputChange('p75')} value="0" defaultValue={values.p75}/>
                                                     <label class="form-check-label" for="inlineRadio1"><h3>S&iacute;</h3></label>
                                                 </div>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="p75" onChange={handleInputChange('p75')} value="0" defaultValue={values.p75}/>
+                                                    <input class="form-check-input" type="radio" name="p75" onChange={handleInputChange('p75')} value="1" defaultValue={values.p75}/>
                                                     <label class="form-check-label" for="inlineRadio2"><h3>No</h3></label>
                                                 </div>
                                             </ul>
@@ -334,11 +334,11 @@ export class TAMAI3 extends Component {
                                                     </MuiThemeProvider>
                                                 </li>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="p76" onChange={handleInputChange('p76')} value="1" defaultValue={values.p76}/>
+                                                    <input class="form-check-input" type="radio" name="p76" onChange={handleInputChange('p76')} value="0" defaultValue={values.p76}/>
                                                     <label class="form-check-label" for="inlineRadio1"><h3>S&iacute;</h3></label>
                                                 </div>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="p76" onChange={handleInputChange('p76')} value="0" defaultValue={values.p76}/>
+                                                    <input class="form-check-input" type="radio" name="p76" onChange={handleInputChange('p76')} value="1" defaultValue={values.p76}/>
                                                     <label class="form-check-label" for="inlineRadio2"><h3>No</h3></label>
                                                 </div>
                                             </ul>
@@ -354,11 +354,11 @@ export class TAMAI3 extends Component {
                                                     </MuiThemeProvider>
                                                 </li>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="p77" onChange={handleInputChange('p77')} value="1" defaultValue={values.p77}/>
+                                                    <input class="form-check-input" type="radio" name="p77" onChange={handleInputChange('p77')} value="0" defaultValue={values.p77}/>
                                                     <label class="form-check-label" for="inlineRadio1"><h3>S&iacute;</h3></label>
                                                 </div>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="p77" onChange={handleInputChange('p77')} value="0" defaultValue={values.p77}/>
+                                                    <input class="form-check-input" type="radio" name="p77" onChange={handleInputChange('p77')} value="1" defaultValue={values.p77}/>
                                                     <label class="form-check-label" for="inlineRadio2"><h3>No</h3></label>
                                                 </div>
                                             </ul>
@@ -372,11 +372,11 @@ export class TAMAI3 extends Component {
                                                     </MuiThemeProvider>
                                                 </li>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="p78" onChange={handleInputChange('p78')} value="1" defaultValue={values.p78}/>
+                                                    <input class="form-check-input" type="radio" name="p78" onChange={handleInputChange('p78')} value="0" defaultValue={values.p78}/>
                                                     <label class="form-check-label" for="inlineRadio1"><h3>S&iacute;</h3></label>
                                                 </div>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="p78" onChange={handleInputChange('p78')} value="0" defaultValue={values.p78}/>
+                                                    <input class="form-check-input" type="radio" name="p78" onChange={handleInputChange('p78')} value="1" defaultValue={values.p78}/>
                                                     <label class="form-check-label" for="inlineRadio2"><h3>No</h3></label>
                                                 </div>
                                             </ul>
@@ -392,11 +392,11 @@ export class TAMAI3 extends Component {
                                                     </MuiThemeProvider>
                                                 </li>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="p79" onChange={handleInputChange('p79')} value="1" defaultValue={values.p79}/>
+                                                    <input class="form-check-input" type="radio" name="p79" onChange={handleInputChange('p79')} value="0" defaultValue={values.p79}/>
                                                     <label class="form-check-label" for="inlineRadio1"><h3>S&iacute;</h3></label>
                                                 </div>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="p79" onChange={handleInputChange('p79')} value="0" defaultValue={values.p79}/>
+                                                    <input class="form-check-input" type="radio" name="p79" onChange={handleInputChange('p79')} value="1" defaultValue={values.p79}/>
                                                     <label class="form-check-label" for="inlineRadio2"><h3>No</h3></label>
                                                 </div>
                                             </ul>
@@ -410,11 +410,11 @@ export class TAMAI3 extends Component {
                                                     </MuiThemeProvider>
                                                 </li>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="p80" onChange={handleInputChange('p80')} value="1" defaultValue={values.p80}/>
+                                                    <input class="form-check-input" type="radio" name="p80" onChange={handleInputChange('p80')} value="0" defaultValue={values.p80}/>
                                                     <label class="form-check-label" for="inlineRadio1"><h3>S&iacute;</h3></label>
                                                 </div>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="p80" onChange={handleInputChange('p80')} value="0" defaultValue={values.p80}/>
+                                                    <input class="form-check-input" type="radio" name="p80" onChange={handleInputChange('p80')} value="1" defaultValue={values.p80}/>
                                                     <label class="form-check-label" for="inlineRadio2"><h3>No</h3></label>
                                                 </div>
                                             </ul>
@@ -430,11 +430,11 @@ export class TAMAI3 extends Component {
                                                     </MuiThemeProvider>
                                                 </li>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="p81" onChange={handleInputChange('p81')} value="1" defaultValue={values.p81}/>
+                                                    <input class="form-check-input" type="radio" name="p81" onChange={handleInputChange('p81')} value="0" defaultValue={values.p81}/>
                                                     <label class="form-check-label" for="inlineRadio1"><h3>S&iacute;</h3></label>
                                                 </div>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="p81" onChange={handleInputChange('p81')} value="0" defaultValue={values.p81}/>
+                                                    <input class="form-check-input" type="radio" name="p81" onChange={handleInputChange('p81')} value="1" defaultValue={values.p81}/>
                                                     <label class="form-check-label" for="inlineRadio2"><h3>No</h3></label>
                                                 </div>
                                             </ul>
@@ -448,11 +448,11 @@ export class TAMAI3 extends Component {
                                                     </MuiThemeProvider>
                                                 </li>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="p82" onChange={handleInputChange('p82')} value="1" defaultValue={values.p82}/>
+                                                    <input class="form-check-input" type="radio" name="p82" onChange={handleInputChange('p82')} value="0" defaultValue={values.p82}/>
                                                     <label class="form-check-label" for="inlineRadio1"><h3>S&iacute;</h3></label>
                                                 </div>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="p82" onChange={handleInputChange('p82')} value="0" defaultValue={values.p82}/>
+                                                    <input class="form-check-input" type="radio" name="p82" onChange={handleInputChange('p82')} value="1" defaultValue={values.p82}/>
                                                     <label class="form-check-label" for="inlineRadio2"><h3>No</h3></label>
                                                 </div>
                                             </ul>
@@ -468,11 +468,11 @@ export class TAMAI3 extends Component {
                                                     </MuiThemeProvider>
                                                 </li>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="p83" onChange={handleInputChange('p83')} value="1" defaultValue={values.p83}/>
+                                                    <input class="form-check-input" type="radio" name="p83" onChange={handleInputChange('p83')} value="0" defaultValue={values.p83}/>
                                                     <label class="form-check-label" for="inlineRadio1"><h3>S&iacute;</h3></label>
                                                 </div>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="p83" onChange={handleInputChange('p83')} value="0" defaultValue={values.p83}/>
+                                                    <input class="form-check-input" type="radio" name="p83" onChange={handleInputChange('p83')} value="1" defaultValue={values.p83}/>
                                                     <label class="form-check-label" for="inlineRadio2"><h3>No</h3></label>
                                                 </div>
                                             </ul>
@@ -486,11 +486,11 @@ export class TAMAI3 extends Component {
                                                     </MuiThemeProvider>
                                                 </li>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="p84" onChange={handleInputChange('p84')} value="1" defaultValue={values.p84}/>
+                                                    <input class="form-check-input" type="radio" name="p84" onChange={handleInputChange('p84')} value="0" defaultValue={values.p84}/>
                                                     <label class="form-check-label" for="inlineRadio1"><h3>S&iacute;</h3></label>
                                                 </div>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="p84" onChange={handleInputChange('p84')} value="0" defaultValue={values.p84}/>
+                                                    <input class="form-check-input" type="radio" name="p84" onChange={handleInputChange('p84')} value="1" defaultValue={values.p84}/>
                                                     <label class="form-check-label" for="inlineRadio2"><h3>No</h3></label>
                                                 </div>
                                             </ul>
@@ -506,11 +506,11 @@ export class TAMAI3 extends Component {
                                                     </MuiThemeProvider>
                                                 </li>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="p85" onChange={handleInputChange('p85')} value="1" defaultValue={values.p85}/>
+                                                    <input class="form-check-input" type="radio" name="p85" onChange={handleInputChange('p85')} value="0" defaultValue={values.p85}/>
                                                     <label class="form-check-label" for="inlineRadio1"><h3>S&iacute;</h3></label>
                                                 </div>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="p85" onChange={handleInputChange('p85')} value="0" defaultValue={values.p85}/>
+                                                    <input class="form-check-input" type="radio" name="p85" onChange={handleInputChange('p85')} value="1" defaultValue={values.p85}/>
                                                     <label class="form-check-label" for="inlineRadio2"><h3>No</h3></label>
                                                 </div>
                                             </ul>
@@ -524,11 +524,11 @@ export class TAMAI3 extends Component {
                                                     </MuiThemeProvider>
                                                 </li>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="p86" onChange={handleInputChange('p86')} value="1" defaultValue={values.p86}/>
+                                                    <input class="form-check-input" type="radio" name="p86" onChange={handleInputChange('p86')} value="0" defaultValue={values.p86}/>
                                                     <label class="form-check-label" for="inlineRadio1"><h3>S&iacute;</h3></label>
                                                 </div>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="p86" onChange={handleInputChange('p86')} value="0" defaultValue={values.p86}/>
+                                                    <input class="form-check-input" type="radio" name="p86" onChange={handleInputChange('p86')} value="1" defaultValue={values.p86}/>
                                                     <label class="form-check-label" for="inlineRadio2"><h3>No</h3></label>
                                                 </div>
                                             </ul>
@@ -544,11 +544,11 @@ export class TAMAI3 extends Component {
                                                     </MuiThemeProvider>
                                                 </li>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="p87" onChange={handleInputChange('p87')} value="1" defaultValue={values.p87}/>
+                                                    <input class="form-check-input" type="radio" name="p87" onChange={handleInputChange('p87')} value="0" defaultValue={values.p87}/>
                                                     <label class="form-check-label" for="inlineRadio1"><h3>S&iacute;</h3></label>
                                                 </div>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="p87" onChange={handleInputChange('p87')} value="0" defaultValue={values.p87}/>
+                                                    <input class="form-check-input" type="radio" name="p87" onChange={handleInputChange('p87')} value="1" defaultValue={values.p87}/>
                                                     <label class="form-check-label" for="inlineRadio2"><h3>No</h3></label>
                                                 </div>
                                             </ul>
@@ -582,11 +582,11 @@ export class TAMAI3 extends Component {
                                                     </MuiThemeProvider>
                                                 </li>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="p89" onChange={handleInputChange('p89')} value="1" defaultValue={values.p89}/>
+                                                    <input class="form-check-input" type="radio" name="p89" onChange={handleInputChange('p89')} value="0" defaultValue={values.p89}/>
                                                     <label class="form-check-label" for="inlineRadio1"><h3>S&iacute;</h3></label>
                                                 </div>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="p89" onChange={handleInputChange('p89')} value="0" defaultValue={values.p89}/>
+                                                    <input class="form-check-input" type="radio" name="p89" onChange={handleInputChange('p89')} value="1" defaultValue={values.p89}/>
                                                     <label class="form-check-label" for="inlineRadio2"><h3>No</h3></label>
                                                 </div>
                                             </ul>
@@ -600,11 +600,11 @@ export class TAMAI3 extends Component {
                                                     </MuiThemeProvider>
                                                 </li>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="p90" onChange={handleInputChange('p90')} value="1" defaultValue={values.p90}/>
+                                                    <input class="form-check-input" type="radio" name="p90" onChange={handleInputChange('p90')} value="0" defaultValue={values.p90}/>
                                                     <label class="form-check-label" for="inlineRadio1"><h3>S&iacute;</h3></label>
                                                 </div>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="p90" onChange={handleInputChange('p90')} value="0" defaultValue={values.p90}/>
+                                                    <input class="form-check-input" type="radio" name="p90" onChange={handleInputChange('p90')} value="1" defaultValue={values.p90}/>
                                                     <label class="form-check-label" for="inlineRadio2"><h3>No</h3></label>
                                                 </div>
                                             </ul>
