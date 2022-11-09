@@ -58,7 +58,7 @@ const useAsignarPrueba = (callback, validar) => {
               x=1;
             }
             for(let i=0;i<=x;i++){
-            Axios.post("http://3.215.192.63:3001/asignarPrueba",{
+            Axios.post("http://localhost:3001/asignarPrueba",{
             token:tokenG,
             paciente: valores.Fpacientes,
             prueba1: valores.Fprueba1,
