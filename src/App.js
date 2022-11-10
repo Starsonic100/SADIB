@@ -13,6 +13,7 @@ import Pacientes from './components/Pacientes/PacientesPage';
 import AgregarPaciente from './components/Pacientes/AgregarPaciente';
 import EditarDatos from './components/Psicologo/EditarDatos/FormEditarDatos';
 import AsignarPrueba from './components/Psicologo/AsignarPrueba/FormAsignarPrueba';
+import NotFound from './components/footer/NotFound';
 
 function App() {
   
@@ -45,6 +46,7 @@ function App() {
         <Route path='/AgregarPaciente' element={<AgregarPaciente/>}/>
         <Route path="/EditarPsic" element={<EditarDatos/>}/>
         <Route path="/AsignarPrueba" element={<AsignarPrueba/>}/>
+        <Route path="/*" element={<NotFound/>}/>
       </Routes>
       <Footer/>
     </Router>
