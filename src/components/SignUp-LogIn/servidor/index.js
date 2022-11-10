@@ -100,7 +100,7 @@ app.post("/login", (req,res) =>{
   const contrasenia = md5(req.body.contrasenia);
   
   db.query(
-    "SELECT nombre, apellidop, apellidom, telefono, rol, id_usuario, login.correo, login.contrasenia FROM login, psicologo WHERE login.correo = ? and login.contrasenia = ?;",
+    "SELECT nombre, apellidop, apellidom, telefono, rol, id_usuario, login.correo, login.contrasenia  FROM login INNER JOIN psicologo ON psicologo.id_psic = login.id_usuario WHERE login.correo = ? and login.contrasenia = ?;",
     [correo,contrasenia],
     (err, result) => {
       if (err) {
@@ -118,8 +118,41 @@ app.post("/login", (req,res) =>{
   );
 });
 
+app.get("/access", (req, res) => {
+  console.log(req.session.user);
+
+  if (req.session.user) {
+    res.send({ loggedIn: true, user: req.session.user });
+  } else {
+    res.send({ loggedIn: false });
+  }
+});
+
+app.post("/access", (req,res) =>{
+  
+  const codigo = req.body.codigo;
+  db.query(
+    "SELECT * from token INNER JOIN paciente ON paciente.id_paci = token.id_paci WHERE token = ?;",
+    codigo,
+    (err, result) => {
+      if (err) {
+        res.send({ err: err });
+      }
+
+      if (result.length > 0) {
+            req.session.user = result;
+            console.log(req.session.user);
+            res.send(result);
+      } else {
+        res.send({ message: "No se encuentra este paciente" });
+      }
+    }
+  );
+});
+
 function getId(min, max) {
   return Math.random() * (max - min) + min;
+
 }
 
 app.post("/create", (req,res) =>{
@@ -147,7 +180,7 @@ app.post("/create", (req,res) =>{
   );
 
   db.query(
-    "INSERT INTO paciente (id_paci,nombre,apellidop,apellidom,fecha_nac,genero,correo,telefono,id_tutor,rol,id_psic) VALUES(?,?,?,?,?,?,?,?,?,?,?)",[id_paciente,nombre,papellido,sapellido,fecha_nac,genero,email,telefono,id_tutor,0,req.session.user[0].id_usuario],(err,result) => { console.log(err); }
+    "INSERT INTO paciente (id_paci,nombre,apellidop,apellidom,fecha_nac,genero,correo,telefono,id_tutor,rol,id_psic) VALUES(?,?,?,?,?,?,?,?,?,?,?)",[id_paciente,nombre,papellido,sapellido,fecha_nac,genero,email,telefono,id_tutor,3,req.session.user[0].id_usuario],(err,result) => { console.log(err); }
   );
   
 });
@@ -171,11 +204,12 @@ app.put("/update", (req,res) =>{
   const genero = req.body.pgenero
   const email = req.body.pemail
   const telefono = req.body.ptelefono
+  console.log(fecha_nac);
 
   db.query(
     "UPDATE tutor SET nombre=?,apellidop=?,apellidom=?,correo=?,telefono=? WHERE id_tutor IN (SELECT id_tutor FROM paciente WHERE id_paci=?)",[tnombre,tpapellido,tsapellido,temail,ttelefono,id_paci],(err,result) => { console.log(err); }
   );
-
+    console.log("Tutor actualizado");
   db.query(
     "UPDATE paciente SET nombre=?,apellidop=?,apellidom=?,fecha_nac=?,genero=?,correo=?,telefono=? WHERE id_paci=?",[nombre,papellido,sapellido,fecha_nac,genero,email,telefono,id_paci],(err,result) => { console.log(err); }
   );
@@ -194,7 +228,7 @@ app.get("/obtenerDatos",(req,res)=>{
   const id_paci= req.query;
   
   db.query(
-    "SELECT paciente.nombre,paciente.apellidop,paciente.apellidom,CONCAT(YEAR(fecha_nac),'-',DATE_FORMAT(fecha_nac,'%m'),'-',DATE_FORMAT(fecha_nac,'%d')) as fecha_nac,genero,paciente.correo,paciente.telefono,tutor.nombre AS nombret,tutor.apellidop AS apellidopt,tutor.apellidom AS apellidomt,tutor.correo AS correot,tutor.telefono AS telefonot, CONCAT(year(CURDATE())-year(fecha_nac), ' años ', month(CURDATE())-month(fecha_nac), ' meses ', day(CURDATE())-day(fecha_nac), ' días ') AS edad FROM paciente INNER JOIN tutor ON paciente.id_tutor=tutor.id_tutor AND id_paci=?;",[id_paci.id_paci],(err,result) => { console.log(err); res.send(JSON.stringify(result));}
+    "SELECT paciente.nombre,paciente.apellidop,paciente.apellidom,CONCAT(YEAR(fecha_nac),'-',DATE_FORMAT(fecha_nac,'%m'),'-',DATE_FORMAT(fecha_nac,'%d')) as fecha_nac,genero,paciente.correo,paciente.telefono,tutor.nombre AS nombret,tutor.apellidop AS apellidopt,tutor.apellidom AS apellidomt,tutor.correo AS correot,tutor.telefono AS telefonot FROM paciente INNER JOIN tutor ON paciente.id_tutor=tutor.id_tutor AND id_paci=?;",[id_paci.id_paci],(err,result) => { console.log(err); res.send(JSON.stringify(result));}
   );
 });
 
@@ -248,6 +282,48 @@ app.get("/datosPaciente",(req,res)=>{
   );
 });
 
+app.post("/evaluacion", (req,res) =>{
+  let nombre = req.session.user[0].nombre+req.session.user[0].apellidop+req.session.user[0].apellidom;
+  console.log(nombre);
+  let respuestas = req.body.respuestas;
+  const fs = require('fs');
+  respuestas = JSON.stringify(respuestas);
+  fs.writeFile('./respuestas/'+nombre+'.json', respuestas, (err) => {
+      if (!err) {
+          console.log('respuesta guardada');
+      }
+  });
+  pdf.create(pdfTemplate(req.body.respuestas), {format: 'Letter', "border": {
+    "top": "25mm",            // default is 0, units: mm, cm, in, px
+    "bottom": "25mm",
+  },
+ }).toFile(nombre+'.pdf', (err) => {
+  if(!err){
+    console.log("PDF Guardado");
+  }
+    if(err) {
+        return console.log('error');
+    }res.send(Promise.resolve())
+  });
+});
+
+app.get("/descargaRespuesta",
+ (req, res) => {
+  try {
+    const fileName = 'FranciscoMartinezBlancarte.pdf'
+    const fileURL = 'FranciscoMartinezBlancarte.pdf'
+    const stream = fs.createReadStream(fileURL);
+    res.set({
+      'Content-Disposition': `attachment; filename='${fileName}'`,
+      'Content-Type': 'application/pdf',
+    });
+    stream.pipe(res);
+  } catch (e) {
+    console.error(e)
+    res.status(500).end();
+  }
+});
+
 app.post("/asignarPrueba", (req,res) =>{
   
   const token = req.body.token
@@ -256,7 +332,7 @@ app.post("/asignarPrueba", (req,res) =>{
   const prueba = req.body.prueba
   console.log("HTP"+prueba1);
   console.log("TAMAI"+prueba);
-
+  
   if(prueba1!=""){
     db.query(
       "INSERT INTO token (token,id_psic,id_paci,id_prueba,fecha,estado) VALUES(?,?,?,?,now(),'Asignado')",[token,req.session.user[0].id_usuario,paciente,prueba1],(err,result) => { console.log(err); }

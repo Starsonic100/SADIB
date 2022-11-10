@@ -24,7 +24,6 @@ const useLogin = (callback, validar) => {
             setErrores(validar(valores));
             setIsSubmitting(true);
             login();
-            
     } 
 
     const login = () => {
@@ -44,7 +43,7 @@ const useLogin = (callback, validar) => {
       };
     
     useEffect(() => {
-        Axios.get("http://3.215.192.63:3001/login").then((response) => {
+        Axios.get("http://localhost:3001/login").then((response) => {
           if (response.data.loggedIn == true) {
             setLoginStatus(response.data.user[0].id_usuario);
           }

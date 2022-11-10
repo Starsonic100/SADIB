@@ -34,9 +34,10 @@ function EditarPaciente(props){
 
     //Función para editar un paciente
     const actualizar_paciente = () => {
+        console.log(Nombre);
         setErrors(validacionPaciente(Nombre,Papellido,Sapellido,FNacimiento,Genero,Email,Telefono,TNombre,TPapellido,TSapellido,TEmail,TTelefono));
-        Axios.put("http://3.215.192.63:3001/update",{
-        /*Datos del paciente*/
+         Axios.put("http://3.215.192.63:3001/update",{
+        // /*Datos del paciente*/
             id_paci: id_paciente,    
             pnombre: Nombre,
             ppapellido: Papellido,
@@ -45,7 +46,7 @@ function EditarPaciente(props){
             pgenero: Genero,
             pemail: Email,
             ptelefono: Telefono,
-        /*Datos del tutor*/
+        // /*Datos del tutor*/
             tnombre: TNombre,
             tpapellido: TPapellido,
             tsapellido: TSapellido,
@@ -63,8 +64,20 @@ function EditarPaciente(props){
             }
         }).then((response) => {
             setPost(response.data);
+            setNombre(response.data[0][0].nombre);
+            setPapellido(response.data[0].apellidop);
+            setSapellido(response.data[0].apellidom);
+            setFNacimiento(response.data[0].fecha_nac);
+            setGenero(response.data[0].genero);
+            setEmail(response.data[0].pemail);
+            setTelefono(response.data[0].telefono);
+            setTNombre(response.data[0].tnombre);
+            setTPapellido(response.data[0].tpapellido);
+            setTSapellido(response.data[0].tsapellido);
+            setTEmail(response.data[0].temail);
+            setTTelefono(response.data[0].ttelefono);
         });
-    }, [setPost]);
+    }, []);
 
     return(
         <div className="container">
@@ -108,7 +121,7 @@ function EditarPaciente(props){
                                                                     <Typography variant="h6" class="contenido">{"ID paciente"}</Typography>
                                                                 </MuiThemeProvider>
                                                             </span>
-                                                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" readonly="readonly" value={id_paciente}></input>
+                                                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" readonly="readonly" defaultValue={id_paciente}></input>
                                                         </div>
                                                     </div> 
                                                 </div>
@@ -122,7 +135,7 @@ function EditarPaciente(props){
                                                                 </MuiThemeProvider>
                                                             </span>
                                                             {post.map((item) => (
-                                                                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" defaultValue={item.nombre} onChange={(e) => {setNombre(e.target.value);}} >
+                                                                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" defaultValue={Nombre} onChange={(e) => {setNombre(e.target.value);}} >
                                                                 </input>
                                                             ))}
                                                         </div>
@@ -137,7 +150,7 @@ function EditarPaciente(props){
                                                                 </MuiThemeProvider>
                                                             </span>
                                                             {post.map((item) => (
-                                                                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" onChange={(e) => {setPapellido(e.target.value);}} defaultValue={item.apellidop}></input>
+                                                                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" onChange={(e) => {setPapellido(e.target.value);}} value={item.apellidop}></input>
                                                             ))}
                                                         </div>
                                                         {errors.ppapellido && <h6 class="error">{errors.ppapellido}</h6>}
@@ -151,7 +164,7 @@ function EditarPaciente(props){
                                                                 </MuiThemeProvider>
                                                             </span>
                                                             {post.map((item) => (
-                                                                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" onChange={(e) => {setSapellido(e.target.value);}} defaultValue={item.apellidom}></input>
+                                                                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" onChange={(e) => {setSapellido(e.target.value);}} value={item.apellidom}></input>
                                                             ))}
                                                         </div>
                                                         {errors.psapellido && <h6 class="error">{errors.psapellido}</h6>}
@@ -167,7 +180,7 @@ function EditarPaciente(props){
                                                                 </MuiThemeProvider>
                                                             </span>
                                                             {post.map((item) => (
-                                                                <input type="date" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" onChange={(e) => {setFNacimiento(e.target.value);}} defaultValue={item.fecha_nac}></input>
+                                                                <input type="date" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" onChange={(e) => {setFNacimiento(e.target.value);}} value={item.fecha_nac}></input>
                                                             ))} 
                                                         </div>
                                                         {errors.pfnacimiento && <h6 class="error">{errors.pfnacimiento}</h6>}
@@ -181,7 +194,7 @@ function EditarPaciente(props){
                                                                 </MuiThemeProvider>
                                                             </span>
                                                             {post.map((item) => (
-                                                                <select class="form-select" aria-label="Default select example" onChange={(e) => {setGenero(e.target.value);}} defaultValue={item.genero}>
+                                                                <select class="form-select" aria-label="Default select example" onChange={(e) => {setGenero(e.target.value);}} value={item.genero}>
                                                                 <option selected>Seleccionar</option>
                                                                 <option value="Femenino">Femenino</option>
                                                                 <option value="Masculino">Masculino</option>
@@ -199,7 +212,7 @@ function EditarPaciente(props){
                                                                 </MuiThemeProvider>
                                                             </span>
                                                             {post.map((item) => (
-                                                                <input type="email" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" onChange={(e) => {setEmail(e.target.value);}} defaultValue={item.correo}></input>
+                                                                <input type="email" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" onChange={(e) => {setEmail(e.target.value);}} value={item.correo}></input>
                                                             ))}
                                                         </div>
                                                         {errors.pemail && <h6 class="error">{errors.pemail}</h6>}
@@ -215,7 +228,7 @@ function EditarPaciente(props){
                                                                 </MuiThemeProvider>
                                                             </span>
                                                             {post.map((item) => (
-                                                                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" onChange={(e) => {setTelefono(e.target.value);}} defaultValue={item.telefono}></input>
+                                                                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" onChange={(e) => {setTelefono(e.target.value);}} value={item.telefono}></input>
                                                             ))}
                                                         </div>
                                                         {errors.ptelefono && <h6 class="error">{errors.ptelefono}</h6>}
@@ -250,7 +263,7 @@ function EditarPaciente(props){
                                                                 </MuiThemeProvider>
                                                             </span>
                                                             {post.map((item) => (
-                                                                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" onChange={(e) => {setTNombre(e.target.value);}} defaultValue={item.nombret}></input>
+                                                                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" onChange={(e) => {setTNombre(e.target.value);}} value={item.nombret}></input>
                                                             ))}
                                                         </div>
                                                         {errors.tnombre && <h6 class="error">{errors.tnombre}</h6>}
@@ -264,7 +277,7 @@ function EditarPaciente(props){
                                                                 </MuiThemeProvider>
                                                             </span>
                                                             {post.map((item) => (
-                                                                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" onChange={(e) => {setTPapellido(e.target.value);}} defaultValue={item.apellidopt}></input>
+                                                                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" onChange={(e) => {setTPapellido(e.target.value);}} value={item.apellidopt}></input>
                                                             ))}
                                                         </div>
                                                         {errors.tpapellido && <h6 class="error">{errors.tpapellido}</h6>}
@@ -278,7 +291,7 @@ function EditarPaciente(props){
                                                                 </MuiThemeProvider>
                                                             </span>
                                                             {post.map((item) => (
-                                                                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" onChange={(e) => {setTSapellido(e.target.value);}} defaultValue={item.apellidomt}></input>
+                                                                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" onChange={(e) => {setTSapellido(e.target.value);}} value={item.apellidomt}></input>
                                                             ))}
                                                         </div>
                                                         {errors.tsapellido && <h6 class="error">{errors.tsapellido}</h6>}
@@ -294,7 +307,7 @@ function EditarPaciente(props){
                                                                 </MuiThemeProvider>
                                                             </span>
                                                             {post.map((item) => (
-                                                                <input type="email" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" onChange={(e) => {setTEmail(e.target.value);}} defaultValue={item.correot}></input>
+                                                                <input type="email" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" onChange={(e) => {setTEmail(e.target.value);}} value={item.correot}></input>
                                                             ))}
                                                         </div>
                                                         {errors.temail && <h6 class="error">{errors.temail}</h6>}
@@ -308,7 +321,7 @@ function EditarPaciente(props){
                                                                 </MuiThemeProvider>
                                                             </span>
                                                             {post.map((item) => (
-                                                                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" onChange={(e) => {setTTelefono(e.target.value);}} defaultValue={item.telefonot}></input>
+                                                                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" onChange={(e) => {setTTelefono(e.target.value);}} value={item.telefonot}></input>
                                                             ))}
                                                         </div>
                                                         {errors.ttelefono && <h6 class="error">{errors.ttelefono}</h6>}

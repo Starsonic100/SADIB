@@ -21,7 +21,7 @@ class VerPaciente extends Component{
     }
 
     componentDidMount(){
-        Axios.get("http://localhost:3001/pacientes")
+        Axios.get("http://3.215.192.63:3001/pacientes")
         .then((response) =>{
             console.log(response);
             this.setState({pacientes: response.data})
@@ -39,7 +39,7 @@ class VerPaciente extends Component{
         } = this.props;
 
         const obtener_datos = () =>{
-            Axios.get("http://localhost:3001/obtenerDatos",{
+            Axios.get("http://3.215.192.63:3001/obtenerDatos",{
                 params: {
                     id_paci: id_paciente
                 }
@@ -51,6 +51,18 @@ class VerPaciente extends Component{
             .catch((error)=> {
                 console.log(error)
             });
+        }
+
+        const descargarRespuestas = () =>{
+            Axios.get('http://3.215.192.63:3001/descargaRespuesta', {
+                responseType: 'blob'
+             })
+             .then(response => {
+                const file = window.URL.createObjectURL(new Blob([response.data]));
+                window.open(file);
+                console.log(response);
+             })
+             
         }
 
         return(
@@ -117,7 +129,7 @@ class VerPaciente extends Component{
                                                         <div className="main row">
                                                             <div className="col-xs-6 col-sm-6 col-md-12 col-lg-12">
                                                                 <div className="table-responsive">
-                                                                    <table className="table table-striped">
+                                                                    <table className="table table-striped" id="documentos">
                                                                         <thead>
                                                                             <tr>
                                                                                 <th>Folio</th>
@@ -129,15 +141,9 @@ class VerPaciente extends Component{
                                                                         <tbody>
                                                                             <tr>
                                                                                 <td>0123456789</td>
-                                                                                <td>Documento.pdf</td>
+                                                                                <td><a href="#" onClick={( descargarRespuestas)}>click me</a></td>
                                                                                 <td>25/08/2022</td>
                                                                                 <td>Completado</td>
-                                                                            </tr>
-                                                                            <tr>
-                                                                                <td>987654321</td>
-                                                                                <td>Documento2.pdf</td>
-                                                                                <td>25/08/2022</td>
-                                                                                <td>Incompleto</td>
                                                                             </tr>
                                                                         </tbody>
                                                                     </table>

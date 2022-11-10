@@ -4,6 +4,7 @@ import Casa from './Casa';
 import Arbol from './Arbol';
 import Persona from './Persona';
 import HTPFinal from './HTPFinal';
+import Axios from "axios";
 
 export class HTPPage extends Component {
 
@@ -37,6 +38,14 @@ export class HTPPage extends Component {
     handleInputChange = input => e =>{
         this.setState({
             [input]:e.target.value
+        });
+    };
+
+    evaluacion = () =>{
+        Axios.post("http://3.215.192.63:3001/evaluacion",{
+        respuestas: this.state 
+        }).then((response) => {
+            console.log(response);
         });
     };
 
@@ -104,6 +113,7 @@ export class HTPPage extends Component {
                         handleInputChange={this.handleInputChange}
                         siguiente={this.siguiente}
                         anterior={this.anterior}
+                        evaluacion={this.evaluacion}
                         values={values}
                     />
                 );

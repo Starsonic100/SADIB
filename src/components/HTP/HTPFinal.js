@@ -8,6 +8,11 @@ theme = responsiveFontSizes(theme);
 
 export class HTPFinal extends Component{
 
+    evaluar = e => {
+        e.preventDefault();
+        this.props.evaluacion();
+    };
+
     render(){
         const{
             values: {p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,
@@ -21,15 +26,12 @@ export class HTPFinal extends Component{
 
         const Evaluar = () =>{
 
-            const evaluacion= () =>{
-                
-            }
-
+        
             return(
                 <Fragment>
                     <div className="container">
                         <div align="center">
-                            <button type="submit" class="enviar" onClick={evaluacion}>Enviar</button>
+                            <button type="submit" class="enviar" onClick={this.evaluar}>Enviar</button>
                         </div>
                     </div>
                 </Fragment>
