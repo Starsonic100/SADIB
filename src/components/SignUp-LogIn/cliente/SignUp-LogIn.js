@@ -1,17 +1,11 @@
 import React, { useState } from 'react';
 import '../../css/sign-log.css';
 import lapiz from '../../img/lapiz.png';
-import Axios from "axios";
-import validacion from './validacion';
-import validacion2 from './validacion2';
-import useLogin from './useLogin';
+import SignUp from './SignUp';
+import Login from './Login';
 
-const Login = ({ submitForm }) =>{
-    const { handleChange, handleSubmit, valores, errores, loginStatus } = useLogin(
-        submitForm,
-        validacion2
-    );
-
+const SignUpLogin = () =>{
+    
     /*Para el menú tabs*/
     const [toggleState, setToggleState] = useState(1);
 
@@ -25,6 +19,7 @@ const Login = ({ submitForm }) =>{
         setIsSubmitted(true);
     }
 
+<<<<<<< HEAD
     const [Fusuario, setFusuario] = useState("");
     const [Fnombre, setFnombre] = useState("");
     const [Fpapellido, setFpapellido] = useState("");
@@ -50,6 +45,8 @@ const Login = ({ submitForm }) =>{
         }); 
     };
 
+=======
+>>>>>>> d705c85798e16d70d1e74ae6c353ee40d3ae550f
     return(
         <div className="container">
             <div className="frame">
@@ -65,74 +62,15 @@ const Login = ({ submitForm }) =>{
                             onClick={() => toggleTab(2)}
                             >Iniciar sesión</button>
                         </div>
-
                         <div className="content-tabs">
-                            <div
-                            className={toggleState === 1 ? "content  active-content" : "content"}
-                            >
-                                <div class="myform form">
-                                    <div align="center">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control my-input" placeholder="Usuario" onChange={(e) => {setFusuario(e.target.value);}}/>
-                                            {errors.usuario && <h6 class="error">{errors.usuario}</h6>}
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control my-input" placeholder="Nombre(s)" onChange={(e) => {setFnombre(e.target.value);}}/>
-                                            {errors.nombre && <h6 class="error">{errors.nombre}</h6>}
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control my-input" placeholder="Primer apellido" onChange={(e) => {setFpapellido(e.target.value);}}/>
-                                            {errors.papellido && <h6 class="error">{errors.papellido}</h6>}
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control my-input" placeholder="Segundo apellido" onChange={(e) => {setFsapellido(e.target.value);}}/>
-                                            {errors.sapellido && <h6 class="error">{errors.sapellido}</h6>}
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="email" class="form-control my-input" placeholder="Correo electrónico" onChange={(e) => {setFcorreo(e.target.value);}}/>
-                                            {errors.correo && <h6 class="error">{errors.correo}</h6>}
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control my-input" placeholder="Teléfono" onChange={(e) => {setFtelefono(e.target.value);}}/>
-                                            {errors.telefono && <h6 class="error">{errors.telefono}</h6>}
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="password" class="form-control my-input" placeholder="Contraseña" onChange={(e) => {setFcontrasenia(e.target.value);}}/>
-                                            {errors.contrasenia && <h6 class="error">{errors.contrasenia}</h6>}
-                                        </div>
-                                    </div>
-                                    <div align="center">
-                                        <button type="submit" class=" btn btn-block send-button tx-tfm" onClick={registro}>Crear cuenta</button>
-                                    </div>
-                                </div>
+                            <div className={toggleState === 1 ? "content  active-content" : "content"}>
+                                <SignUp submitForm={submitForm}/>    
                             </div>
-
-                            <div
-                            className={toggleState === 2 ? "content  active-content" : "content"}
-                            >
-                                <form onSubmit={handleSubmit} className='form' noValidate>
-                                    <div class="myform form">
-                                        <div align="center">
-                                            <div class="form-group">
-                                                <input type="email" class="form-control my-input" placeholder="Correo electrónico" name='Fcorreo' value={valores.Fcorreo} onChange={handleChange}/>
-                                                {errores.correo && <h6 class="error">{errores.correo}</h6>}
-                                            </div>
-                                            <div class="form-group">
-                                                <input type="password" class="form-control my-input" placeholder="Contraseña" name='Fcontrasenia' value={valores.Fcontrasenia} onChange={handleChange}/>
-                                                {errores.contrasenia && <h6 class="error">{errores.contrasenia}</h6>}
-                                            </div>
-                                        </div>
-                                        <div align="center">
-                                            <h6>{loginStatus}</h6>
-                                            <button type="submit" class="btn btn-block send-button tx-tfm">Iniciar sesión</button>
-                                        </div>
-                                    </div>
-                                </form>
+                            <div className={toggleState === 2 ? "content  active-content" : "content"}>
+                                <Login submitForm={submitForm}/>
                             </div>
                         </div>
-
                     </div>
-                    
                     <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                         <div className="image-center">
                             <div align="center">
@@ -146,4 +84,4 @@ const Login = ({ submitForm }) =>{
     );
 }
 
-export default Login;
+export default SignUpLogin;

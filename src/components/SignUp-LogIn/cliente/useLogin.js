@@ -24,7 +24,6 @@ const useLogin = (callback, validar) => {
             setErrores(validar(valores));
             setIsSubmitting(true);
             login();
-            
     } 
 
     const login = () => {

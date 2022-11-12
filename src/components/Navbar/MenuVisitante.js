@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
 import { NavLink, Link, useLocation } from 'react-router-dom';import { SidebarData } from './SidebarData';
-import '../css/NavBar.css';
+import '../css/navbar.css';
 import { IconContext } from 'react-icons';
 import {Link as Linker,animateScroll as scroll } from "react-scroll";
 import {createMuiTheme, 

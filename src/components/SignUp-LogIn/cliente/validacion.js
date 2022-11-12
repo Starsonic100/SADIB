@@ -1,44 +1,43 @@
-const validacion = (usuario,nombre,papellido,sapellido,correo,telefono,contrasenia) => {
+export default function validacion(valores)  {
     
-    let errors={};
+    let errores={};
 
-        if(usuario.length===0){
-            errors.usuario="El usuario es requerido";
-        }else if(usuario.length<5){
-            errors.usuario="El usuario debe tener mínimo 5 caracteres"
-        }else if(usuario.length>10){
-            errors.usuario="El usuario no debe tener más de 10 caracteres"
+        if(!valores.Fusuario.trim()){
+            errores.usuario="El usuario es requerido";
+        }else if(valores.Fusuario.length<5){
+            errores.usuario="El usuario debe tener mínimo 5 caracteres";
+        }else if(valores.Fusuario.length>10){
+            errores.usuario="El usuario no debe tener más de 10 caracteres";
         }
     
-        if(!nombre){
-            errors.nombre="El nombre es requerido";
+        if(!valores.Fnombre.trim()){
+            errores.nombre="El nombre es requerido";
         }
     
-        if(!papellido){
-            errors.papellido="El apellido es requerido";
+        if(!valores.Fapellido.trim()){
+            errores.papellido="El apellido es requerido";
         }
     
-        if(!sapellido){
-            errors.sapellido="El apellido es requerido";
+        if(!valores.Fsapellido.trim()){
+            errores.sapellido="El apellido es requerido";
         }
     
-        if(!correo){
-            errors.correo="El correo es requerido";
+        if(!valores.Fcorreo.trim()){
+            errores.correo="El correo es requerido";
         }
     
-        if(!telefono){
-            errors.telefono="El teléfono es requerido";
-        }else if(!/[0-9]/.test(telefono)||telefono.length<10||telefono.length>10){
-            errors.telefono="El teléfono debe tener 10 dígitos";
+        if(!valores.Ftelefono){
+            errores.telefono="El teléfono es requerido";
+        }else if(!/[0-9]/.test(valores.Ftelefono)||valores.Ftelefono.length<10||valores.Ftelefono.length>10){
+            errores.telefono="El teléfono debe tener 10 dígitos";
         }
     
-        if(contrasenia.length===0){
-            errors.contrasenia="La contraseña es requerida";
-        }else if (contrasenia.length<8){
-            errors.contrasenia="La contraseña debe tener mínimo ocho caracteres";
+        if(!valores.Fcontrasenia){
+            errores.contrasenia="La contraseña es requerida";
+        }else if (valores.Fcontrasenia.length<8){
+            errores.contrasenia="La contraseña debe tener mínimo ocho caracteres";
         }
 
-    return errors;
+    return errores;
 }
 
-export default validacion;
