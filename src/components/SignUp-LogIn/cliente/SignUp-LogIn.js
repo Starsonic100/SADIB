@@ -18,31 +18,6 @@ const SignUpLogin = () =>{
     function submitForm() {
         setIsSubmitted(true);
     }
-    
-    const [Fusuario, setFusuario] = useState("");
-    const [Fnombre, setFnombre] = useState("");
-    const [Fpapellido, setFpapellido] = useState("");
-    const [Fsapellido, setFsapellido] = useState("");
-    const [Fcorreo, setFcorreo] = useState("");
-    const [Ftelefono, setFtelefono] = useState("");
-    const [Fcontrasenia, setFcontrasenia] = useState("");
-    
-    const [errors, setErrors] = useState({});
-
-    const registro = () => { 
-        setErrors(validacion(Fusuario,Fnombre,Fpapellido,Fsapellido,Fcorreo,Ftelefono,Fcontrasenia));
-        Axios.post("http://localhost:3001/registro",{
-        usuario: Fusuario,
-        nombre: Fnombre,
-        papellido: Fpapellido,
-        sapellido: Fsapellido,
-        correo: Fcorreo,
-        telefono: Ftelefono,
-        contrasenia: Fcontrasenia,
-        }).then((response) => {
-            console.log(response);
-        }); 
-    };
 
     return(
         <div className="container">
