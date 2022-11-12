@@ -55,15 +55,14 @@ export class Dibujo extends Component {
             }, [lineColor, lineOpacity, lineWidth]);
 
                    
-  function resizeCanvas() {
-    let canvas=document.getElementById("canvas");
-    ctxRef.current.width = ctxRef.current.offsetWidth;
+            function resizeCanvas() {
+                let canvas=document.getElementById("canvas");
+                ctxRef.current.width = ctxRef.current.offsetWidth;
                 ctxRef.current.height = ctxRef.current.offsetHeight;
                 ctxRef.current.drawImage(ctxRef, 0, 0);
-                
-    ;
-  }
-  
+                            
+                ;
+            }
 
             // Function for starting the drawing
             const startDrawing = (e) => {
@@ -105,10 +104,7 @@ export class Dibujo extends Component {
                 
                 );
                 ctxRef.current.stroke();
-            }
-                
-                
-            };
+            }};
 
             const setToDraw = () =>{
                 let canvas=document.getElementById("canvas");
@@ -168,7 +164,7 @@ export class Dibujo extends Component {
                 let fd = new FormData(document.forms[0]);
                 fd.append('dibujo', dibujo);
                 Axios({
-                    url: 'http://3.215.192.63:3001/dibujo',
+                    url: 'http://localhost:3001/dibujo',
                     method: "POST",
                     data: fd,
                     headers: {

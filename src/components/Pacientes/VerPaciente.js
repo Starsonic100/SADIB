@@ -21,7 +21,7 @@ class VerPaciente extends Component{
     }
 
     componentDidMount(){
-        Axios.get("http://3.215.192.63:3001/pacientes")
+        Axios.get("http://localhost:3001/pacientes")
         .then((response) =>{
             console.log(response);
             this.setState({pacientes: response.data})
@@ -39,7 +39,7 @@ class VerPaciente extends Component{
         } = this.props;
 
         const obtener_datos = () =>{
-            Axios.get("http://3.215.192.63:3001/obtenerDatos",{
+            Axios.get("http://localhost:3001/obtenerDatos",{
                 params: {
                     id_paci: id_paciente
                 }
@@ -54,7 +54,7 @@ class VerPaciente extends Component{
         }
 
         const descargarRespuestas = () =>{
-            Axios.get('http://3.215.192.63:3001/descargaRespuesta', {
+            Axios.get('http://localhost:3001/descargaRespuesta', {
                 responseType: 'blob'
              })
              .then(response => {
@@ -62,7 +62,6 @@ class VerPaciente extends Component{
                 window.open(file);
                 console.log(response);
              })
-             
         }
 
         return(

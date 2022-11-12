@@ -110,11 +110,7 @@ function ResultadosTAMAI(){
                                                                 <tr>
                                                                     <td class="table-tamai">Inadaptación General</td>
                                                                     <td class="table-tamai">G</td>
-<<<<<<< HEAD
                                                                     <td class="table-tamai"><div align="center">0</div></td>
-=======
-                                                                    <td class="table-tamai"><div align="center">{this.props.values.rG}</div></td>
->>>>>>> d705c85798e16d70d1e74ae6c353ee40d3ae550f
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
@@ -126,11 +122,7 @@ function ResultadosTAMAI(){
                                                                 <tr>
                                                                     <td class="table-tamai">Inadaptación Personal</td>
                                                                     <td class="table-tamai">P</td>
-<<<<<<< HEAD
                                                                     <td class="table-tamai"><div align="center">0</div></td>
-=======
-                                                                    <td class="table-tamai"><div align="center">{this.props.values.rP}</div></td>
->>>>>>> d705c85798e16d70d1e74ae6c353ee40d3ae550f
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
@@ -142,11 +134,7 @@ function ResultadosTAMAI(){
                                                                 <tr>
                                                                     <td class="sub table-tamai">Insatisfacción personal</td>
                                                                     <td class="table-tamai">P1</td>
-<<<<<<< HEAD
                                                                     <td class="table-tamai"><div align="center">0</div></td>
-=======
-                                                                    <td class="table-tamai"><div align="center">{this.props.values.rP1}</div></td>
->>>>>>> d705c85798e16d70d1e74ae6c353ee40d3ae550f
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
@@ -158,11 +146,7 @@ function ResultadosTAMAI(){
                                                                 <tr >
                                                                     <td class="sub table-tamai">Desajuste afectivo</td>
                                                                     <td class="table-tamai">P2</td>
-<<<<<<< HEAD
                                                                     <td class="table-tamai"><div align="center">0</div></td>
-=======
-                                                                    <td class="table-tamai"><div align="center">{this.props.values.rP2}</div></td>
->>>>>>> d705c85798e16d70d1e74ae6c353ee40d3ae550f
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
@@ -174,11 +158,7 @@ function ResultadosTAMAI(){
                                                                 <tr>
                                                                     <td class="sub1 table-tamai">Cogniafección</td>
                                                                     <td class="table-tamai">P21</td>
-<<<<<<< HEAD
                                                                     <td class="table-tamai"><div align="center">0</div></td>
-=======
-                                                                    <td class="table-tamai"><div align="center">{this.props.values.rP21}</div></td>
->>>>>>> d705c85798e16d70d1e74ae6c353ee40d3ae550f
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
@@ -190,11 +170,7 @@ function ResultadosTAMAI(){
                                                                 <tr>
                                                                     <td class="sub1 table-tamai">Cognipunición</td>
                                                                     <td class="table-tamai">P22</td>
-<<<<<<< HEAD
                                                                     <td class="table-tamai"><div align="center">0</div></td>
-=======
-                                                                    <td class="table-tamai"><div align="center">{this.props.values.rP22}</div></td>
->>>>>>> d705c85798e16d70d1e74ae6c353ee40d3ae550f
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
@@ -206,11 +182,7 @@ function ResultadosTAMAI(){
                                                                 <tr>
                                                                     <td class="sub2 table-tamai">Somatización</td>
                                                                     <td class="table-tamai">P221</td>
-<<<<<<< HEAD
                                                                     <td class="table-tamai"><div align="center">0</div></td>
-=======
-                                                                    <td class="table-tamai"><div align="center">{this.props.values.rP221}</div></td>
->>>>>>> d705c85798e16d70d1e74ae6c353ee40d3ae550f
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
@@ -222,11 +194,7 @@ function ResultadosTAMAI(){
                                                                 <tr>
                                                                     <td class="sub2 table-tamai">Depresión-intrapunición</td>
                                                                     <td class="table-tamai">P222</td>
-<<<<<<< HEAD
                                                                     <td class="table-tamai"><div align="center">0</div></td>
-=======
-                                                                    <td class="table-tamai"><div align="center">{this.props.values.rP222}</div></td>
->>>>>>> d705c85798e16d70d1e74ae6c353ee40d3ae550f
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
@@ -238,11 +206,7 @@ function ResultadosTAMAI(){
                                                                 <tr>
                                                                     <td class="sub table-tamai">Autosuficiencia defensiva</td>
                                                                     <td class="table-tamai">P3</td>
-<<<<<<< HEAD
                                                                     <td class="table-tamai"><div align="center">0</div></td>
-=======
-                                                                    <td class="table-tamai"><div align="center">{this.props.values.rP3}</div></td>
->>>>>>> d705c85798e16d70d1e74ae6c353ee40d3ae550f
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
@@ -254,11 +218,7 @@ function ResultadosTAMAI(){
                                                                 <tr>
                                                                     <td class="table-tamai">INADAPTACIÓN ESCOLAR</td>
                                                                     <td class="table-tamai">E</td>
-<<<<<<< HEAD
                                                                     <td class="table-tamai"><div align="center">0</div></td>
-=======
-                                                                    <td class="table-tamai"><div align="center">{this.props.values.rE}</div></td>
->>>>>>> d705c85798e16d70d1e74ae6c353ee40d3ae550f
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
@@ -270,11 +230,7 @@ function ResultadosTAMAI(){
                                                                 <tr>
                                                                     <td class="sub table-tamai">Aversión a la instrucción</td>
                                                                     <td class="table-tamai">E1</td>
-<<<<<<< HEAD
                                                                     <td class="table-tamai"><div align="center">0</div></td>
-=======
-                                                                    <td class="table-tamai"><div align="center">{this.props.values.rE1}</div></td>
->>>>>>> d705c85798e16d70d1e74ae6c353ee40d3ae550f
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
@@ -286,11 +242,7 @@ function ResultadosTAMAI(){
                                                                 <tr>
                                                                     <td class="sub1 table-tamai">Hipolaboriosidad</td>
                                                                     <td class="table-tamai">E11</td>
-<<<<<<< HEAD
                                                                     <td class="table-tamai"><div align="center">0</div></td>
-=======
-                                                                    <td class="table-tamai"><div align="center">{this.props.values.rE11}</div></td>
->>>>>>> d705c85798e16d70d1e74ae6c353ee40d3ae550f
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
@@ -302,11 +254,7 @@ function ResultadosTAMAI(){
                                                                 <tr>
                                                                     <td class="sub1 table-tamai">Hipomotivación</td>
                                                                     <td class="table-tamai">E12</td>
-<<<<<<< HEAD
                                                                     <td class="table-tamai"><div align="center">0</div></td>
-=======
-                                                                    <td class="table-tamai"><div align="center">{this.props.values.rE12}</div></td>
->>>>>>> d705c85798e16d70d1e74ae6c353ee40d3ae550f
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
@@ -318,11 +266,7 @@ function ResultadosTAMAI(){
                                                                 <tr>
                                                                     <td class="sub1 table-tamai">Aversión al profesor</td>
                                                                     <td class="table-tamai">E13</td>
-<<<<<<< HEAD
                                                                     <td class="table-tamai"><div align="center">0</div></td>
-=======
-                                                                    <td class="table-tamai"><div align="center">{this.props.values.rE13}</div></td>
->>>>>>> d705c85798e16d70d1e74ae6c353ee40d3ae550f
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
@@ -334,11 +278,7 @@ function ResultadosTAMAI(){
                                                                 <tr>
                                                                     <td class="sub table-tamai">Indisciplina</td>
                                                                     <td class="table-tamai">E2</td>
-<<<<<<< HEAD
                                                                     <td class="table-tamai"><div align="center">0</div></td>
-=======
-                                                                    <td class="table-tamai"><div align="center">{this.props.values.rE2}</div></td>
->>>>>>> d705c85798e16d70d1e74ae6c353ee40d3ae550f
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
@@ -350,11 +290,7 @@ function ResultadosTAMAI(){
                                                                 <tr>
                                                                     <td class="table-tamai">INADAPTACIÓN SOCIAL</td>
                                                                     <td class="table-tamai">S</td>
-<<<<<<< HEAD
                                                                     <td class="table-tamai"><div align="center">0</div></td>
-=======
-                                                                    <td class="table-tamai"><div align="center">{this.props.values.rS}</div></td>
->>>>>>> d705c85798e16d70d1e74ae6c353ee40d3ae550f
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
@@ -366,11 +302,7 @@ function ResultadosTAMAI(){
                                                                 <tr>
                                                                     <td class="sub table-tamai">Autodesajuste social</td>
                                                                     <td class="table-tamai">S1</td>
-<<<<<<< HEAD
                                                                     <td class="table-tamai"><div align="center">0</div></td>
-=======
-                                                                    <td class="table-tamai"><div align="center">{this.props.values.rS1}</div></td>
->>>>>>> d705c85798e16d70d1e74ae6c353ee40d3ae550f
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
@@ -382,11 +314,7 @@ function ResultadosTAMAI(){
                                                                 <tr>
                                                                     <td class="sub1 table-tamai">Agresividad social</td>
                                                                     <td class="table-tamai">S11</td>
-<<<<<<< HEAD
                                                                     <td class="table-tamai"><div align="center">0</div></td>
-=======
-                                                                    <td class="table-tamai"><div align="center">{this.props.values.rS11}</div></td>
->>>>>>> d705c85798e16d70d1e74ae6c353ee40d3ae550f
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
@@ -398,11 +326,7 @@ function ResultadosTAMAI(){
                                                                 <tr>
                                                                     <td class="sub1 table-tamai">Disnomia</td>
                                                                     <td class="table-tamai">S12</td>
-<<<<<<< HEAD
                                                                     <td class="table-tamai"><div align="center">0</div></td>
-=======
-                                                                    <td class="table-tamai"><div align="center">{this.props.values.rS12}</div></td>
->>>>>>> d705c85798e16d70d1e74ae6c353ee40d3ae550f
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
@@ -414,11 +338,7 @@ function ResultadosTAMAI(){
                                                                 <tr>
                                                                     <td class="sub table-tamai">Restricción social</td>
                                                                     <td class="table-tamai">S2</td>
-<<<<<<< HEAD
                                                                     <td class="table-tamai"><div align="center">0</div></td>
-=======
-                                                                    <td class="table-tamai"><div align="center">{this.props.values.rS2}</div></td>
->>>>>>> d705c85798e16d70d1e74ae6c353ee40d3ae550f
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
@@ -430,11 +350,7 @@ function ResultadosTAMAI(){
                                                                 <tr>
                                                                     <td class="table-tamai">INSATISFACCIÓN AMBIENTE FAMILIAR</td>
                                                                     <td class="table-tamai">F</td>
-<<<<<<< HEAD
                                                                     <td class="table-tamai"><div align="center">0</div></td>
-=======
-                                                                    <td class="table-tamai"><div align="center">{this.props.values.rF}</div></td>
->>>>>>> d705c85798e16d70d1e74ae6c353ee40d3ae550f
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
@@ -446,11 +362,7 @@ function ResultadosTAMAI(){
                                                                 <tr>
                                                                     <td class="table-tamai">INSATISFACCIÓN CON LOS HERMANOS</td>
                                                                     <td class="table-tamai">H</td>
-<<<<<<< HEAD
                                                                     <td class="table-tamai"><div align="center">0</div></td>
-=======
-                                                                    <td class="table-tamai"><div align="center">{this.props.values.rH}</div></td>
->>>>>>> d705c85798e16d70d1e74ae6c353ee40d3ae550f
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
@@ -462,11 +374,7 @@ function ResultadosTAMAI(){
                                                                 <tr>
                                                                     <td class="table-tamai">EDUCACIÓN ADECUADA PADRE</td>
                                                                     <td class="table-tamai">Pa</td>
-<<<<<<< HEAD
                                                                     <td class="table-tamai"><div align="center">0</div></td>
-=======
-                                                                    <td class="table-tamai"><div align="center">{this.props.values.rPa}</div></td>
->>>>>>> d705c85798e16d70d1e74ae6c353ee40d3ae550f
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
@@ -478,11 +386,7 @@ function ResultadosTAMAI(){
                                                                 <tr>
                                                                     <td class="sub table-tamai">Educación asistencial personal</td>
                                                                     <td class="table-tamai">Pa1</td>
-<<<<<<< HEAD
                                                                     <td class="table-tamai"><div align="center">0</div></td>
-=======
-                                                                    <td class="table-tamai"><div align="center">{this.props.values.rPa1}</div></td>
->>>>>>> d705c85798e16d70d1e74ae6c353ee40d3ae550f
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
@@ -494,11 +398,7 @@ function ResultadosTAMAI(){
                                                                 <tr>
                                                                     <td class="sub table-tamai">Permisivismo</td>
                                                                     <td class="table-tamai">Pa2</td>
-<<<<<<< HEAD
                                                                     <td class="table-tamai"><div align="center">0</div></td>
-=======
-                                                                    <td class="table-tamai"><div align="center">{this.props.values.rPa2}</div></td>
->>>>>>> d705c85798e16d70d1e74ae6c353ee40d3ae550f
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
@@ -510,11 +410,7 @@ function ResultadosTAMAI(){
                                                                 <tr>
                                                                     <td class="sub table-tamai">Restricción</td>
                                                                     <td class="table-tamai">Pa3</td>
-<<<<<<< HEAD
                                                                     <td class="table-tamai"><div align="center">0</div></td>
-=======
-                                                                    <td class="table-tamai"><div align="center">{this.props.values.rPa3}</div></td>
->>>>>>> d705c85798e16d70d1e74ae6c353ee40d3ae550f
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
@@ -526,11 +422,7 @@ function ResultadosTAMAI(){
                                                                 <tr>
                                                                     <td class="sub1 table-tamai">Perfeccionismo hipernómico</td>
                                                                     <td class="table-tamai">Pa31</td>
-<<<<<<< HEAD
                                                                     <td class="table-tamai"><div align="center">0</div></td>
-=======
-                                                                    <td class="table-tamai"><div align="center">{this.props.values.rPa31}</div></td>
->>>>>>> d705c85798e16d70d1e74ae6c353ee40d3ae550f
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
@@ -542,11 +434,7 @@ function ResultadosTAMAI(){
                                                                 <tr>
                                                                     <td class="sub1 table-tamai">Estilo aversivo</td>
                                                                     <td class="table-tamai">Pa32</td>
-<<<<<<< HEAD
                                                                     <td class="table-tamai"><div align="center">0</div></td>
-=======
-                                                                    <td class="table-tamai"><div align="center">{this.props.values.rPa32}</div></td>
->>>>>>> d705c85798e16d70d1e74ae6c353ee40d3ae550f
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
@@ -558,11 +446,7 @@ function ResultadosTAMAI(){
                                                                 <tr>
                                                                     <td class="sub2 table-tamai">Rechazo afectivo</td>
                                                                     <td class="table-tamai">Pa321</td>
-<<<<<<< HEAD
                                                                     <td class="table-tamai"><div align="center">0</div></td>
-=======
-                                                                    <td class="table-tamai"><div align="center">{this.props.values.rPa321}</div></td>
->>>>>>> d705c85798e16d70d1e74ae6c353ee40d3ae550f
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
@@ -574,11 +458,7 @@ function ResultadosTAMAI(){
                                                                 <tr>
                                                                     <td class="sub2 table-tamai">Perfeccionismo hostil</td>
                                                                     <td class="table-tamai">Pa322</td>
-<<<<<<< HEAD
                                                                     <td class="table-tamai"><div align="center">0</div></td>
-=======
-                                                                    <td class="table-tamai"><div align="center">{this.props.values.rPa322}</div></td>
->>>>>>> d705c85798e16d70d1e74ae6c353ee40d3ae550f
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
@@ -590,11 +470,7 @@ function ResultadosTAMAI(){
                                                                 <tr>
                                                                     <td class="sub2 table-tamai">Marginación afectiva</td>
                                                                     <td class="table-tamai">Pa323</td>
-<<<<<<< HEAD
                                                                     <td class="table-tamai"><div align="center">0</div></td>
-=======
-                                                                    <td class="table-tamai"><div align="center">{this.props.values.rPa323}</div></td>
->>>>>>> d705c85798e16d70d1e74ae6c353ee40d3ae550f
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
@@ -606,11 +482,7 @@ function ResultadosTAMAI(){
                                                                 <tr>
                                                                     <td class="table-tamai">EDUCACIÓN ADECUADA MADRE</td>
                                                                     <td class="table-tamai">M</td>
-<<<<<<< HEAD
                                                                     <td class="table-tamai"><div align="center">0</div></td>
-=======
-                                                                    <td class="table-tamai"><div align="center">{this.props.values.rM}</div></td>
->>>>>>> d705c85798e16d70d1e74ae6c353ee40d3ae550f
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
@@ -622,11 +494,7 @@ function ResultadosTAMAI(){
                                                                 <tr>
                                                                     <td class="sub table-tamai">Educación asistencial-personal</td>
                                                                     <td class="table-tamai">M1</td>
-<<<<<<< HEAD
                                                                     <td class="table-tamai"><div align="center">0</div></td>
-=======
-                                                                    <td class="table-tamai"><div align="center">{this.props.values.rM1}</div></td>
->>>>>>> d705c85798e16d70d1e74ae6c353ee40d3ae550f
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
@@ -638,11 +506,7 @@ function ResultadosTAMAI(){
                                                                 <tr>
                                                                     <td class="sub table-tamai">Permisivismo</td>
                                                                     <td class="table-tamai">M2</td>
-<<<<<<< HEAD
                                                                     <td class="table-tamai"><div align="center">0</div></td>
-=======
-                                                                    <td class="table-tamai"><div align="center">{this.props.values.rM2}</div></td>
->>>>>>> d705c85798e16d70d1e74ae6c353ee40d3ae550f
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
@@ -654,11 +518,7 @@ function ResultadosTAMAI(){
                                                                 <tr>
                                                                     <td class="sub table-tamai">Restricción</td>
                                                                     <td class="table-tamai">M3</td>
-<<<<<<< HEAD
                                                                     <td class="table-tamai"><div align="center">0</div></td>
-=======
-                                                                    <td class="table-tamai"><div align="center">{this.props.values.rM3}</div></td>
->>>>>>> d705c85798e16d70d1e74ae6c353ee40d3ae550f
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
@@ -670,11 +530,7 @@ function ResultadosTAMAI(){
                                                                 <tr>
                                                                     <td class="sub1 table-tamai">Asistencia restrictiva</td>
                                                                     <td class="table-tamai">M31</td>
-<<<<<<< HEAD
                                                                     <td class="table-tamai"><div align="center">0</div></td>
-=======
-                                                                    <td class="table-tamai"><div align="center">{this.props.values.rM31}</div></td>
->>>>>>> d705c85798e16d70d1e74ae6c353ee40d3ae550f
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
@@ -686,11 +542,7 @@ function ResultadosTAMAI(){
                                                                 <tr>
                                                                     <td class="sub2 table-tamai">Marginación afectiva</td>
                                                                     <td class="table-tamai">M311</td>
-<<<<<<< HEAD
                                                                     <td class="table-tamai"><div align="center">0</div></td>
-=======
-                                                                    <td class="table-tamai"><div align="center">{this.props.values.rM311}</div></td>
->>>>>>> d705c85798e16d70d1e74ae6c353ee40d3ae550f
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
@@ -702,11 +554,7 @@ function ResultadosTAMAI(){
                                                                 <tr>
                                                                     <td class="sub2 table-tamai">Rechazo afectivo</td>
                                                                     <td class="table-tamai">M312</td>
-<<<<<<< HEAD
                                                                     <td class="table-tamai"><div align="center">0</div></td>
-=======
-                                                                    <td class="table-tamai"><div align="center">{this.props.values.rM312}</div></td>
->>>>>>> d705c85798e16d70d1e74ae6c353ee40d3ae550f
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
@@ -718,11 +566,7 @@ function ResultadosTAMAI(){
                                                                 <tr>
                                                                     <td class="sub1 table-tamai">Personalización restrictiva</td>
                                                                     <td class="table-tamai">M32</td>
-<<<<<<< HEAD
                                                                     <td class="table-tamai"><div align="center">0</div></td>
-=======
-                                                                    <td class="table-tamai"><div align="center">{this.props.values.rM32}</div></td>
->>>>>>> d705c85798e16d70d1e74ae6c353ee40d3ae550f
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
@@ -734,11 +578,7 @@ function ResultadosTAMAI(){
                                                                 <tr>
                                                                     <td class="sub2 table-tamai">Perfección. hostil</td>
                                                                     <td class="table-tamai">M321</td>
-<<<<<<< HEAD
                                                                     <td class="table-tamai"><div align="center">0</div></td>
-=======
-                                                                    <td class="table-tamai"><div align="center">{this.props.values.rM321}</div></td>
->>>>>>> d705c85798e16d70d1e74ae6c353ee40d3ae550f
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
@@ -750,11 +590,7 @@ function ResultadosTAMAI(){
                                                                 <tr>
                                                                     <td class="sub2 table-tamai">Perfección. hipernómico</td>
                                                                     <td class="table-tamai">M322</td>
-<<<<<<< HEAD
                                                                     <td class="table-tamai"><div align="center">0</div></td>
-=======
-                                                                    <td class="table-tamai"><div align="center">{this.props.values.rM322}</div></td>
->>>>>>> d705c85798e16d70d1e74ae6c353ee40d3ae550f
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
@@ -766,11 +602,7 @@ function ResultadosTAMAI(){
                                                                 <tr>
                                                                     <td class="table-tamai">DISCREPANCIA EDUCATIVA</td>
                                                                     <td class="table-tamai">Dis</td>
-<<<<<<< HEAD
                                                                     <td class="table-tamai"><div align="center">0</div></td>
-=======
-                                                                    <td class="table-tamai"><div align="center">{this.props.values.rDis}</div></td>
->>>>>>> d705c85798e16d70d1e74ae6c353ee40d3ae550f
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
@@ -782,11 +614,7 @@ function ResultadosTAMAI(){
                                                                 <tr>
                                                                     <td class="table-tamai">PRO-IMAGEN</td>
                                                                     <td class="table-tamai">PI</td>
-<<<<<<< HEAD
                                                                     <td class="table-tamai"><div align="center">0</div></td>
-=======
-                                                                    <td class="table-tamai"><div align="center">{this.props.values.rPI}</div></td>
->>>>>>> d705c85798e16d70d1e74ae6c353ee40d3ae550f
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
@@ -798,11 +626,7 @@ function ResultadosTAMAI(){
                                                                 <tr>
                                                                     <td class="table-tamai">CONTRADICCIONES</td>
                                                                     <td class="table-tamai">Contr</td>
-<<<<<<< HEAD
                                                                     <td class="table-tamai"><div align="center">0</div></td>
-=======
-                                                                    <td class="table-tamai"><div align="center">{this.props.values.rContr}</div></td>
->>>>>>> d705c85798e16d70d1e74ae6c353ee40d3ae550f
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>
                                                                     <td class="table-tamai"></td>

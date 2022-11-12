@@ -18,8 +18,7 @@ const SignUpLogin = () =>{
     function submitForm() {
         setIsSubmitted(true);
     }
-
-<<<<<<< HEAD
+    
     const [Fusuario, setFusuario] = useState("");
     const [Fnombre, setFnombre] = useState("");
     const [Fpapellido, setFpapellido] = useState("");
@@ -45,8 +44,6 @@ const SignUpLogin = () =>{
         }); 
     };
 
-=======
->>>>>>> d705c85798e16d70d1e74ae6c353ee40d3ae550f
     return(
         <div className="container">
             <div className="frame">

@@ -37,7 +37,7 @@ const useSignUp = (callback, validar) => {
       useEffect(
         () => {
           if (Object.keys(errores).length === 0 && isSubmitting) {
-            Axios.post("http://3.215.192.63:3001/registro",{
+            Axios.post("http://localhost:3001/registro",{
             usuario: valores.Fusuario,
             nombre: valores.Fnombre,
             papellido: valores.Fapellido,
