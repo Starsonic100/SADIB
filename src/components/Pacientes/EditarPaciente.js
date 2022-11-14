@@ -135,7 +135,7 @@ function EditarPaciente(props){
                                                                 </MuiThemeProvider>
                                                             </span>
                                                             {post.map((item) => (
-                                                                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" defaultValue={Nombre} onChange={(e) => {setNombre(e.target.value);}}>
+                                                                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" defaultValue={item.nombre} onChange={(e) => {setNombre(e.target.value);}}>
                                                                 </input>
                                                             ))}
                                                         </div>

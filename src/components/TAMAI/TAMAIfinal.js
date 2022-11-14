@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+import Axios from "axios";
 import '../css/style.css';
 import unicornio from '../img/unicornio.png';
 import{ createTheme, MuiThemeProvider, responsiveFontSizes, Typography} from "@material-ui/core";
@@ -7,11 +8,6 @@ let theme = createTheme();
 theme = responsiveFontSizes(theme);
 
 export class TAMAIfinal extends Component {
-    
-    continuar = e => {
-        e.preventDefault();
-        this.props.siguiente();
-    };
 
     render() {
 
@@ -39,6 +35,8 @@ export class TAMAIfinal extends Component {
         const Evaluar = () =>{
             
             const evaluacion= () =>{
+
+                ////////////////Primera iteración de evaluacion////////////////
                 /*Inadaptación personal*/
                 const rP1=parseFloat(p2)+parseFloat(p6)+parseFloat(p13)
 
@@ -183,7 +181,750 @@ export class TAMAIfinal extends Component {
                 }
                 /*----------------------------------*/
 
-                console.log(rG)
+                ////////////////Segunda iteración de evaluacion////////////////
+                let per_p=0
+                let per_p1=0
+                let per_p2=0
+                let per_p21=0
+                let per_p22=0
+                let per_p221=0
+                let per_p222=0
+                let per_p3=0
+                let per_E=0
+                let per_E1=0
+                let per_E11=0
+                let per_E12=0
+                let per_E13=0
+                let per_E2=0
+                let per_s=0
+                let per_s1=0
+                let per_s11=0
+                let per_s12=0
+                let per_s2=0
+                let per_F=0
+                let per_H=0
+                let per_Pa=0
+                let per_Pa1=0
+                let per_Pa2=0
+                let per_Pa3=0
+                let per_Pa31=0
+                let per_Pa32=0
+                let per_Pa321=0
+                let per_Pa322=0
+                let per_Pa323=0
+                let per_M=0
+                let per_M1=0
+                let per_M2=0
+                let per_M3=0
+                let per_M31=0
+                let per_M311=0
+                let per_M312=0
+                let per_M32=0
+                let per_M321=0
+                let per_M322=0
+                let per_PI=0
+                let per_Contr=0
+
+                if(rP>=0&&rP<=3){
+                    per_p=5
+                }else if(rP==4||rP==5){
+                    per_p=20
+                }else if(rP==6||rP==7){
+                    per_p=40
+                }else if(rP==8||rP==9){
+                    per_p=60
+                }else if(rP==10||rP==11){
+                    per_p=80
+                }else if(rP==12||rP==13){
+                    per_p=95
+                }else if(rP>=14){
+                    per_p=99
+                }
+
+                switch(rP1){
+                    case 0: per_p1=40
+                    break;
+                    case 1: per_p1=80
+                    break;
+                    case 2: per_p1=95
+                    break;
+                    default: per_p1=99
+                    break;
+                }
+
+                switch(rP2){
+                    case 0: per_p2=20
+                    break;
+                    case 1: per_p2=40
+                    break;
+                    case 2: per_p2=60
+                    break;
+                    case 3: per_p2=80
+                    break;
+                    case 4: per_p2=95
+                    break;
+                    default: per_p2=99
+                    break;
+                }
+
+                switch(rP21){
+                    case 0: per_p21=5
+                    break;
+                    case 1: per_p21=20
+                    break;
+                    case 2: per_p21=40
+                    break;
+                    case 3: per_p21=60
+                    break;
+                    case 4: per_p21=80
+                    break;
+                    case 5: per_p21=95
+                    break;
+                    case 6: per_p21=95
+                    break;
+                    default: per_p21=99
+                    break;
+                }
+
+                switch(rP22){
+                    case 0: per_p22=5
+                    break;
+                    case 1: per_p22=20
+                    break;
+                    case 2: per_p22=40
+                    break;
+                    case 3: per_p22=60
+                    break;
+                    case 4: per_p22=80
+                    break;
+                    case 5: per_p22=95
+                    break;
+                    case 6: per_p22=95
+                    break;
+                    default: per_p22=99
+                    break;
+                }
+
+                switch(rP221){
+                    case 0: per_p221=40
+                    break;
+                    case 1: per_p221=80
+                    break;
+                    case 2: per_p221=95
+                    break;
+                    default: per_p221=99
+                    break;
+                }
+
+                switch(rP222){
+                    case 0: per_p222=1
+                    break;
+                    case 1: per_p222=1
+                    break;
+                    case 2: per_p222=1
+                    break;
+                    case 3: per_p222=5
+                    break;
+                    case 4: per_p222=20
+                    break;
+                    case 5: per_p222=40
+                    break;
+                    case 6: per_p222=60
+                    break;
+                    case 7: per_p222=80
+                    break;
+                    case 8: per_p222=80
+                    break;
+                    case 9: per_p222=95
+                    break;
+                    case 10: per_p222=95
+                    break;
+                    default: per_p222=99
+                    break;
+                }
+
+                switch(rP3){
+                    case 0: per_p3=1
+                    break;
+                    case 1: per_p3=1
+                    break;
+                    case 2: per_p3=1
+                    break;
+                    case 3: per_p3=5
+                    break;
+                    case 4: per_p3=20
+                    break;
+                    case 5: per_p3=40
+                    break;
+                    case 6: per_p3=60
+                    break;
+                    case 7: per_p3=80
+                    break;
+                    case 8: per_p3=95
+                    break;
+                    case 9: per_p3=95
+                    break;
+                    default: per_p3=99
+                    break;
+                }
+
+                if(rE>=0&&rE<=2){
+                    per_E=5
+                }else if(rE==3||rE==4){
+                    per_E=20
+                }else if(rE==5||rE==6){
+                    per_E=40
+                }else if(rE==7||rE==8){
+                    per_E=60
+                }else if(rE>=9&&rE<=11){
+                    per_E=80
+                }else if(rE==12||rE==13){
+                    per_E=95
+                }else if(rE>=14){
+                    per_E=99
+                }
+
+                switch(rE1){
+                    case 0: per_E1=20
+                    break;
+                    case 1: per_E1=40
+                    break;
+                    case 2: per_E1=60
+                    break;
+                    case 3: per_E1=80
+                    break;
+                    case 4: per_E1=80
+                    break;
+                    case 5: per_E1=95
+                    break;
+                    default: per_E1=99
+                    break;
+                }
+
+                switch(rE11){
+                    case 0: per_E11=1
+                    break;
+                    case 1: per_E11=5
+                    break;
+                    case 2: per_E11=20
+                    break;
+                    case 3: per_E11=40
+                    break;
+                    case 4: per_E11=60
+                    break;
+                    case 5: per_E11=80
+                    break;
+                    case 6: per_E11=80
+                    break;
+                    case 7: per_E11=95
+                    break;
+                    case 8: per_E11=95
+                    break;
+                    default: per_E11=99
+                    break;
+                }
+
+                switch(rE12){
+                    case 0: per_E12=5
+                    break;
+                    case 1: per_E12=20
+                    break;
+                    case 2: per_E12=40
+                    break;
+                    case 3: per_E12=60
+                    break;
+                    case 4: per_E12=80
+                    break;
+                    case 5: per_E12=95
+                    break;
+                    default: per_E12=99
+                    break;
+                }
+
+                switch(rE13){
+                    case 0: per_E13=1
+                    break;
+                    case 1: per_E13=5
+                    break;
+                    case 2: per_E13=20
+                    break;
+                    case 3: per_E13=40
+                    break;
+                    case 4: per_E13=60
+                    break;
+                    case 5: per_E13=80
+                    break;
+                    case 6: per_E13=95
+                    break;
+                    case 7: per_E13=95
+                    break;
+                    default: per_E13=99
+                    break;
+                }
+
+                if(rE2==0||rE2==1){
+                    per_E2=1
+                }else if(rE2==2){
+                    per_E2=5
+                }else if(rE2==3||rE2==4){
+                    per_E2=20
+                }else if(rE2==5||rE2==6){
+                    per_E2=40
+                }else if(rE2==7||rE2==8){
+                    per_E2=60
+                }else if(rE2==9||rE2==10){
+                    per_E2=80
+                }else if(rE2==11||rE2==12){
+                    per_E2=95
+                }else if(rE2>=13){
+                    per_E2=99
+                }
+
+                if(rS>=0&&rS<=2){
+                    per_s=5
+                }else if(rS==3||rS==4){
+                    per_s=20
+                }else if(rS==5||rS==6){
+                    per_s=40
+                }else if(rS==7||rS==8){
+                    per_s=60
+                }else if(rS>=9&&rS<=11){
+                    per_s=80
+                }else if(rS==12||rS==13){
+                    per_s=95
+                }else if(rS>=14){
+                    per_s=99
+                }
+
+                switch(rS1){
+                    case 0: per_s1=40
+                    break;
+                    case 1: per_s1=80
+                    break;
+                    case 2: per_s1=95
+                    break;
+                    default: per_s1=99
+                    break;
+                }
+
+                if(rS11==0){
+                    per_s11=1
+                }else if(rS11==1){
+                    per_s11=5
+                }else if(rS11==2){
+                    per_s11=20
+                }else if(rS11==3){
+                    per_s11=40
+                }else if(rS11==4){
+                    per_s11=60
+                }else if(rS11>=5&&rS11<=6){
+                    per_s11=80
+                }else if(rS11>=7&&rS11<=9){
+                    per_s11=95
+                }else if(rS11>=12){
+                    per_s11=99
+                }
+
+                if(rS12==0||rS12==1){
+                    per_s12=1
+                }else if(rS12==2){
+                    per_s12=5
+                }else if(rS12==3){
+                    per_s12=20
+                }else if(rS12==4){
+                    per_s12=40
+                }else if(rS12==5){
+                    per_s12=60
+                }else if(rS12>=6&&rS12<=8){
+                    per_s12=80
+                }else if(rS12>=9&&rS12<=10){
+                    per_s12=95
+                }else if(rS12>=11){
+                    per_s12=99
+                }
+
+                if(rS2==0||rS2==1){
+                    per_s2=1
+                }else if(rS2==2){
+                    per_s2=5
+                }else if(rS2==3){
+                    per_s2=20
+                }else if(rS2==4){
+                    per_s2=40
+                }else if(rS2==5){
+                    per_s2=60
+                }else if(rS2>=6&&rS2<=8){
+                    per_s2=80
+                }else if(rS2>=9&&rS2<=10){
+                    per_s2=95
+                }else if(rS2>=11){
+                    per_s2=99
+                }
+
+                switch(rF){
+                    case 0: per_F=20
+                    break;
+                    case 1: per_F=40
+                    break;
+                    case 2: per_F=60
+                    break;
+                    case 3: per_F=80
+                    break;
+                    case 4: per_F=95
+                    break;
+                    default: per_F=99
+                    break;
+                }
+
+                switch(rH){
+                    case 0: per_H=20
+                    break;
+                    case 1: per_H=40
+                    break;
+                    case 2: per_H=60
+                    break;
+                    case 3: per_H=80
+                    break;
+                    case 4: per_H=95
+                    break;
+                    default: per_H=99
+                    break;
+                }
+
+                if(rPa>=0&&rPa<=2){
+                    per_Pa=5
+                }else if(rPa==3||rPa==4){
+                    per_Pa=20
+                }else if(rPa==5||rPa==6){
+                    per_Pa=40
+                }else if(rPa==7||rPa==8){
+                    per_Pa=60
+                }else if(rPa>=9&&rPa<=11){
+                    per_Pa=80
+                }else if(rPa==12||rPa==13){
+                    per_Pa=95
+                }else if(rPa>=14){
+                    per_Pa=99
+                }
+
+                if(rPa1>=0&&rPa1<=2){
+                    per_Pa1=5
+                }else if(rPa1==3||rPa1==4){
+                    per_Pa1=20
+                }else if(rPa1==5||rPa1==6){
+                    per_Pa1=40
+                }else if(rPa1==7||rPa1==8){
+                    per_Pa1=60
+                }else if(rPa1>=9&&rPa1<=11){
+                    per_Pa1=80
+                }else if(rPa1==12||rPa1==13){
+                    per_Pa1=95
+                }else if(rPa>=14){
+                    per_Pa1=99
+                }
+
+                if(rPa2>=0&&rPa2<=2){
+                    per_Pa2=5
+                }else if(rPa2==3||rPa2==4){
+                    per_Pa2=20
+                }else if(rPa2==5||rPa2==6){
+                    per_Pa2=40
+                }else if(rPa2==7||rPa2==8){
+                    per_Pa2=60
+                }else if(rPa2>=9&&rPa2<=11){
+                    per_Pa2=80
+                }else if(rPa2==12||rPa2==13){
+                    per_Pa2=95
+                }else if(rPa2>=14){
+                    per_Pa2=99
+                }
+
+                if(rPa3>=0&&rPa3<=2){
+                    per_Pa3=5
+                }else if(rPa3==3||rPa3==4){
+                    per_Pa3=20
+                }else if(rPa3==5||rPa3==6){
+                    per_Pa3=40
+                }else if(rPa3==7||rPa3==8){
+                    per_Pa3=60
+                }else if(rPa3>=9&&rPa3<=11){
+                    per_Pa3=80
+                }else if(rPa3==12||rPa3==13){
+                    per_Pa3=95
+                }else if(rPa3>=14){
+                    per_Pa3=99
+                }
+
+                if(rPa31>=0&&rPa31<=2){
+                    per_Pa31=5
+                }else if(rPa31==3||rPa31==4){
+                    per_Pa31=20
+                }else if(rPa31==5||rPa31==6){
+                    per_Pa31=40
+                }else if(rPa31==7||rPa31==8){
+                    per_Pa31=60
+                }else if(rPa31>=9&&rPa31<=11){
+                    per_Pa31=80
+                }else if(rPa31==12||rPa31==13){
+                    per_Pa31=95
+                }else if(rPa31>=14){
+                    per_Pa31=99
+                }
+
+                if(rPa32>=0&&rPa32<=2){
+                    per_Pa32=5
+                }else if(rPa32==3||rPa32==4){
+                    per_Pa32=20
+                }else if(rPa32==5||rPa32==6){
+                    per_Pa32=40
+                }else if(rPa32==7||rPa32==8){
+                    per_Pa32=60
+                }else if(rPa32>=9&&rPa32<=11){
+                    per_Pa32=80
+                }else if(rPa32==12||rPa32==13){
+                    per_Pa32=95
+                }else if(rPa32>=14){
+                    per_Pa32=99
+                }
+
+                if(rPa321>=0&&rPa321<=2){
+                    per_Pa321=5
+                }else if(rPa321==3||rPa321==4){
+                    per_Pa321=20
+                }else if(rPa321==5||rPa321==6){
+                    per_Pa321=40
+                }else if(rPa321==7||rPa321==8){
+                    per_Pa321=60
+                }else if(rPa321>=9&&rPa321<=11){
+                    per_Pa321=80
+                }else if(rPa321==12||rPa321==13){
+                    per_Pa321=95
+                }else if(rPa321>=14){
+                    per_Pa321=99
+                }
+
+                if(rPa322>=0&&rPa322<=2){
+                    per_Pa322=5
+                }else if(rPa322==3||rPa322==4){
+                    per_Pa322=20
+                }else if(rPa322==5||rPa322==6){
+                    per_Pa322=40
+                }else if(rPa322==7||rPa322==8){
+                    per_Pa322=60
+                }else if(rPa322>=9&&rPa322<=11){
+                    per_Pa322=80
+                }else if(rPa322==12||rPa322==13){
+                    per_Pa322=95
+                }else if(rPa322>=14){
+                    per_Pa322=99
+                }
+
+                if(rPa323>=0&&rPa323<=2){
+                    per_Pa323=5
+                }else if(rPa323==3||rPa323==4){
+                    per_Pa323=20
+                }else if(rPa323==5||rPa323==6){
+                    per_Pa323=40
+                }else if(rPa323==7||rPa323==8){
+                    per_Pa323=60
+                }else if(rPa323>=9&&rPa323<=11){
+                    per_Pa323=80
+                }else if(rPa323==12||rPa323==13){
+                    per_Pa323=95
+                }else if(rPa323>=14){
+                    per_Pa323=99
+                }
+
+                if(rM>=0&&rM<=2){
+                    per_M=5
+                }else if(rM==3||rM==4){
+                    per_M=20
+                }else if(rM==5||rM==6){
+                    per_M=40
+                }else if(rM==7||rM==8){
+                    per_M=60
+                }else if(rM>=9&&rM<=11){
+                    per_M=80
+                }else if(rM==12||rM==13){
+                    per_M=95
+                }else if(rM>=14){
+                    per_M=99
+                }
+
+                if(rM1>=0&&rM1<=2){
+                    per_M1=5
+                }else if(rM1==3||rM1==4){
+                    per_M1=20
+                }else if(rM1==5||rM1==6){
+                    per_M1=40
+                }else if(rM1==7||rM1==8){
+                    per_M1=60
+                }else if(rM1>=9&&rM1<=11){
+                    per_M1=80
+                }else if(rM1==12||rM1==13){
+                    per_M1=95
+                }else if(rM1>=14){
+                    per_M1=99
+                }
+
+                if(rM2>=0&&rM2<=2){
+                    per_M2=5
+                }else if(rM2==3||rM2==4){
+                    per_M2=20
+                }else if(rM2==5||rM2==6){
+                    per_M2=40
+                }else if(rM2==7||rM2==8){
+                    per_M2=60
+                }else if(rM2>=9&&rM2<=11){
+                    per_M2=80
+                }else if(rM2==12||rM2==13){
+                    per_M2=95
+                }else if(rM2>=14){
+                    per_M2=99
+                }
+
+                if(rM3>=0&&rM3<=2){
+                    per_M3=5
+                }else if(rM3==3||rM3==4){
+                    per_M3=20
+                }else if(rM3==5||rM3==6){
+                    per_M3=40
+                }else if(rM3==7||rM3==8){
+                    per_M3=60
+                }else if(rM3>=9&&rM3<=11){
+                    per_M3=80
+                }else if(rM3==12||rM3==13){
+                    per_M3=95
+                }else if(rM3>=14){
+                    per_M3=99
+                }
+
+                if(rM31>=0&&rM31<=2){
+                    per_M31=5
+                }else if(rM31==3||rM31==4){
+                    per_M31=20
+                }else if(rM31==5||rM31==6){
+                    per_M31=40
+                }else if(rM31==7||rM31==8){
+                    per_M31=60
+                }else if(rM31>=9&&rM31<=11){
+                    per_M31=80
+                }else if(rM31==12||rM31==13){
+                    per_M31=95
+                }else if(rM31>=14){
+                    per_M31=99
+                }
+
+                if(rM311>=0&&rM311<=2){
+                    per_M311=5
+                }else if(rM311==3||rM311==4){
+                    per_M311=20
+                }else if(rM311==5||rM311==6){
+                    per_M311=40
+                }else if(rM311==7||rM311==8){
+                    per_M311=60
+                }else if(rM311>=9&&rM311<=11){
+                    per_M311=80
+                }else if(rM311==12||rM31==13){
+                    per_M311=95
+                }else if(rM311>=14){
+                    per_M311=99
+                }
+
+                if(rM312>=0&&rM312<=2){
+                    per_M312=5
+                }else if(rM312==3||rM312==4){
+                    per_M312=20
+                }else if(rM312==5||rM312==6){
+                    per_M312=40
+                }else if(rM312==7||rM312==8){
+                    per_M312=60
+                }else if(rM312>=9&&rM312<=11){
+                    per_M312=80
+                }else if(rM312==12||rM312==13){
+                    per_M312=95
+                }else if(rM312>=14){
+                    per_M312=99
+                }
+
+                if(rM32>=0&&rM32<=2){
+                    per_M32=5
+                }else if(rM32==3||rM32==4){
+                    per_M32=20
+                }else if(rM32==5||rM32==6){
+                    per_M32=40
+                }else if(rM32==7||rM32==8){
+                    per_M32=60
+                }else if(rM32>=9&&rM32<=11){
+                    per_M32=80
+                }else if(rM32==12||rM32==13){
+                    per_M32=95
+                }else if(rM32>=14){
+                    per_M32=99
+                }
+
+                if(rM321>=0&&rM321<=2){
+                    per_M321=5
+                }else if(rM321==3||rM321==4){
+                    per_M321=20
+                }else if(rM321==5||rM321==6){
+                    per_M321=40
+                }else if(rM321==7||rM321==8){
+                    per_M321=60
+                }else if(rM321>=9&&rM321<=11){
+                    per_M321=80
+                }else if(rM321==12||rM321==13){
+                    per_M321=95
+                }else if(rM321>=14){
+                    per_M321=99
+                }
+
+                if(rM322>=0&&rM322<=2){
+                    per_M322=5
+                }else if(rM322==3||rM322==4){
+                    per_M322=20
+                }else if(rM322==5||rM322==6){
+                    per_M322=40
+                }else if(rM322==7||rM322==8){
+                    per_M322=60
+                }else if(rM322>=9&&rM322<=11){
+                    per_M322=80
+                }else if(rM322==12||rM322==13){
+                    per_M322=95
+                }else if(rM322>=14){
+                    per_M322=99
+                }
+
+                switch(rPI){
+                    case 0: per_PI=5
+                    break;
+                    case 1: per_PI=20
+                    break;
+                    case 2: per_PI=40
+                    break;
+                    case 3: per_PI=60
+                    break;
+                    case 4: per_PI=80
+                    break;
+                    case 5: per_PI=95
+                    break;
+                    default: per_PI=99
+                    break;
+                }
+
+                switch(rContr){
+                    case 0: per_Contr=40
+                    break;
+                    case 2: per_Contr=60
+                    break;
+                    case 4: per_Contr=80
+                    break;
+                    case 6: per_Contr=95
+                    break;
+                    default: per_Contr=99
+                    break;
+                }
+                
             }
 
             return(
