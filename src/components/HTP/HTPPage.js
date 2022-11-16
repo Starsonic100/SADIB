@@ -42,7 +42,7 @@ export class HTPPage extends Component {
     };
 
     evaluacion = () =>{
-        Axios.post("http://3.215.192.63:3001/evaluacion",{
+        Axios.post("http://54.144.147.250:3001/evaluacion",{
         respuestas: this.state 
         }).then((response) => {
             console.log(response);

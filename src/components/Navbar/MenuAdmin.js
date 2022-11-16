@@ -37,7 +37,7 @@ function MenuAdmin() {
   const logoutUser  =  () => {
     showSidebar();
 
-      Axios.get("http://3.215.192.63:3001/logout").then((response) => {
+      Axios.get("http://54.144.147.250:3001/logout").then((response) => {
         if (response.data === 'SUCCESS') {
           navigate("/");
           navigate(0);

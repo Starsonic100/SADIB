@@ -371,3 +371,8 @@ td.sub2{
 h6.pie-tabla{
     font-size: 10px;
 }
+
+.image-center-not-found{
+    position: relative;
+    top: 15%;
+}

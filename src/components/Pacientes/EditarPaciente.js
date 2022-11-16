@@ -36,8 +36,8 @@ function EditarPaciente(props){
     const actualizar_paciente = () => {
         console.log(Nombre);
         setErrors(validacionPaciente(Nombre,Papellido,Sapellido,FNacimiento,Genero,Email,Telefono,TNombre,TPapellido,TSapellido,TEmail,TTelefono));
-         Axios.put("http://3.215.192.63:3001/update",{
-        // /*Datos del paciente*/
+        Axios.put("http://54.144.147.250:3001/update",{
+        /*Datos del paciente*/
             id_paci: id_paciente,    
             pnombre: Nombre,
             ppapellido: Papellido,
@@ -58,7 +58,7 @@ function EditarPaciente(props){
     };
 
     useEffect(() => {
-        Axios.get("http://3.215.192.63:3001/obtenerDatos",{
+        Axios.get("http://54.144.147.250:3001/obtenerDatos",{
             params: {
                 id_paci: id_paciente
             }
@@ -135,7 +135,7 @@ function EditarPaciente(props){
                                                                 </MuiThemeProvider>
                                                             </span>
                                                             {post.map((item) => (
-                                                                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" defaultValue={Nombre} onChange={(e) => {setNombre(e.target.value);}} >
+                                                                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" defaultValue={item.nombre} onChange={(e) => {setNombre(e.target.value);}}>
                                                                 </input>
                                                             ))}
                                                         </div>

@@ -13,6 +13,7 @@ import Pacientes from './components/Pacientes/PacientesPage';
 import AgregarPaciente from './components/Pacientes/AgregarPaciente';
 import EditarDatos from './components/Psicologo/EditarDatos/FormEditarDatos';
 import AsignarPrueba from './components/Psicologo/AsignarPrueba/FormAsignarPrueba';
+import NotFound from './components/footer/NotFound';
 
 function App() {
   
@@ -20,7 +21,7 @@ function App() {
   
   Axios.defaults.withCredentials = true;
   useEffect(() => {
-    Axios.get("http://3.215.192.63:3001/login").then((response) => {
+    Axios.get("http://54.144.147.250:3001/login").then((response) => {
       if (response.data.loggedIn == true) {
         setRol(response.data.user[0].rol);
       }
@@ -45,6 +46,7 @@ function App() {
         <Route path='/AgregarPaciente' element={<AgregarPaciente/>}/>
         <Route path="/EditarPsic" element={<EditarDatos/>}/>
         <Route path="/AsignarPrueba" element={<AsignarPrueba/>}/>
+        <Route path="/*" element={<NotFound/>}/>
       </Routes>
       <Footer/>
     </Router>

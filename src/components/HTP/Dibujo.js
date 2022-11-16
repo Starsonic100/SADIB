@@ -48,22 +48,21 @@ export class Dibujo extends Component {
                 ctx.fillRect(0, 0, canvas.width, canvas.height);
                 ctx.globalAlpha = lineOpacity;
                 ctx.strokeStyle = lineColor;
-                ctx.lineWidth = 1.75;
+                ctx.lineWidth = 3;
                 ctxRef.current = ctx;
                 window.addEventListener('resize', resizeCanvas, false);
                 window.addEventListener('deviceorientation', resizeCanvas,false);
             }, [lineColor, lineOpacity, lineWidth]);
 
                    
-  function resizeCanvas() {
-    let canvas=document.getElementById("canvas");
-    ctxRef.current.width = ctxRef.current.offsetWidth;
+            function resizeCanvas() {
+                let canvas=document.getElementById("canvas");
+                ctxRef.current.width = ctxRef.current.offsetWidth;
                 ctxRef.current.height = ctxRef.current.offsetHeight;
                 ctxRef.current.drawImage(ctxRef, 0, 0);
-                
-    ;
-  }
-  
+                            
+                ;
+            }
 
             // Function for starting the drawing
             const startDrawing = (e) => {
@@ -105,10 +104,7 @@ export class Dibujo extends Component {
                 
                 );
                 ctxRef.current.stroke();
-            }
-                
-                
-            };
+            }};
 
             const setToDraw = () =>{
                 let canvas=document.getElementById("canvas");
@@ -168,7 +164,7 @@ export class Dibujo extends Component {
                 let fd = new FormData(document.forms[0]);
                 fd.append('dibujo', dibujo);
                 Axios({
-                    url: 'http://3.215.192.63:3001/dibujo',
+                    url: 'http://54.144.147.250:3001/dibujo',
                     method: "POST",
                     data: fd,
                     headers: {
@@ -179,7 +175,7 @@ export class Dibujo extends Component {
 
             return(
                 <Fragment>
-                    <div style={{height: 510, border: 'solid', borderColor: '#8F8F8F'  }}>
+                    <div style={{height: 510, border: 'solid', borderColor: '#8F8F8F', touchAction:'none'}}>
                         <div className='draw-area' style={{height: 500, cursor:'pointer'}}>
                             <canvas id='canvas'
                             onMouseDown={startDrawing}
