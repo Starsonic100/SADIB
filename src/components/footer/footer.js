@@ -39,9 +39,9 @@ const Footer = () => {
                             <Typography variant="h5" class="text-center2">{"Rodríguez Peña Alexia Monserrat (arodriguezp1506@alumno.ipn.mx)"}</Typography>
                         </MuiThemeProvider>
 
-                        <MuiThemeProvider theme={theme}>
+                        {/* <MuiThemeProvider theme={theme}>
                             <Typography variant="h5" class="text-center2">{"Rojas Fernández Rafael (rrojasf1300@alumno.ipn.mx)"}</Typography>
-                        </MuiThemeProvider>
+                        </MuiThemeProvider> */}
                     </div>
 
                     <div className="col-xs-6 col-sm-6 col-md-4 col-lg-4">

@@ -159,10 +159,10 @@ export class Dibujo extends Component {
             const uploadFile = () => {
                 let resizedCanvas = document.createElement("canvas");
                 let resizedContext = resizedCanvas.getContext("2d");
-                resizedCanvas.height = "500";
-                resizedCanvas.width = "500";
+                resizedCanvas.height = "100";
+                resizedCanvas.width = "100";
                 let canvas=document.getElementById("canvas");
-                resizedContext.drawImage(canvas, 0, 0, 500, 500);
+                resizedContext.drawImage(canvas, 0, 0, 100, 100);
                 let dibujoB = resizedCanvas.toDataURL();
                 let dibujo = dataURItoBlob(dibujoB);
                 let fd = new FormData(document.forms[0]);
