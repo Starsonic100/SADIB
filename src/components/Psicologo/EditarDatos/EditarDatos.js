@@ -16,7 +16,7 @@ const EditarDatos = ({ submitForm }) => {
     );
 
     useEffect(() => {
-      Axios.get("http://localhost:3001/editarPsic").then((response) => {
+      Axios.get("http://54.144.147.250:3001/editarPsic").then((response) => {
           {valores.Fusuario=response.data.user[0].id_usuario};
           {valores.Fnombre=response.data.user[0].nombre};
           {valores.Fapellido=response.data.user[0].apellidop};

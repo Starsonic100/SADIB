@@ -36,7 +36,7 @@ function EditarPaciente(props){
     const actualizar_paciente = () => {
         console.log(Nombre);
         setErrors(validacionPaciente(Nombre,Papellido,Sapellido,FNacimiento,Genero,Email,Telefono,TNombre,TPapellido,TSapellido,TEmail,TTelefono));
-        Axios.put("http://localhost:3001/update",{
+        Axios.put("http://54.144.147.250:3001/update",{
         /*Datos del paciente*/
             id_paci: id_paciente,    
             pnombre: Nombre,
@@ -58,7 +58,7 @@ function EditarPaciente(props){
     };
 
     useEffect(() => {
-        Axios.get("http://localhost:3001/obtenerDatos",{
+        Axios.get("http://54.144.147.250:3001/obtenerDatos",{
             params: {
                 id_paci: id_paciente
             }
