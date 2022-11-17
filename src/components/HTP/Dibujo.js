@@ -48,15 +48,20 @@ export class Dibujo extends Component {
                 ctx.fillRect(0, 0, canvas.width, canvas.height);
                 ctx.globalAlpha = lineOpacity;
                 ctx.strokeStyle = lineColor;
+                ctx.lineWidth = 5;
                 ctxRef.current = ctx;
-            })
+                window.addEventListener('resize', resizeCanvas, false);
+                window.addEventListener('deviceorientation', resizeCanvas,false);
+            }, [lineColor, lineOpacity, lineWidth]);
+
                    
             function resizeCanvas() {
                 let canvas=document.getElementById("canvas");
                 ctxRef.current.width = ctxRef.current.offsetWidth;
                 ctxRef.current.height = ctxRef.current.offsetHeight;
                 ctxRef.current.drawImage(ctxRef, 0, 0);
-                        
+                            
+                ;
             }
 
             // Function for starting the drawing
@@ -125,12 +130,12 @@ export class Dibujo extends Component {
                 let resizedCanvas = document.createElement("canvas");
                 let resizedContext = resizedCanvas.getContext("2d");
 
-                resizedCanvas.height = "100";
-                resizedCanvas.width = "100";
+                resizedCanvas.height = "500";
+                resizedCanvas.width = "500";
 
                 let canvas=document.getElementById("canvas");
                 
-                resizedContext.drawImage(canvas, 0, 0, 100, 100);
+                resizedContext.drawImage(canvas, 0, 0, 500, 500);
                 let image = resizedCanvas.toDataURL("image/png", 1.0).replace("image/png", "image/octet-stream");
                 let link = document.createElement('a');
                 link.download = "my-image.png";
