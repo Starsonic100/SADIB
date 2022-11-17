@@ -98,7 +98,7 @@ app.post("/login", (req,res) =>{
   
   const correo = req.body.correo;
   const contrasenia = md5(req.body.contrasenia);
-  
+  consoke.log(correo);
   db.query(
     "SELECT nombre, apellidop, apellidom, telefono, rol, id_usuario, login.correo, login.contrasenia  FROM login INNER JOIN psicologo ON psicologo.id_psic = login.id_usuario WHERE login.correo = ? and login.contrasenia = ?;",
     [correo,contrasenia],
