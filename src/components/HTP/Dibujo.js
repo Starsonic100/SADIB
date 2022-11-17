@@ -28,7 +28,7 @@ export class Dibujo extends Component {
             const canvasRef = useRef(null);
             const ctxRef = useRef(null);
             const [isDrawing, setIsDrawing] = useState(false);
-            const [lineWidth, setLineWidth] = useState(2.5);
+            const [lineWidth, setLineWidth] = useState(5);
             const [lineColor, setLineColor] = useState("black");
             const [lineOpacity, setLineOpacity] = useState(100);
             const [base,setBase] = useState("");
@@ -48,7 +48,7 @@ export class Dibujo extends Component {
                 ctx.fillRect(0, 0, canvas.width, canvas.height);
                 ctx.globalAlpha = lineOpacity;
                 ctx.strokeStyle = lineColor;
-                ctx.lineWidth = 3;
+                ctx.lineWidth = 5;
                 ctxRef.current = ctx;
                 window.addEventListener('resize', resizeCanvas, false);
                 window.addEventListener('deviceorientation', resizeCanvas,false);
@@ -110,7 +110,7 @@ export class Dibujo extends Component {
                 let canvas=document.getElementById("canvas");
                 let context=canvas.getContext("2d");
                 ctxRef.current.globalCompositeOperation = 'source-over';
-                context.lineWidth = 1.75;
+                context.lineWidth = 5;
             }
 
             const setToErase = () =>{
