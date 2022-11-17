@@ -28,7 +28,7 @@ export class Dibujo extends Component {
             const canvasRef = useRef(null);
             const ctxRef = useRef(null);
             const [isDrawing, setIsDrawing] = useState(false);
-            const [lineWidth, setLineWidth] = useState(10);
+            const [lineWidth, setLineWidth] = useState(5);
             const [lineColor, setLineColor] = useState("black");
             const [lineOpacity, setLineOpacity] = useState(100);
             const [base,setBase] = useState("");
@@ -48,20 +48,15 @@ export class Dibujo extends Component {
                 ctx.fillRect(0, 0, canvas.width, canvas.height);
                 ctx.globalAlpha = lineOpacity;
                 ctx.strokeStyle = lineColor;
-                ctx.lineWidth = 10;
                 ctxRef.current = ctx;
-                window.addEventListener('resize', resizeCanvas, false);
-                window.addEventListener('deviceorientation', resizeCanvas,false);
-            }, [lineColor, lineOpacity, lineWidth]);
-
+            })
                    
             function resizeCanvas() {
                 let canvas=document.getElementById("canvas");
                 ctxRef.current.width = ctxRef.current.offsetWidth;
                 ctxRef.current.height = ctxRef.current.offsetHeight;
                 ctxRef.current.drawImage(ctxRef, 0, 0);
-                            
-                ;
+                        
             }
 
             // Function for starting the drawing
@@ -110,7 +105,7 @@ export class Dibujo extends Component {
                 let canvas=document.getElementById("canvas");
                 let context=canvas.getContext("2d");
                 ctxRef.current.globalCompositeOperation = 'source-over';
-                context.lineWidth = 10;
+                context.lineWidth = 5;
             }
 
             const setToErase = () =>{
