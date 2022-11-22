@@ -924,6 +924,8 @@ export class TAMAIfinal extends Component {
                     default: per_Contr=99
                     break;
                 }
+
+                
                 
             }
 

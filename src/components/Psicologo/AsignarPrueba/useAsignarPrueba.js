@@ -53,11 +53,11 @@ const useAsignarPrueba = (callback, validar) => {
         () => {
           if (Object.keys(errores).length === 0 && isSubmitting) {
             let x=0;
-            let tokenG=generate_token(10);
             if(valores.Fprueba1!=""&&valores.Fprueba!=""){
               x=1;
             }
             for(let i=0;i<=x;i++){
+            let tokenG=generate_token(10);
             Axios.post("http://54.144.147.250:3001/asignarPrueba",{
             token:tokenG,
             paciente: valores.Fpacientes,
@@ -66,12 +66,18 @@ const useAsignarPrueba = (callback, validar) => {
         }).then((response) => {
           console.log(response);
       });
+          if(valores.Fprueba1!=""){
+            alert("El paciente tiene asignado el token: "+tokenG+" para la prueba HTP");
+          }
+          else if(valores.Fprueba1==""&&valores.Fprueba){
+            alert("El paciente tiene asignado el token: "+tokenG+" para la prueba TAMAI");
+          }
           if(x==1){
             valores.Fprueba1="";
           }
       } 
             callback();
-        navigate("/");
+            navigate("/");
           }
         },
         [errores]

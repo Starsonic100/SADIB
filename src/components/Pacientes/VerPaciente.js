@@ -55,6 +55,11 @@ class VerPaciente extends Component{
 
         const descargarRespuestas = () =>{
             Axios.get('http://54.144.147.250:3001/descargaRespuesta', {
+                params: {
+                    nombre: this.state.datosPaciente[0].nombre,
+                    apellidop: this.state.datosPaciente[0].apellidop,
+                    apellidom: this.state.datosPaciente[0].apellidom
+                },
                 responseType: 'blob'
              })
              .then(response => {
@@ -62,6 +67,22 @@ class VerPaciente extends Component{
                 window.open(file);
                 console.log(response);
              })
+             
+        }
+
+        const descargarResultado = () =>{
+            Axios.get('http://54.144.147.250:3001/descargaRespuesta', {
+                responseType: 'blob'
+             })
+             .then(response => {
+                const file = window.URL.createObjectURL(new Blob([response.data]));
+                window.open(file);
+                console.log(response);
+             })
+             .catch((error)=> {
+                console.log(error)
+            });
+             
         }
 
         return(
@@ -131,19 +152,21 @@ class VerPaciente extends Component{
                                                                     <table className="table table-striped" id="documentos">
                                                                         <thead>
                                                                             <tr>
-                                                                                <th>Folio</th>
-                                                                                <th>Documento</th>
-                                                                                <th>Fecha</th>
+                                                                                <th>Paciente</th>
+                                                                                <th>Respuestas</th>
+                                                                                <th>Resultado</th>
                                                                                 <th>Estado</th>
                                                                             </tr>
                                                                         </thead>
                                                                         <tbody>
+                                                                            {this.state.datosPaciente.map((dpaciente)=>(
                                                                             <tr>
-                                                                                <td>0123456789</td>
-                                                                                <td><a href="#" onClick={( descargarRespuestas)}>click me</a></td>
-                                                                                <td>25/08/2022</td>
+                                                                                <td>{dpaciente.nombre} {dpaciente.apellidop} {dpaciente.apellidom}</td>
+                                                                                <td><a href="#" onClick={( descargarRespuestas)}>Respuestas de Prueba</a></td>
+                                                                                <td><a href="#" onClick={( descargarResultado)}>Resultado de Prueba</a></td>
                                                                                 <td>Completado</td>
                                                                             </tr>
+                                                                            ))}
                                                                         </tbody>
                                                                     </table>
                                                                 </div>

@@ -49,8 +49,9 @@ const useSignUp = (callback, validar) => {
         }).then((response) => {
           console.log(response);
       }); 
-            callback();
-        navigate("/");
+          callback();
+          alert("Registro realizado");
+          navigate("/");
           }
         },
         [errores]

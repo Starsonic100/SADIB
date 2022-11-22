@@ -109,14 +109,16 @@ export class Dibujo extends Component {
             const setToDraw = () =>{
                 let canvas=document.getElementById("canvas");
                 let context=canvas.getContext("2d");
-                ctxRef.current.globalCompositeOperation = 'source-over';
+                context.globalAlpha = 100;
+                context.strokeStyle = "black";
                 context.lineWidth = 5;
             }
 
             const setToErase = () =>{
                 let canvas=document.getElementById("canvas");
                 let context=canvas.getContext("2d");
-                ctxRef.current.globalCompositeOperation = 'destination-out';
+                context.globalAlpha = 100;
+                context.strokeStyle = "white";
                 context.lineWidth = 20;
             }
 
@@ -173,6 +175,7 @@ export class Dibujo extends Component {
                       'Content-Type': 'multipart/form-data'
                     }
                 })
+                alert("Se guardo el dibujo dentro de la plataforma para su análisis");
             };
 
             return(

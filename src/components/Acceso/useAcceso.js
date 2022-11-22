@@ -2,11 +2,10 @@ import { useState, useEffect } from 'react';
 import {useNavigate} from 'react-router-dom';
 import Axios from "axios";
 
-const useLogin = (callback, validar) => {
+const useAccesso = (callback, validacion) => {
   const navigate = useNavigate();
     const[valores,setValores]=useState({
-        Fcorreo:'',
-        Fcontrasenia:''
+        Fcodigo:'',
     });
     const [errores, setErrores] = useState({});
     const [loginStatus, setLoginStatus] = useState("");
@@ -21,32 +20,29 @@ const useLogin = (callback, validar) => {
 
     const handleSubmit = e => {
         e.preventDefault();
-            setErrores(validar(valores));
+            setErrores(validacion(valores));
             setIsSubmitting(true);
             login();
     } 
 
     const login = () => {
-        Axios.post("http://54.144.147.250:3001/login", {
-            correo: valores.Fcorreo,
-            contrasenia: valores.Fcontrasenia
+        Axios.post("http://54.144.147.250:3001/access", {
+            codigo: valores.Fcodigo
         }).then((response) => {
           if (response.data.message) {
             setLoginStatus(response.data.message);
           } else {
-            setLoginStatus(response.data[0].id_usuario);
-            alert("Inicio de sesion exitoso");
+            setLoginStatus(response.data[0].id_paci);
             navigate("/");
             navigate(0); 
           }
         });
-        
       };
     
     useEffect(() => {
-        Axios.get("http://54.144.147.250:3001/login").then((response) => {
+        Axios.get("http://54.144.147.250:3001/access").then((response) => {
           if (response.data.loggedIn == true) {
-            setLoginStatus(response.data.user[0].id_usuario);
+            setLoginStatus(response.data.user[0].token);
           }
         });
       }, []);
@@ -54,4 +50,4 @@ const useLogin = (callback, validar) => {
       return { handleChange, handleSubmit, valores, errores, loginStatus };
 }
 
-export default useLogin;
+export default useAccesso;

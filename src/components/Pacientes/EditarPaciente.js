@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import {useNavigate} from 'react-router-dom';
 import '../css/pacientes.css';
 import{ createTheme, MuiThemeProvider, responsiveFontSizes, Typography} from "@material-ui/core";
 import Axios from "axios";
@@ -10,6 +11,7 @@ theme = responsiveFontSizes(theme);
 
 function EditarPaciente(props){
     
+    const navigate = useNavigate();
     /*Datos del paciente*/
     const [Nombre, setNombre] = useState("");
     const [Papellido, setPapellido] = useState("");
@@ -53,6 +55,8 @@ function EditarPaciente(props){
             temail: TEmail,
             ttelefono: TTelefono
         }).then((response) => {
+            alert("Se guardaron los cambios");
+            navigate("/Pacientes");
             console.log(response);
         });
     };

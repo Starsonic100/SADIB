@@ -28,8 +28,6 @@ const useEditarDatos = (callback, validar) => {
         e.preventDefault();
             setErrores(validar(valores));
             setIsSubmitting(true);
-            
-        
     } 
     
       useEffect(
@@ -48,6 +46,7 @@ const useEditarDatos = (callback, validar) => {
           console.log(response);
       }); 
             callback();
+            alert("Se guardaron los cambios del usuario "+valores.Fusuario);
             navigate("/");
           }
         },

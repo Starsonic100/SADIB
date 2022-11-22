@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import '../css/pacientes.css';
 import{ createTheme, MuiThemeProvider, responsiveFontSizes, Typography} from "@material-ui/core";
 import Axios from "axios";
@@ -10,6 +10,7 @@ theme = responsiveFontSizes(theme);
 
 function AgregarPaciente(){
 
+    const navigate = useNavigate();
     /*Datos del paciente*/
     const [Nombre, setNombre] = useState("");
     const [Papellido, setPapellido] = useState("");
@@ -48,6 +49,8 @@ function AgregarPaciente(){
             ttelefono: TTelefono
         }).then((response) => {
             console.log(response);
+            alert("Se agregó el paciente");
+            navigate("/AgregarPaciente");
         });
     };
 
