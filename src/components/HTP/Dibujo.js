@@ -134,12 +134,12 @@ export class Dibujo extends Component {
                 let resizedCanvas = document.createElement("canvas");
                 let resizedContext = resizedCanvas.getContext("2d");
 
-                resizedCanvas.height = "100";
-                resizedCanvas.width = "100";
+                resizedCanvas.height = "250";
+                resizedCanvas.width = "250";
 
                 let canvas=document.getElementById("canvas");
                 
-                resizedContext.drawImage(canvas, 0, 0, 100, 100);
+                resizedContext.drawImage(canvas, 0, 0, 250, 250);
                 let image = resizedCanvas.toDataURL("image/png", 1.0).replace("image/png", "image/octet-stream");
                 let link = document.createElement('a');
                 link.download = "my-image.png";
@@ -159,10 +159,10 @@ export class Dibujo extends Component {
             const uploadFile = () => {
                 let resizedCanvas = document.createElement("canvas");
                 let resizedContext = resizedCanvas.getContext("2d");
-                resizedCanvas.height = "100";
-                resizedCanvas.width = "100";
+                resizedCanvas.height = "250";
+                resizedCanvas.width = "250";
                 let canvas=document.getElementById("canvas");
-                resizedContext.drawImage(canvas, 0, 0, 100, 100);
+                resizedContext.drawImage(canvas, 0, 0, 250, 250);
                 let dibujoB = resizedCanvas.toDataURL();
                 let dibujo = dataURItoBlob(dibujoB);
                 let fd = new FormData(document.forms[0]);
