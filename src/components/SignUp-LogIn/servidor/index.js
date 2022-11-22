@@ -3,7 +3,7 @@ const app = express();
 const mysql = require("mysql");
 const cors = require("cors");
 const md5 =require("md5");
-
+const pdf = require('html-pdf');
 const multer = require('multer');
 const upload = multer();
 const bodyParser = require("body-parser");
@@ -15,7 +15,7 @@ const readline = require ('readline');
 const {google} = require('googleapis');
 // service account key file from Google Cloud console.
 const KEYFILEPATH = 'cryptic-lattice-361623-36680065feaa.json';
-
+const pdfTemplate = require('./documentos');
 // Request full drive access.
 const SCOPES = ['https://www.googleapis.com/auth/drive'];
 // Create a service account initialize with the service account key file and scope needed
