@@ -235,13 +235,13 @@ export class Dibujo extends Component {
                                     <div className="dibujo">
                                         <Drawing setBase={values.p0}/>
                                     </div>
-
+                                    {/*
                                     <div className="main-row">
                                         <div className="col-lg-11">
                                             <button class="button" onClick={this.continuar}><img src={siguiente}/></button>
                                         </div>
                                     </div>
-    
+                                    */}
                                 </div>
                                 {/*Termina div de preguntas*/}
                             </div>
