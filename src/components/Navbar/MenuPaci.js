@@ -80,23 +80,23 @@ function MenuPaci() {
             </li>
             <li className='nav-text'>
               <Linker to="about" spy={true} smooth={true} offset={-90} duration={500} onClick={showSidebar}>
-                <span>Acerca del Sitio</span></Linker>
+                <span>Acerca del sitio</span></Linker>
             </li>
             <li className='nav-text'>
               <Linker to="tutorial" spy={true} smooth={true} offset={-90} duration={500} onClick={showSidebar}>
-                <span>Como Funciona</span></Linker>
+                <span>¿Cómo funciona?</span></Linker>
             </li>
             <li className='nav-text'>
               <Link to="/HTP" onClick={showSidebar}>
-                <span>Entrar a Prueba HTP</span></Link>
+                <span>Entrar a prueba HTP</span></Link>
             </li>
             <li className='nav-text'>
               <Link to="/TAMAI" onClick={showSidebar}>
-                <span>Entrar a Prueba TAMAI</span></Link>
+                <span>Entrar a prueba TAMAI</span></Link>
             </li>
             <li className='nav-text'>
               <Link to="/" onClick={logoutUser}>
-                <span>Salir de Sesión</span></Link>
+                <span>Salir de sesión</span></Link>
             </li>
           </ul>
         </nav>

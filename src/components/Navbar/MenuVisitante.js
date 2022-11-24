@@ -36,15 +36,15 @@ function MenuVisitante() {
       
             <li className='nav-text'>
               <Linker to="about" spy={true} smooth={true} offset={-90} duration={500} onClick={showSidebar}>
-                <span>Acerca del Sitio</span></Linker>
+                <span>Acerca del sitio</span></Linker>
             </li>
             <li className='nav-text'>
               <Linker to="tutorial" spy={true} smooth={true} offset={-90} duration={500} onClick={showSidebar}>
-                <span>Como Funciona</span></Linker>
+                <span>¿Cómo Funciona?</span></Linker>
             </li>
             <li className='nav-text'>
               <Link to="/Login"onClick={showSidebar}>
-                <span>Iniciar Sesión</span></Link>
+                <span>Iniciar sesión</span></Link>
             </li>
             <li className='nav-text'>
               <Link to="/SignUp" onClick={showSidebar}>

@@ -79,31 +79,31 @@ function MenuAdmin() {
             </li>
             <li className='nav-text'>
               <Linker to="about" spy={true} smooth={true} offset={-90} duration={500} onClick={showSidebar}>
-                <span>Acerca del Sitio</span></Linker>
+                <span>Acerca del sitio</span></Linker>
             </li>
             <li className='nav-text'>
               <Linker to="tutorial" spy={true} smooth={true} offset={-90} duration={500} onClick={showSidebar}>
-                <span>Como Funciona</span></Linker>
+                <span>¿Cómo funciona?</span></Linker>
             </li>
             <li className='nav-text'>
               <Link to="/AgregarPaciente"onClick={showSidebar}>
-                <span>Registrar Paciente</span></Link>
+                <span>Registrar paciente</span></Link>
             </li>
             <li className='nav-text'>
               <Link to="/Pacientes" onClick={showSidebar}>
-                <span>Ver Pacientes</span></Link>
+                <span>Ver pacientes</span></Link>
             </li>
             <li className='nav-text'>
               <Link to="/AsignarPrueba" onClick={showSidebar}>
-                <span>Asignar Prueba</span></Link>
+                <span>Asignar prueba</span></Link>
             </li>
             <li className='nav-text'>
               <Link to="/EditarPsic" onClick={showSidebar}>
-                <span>Editar Mis Datos</span></Link>
+                <span>Editar mis datos</span></Link>
             </li>
             <li className='nav-text'>
               <Link to="/" onClick={logoutUser}>
-                <span>Cerrar Sesión</span></Link>
+                <span>Cerrar sesión</span></Link>
             </li>
           </ul>
         </nav>

@@ -12,18 +12,27 @@ export default function validacion(valores)  {
     
         if(!valores.Fnombre.trim()){
             errores.nombre="El nombre es requerido";
+        }else if(!/[A-Z][a-z]/.test(valores.Fnombre)){
+            errores.nombre="El nombre solo debe contener letras"
         }
+    
     
         if(!valores.Fapellido.trim()){
             errores.papellido="El apellido es requerido";
+        }else if(!/[A-Z][a-z]/.test(valores.Fapellido)){
+            errores.papellido="El apellido solo debe contener letras"
         }
     
         if(!valores.Fsapellido.trim()){
             errores.sapellido="El apellido es requerido";
+        }else if(!/[A-Z][a-z]/.test(valores.Fsapellido)){
+            errores.sapellido="El apellido solo debe contener letras"
         }
     
         if(!valores.Fcorreo.trim()){
             errores.correo="El correo es requerido";
+        }else if(!/^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/.test(valores.Fcorreo)){
+            errores.correo="Formato de correo inválido";
         }
     
         if(!valores.Ftelefono){

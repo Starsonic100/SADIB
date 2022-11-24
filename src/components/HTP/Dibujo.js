@@ -204,7 +204,7 @@ export class Dibujo extends Component {
 
                                 <button class="button-herramientas" onClick={setToDownload}><img src={descargar} alt="Descargar dibujo" title="Descargar dibujo"/></button>
 
-                                <button class="button-herramientas" onClick={uploadFile}><img src={finalizar} alt="Finalizar dibujo" title="Finalizar dibujo"/></button>
+                                <button class="button-herramientas" onClick={() =>{uploadFile(); setToClear();}}><img src={finalizar} alt="Finalizar dibujo" title="Finalizar dibujo"/></button>
                             </div>
                         </div>
                     </div> 
@@ -222,8 +222,13 @@ export class Dibujo extends Component {
                                 {/* Comienza div de instrucciones*/}
                                 <div className="instrucciones">
                                     <div align="center">
+                                        {/*
                                         <MuiThemeProvider theme={theme}>
                                             <Typography variant="h5" class="instrucciones">{"Realiza un dibujo que contenga una casa, un árbol y una persona"}</Typography>
+                                        </MuiThemeProvider>
+                                        */}
+                                        <MuiThemeProvider theme={theme}>
+                                            <Typography variant="h5" class="instrucciones">{"Realiza el dibujo de una casa, un árbol y una persona (individualmente). Al terminar cada dibujo, da clic en el botón "}<img src={finalizar} alt="Finalizar dibujo" title="Finalizar dibujo" width="5%"/></Typography>
                                         </MuiThemeProvider>
                                     </div>
                                 </div>
