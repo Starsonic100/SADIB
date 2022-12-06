@@ -58,6 +58,9 @@ CREATE TABLE `paciente` (
   `apellidop` varchar(15) NOT NULL,
   `apellidom` varchar(15) NOT NULL,
   `fecha_nac` date NOT NULL,
+   `genero` varchar(9) NOT NULL,
+  `correo` varchar(30) DEFAULT NULL,
+  `telefono` varchar(10) NOT NULL,
   `id_psic` varchar(10) NOT NULL,
   `id_tutor` int NOT NULL,
   `rol` int NOT NULL,
@@ -141,16 +144,45 @@ DROP TABLE IF EXISTS `resultado`;
 CREATE TABLE `resultado` (
   `id_resul` int NOT NULL AUTO_INCREMENT,
   `id_prueba` int NOT NULL,
-  `id_psic` varchar(10) DEFAULT NULL,
-  `id_paci` int NOT NULL,
-  `resultado` blob NOT NULL,
+  `id_token` int NOT NULL,
+  `resultado` varchar(100) NOT NULL,
   PRIMARY KEY (`id_resul`),
-  KEY `FKRePa` (`id_paci`),
+  KEY `FKToRe` (`id_token`),
   KEY `FKRePr` (`id_prueba`),
-  KEY `FKPsRe` (`id_psic`),
-  CONSTRAINT `FKPsRe` FOREIGN KEY (`id_psic`) REFERENCES `psicologo` (`id_psic`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `FKRePa` FOREIGN KEY (`id_paci`) REFERENCES `paciente` (`id_paci`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `FKToRe` FOREIGN KEY (`id_token`) REFERENCES `token` (`id_token`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `FKRePr` FOREIGN KEY (`id_prueba`) REFERENCES `prueba` (`id_prueba`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+DROP TABLE IF EXISTS `respuesta`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8 */;
+CREATE TABLE `respuesta` (
+  `id_respu` int NOT NULL AUTO_INCREMENT,
+  `id_prueba` int NOT NULL,
+  `id_token` int NOT NULL,
+  `respuesta` varchar(100) NOT NULL,
+  PRIMARY KEY (`id_respu`),
+  KEY `FKToRes` (`id_token`),
+  KEY `FKResPr` (`id_prueba`),
+  CONSTRAINT `FKToRes` FOREIGN KEY (`id_token`) REFERENCES `token` (`id_token`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `FKResPr` FOREIGN KEY (`id_prueba`) REFERENCES `prueba` (`id_prueba`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+DROP TABLE IF EXISTS `dibujo`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8 */;
+CREATE TABLE `dibujo` (
+  `id_dibujo` int NOT NULL AUTO_INCREMENT,
+  `id_prueba` int NOT NULL,
+  `id_token` int NOT NULL,
+  `dibujo` varchar(100) NOT NULL,
+  PRIMARY KEY (`id_dibujo`),
+  KEY `FKToDi` (`id_token`),
+  KEY `FKDiPr` (`id_prueba`),
+  CONSTRAINT `FKToDi` FOREIGN KEY (`id_token`) REFERENCES `token` (`id_token`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `FKDiPr` FOREIGN KEY (`id_prueba`) REFERENCES `prueba` (`id_prueba`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -166,6 +198,23 @@ UNLOCK TABLES;
 --
 -- Table structure for table `token`
 --
+CREATE TABLE `bitacora` (
+  `id_in` int NOT NULL AUTO_INCREMENT,
+  `id_psic` varchar(10) NOT NULL,
+  `id_paci` int NOT NULL,
+  `id_prueba` int NOT NULL,
+  `dateIn` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `dateOut` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id_in`),
+  KEY `Ps` (`id_psic`),
+  KEY `Pa` (`id_paci`),
+  KEY `Pr` (`id_prueba`),
+  CONSTRAINT `Pa` FOREIGN KEY (`id_paci`) REFERENCES `paciente` (`id_paci`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `Pr` FOREIGN KEY (`id_prueba`) REFERENCES `prueba` (`id_prueba`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `Ps` FOREIGN KEY (`id_psic`) REFERENCES `psicologo` (`id_psic`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
 
 DROP TABLE IF EXISTS `token`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
