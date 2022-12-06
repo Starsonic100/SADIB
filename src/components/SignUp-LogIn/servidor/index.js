@@ -16,6 +16,8 @@ const {google} = require('googleapis');
 // service account key file from Google Cloud console.
 const KEYFILEPATH = 'cryptic-lattice-361623-36680065feaa.json';
 const pdfTemplate = require('./documentos');
+const pdfTemplate2 = require('./documentosTAMAI');
+const plantillaResTAMAI = require('./resultadosTAMAI');
 // Request full drive access.
 const SCOPES = ['https://www.googleapis.com/auth/drive'];
 // Create a service account initialize with the service account key file and scope needed
@@ -219,7 +221,7 @@ app.put("/update", (req,res) =>{
 app.get("/pacientes", (req,res) =>{
 
   db.query(
-    "SELECT id_paci,apellidop,apellidom,nombre FROM paciente",(err,result) => { console.log(err); res.send(JSON.stringify(result));}
+    "SELECT id_paci,apellidop,apellidom,nombre FROM paciente where id_psic=?",req.session.user[0].id_usuario,(err,result) => { console.log(err); res.send(JSON.stringify(result));}
   );
 });
 
@@ -282,36 +284,107 @@ app.get("/datosPaciente",(req,res)=>{
   );
 });
 
-app.post("/evaluacion", (req,res) =>{
+
+app.post("/respuestasHTP", (req,res) =>{
   let nombre = req.session.user[0].nombre+req.session.user[0].apellidop+req.session.user[0].apellidom;
-  console.log(nombre);
   let respuestas = req.body.respuestas;
+  let fileName= nombre+'respuestasHTP.pdf';
+  let table = 'respuesta';
+  let token = req.session.user[0].id_token;
+  let prueba =  req.session.user[0].id_prueba;
+  let parent='1SpsHIylqeQpfPdSySqHFJ55jojxnu854';
+
   const fs = require('fs');
-  respuestas = JSON.stringify(respuestas);
-  fs.writeFile('./respuestas/'+nombre+'.json', respuestas, (err) => {
-      if (!err) {
-          console.log('respuesta guardada');
-      }
+  pdf.create(pdfTemplate(respuestas), {"format": 'Letter', "border": {
+    "top": "25mm",            
+    "bottom": "25mm"
+  },
+ }).toBuffer(function (err, buffer) {
+    if (err) {
+      console.log(err)
+    } else {
+      console.log(buffer)
+      createAndUploadPDF(auth,buffer,fileName,parent,table,token,prueba).catch(console.error());
+      res.send(Promise.resolve());
+    }
   });
-  pdf.create(pdfTemplate(req.body.respuestas), {format: 'Letter', "border": {
+    respuestas = JSON.stringify(respuestas);
+});
+
+app.post("/respuestasTAMAI", (req,res) =>{
+  let nombre = req.session.user[0].nombre+req.session.user[0].apellidop+req.session.user[0].apellidom;
+  let respuestas = req.body.respuestas;
+  let fileName= nombre+'respuestasTAMAI.pdf';
+  let table = 'respuesta';
+  let token = req.session.user[0].id_token;
+  let prueba =  req.session.user[0].id_prueba;
+  let parent='1SpsHIylqeQpfPdSySqHFJ55jojxnu854';
+  const fs = require('fs');
+  pdf.create(pdfTemplate2(respuestas), {"format": 'Letter', "border": {
     "top": "25mm",            // default is 0, units: mm, cm, in, px
     "bottom": "25mm",
   },
- }).toFile(nombre+'.pdf', (err) => {
-  if(!err){
-    console.log("PDF Guardado");
-  }
-    if(err) {
-        return console.log('error');
-    }res.send(Promise.resolve())
+ }).toBuffer(function (err, buffer) {
+    if (err) {
+      console.log(err)
+    } else {
+      console.log(buffer)
+      createAndUploadPDF(auth,buffer,fileName,parent,table,token,prueba).catch(console.error());
+      res.send(Promise.resolve());
+    }
   });
+  respuestas = JSON.stringify(respuestas);
+});
+
+app.post("/resultadosTAMAI", (req,res) =>{
+  let nombre = req.session.user[0].nombre+req.session.user[0].apellidop+req.session.user[0].apellidom;
+  let pac = req.session.user[0].nombre+" "+req.session.user[0].apellidop+" "+req.session.user[0].apellidom;
+  let fecha_nac = req.session.user[0].fecha_nac;
+  let fechaNac=fecha_nac.substring(0,10);
+  let fecha=new Date(fechaNac);
+  let mes_dif = Date.now()-fecha.getTime();
+  let edad_dif=new Date(mes_dif);
+  let anio =edad_dif.getUTCFullYear();
+  let edad=Math.abs(anio-1970);
+  let genero = req.session.user[0].genero;
+  let resultados = req.body.resTAMAI;
+  let today_local = new Date().toLocaleDateString("en-US", {timeZone: "America/Mexico_City"});
+  let today = new Date(today_local);
+  console.log(today);
+  let dd = String(today.getDate()).padStart(2, '0');
+  let mm = String(today.getMonth() + 1).padStart(2, '0'); 
+  let yyyy = today.getFullYear();
+  let fileName= nombre+'resultadoTAMAI.pdf';
+  let table = 'resultado';
+  let token = req.session.user[0].id_token;
+  let prueba =  req.session.user[0].id_prueba;
+  let parent='1W3XJfBUoWmPDfjkS7bjjbdZANRJnrOI0';
+  const fs = require('fs');
+  pdf.create(plantillaResTAMAI(resultados,dd,mm,yyyy,pac,edad,genero), {"format": 'Letter', "border": {
+    "top": "25mm",            // default is 0, units: mm, cm, in, px
+    "bottom": "25mm",
+  },
+ }).toBuffer(function (err, buffer) {
+    if (err) {
+      console.log(err)
+    } else {
+      console.log(buffer)
+      createAndUploadPDF(auth,buffer,fileName,parent,table,token,prueba).catch(console.error());
+      res.send(Promise.resolve());
+    }
+});
+  resultados = JSON.stringify(resultados);
 });
 
 app.get("/descargaRespuesta",
  (req, res) => {
+  const nombre= req.query.nombre;
+  const apellidop=req.query.apellidop;
+  const apellidom=req.query.apellidom;
   try {
-    const fileName = 'FranciscoMartinezBlancarte.pdf'
-    const fileURL = 'FranciscoMartinezBlancarte.pdf'
+    
+    const fileName = nombre+apellidop+apellidom+"TAMAI.pdf";
+    const fileURL = './respuestas/'+fileName
     const stream = fs.createReadStream(fileURL);
     res.set({
       'Content-Disposition': `attachment; filename='${fileName}'`,
@@ -320,7 +393,28 @@ app.get("/descargaRespuesta",
     stream.pipe(res);
   } catch (e) {
     console.error(e)
-    res.status(500).end();
+    res.status(500);
+  }
+});
+
+app.get("/descargaResultado",
+ (req, res) => {
+  const nombre= req.query.nombre;
+  const apellidop=req.query.apellidop;
+  const apellidom=req.query.apellidom;
+  try {
+    
+    const fileName = nombre+apellidop+apellidom+"resultadosTAMAI.pdf";
+    const fileURL = './resultados/'+fileName
+    const stream = fs.createReadStream(fileURL);
+    res.set({
+      'Content-Disposition': `attachment; filename='${fileName}'`,
+      'Content-Type': 'application/pdf',
+    });
+    stream.pipe(res);
+  } catch (e) {
+    console.error(e)
+    res.status(500);
   }
 });
 
@@ -351,6 +445,7 @@ app.post("/dibujo", upload.single('dibujo'), (req,res)=>{
   createAndUploadFile(auth,req.file).catch(console.error);
 
 });
+
 
 async function createAndUploadFile(auth,dibujo){
   let today = new Date();
@@ -391,6 +486,40 @@ async function createAndUploadFile(auth,dibujo){
   }
 }
 
+
+async function createAndUploadPDF(auth,buffer,fileName,parent,table,token,prueba){
+  const driveService = google.drive(  {version:'v3',auth});
+    
+  let fileMetadata = {
+    'name': fileName,
+    'parents':  [  parent  ]
+  };
+  let media = {
+    mimeType: "application/pdf",
+    body:Readable.from(buffer)
+  };
+
+
+  let response = await driveService.files.create({
+  resource: fileMetadata,
+  media: media,
+  fields: 'id'
+  })
+
+  switch(response.status){
+  case 200:
+      let file = response.result;
+      console.log('Created File Id: ', response.data.id);
+      let link='https://drive.google.com/file/d/'+response.data.id+'/view';
+      db.query(
+        "INSERT INTO "+ table+ " (id_prueba,id_token,"+table+") VALUES(?,?,?)",[prueba,token,link],(err,result) => { console.log(err); }
+      );
+      break;
+  default:
+      console.error('Error creating the file, ' + response.errors);
+      break;
+  }
+}
 
 app.listen(3001, () => {
   console.log("Servidor corriendo");
