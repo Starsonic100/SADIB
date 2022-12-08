@@ -100,7 +100,7 @@ app.post("/login", (req,res) =>{
   
   const correo = req.body.correo;
   const contrasenia = md5(req.body.contrasenia);
-  console.log(correo);
+  
   db.query(
     "SELECT nombre, apellidop, apellidom, telefono, rol, id_usuario, login.correo, login.contrasenia  FROM login INNER JOIN psicologo ON psicologo.id_psic = login.id_usuario WHERE login.correo = ? and login.contrasenia = ?;",
     [correo,contrasenia],
@@ -134,7 +134,7 @@ app.post("/access", (req,res) =>{
   
   const codigo = req.body.codigo;
   db.query(
-    "SELECT * from token INNER JOIN paciente ON paciente.id_paci = token.id_paci WHERE token = ?;",
+    "SELECT * from token INNER JOIN paciente ON paciente.id_paci = token.id_paci WHERE token = ? AND estado = 'Asignado';",
     codigo,
     (err, result) => {
       if (err) {
@@ -146,7 +146,7 @@ app.post("/access", (req,res) =>{
             console.log(req.session.user);
             res.send(result);
       } else {
-        res.send({ message: "No se encuentra este paciente" });
+        res.send({ message: "No se puede acceder a la prueba" });
       }
     }
   );
@@ -218,7 +218,7 @@ app.put("/update", (req,res) =>{
   
 });
 
-app.get("/pacientes", (req,res) =>{
+app.get("/pacientes", (req,res) =>{ 
 
   db.query(
     "SELECT id_paci,apellidop,apellidom,nombre FROM paciente where id_psic=?",req.session.user[0].id_usuario,(err,result) => { console.log(err); res.send(JSON.stringify(result));}
@@ -230,7 +230,40 @@ app.get("/obtenerDatos",(req,res)=>{
   const id_paci= req.query;
   
   db.query(
-    "SELECT paciente.nombre,paciente.apellidop,paciente.apellidom,CONCAT(YEAR(fecha_nac),'-',DATE_FORMAT(fecha_nac,'%m'),'-',DATE_FORMAT(fecha_nac,'%d')) as fecha_nac,genero,paciente.correo,paciente.telefono,tutor.nombre AS nombret,tutor.apellidop AS apellidopt,tutor.apellidom AS apellidomt,tutor.correo AS correot,tutor.telefono AS telefonot FROM paciente INNER JOIN tutor ON paciente.id_tutor=tutor.id_tutor AND id_paci=?;",[id_paci.id_paci],(err,result) => { console.log(err); res.send(JSON.stringify(result));}
+    "SELECT paciente.nombre,paciente.apellidop,paciente.apellidom,CONCAT(YEAR(fecha_nac),'-',DATE_FORMAT(fecha_nac,'%m'),'-',DATE_FORMAT(fecha_nac,'%d')) as fecha_nac,genero,paciente.correo,paciente.telefono,tutor.nombre AS nombret,tutor.apellidop AS apellidopt,tutor.apellidom AS apellidomt,tutor.correo AS correot,tutor.telefono AS telefonot FROM paciente INNER JOIN tutor ON paciente.id_tutor=tutor.id_tutor AND paciente.id_paci=?;",[id_paci.id_paci],(err,result) => 
+    { 
+      console.log(err); 
+      res.send(JSON.stringify(result));
+      console.log(result);
+    }
+  );
+});
+
+app.get("/obtenerExpediente",(req,res)=>{
+
+  const id_paci= req.query;
+  
+  db.query(
+    "SELECT token.token, respuesta.respuesta, resultado.resultado, estado FROM token INNER JOIN resultado ON token.id_token=resultado.id_token INNER JOIN respuesta ON resultado.id_token=respuesta.id_token WHERE id_paci=?;",[id_paci.id_paci],(err,result) => 
+    { 
+      console.log(err); 
+      if(result.length>0){
+        res.send(JSON.stringify(result));
+      }
+      else{
+        db.query(
+          "SELECT token, estado FROM token WHERE id_paci=?;",[id_paci.id_paci],(err,result) => 
+          { 
+            if(result.length>0){
+              res.send(JSON.stringify(result));
+            }
+            else{
+              res.send({ message: "No se cuenta con expediente" });
+            }
+          });
+      }
+      console.log(result);
+    }
   );
 });
 
@@ -284,7 +317,6 @@ app.get("/datosPaciente",(req,res)=>{
   );
 });
 
-
 app.post("/respuestasHTP", (req,res) =>{
   let nombre = req.session.user[0].nombre+req.session.user[0].apellidop+req.session.user[0].apellidom;
   let respuestas = req.body.respuestas;
@@ -308,7 +340,6 @@ app.post("/respuestasHTP", (req,res) =>{
       res.send(Promise.resolve());
     }
   });
-    respuestas = JSON.stringify(respuestas);
 });
 
 app.post("/respuestasTAMAI", (req,res) =>{
@@ -333,7 +364,6 @@ app.post("/respuestasTAMAI", (req,res) =>{
       res.send(Promise.resolve());
     }
   });
-  respuestas = JSON.stringify(respuestas);
 });
 
 app.post("/resultadosTAMAI", (req,res) =>{
@@ -360,6 +390,10 @@ app.post("/resultadosTAMAI", (req,res) =>{
   let prueba =  req.session.user[0].id_prueba;
   let parent='1W3XJfBUoWmPDfjkS7bjjbdZANRJnrOI0';
   const fs = require('fs');
+  db.query(
+    "UPDATE token SET estado=? WHERE id_token=?",['Resuelto',token],(err,result) => { console.log(err);
+    console.log("Actualizado"); }
+  );
   pdf.create(plantillaResTAMAI(resultados,dd,mm,yyyy,pac,edad,genero), {"format": 'Letter', "border": {
     "top": "25mm",            // default is 0, units: mm, cm, in, px
     "bottom": "25mm",
@@ -373,49 +407,6 @@ app.post("/resultadosTAMAI", (req,res) =>{
       res.send(Promise.resolve());
     }
 });
-  resultados = JSON.stringify(resultados);
-});
-
-app.get("/descargaRespuesta",
- (req, res) => {
-  const nombre= req.query.nombre;
-  const apellidop=req.query.apellidop;
-  const apellidom=req.query.apellidom;
-  try {
-    
-    const fileName = nombre+apellidop+apellidom+"TAMAI.pdf";
-    const fileURL = './respuestas/'+fileName
-    const stream = fs.createReadStream(fileURL);
-    res.set({
-      'Content-Disposition': `attachment; filename='${fileName}'`,
-      'Content-Type': 'application/pdf',
-    });
-    stream.pipe(res);
-  } catch (e) {
-    console.error(e)
-    res.status(500);
-  }
-});
-
-app.get("/descargaResultado",
- (req, res) => {
-  const nombre= req.query.nombre;
-  const apellidop=req.query.apellidop;
-  const apellidom=req.query.apellidom;
-  try {
-    
-    const fileName = nombre+apellidop+apellidom+"resultadosTAMAI.pdf";
-    const fileURL = './resultados/'+fileName
-    const stream = fs.createReadStream(fileURL);
-    res.set({
-      'Content-Disposition': `attachment; filename='${fileName}'`,
-      'Content-Type': 'application/pdf',
-    });
-    stream.pipe(res);
-  } catch (e) {
-    console.error(e)
-    res.status(500);
-  }
 });
 
 app.post("/asignarPrueba", (req,res) =>{
@@ -445,7 +436,6 @@ app.post("/dibujo", upload.single('dibujo'), (req,res)=>{
   createAndUploadFile(auth,req.file).catch(console.error);
 
 });
-
 
 async function createAndUploadFile(auth,dibujo){
   let today = new Date();
@@ -520,6 +510,7 @@ async function createAndUploadPDF(auth,buffer,fileName,parent,table,token,prueba
       break;
   }
 }
+
 
 app.listen(3001, () => {
   console.log("Servidor corriendo");
