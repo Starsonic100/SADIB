@@ -6,7 +6,7 @@ const validacionPaciente = (pnombre,ppapellido,psapellido,pfnacimiento,pgenero,p
             errors.pnombre="El nombre es requerido";
         }else if(pnombre.length<=2){
             errors.pnombre="El nombre no es válido"
-        }else if(!/[A-Z][a-z][à-ú][À-Ú]/.test(pnombre)){
+        }else if(!/[A-Z][a-z]|[à-ú]|[À-Ú]/.test(pnombre)){
             errors.pnombre="El nombre solo debe contener letras"
         }
 

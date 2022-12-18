@@ -45,14 +45,14 @@ function AgregarPaciente(){
             tnombre: TNombre,
             tpapellido: TPapellido,
             tsapellido: TSapellido,
-            temail: TEmail,
+            temail: TEmai/Pacientesl,
             ttelefono: TTelefono
         }).then((response) => {
             alert("Se agregó el paciente");
             navigate("/AgregarPaciente");
         });
         alert("Se agregó el paciente");
-            navigate("/AgregarPaciente");
+        navigate("/Pacientes");
     };
 
     return(
