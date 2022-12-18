@@ -17,7 +17,9 @@ class VerPaciente extends Component{
 
     state={
         pacientes:[],
-        datosPaciente:[]
+        datosPaciente:[],
+        expediente:0,
+        datosExpediente:[]
     }
 
     componentDidMount(){
@@ -39,7 +41,7 @@ class VerPaciente extends Component{
         } = this.props;
 
         const obtener_datos = () =>{
-            Axios.get("http://54.144.147.250:3001/obtenerDatos",{
+            Axios.get("http://54.144.147.250:3001//obtenerDatos",{
                 params: {
                     id_paci: id_paciente
                 }
@@ -51,38 +53,25 @@ class VerPaciente extends Component{
             .catch((error)=> {
                 console.log(error)
             });
-        }
-
-        const descargarRespuestas = () =>{
-            Axios.get('http://54.144.147.250:3001/descargaRespuesta', {
+            Axios.get("http://54.144.147.250:3001//obtenerExpediente",{
                 params: {
-                    nombre: this.state.datosPaciente[0].nombre,
-                    apellidop: this.state.datosPaciente[0].apellidop,
-                    apellidom: this.state.datosPaciente[0].apellidom
-                },
-                responseType: 'blob'
-             })
-             .then(response => {
-                const file = window.URL.createObjectURL(new Blob([response.data]));
-                window.open(file);
+                    id_paci: id_paciente
+                }
+            })
+            .then((response) =>{
                 console.log(response);
-             })
-             
-        }
-
-        const descargarResultado = () =>{
-            Axios.get('http://54.144.147.250:3001/descargaRespuesta', {
-                responseType: 'blob'
-             })
-             .then(response => {
-                const file = window.URL.createObjectURL(new Blob([response.data]));
-                window.open(file);
-                console.log(response);
-             })
-             .catch((error)=> {
+                if(response.data.message){
+                    this.setState({expediente:0,datosExpediente:[]});
+                }
+                else{
+                    this.setState({expediente:1,datosExpediente:response.data});
+                }
+            })
+            .catch((error)=> {
                 console.log(error)
             });
-             
+            console.log(this.state.datosPaciente);
+            console.log(this.state.datosExpediente);
         }
 
         return(
@@ -136,7 +125,7 @@ class VerPaciente extends Component{
                                                                     </MuiThemeProvider>
                                                                 </span>
                                                                 <select id="pac_sel" class="form-select" aria-label="Default select example" name="id_paciente" onChange={handleInputChange('id_paciente')} defaultValue={values.id_paciente} onClick={obtener_datos}>
-                                                                    <option selected>Buscar paciente</option>
+                                                                    <option selected>Mostrar pacientes</option>
                                                                     {this.state.pacientes.map(elemento => (
                                                                         <option key={elemento.id_paci} value={elemento.id_paci}>{elemento.id_paci} - {elemento.apellidop} {elemento.apellidom} {elemento.nombre} </option>
                                                                     ))}
@@ -149,26 +138,43 @@ class VerPaciente extends Component{
                                                         <div className="main row">
                                                             <div className="col-xs-6 col-sm-6 col-md-12 col-lg-12">
                                                                 <div className="table-responsive">
+                                                                {this.state.expediente==0 ?
+                                                                    <table className="table table-striped" id="documentos">
+                                                                        <tbody>
+                                                                            <tr>
+                                                                                <td>No se cuentan con documentos de este paciente</td>
+                                                                            </tr>
+                                                                        </tbody> 
+                                                                        </table>:
                                                                     <table className="table table-striped" id="documentos">
                                                                         <thead>
                                                                             <tr>
-                                                                                <th>Paciente</th>
+                                                                                <th>Token</th>
                                                                                 <th>Respuestas</th>
                                                                                 <th>Resultado</th>
                                                                                 <th>Estado</th>
                                                                             </tr>
                                                                         </thead>
                                                                         <tbody>
-                                                                            {this.state.datosPaciente.map((dpaciente)=>(
+                                                                            {this.state.datosExpediente.map((dexpediente)=>(
+                                                                                dexpediente.estado=='Resuelto' ?
                                                                             <tr>
-                                                                                <td>{dpaciente.nombre} {dpaciente.apellidop} {dpaciente.apellidom}</td>
-                                                                                <td><a href="#" onClick={( descargarRespuestas)}>Respuestas de Prueba</a></td>
-                                                                                <td><a href="#" onClick={( descargarResultado)}>Resultado de Prueba</a></td>
-                                                                                <td>Completado</td>
+                                                                                <td>{dexpediente.token}</td>
+                                                                                <td><a href={dexpediente.respuesta} target="_blank">Respuestas de Prueba</a></td>
+                                                                                <td><a href={dexpediente.resultado} target="_blank">Resultado de Prueba</a></td>
+                                                                                <td>{dexpediente.estado}</td>
+                                                                            </tr> 
+                                                                                :
+                                                                            <tr>
+                                                                                <td>{dexpediente.token}</td>
+                                                                                <td>No se ha terminado la prueba</td>
+                                                                                <td>No se ha terminado la prueba</td>
+                                                                                <td>{dexpediente.estado}</td>
                                                                             </tr>
                                                                             ))}
                                                                         </tbody>
                                                                     </table>
+                                                                }
                                                                 </div>
                                                             </div>
                                                         </div>

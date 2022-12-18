@@ -16,6 +16,8 @@ const {google} = require('googleapis');
 // service account key file from Google Cloud console.
 const KEYFILEPATH = 'cryptic-lattice-361623-36680065feaa.json';
 const pdfTemplate = require('./documentos');
+const pdfTemplate2 = require('./documentosTAMAI');
+const plantillaResTAMAI = require('./resultadosTAMAI');
 // Request full drive access.
 const SCOPES = ['https://www.googleapis.com/auth/drive'];
 // Create a service account initialize with the service account key file and scope needed
@@ -98,7 +100,7 @@ app.post("/login", (req,res) =>{
   
   const correo = req.body.correo;
   const contrasenia = md5(req.body.contrasenia);
-  console.log(correo);
+  
   db.query(
     "SELECT nombre, apellidop, apellidom, telefono, rol, id_usuario, login.correo, login.contrasenia  FROM login INNER JOIN psicologo ON psicologo.id_psic = login.id_usuario WHERE login.correo = ? and login.contrasenia = ?;",
     [correo,contrasenia],
@@ -132,7 +134,7 @@ app.post("/access", (req,res) =>{
   
   const codigo = req.body.codigo;
   db.query(
-    "SELECT * from token INNER JOIN paciente ON paciente.id_paci = token.id_paci WHERE token = ?;",
+    "SELECT * from token INNER JOIN paciente ON paciente.id_paci = token.id_paci WHERE token = ? AND estado = 'Asignado';",
     codigo,
     (err, result) => {
       if (err) {
@@ -144,7 +146,7 @@ app.post("/access", (req,res) =>{
             console.log(req.session.user);
             res.send(result);
       } else {
-        res.send({ message: "No se encuentra este paciente" });
+        res.send({ message: "No se puede acceder a la prueba" });
       }
     }
   );
@@ -216,10 +218,10 @@ app.put("/update", (req,res) =>{
   
 });
 
-app.get("/pacientes", (req,res) =>{
+app.get("/pacientes", (req,res) =>{ 
 
   db.query(
-    "SELECT id_paci,apellidop,apellidom,nombre FROM paciente",(err,result) => { console.log(err); res.send(JSON.stringify(result));}
+    "SELECT id_paci,apellidop,apellidom,nombre FROM paciente where id_psic=?",req.session.user[0].id_usuario,(err,result) => { console.log(err); res.send(JSON.stringify(result));}
   );
 });
 
@@ -228,7 +230,40 @@ app.get("/obtenerDatos",(req,res)=>{
   const id_paci= req.query;
   
   db.query(
-    "SELECT paciente.nombre,paciente.apellidop,paciente.apellidom,CONCAT(YEAR(fecha_nac),'-',DATE_FORMAT(fecha_nac,'%m'),'-',DATE_FORMAT(fecha_nac,'%d')) as fecha_nac,genero,paciente.correo,paciente.telefono,tutor.nombre AS nombret,tutor.apellidop AS apellidopt,tutor.apellidom AS apellidomt,tutor.correo AS correot,tutor.telefono AS telefonot FROM paciente INNER JOIN tutor ON paciente.id_tutor=tutor.id_tutor AND id_paci=?;",[id_paci.id_paci],(err,result) => { console.log(err); res.send(JSON.stringify(result));}
+    "SELECT paciente.nombre,paciente.apellidop,paciente.apellidom,CONCAT(YEAR(fecha_nac),'-',DATE_FORMAT(fecha_nac,'%m'),'-',DATE_FORMAT(fecha_nac,'%d')) as fecha_nac,genero,paciente.correo,paciente.telefono,tutor.nombre AS nombret,tutor.apellidop AS apellidopt,tutor.apellidom AS apellidomt,tutor.correo AS correot,tutor.telefono AS telefonot FROM paciente INNER JOIN tutor ON paciente.id_tutor=tutor.id_tutor AND paciente.id_paci=?;",[id_paci.id_paci],(err,result) => 
+    { 
+      console.log(err); 
+      res.send(JSON.stringify(result));
+      console.log(result);
+    }
+  );
+});
+
+app.get("/obtenerExpediente",(req,res)=>{
+
+  const id_paci= req.query;
+  
+  db.query(
+    "SELECT token.token, respuesta.respuesta, resultado.resultado, estado FROM token INNER JOIN resultado ON token.id_token=resultado.id_token INNER JOIN respuesta ON resultado.id_token=respuesta.id_token WHERE id_paci=?;",[id_paci.id_paci],(err,result) => 
+    { 
+      console.log(err); 
+      if(result.length>0){
+        res.send(JSON.stringify(result));
+      }
+      else{
+        db.query(
+          "SELECT token, estado FROM token WHERE id_paci=?;",[id_paci.id_paci],(err,result) => 
+          { 
+            if(result.length>0){
+              res.send(JSON.stringify(result));
+            }
+            else{
+              res.send({ message: "No se cuenta con expediente" });
+            }
+          });
+      }
+      console.log(result);
+    }
   );
 });
 
@@ -282,46 +317,96 @@ app.get("/datosPaciente",(req,res)=>{
   );
 });
 
-app.post("/evaluacion", (req,res) =>{
+app.post("/respuestasHTP", (req,res) =>{
   let nombre = req.session.user[0].nombre+req.session.user[0].apellidop+req.session.user[0].apellidom;
-  console.log(nombre);
   let respuestas = req.body.respuestas;
+  let fileName= nombre+'respuestasHTP.pdf';
+  let table = 'respuesta';
+  let token = req.session.user[0].id_token;
+  let prueba =  req.session.user[0].id_prueba;
+  let parent='1SpsHIylqeQpfPdSySqHFJ55jojxnu854';
+
   const fs = require('fs');
-  respuestas = JSON.stringify(respuestas);
-  fs.writeFile('./respuestas/'+nombre+'.json', respuestas, (err) => {
-      if (!err) {
-          console.log('respuesta guardada');
-      }
-  });
-  pdf.create(pdfTemplate(req.body.respuestas), {format: 'Letter', "border": {
-    "top": "25mm",            // default is 0, units: mm, cm, in, px
-    "bottom": "25mm",
+  pdf.create(pdfTemplate(respuestas), {"format": 'Letter', "border": {
+    "top": "25mm",            
+    "bottom": "25mm"
   },
- }).toFile(nombre+'.pdf', (err) => {
-  if(!err){
-    console.log("PDF Guardado");
-  }
-    if(err) {
-        return console.log('error');
-    }res.send(Promise.resolve())
+ }).toBuffer(function (err, buffer) {
+    if (err) {
+      console.log(err)
+    } else {
+      console.log(buffer)
+      createAndUploadPDF(auth,buffer,fileName,parent,table,token,prueba).catch(console.error());
+      res.send(Promise.resolve());
+    }
   });
 });
 
-app.get("/descargaRespuesta",
- (req, res) => {
-  try {
-    const fileName = 'FranciscoMartinezBlancarte.pdf'
-    const fileURL = 'FranciscoMartinezBlancarte.pdf'
-    const stream = fs.createReadStream(fileURL);
-    res.set({
-      'Content-Disposition': `attachment; filename='${fileName}'`,
-      'Content-Type': 'application/pdf',
-    });
-    stream.pipe(res);
-  } catch (e) {
-    console.error(e)
-    res.status(500).end();
-  }
+app.post("/respuestasTAMAI", (req,res) =>{
+  let nombre = req.session.user[0].nombre+req.session.user[0].apellidop+req.session.user[0].apellidom;
+  let respuestas = req.body.respuestas;
+  let fileName= nombre+'respuestasTAMAI.pdf';
+  let table = 'respuesta';
+  let token = req.session.user[0].id_token;
+  let prueba =  req.session.user[0].id_prueba;
+  let parent='1SpsHIylqeQpfPdSySqHFJ55jojxnu854';
+  const fs = require('fs');
+  pdf.create(pdfTemplate2(respuestas), {"format": 'Letter', "border": {
+    "top": "25mm",            // default is 0, units: mm, cm, in, px
+    "bottom": "25mm",
+  },
+ }).toBuffer(function (err, buffer) {
+    if (err) {
+      console.log(err)
+    } else {
+      console.log(buffer)
+      createAndUploadPDF(auth,buffer,fileName,parent,table,token,prueba).catch(console.error());
+      res.send(Promise.resolve());
+    }
+  });
+});
+
+app.post("/resultadosTAMAI", (req,res) =>{
+  let nombre = req.session.user[0].nombre+req.session.user[0].apellidop+req.session.user[0].apellidom;
+  let pac = req.session.user[0].nombre+" "+req.session.user[0].apellidop+" "+req.session.user[0].apellidom;
+  let fecha_nac = req.session.user[0].fecha_nac;
+  let fechaNac=fecha_nac.substring(0,10);
+  let fecha=new Date(fechaNac);
+  let mes_dif = Date.now()-fecha.getTime();
+  let edad_dif=new Date(mes_dif);
+  let anio =edad_dif.getUTCFullYear();
+  let edad=Math.abs(anio-1970);
+  let genero = req.session.user[0].genero;
+  let resultados = req.body.resTAMAI;
+  let today_local = new Date().toLocaleDateString("en-US", {timeZone: "America/Mexico_City"});
+  let today = new Date(today_local);
+  console.log(today);
+  let dd = String(today.getDate()).padStart(2, '0');
+  let mm = String(today.getMonth() + 1).padStart(2, '0'); 
+  let yyyy = today.getFullYear();
+  let fileName= nombre+'resultadoTAMAI.pdf';
+  let table = 'resultado';
+  let token = req.session.user[0].id_token;
+  let prueba =  req.session.user[0].id_prueba;
+  let parent='1W3XJfBUoWmPDfjkS7bjjbdZANRJnrOI0';
+  const fs = require('fs');
+  db.query(
+    "UPDATE token SET estado=? WHERE id_token=?",['Resuelto',token],(err,result) => { console.log(err);
+    console.log("Actualizado"); }
+  );
+  pdf.create(plantillaResTAMAI(resultados,dd,mm,yyyy,pac,edad,genero), {"format": 'Letter', "border": {
+    "top": "25mm",            // default is 0, units: mm, cm, in, px
+    "bottom": "25mm",
+  },
+ }).toBuffer(function (err, buffer) {
+    if (err) {
+      console.log(err)
+    } else {
+      console.log(buffer)
+      createAndUploadPDF(auth,buffer,fileName,parent,table,token,prueba).catch(console.error());
+      res.send(Promise.resolve());
+    }
+});
 });
 
 app.post("/asignarPrueba", (req,res) =>{
@@ -384,6 +469,41 @@ async function createAndUploadFile(auth,dibujo){
   case 200:
       let file = response.result;
       console.log('Created File Id: ', response.data.id);
+      break;
+  default:
+      console.error('Error creating the file, ' + response.errors);
+      break;
+  }
+}
+
+
+async function createAndUploadPDF(auth,buffer,fileName,parent,table,token,prueba){
+  const driveService = google.drive(  {version:'v3',auth});
+    
+  let fileMetadata = {
+    'name': fileName,
+    'parents':  [  parent  ]
+  };
+  let media = {
+    mimeType: "application/pdf",
+    body:Readable.from(buffer)
+  };
+
+
+  let response = await driveService.files.create({
+  resource: fileMetadata,
+  media: media,
+  fields: 'id'
+  })
+
+  switch(response.status){
+  case 200:
+      let file = response.result;
+      console.log('Created File Id: ', response.data.id);
+      let link='https://drive.google.com/file/d/'+response.data.id+'/view';
+      db.query(
+        "INSERT INTO "+ table+ " (id_prueba,id_token,"+table+") VALUES(?,?,?)",[prueba,token,link],(err,result) => { console.log(err); }
+      );
       break;
   default:
       console.error('Error creating the file, ' + response.errors);
