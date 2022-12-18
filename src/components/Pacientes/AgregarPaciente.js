@@ -48,10 +48,11 @@ function AgregarPaciente(){
             temail: TEmail,
             ttelefono: TTelefono
         }).then((response) => {
-            console.log(response);
             alert("Se agregó el paciente");
             navigate("/AgregarPaciente");
         });
+        alert("Se agregó el paciente");
+            navigate("/AgregarPaciente");
     };
 
     return(

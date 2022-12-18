@@ -6,19 +6,19 @@ const validacionPaciente = (pnombre,ppapellido,psapellido,pfnacimiento,pgenero,p
             errors.pnombre="El nombre es requerido";
         }else if(pnombre.length<=2){
             errors.pnombre="El nombre no es válido"
-        }else if(!/[A-Z][a-z]/.test(pnombre)){
+        }else if(!/[A-Z][a-z][à-ú][À-Ú]/.test(pnombre)){
             errors.pnombre="El nombre solo debe contener letras"
         }
 
         if(!ppapellido.trim()){
             errors.ppapellido="El apellido es requerido";
-        }else if(!/[A-Z][a-z]/.test(ppapellido)){
+        }else if(!/[A-Z][a-z]|[à-ú]|[À-Ú]/.test(ppapellido)){
             errors.ppapellido="El apellido solo debe contener letras"
         }
 
         if(!psapellido.trim()){
             errors.psapellido="El apellido es requerido";
-        }else if(!/[A-Z][a-z]/.test(psapellido)){
+        }else if(!/[A-Z][a-z]|[à-ú]|[À-Ú]/.test(psapellido)){
             errors.psapellido="El apellido solo debe contener letras"
         }
 
@@ -48,13 +48,13 @@ const validacionPaciente = (pnombre,ppapellido,psapellido,pfnacimiento,pgenero,p
         
         if(!tpapellido.trim()){
             errors.tpapellido="El apellido es requerido";
-        }else if(!/[A-Z][a-z]/.test(tpapellido)){
+        }else if(!/[A-Z][a-z]|[à-ú]|[À-Ú]/.test(tpapellido)){
             errors.tpapellido="El apellido solo debe contener letras"
         }
 
         if(!tsapellido.trim()){
             errors.tsapellido="El apellido es requerido";
-        }else if(!/[A-Z][a-z]/.test(tsapellido)){
+        }else if(!/[A-Z][a-z]|[à-ú]|[À-Ú]/.test(tsapellido)){
             errors.tsapellido="El apellido solo debe contener letras"
         }
 
