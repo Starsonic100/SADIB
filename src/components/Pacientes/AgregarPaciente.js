@@ -45,7 +45,7 @@ function AgregarPaciente(){
             tnombre: TNombre,
             tpapellido: TPapellido,
             tsapellido: TSapellido,
-            temail: TEmai/Pacientesl,
+            temail: TEmail,
             ttelefono: TTelefono
         }).then((response) => {
             alert("Se agregó el paciente");
