@@ -103,7 +103,7 @@ const AsignarPrueba = ({ submitForm }) => {
                                                                     </div>
 
                                                                     <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                                                                        <input type="checkbox" class="my-input" name='Fprueba1' value="2014922" onChange={handleChange}></input>
+                                                                        <input type="checkbox" class="my-input" name='Fprueba' value="2014922" onChange={handleChange}></input>
                                                                         <input class="form-control my-input" type='hidden' value="-" name='Fprueba' onChange={handleChange}></input>
                                                                         <label><h6>Test TAMAI</h6></label>
                                                                     </div>
