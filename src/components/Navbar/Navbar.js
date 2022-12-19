@@ -69,7 +69,7 @@ function Navbar() {
                     <span>Iniciar sesión</span></Link>
                 </li>
                 <li className='nav-text'>
-                <Link to="/Acceder" onClick={showSidebar}>
+                <Link to="/Acceso" onClick={showSidebar}>
                     <span>Acceso a Prueba</span></Link>
                 </li>
                 <li className='nav-text'>
