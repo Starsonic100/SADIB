@@ -3,6 +3,7 @@ import React, { useState, useEffect} from 'react';
 import Axios from "axios";
 import Navbar from './components/Navbar/Navbar';
 import MenuAdmin from './components/Navbar/MenuAdmin';
+import MenuPaci from './components/Navbar/MenuPaci';
 import Footer from './components/footer/footer';
 import Principal from './components/Principal/PrincipalPage';
 import TAMAI from './components/TAMAI/TAMAIPage';
@@ -37,6 +38,7 @@ function App() {
     <Router>
       {rol == 0 && <Navbar/>}
       {rol == 2 && <MenuAdmin/>}
+      {rol == 3 && <MenuPaci/>}
       <Routes>
         <Route path='/' element={<Principal/>}/>
         <Route path='/SignUp-LogIn' element={<SignLog/>}/>

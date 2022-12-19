@@ -33,8 +33,14 @@ const useAccesso = (callback, validacion) => {
             setLoginStatus(response.data.message);
           } else {
             setLoginStatus(response.data[0].id_paci);
-            navigate("/");
-            navigate(0); 
+            if(response.data[0].id_prueba=="2014921"){
+              navigate("/htp");
+              navigate(0); 
+            }
+            else{
+              navigate("/tamai");
+              navigate(0);
+            }
           }
         });
       };

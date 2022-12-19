@@ -47,6 +47,10 @@ function MenuVisitante() {
                 <span>Iniciar sesión</span></Link>
             </li>
             <li className='nav-text'>
+              <Link to="/Acceso" onClick={showSidebar}>
+                <span>Acceder a Prueba</span></Link>
+            </li>
+            <li className='nav-text'>
               <Link to="/SignUp" onClick={showSidebar}>
                 <span>Registrarse</span></Link>
             </li>
