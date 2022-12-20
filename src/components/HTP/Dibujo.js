@@ -228,7 +228,7 @@ export class Dibujo extends Component {
                                         </MuiThemeProvider>
                                         */}
                                         <MuiThemeProvider theme={theme}>
-                                            <Typography variant="h5" class="instrucciones">{"Realiza el dibujo de una casa, un árbol y una persona (individualmente). Al terminar cada dibujo, da clic en el botón "}<img src={finalizar} alt="Finalizar dibujo" title="Finalizar dibujo" width="5%"/></Typography>
+                                            <Typography variant="h5" class="instrucciones">{"Realiza el dibujo de una casa, un árbol y una persona (individualmente). Al terminar cada dibujo, da clic en el botón "}<img src={finalizar} alt="Finalizar dibujo" title="Finalizar dibujo" width="2%"/></Typography>
                                         </MuiThemeProvider>
                                     </div>
                                 </div>
@@ -240,13 +240,13 @@ export class Dibujo extends Component {
                                     <div className="dibujo">
                                         <Drawing setBase={values.p0}/>
                                     </div>
-                                    {/*
+                                    
                                     <div className="main-row">
                                         <div className="col-lg-11">
                                             <button class="button" onClick={this.continuar}><img src={siguiente}/></button>
                                         </div>
                                     </div>
-                                    */}
+                                    
                                 </div>
                                 {/*Termina div de preguntas*/}
                             </div>

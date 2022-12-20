@@ -156,18 +156,15 @@ const EditarDatos = ({ submitForm }) => {
                                                         </div>
                                                         {errores.contrasenia && <h6 class="error">{errores.contrasenia}</h6>}
                                                     </div>
-
-
                                                     <div className="main row">
                                                         <div className="col-8">
                                                             <div align="center">
                                                                 <div class="text-center ">
-                                                                    <button type="submit"class="botonp">Guardar</button>
+                                                                    <button type="submit" class="botonp">Guardar</button>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    
                                                 </div>
                                             </div>
                                         </div>
