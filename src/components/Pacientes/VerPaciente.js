@@ -160,6 +160,7 @@ class VerPaciente extends Component{
                                                                                 dexpediente.estado=='Resuelto' ?
                                                                             <tr>
                                                                                 <td>{dexpediente.token}</td>
+                                                                                <td>{dexpediente.nombre}</td>
                                                                                 <td><a href={dexpediente.respuesta} target="_blank">Respuestas de Prueba</a></td>
                                                                                 <td><a href={dexpediente.resultado} target="_blank">Resultado de Prueba</a></td>
                                                                                 <td>{dexpediente.estado}</td>
@@ -167,8 +168,9 @@ class VerPaciente extends Component{
                                                                                 :
                                                                             <tr>
                                                                                 <td>{dexpediente.token}</td>
-                                                                                <td>No se ha terminado la prueba</td>
-                                                                                <td>No se ha terminado la prueba</td>
+                                                                                <td>{dexpediente.nombre}</td>
+                                                                                <td>{dexpediente.respuesta}</td>
+                                                                                <td>{dexpediente.resultado}</td>
                                                                                 <td>{dexpediente.estado}</td>
                                                                             </tr>
                                                                             ))}

@@ -244,23 +244,14 @@ app.get("/obtenerExpediente",(req,res)=>{
   const id_paci= req.query;
   
   db.query(
-    "SELECT token.token, respuesta.respuesta, resultado.resultado, estado FROM token INNER JOIN resultado ON token.id_token=resultado.id_token INNER JOIN respuesta ON resultado.id_token=respuesta.id_token WHERE id_paci=?;",[id_paci.id_paci],(err,result) => 
+    "SELECT token.token, respuesta.respuesta, resultado.resultado, prueba.nombre, estado FROM token INNER JOIN resultado ON token.id_token=resultado.id_token INNER JOIN respuesta ON resultado.id_token=respuesta.id_token INNER JOIN prueba ON prueba.id_prueba=token.id_prueba WHERE id_paci=?;",[id_paci.id_paci],(err,result) => 
     { 
       console.log(err); 
       if(result.length>0){
         res.send(JSON.stringify(result));
       }
       else{
-        db.query(
-          "SELECT token, estado FROM token WHERE id_paci=?;",[id_paci.id_paci],(err,result) => 
-          { 
-            if(result.length>0){
-              res.send(JSON.stringify(result));
-            }
-            else{
-              res.send({ message: "No se cuenta con expediente" });
-            }
-          });
+        res.send({ message: "No se cuenta con expediente" });
       }
       console.log(result);
     }
@@ -415,6 +406,8 @@ app.post("/asignarPrueba", (req,res) =>{
   const paciente = req.body.paciente
   const prueba1 = req.body.prueba1
   const prueba = req.body.prueba
+  let id = 0;
+  let LII='LAST_INSERT_ID()'
   console.log("HTP"+prueba1);
   console.log("TAMAI"+prueba);
   
@@ -422,10 +415,38 @@ app.post("/asignarPrueba", (req,res) =>{
     db.query(
       "INSERT INTO token (token,id_psic,id_paci,id_prueba,fecha,estado) VALUES(?,?,?,?,now(),'Asignado')",[token,req.session.user[0].id_usuario,paciente,prueba1],(err,result) => { console.log(err); }
     );
+    db.query(
+      "SELECT LAST_INSERT_ID() as id_token;",(err,result)=>{
+        let jsonRes=JSON.parse(JSON.stringify(result[0]));
+        id=jsonRes.id_token;
+        console.log(id);
+        db.query(
+          "INSERT INTO respuesta (id_prueba,id_token,respuesta) VALUES(?,?,'Sin resolver')",[prueba1,id],(err,result) => { console.log(err); }    
+        );
+        db.query(
+          "INSERT INTO resultado (id_prueba,id_token,resultado) VALUES(?,?,'Sin resolver')",[prueba1,id],(err,result) => { console.log(err); }
+        );
+      }
+    );
   }
   else{
     db.query(
-      "INSERT INTO token (token,id_psic,id_paci,id_prueba,fecha,estado) VALUES(?,?,?,?,now(),'Asignado')",[token,req.session.user[0].id_usuario,paciente,prueba],(err,result) => { console.log(err); }
+      "INSERT INTO token (token,id_psic,id_paci,id_prueba,fecha,estado) VALUES(?,?,?,?,now(),'Asignado')",[token,req.session.user[0].id_usuario,paciente,prueba],(err,result) => 
+      { 
+        console.log(err); 
+      }
+    );
+    db.query(
+      "SELECT LAST_INSERT_ID() as id_token;",(err,result)=>{
+        let jsonRes=JSON.parse(JSON.stringify(result[0]));
+        id=jsonRes.id_token;
+        db.query(
+          "INSERT INTO respuesta (id_prueba,id_token,respuesta) VALUES(?,?,'Sin resolver')",[prueba,id],(err,result) => { console.log(err); }    
+        );
+        db.query(
+          "INSERT INTO resultado (id_prueba,id_token,resultado) VALUES(?,?,'Sin resolver')",[prueba,id],(err,result) => { console.log(err); }
+        );
+      }
     );
   }
 
@@ -497,18 +518,18 @@ async function createAndUploadPDF(auth,buffer,fileName,parent,table,token,prueba
   })
 
   switch(response.status){
-  case 200:
-      let file = response.result;
-      console.log('Created File Id: ', response.data.id);
-      let link='https://drive.google.com/file/d/'+response.data.id+'/view';
-      db.query(
-        "INSERT INTO "+ table+ " (id_prueba,id_token,"+table+") VALUES(?,?,?)",[prueba,token,link],(err,result) => { console.log(err); }
-      );
-      break;
-  default:
-      console.error('Error creating the file, ' + response.errors);
-      break;
-  }
+    case 200:
+        let file = response.result;
+        console.log('Created File Id: ', response.data.id);
+        let link='https://drive.google.com/file/d/'+response.data.id+'/view';
+        db.query(
+          "UPDATE "+ table+ " SET "+ table +"=? WHERE id_token=?",[link,token],(err,result) => { console.log(err); }
+        );
+        break;
+    default:
+        console.error('Error creating the file, ' + response.errors);
+        break;
+    }
 }
 
 
