@@ -41,7 +41,7 @@ class VerPaciente extends Component{
         } = this.props;
 
         const obtener_datos = () =>{
-            Axios.get("http://54.144.147.250:3001//obtenerDatos",{
+            Axios.get("http://54.144.147.250:3001/obtenerDatos",{
                 params: {
                     id_paci: id_paciente
                 }
@@ -53,7 +53,7 @@ class VerPaciente extends Component{
             .catch((error)=> {
                 console.log(error)
             });
-            Axios.get("http://54.144.147.250:3001//obtenerExpediente",{
+            Axios.get("http://54.144.147.250:3001/obtenerExpediente",{
                 params: {
                     id_paci: id_paciente
                 }

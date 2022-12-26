@@ -925,7 +925,107 @@ export class TAMAIfinal extends Component {
                     break;
                 }
 
-                
+                let resultados={
+                    rp: rP,
+                    rp1: rP1,
+                    rp2: rP2,
+                    rp2: rP2,
+                    rp21: rP21,
+                    rp22: rP22,
+                    rp221: rP221,
+                    rp222: rP222,
+                    rp3: rP3,
+                    re: rE,
+                    re1: rE1,
+                    re11: rE11,
+                    re12: rE12,
+                    re13: rE13,
+                    re2: rE2,
+                    rs: rS,
+                    rs1: rS1,
+                    rs11: rS11,
+                    rs12: rS12,
+                    rs2: rS2,
+                    rf: rF,
+                    rh: rH,
+                    rpa: rPa,
+                    rpa1: rPa1,
+                    rpa2: rPa2,
+                    rpa3: rPa3,
+                    rpa31: rPa31,
+                    rpa32: rPa32,
+                    rpa321: rPa321,
+                    rpa322: rPa322,
+                    rpa323: rPa323,
+                    rm: rM,
+                    rm1: rM1,
+                    rm2: rM2,
+                    rm3: rM3,
+                    rm31: rM31,
+                    rm311: rM311,
+                    rm312: rM312,
+                    rm32: rM32,
+                    rm321: rM321,
+                    rm322: rM322,
+                    rpi: rPI,
+                    rcontr: rContr,
+                    rg: rG,
+                    rdis: rDis,
+                    per_P: per_p,
+                    per_P1: per_p1,
+                    per_P2: per_p2,
+                    per_P21: per_p21,
+                    per_P22: per_p22,
+                    per_P221: per_p221,
+                    per_P222: per_p222,
+                    per_P3: per_p3,
+                    per_e: per_E,
+                    per_e1: per_E1,
+                    per_e11: per_E11,
+                    per_e12: per_E12,
+                    per_e13: per_E13,
+                    per_e2: per_E2,
+                    per_S: per_s,
+                    per_S1: per_s1,
+                    per_S11: per_s11,
+                    per_S12: per_s12,
+                    per_S2: per_s2,
+                    per_f: per_F,
+                    per_h: per_H,
+                    per_pa: per_Pa,
+                    per_pa1: per_Pa1,
+                    per_pa2: per_Pa2,
+                    per_pa3: per_Pa3,
+                    per_pa31: per_Pa31,
+                    per_pa32: per_Pa32,
+                    per_pa321: per_Pa321,
+                    per_pa322: per_Pa322,
+                    per_pa323: per_Pa323,
+                    per_m: per_M,
+                    per_m1: per_M1,
+                    per_m2: per_M2,
+                    per_m3: per_M3,
+                    per_m31: per_M31,
+                    per_m311: per_M311,
+                    per_m312: per_M312,
+                    per_m32: per_M32,
+                    per_m321: per_M321,
+                    per_m322: per_M322,
+                    per_pi: per_PI,
+                    per_contr: per_Contr
+                };
+
+                Axios.post("http://54.144.147.250:3001/respuestasTAMAI",{
+                    respuestas: this.props.values 
+                    }).then((response) => {
+                        alert("Se guardaron sus respuestas");
+                        console.log(response);
+                    });
+                Axios.post("http://54.144.147.250:3001/resultadosTAMAI",{
+                        resTAMAI: resultados 
+                        }).then((response) => {
+                            console.log(response);
+                        });
                 
             }
 
