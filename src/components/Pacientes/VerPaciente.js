@@ -147,9 +147,10 @@ class VerPaciente extends Component{
                                                                         </tbody> 
                                                                         </table>:
                                                                     <table className="table table-striped" id="documentos">
-                                                                        <thead>
+                                                                         <thead>
                                                                             <tr>
                                                                                 <th>Token</th>
+                                                                                <th>Prueba</th>
                                                                                 <th>Respuestas</th>
                                                                                 <th>Resultado</th>
                                                                                 <th>Estado</th>
