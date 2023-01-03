@@ -13,7 +13,7 @@ import{ createTheme, MuiThemeProvider, responsiveFontSizes, Typography} from "@m
 let theme = createTheme();
 theme = responsiveFontSizes(theme);
 
-export class Dibujo extends Component {
+export class DibujoPersona extends Component {
 
     continuar = e => {
         e.preventDefault();
@@ -64,8 +64,6 @@ export class Dibujo extends Component {
                 ctxRef.current.width = ctxRef.current.offsetWidth;
                 ctxRef.current.height = ctxRef.current.offsetHeight;
                 ctxRef.current.drawImage(ctxRef, 0, 0);
-                            
-                ;
             }
 
             // Function for starting the drawing
@@ -163,18 +161,18 @@ export class Dibujo extends Component {
             const uploadFile = () => {
                 let resizedCanvas = document.createElement("canvas");
                 let resizedContext = resizedCanvas.getContext("2d");
-                dibujos('bDc',resizedCanvas.toDataURL());
+                dibujos('bDp',resizedCanvas.toDataURL());
                 resizedCanvas.height = "250";
                 resizedCanvas.width = "250";
                 let canvas=document.getElementById("canvas");
                 resizedContext.drawImage(canvas, 0, 0, 250, 250);
                 let dibujoB = resizedCanvas.toDataURL();
                 let dibujo = dataURItoBlob(dibujoB);
-                let fd = new FormData(document.forms[0]);
                 predecir();
+                let fd = new FormData(document.forms[0]);
                 fd.append('dibujo', dibujo);
                 Axios({
-                    url: 'http://54.144.147.250:3001/dibujoCasa',
+                    url: 'http://54.144.147.250:3001/dibujoPersona',
                     method: "POST",
                     data: fd,
                     headers: {
@@ -186,7 +184,7 @@ export class Dibujo extends Component {
 
             async function predecir() {
                 console.log("Cargando modelo...");
-                const modelo = await tf.loadLayersModel('https://raw.githubusercontent.com/Starsonic100/modelos-sadib/master/ModelosCasa/model.json');
+                const modelo = await tf.loadLayersModel('https://raw.githubusercontent.com/Starsonic100/modelos-sadib/master/ModelosPersona/model.json');
                 console.log("Modelo cargado...");
                 console.log(modelo);
                 let resizedCanvas = document.createElement("canvas");
@@ -217,20 +215,20 @@ export class Dibujo extends Component {
                 var mayorIndice = resultados.indexOf(Math.max.apply(null, resultados));
                 // Clasificación del resultado
                 if(mayorIndice==0){
-                  console.log('Extroversión');   
-                  dibujos('rDc','Extroversión');             
+                    dibujos('rDp','Narcisismo');
+                  console.log('Narcisismo');                
                 }else if(mayorIndice==1){
-                  console.log('Dependencia');
-                  dibujos('rDc','Dependencia');                   
+                    dibujos('rDp','Necesidad de defensa');
+                  console.log('Necesidad de defensa');                
                 }else if(mayorIndice==2){
-                  console.log('Problemas Familiares');  
-                  dibujos('rDc','Problemas Familiares');                 
+                    dibujos('rDp','Aislamiento');
+                  console.log('Aislamiento');                
                 }
                 //Datos para debuggear
                 console.log("Prediccion", mayorIndice);
                 console.log("Prediccion", resultados);
             }
-
+    
             function resample_single(canvas, width, height, resize_canvas) {
                 var width_source = canvas.width;
                 var height_source = canvas.height;
@@ -365,7 +363,7 @@ export class Dibujo extends Component {
                                         </MuiThemeProvider>
                                         */}
                                         <MuiThemeProvider theme={theme}>
-                                            <Typography variant="h5" class="instrucciones">{"Realiza el dibujo de una casa. Al terminar da clic en el botón "}<img src={finalizar} alt="Finalizar dibujo" title="Finalizar dibujo" width="2%"/></Typography>
+                                            <Typography variant="h5" class="instrucciones">{"Realiza el dibujo de una persona. Al terminar da clic en el botón "}<img src={finalizar} alt="Finalizar dibujo" title="Finalizar dibujo" width="2%"/></Typography>
                                         </MuiThemeProvider>
                                     </div>
                                 </div>
@@ -396,4 +394,4 @@ export class Dibujo extends Component {
     }
 }
 	
-export default Dibujo;
+export default DibujoPersona;

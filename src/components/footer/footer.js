@@ -27,21 +27,21 @@ const Footer = () => {
 
                     <div className="col-xs-6 col-sm-6 col-md-4 col-lg-4">
                         
-                        {/*<MuiThemeProvider theme={theme}>
+                        <MuiThemeProvider theme={theme}>
                             <Typography variant="h5" class="text-center">{"Integrantes"}</Typography>
-                        </MuiThemeProvider>*/}
+                        </MuiThemeProvider>
 
-                        {/*<MuiThemeProvider theme={theme}>
+                        <MuiThemeProvider theme={theme}>
                             <Typography variant="h5" class="text-center2">{"Espinosa Flores Isam David (iespinosaf1200@alumno.ipn.mx)"}</Typography>
-                        </MuiThemeProvider>*/}
+                        </MuiThemeProvider>
 
-                        {/*<MuiThemeProvider theme={theme}>
+                        <MuiThemeProvider theme={theme}>
                             <Typography variant="h5" class="text-center2">{"Rodríguez Peña Alexia Monserrat (arodriguezp1506@alumno.ipn.mx)"}</Typography>
-                        </MuiThemeProvider>*/}
+                        </MuiThemeProvider>
 
-                        {/* <MuiThemeProvider theme={theme}>
+                         <MuiThemeProvider theme={theme}>
                             <Typography variant="h5" class="text-center2">{"Rojas Fernández Rafael (rrojasf1300@alumno.ipn.mx)"}</Typography>
-                        </MuiThemeProvider> */}
+                        </MuiThemeProvider> 
                     </div>
 
                     <div className="col-xs-6 col-sm-6 col-md-4 col-lg-4">
