@@ -18,6 +18,7 @@ const KEYFILEPATH = 'cryptic-lattice-361623-36680065feaa.json';
 const pdfTemplate = require('./documentos');
 const pdfTemplate2 = require('./documentosTAMAI');
 const plantillaResTAMAI = require('./resultadosTAMAI');
+const plantillaResHTP = require('./resultadosHTP');
 // Request full drive access.
 const SCOPES = ['https://www.googleapis.com/auth/drive'];
 // Create a service account initialize with the service account key file and scope needed
