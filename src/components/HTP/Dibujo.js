@@ -163,7 +163,6 @@ export class Dibujo extends Component {
             const uploadFile = () => {
                 let resizedCanvas = document.createElement("canvas");
                 let resizedContext = resizedCanvas.getContext("2d");
-                dibujos('bDc',resizedCanvas.toDataURL());
                 resizedCanvas.height = "250";
                 resizedCanvas.width = "250";
                 let canvas=document.getElementById("canvas");
@@ -194,6 +193,7 @@ export class Dibujo extends Component {
                 resizedCanvas.height = "250";
                 resizedCanvas.width = "250";
                 let canvas=document.getElementById("canvas");
+                dibujos('bDc',canvas.toDataURL());
                 resizedContext.drawImage(canvas, 0, 0, 250, 250);
                 
                 //Pasar canvas a version 250x250
