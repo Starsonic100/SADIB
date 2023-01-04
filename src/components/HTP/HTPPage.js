@@ -59,15 +59,16 @@ export class HTPPage extends Component {
         Axios.post("http://54.144.147.250:3001/respuestasHTP",{
         respuestas: this.state 
         }).then((response) => {
-            alert("Se guardaron sus respuestas");
+           
             console.log(response);
         });
         Axios.post("http://54.144.147.250:3001/resultadosHTP",{
         respuestas: this.state 
         }).then((response) => {
-            alert("Se guardaron sus respuestas");
+            //alert("Se guardaron sus respuestas");
             console.log(response);
         });
+        alert("Se guardaron sus respuestas");
         // Axios.get("http://54.144.147.250:3001/logout").then((response) => {
         //     if (response.data === 'SUCCESS') {
         //     alert("Se redirigirá a la página principal")
