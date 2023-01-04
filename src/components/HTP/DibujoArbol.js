@@ -185,7 +185,6 @@ export class DibujoArbol extends Component {
                 console.log("Cargando modelo...");
                 const modelo = await tf.loadLayersModel('https://raw.githubusercontent.com/Starsonic100/modelos-sadib/master/ModelosArbol/model.json');
                 console.log("Modelo cargado...");
-                console.log(modelo);
                 let resizedCanvas = document.createElement("canvas");
                 let resizedContext = resizedCanvas.getContext("2d");
                 resizedCanvas.height = "250";
