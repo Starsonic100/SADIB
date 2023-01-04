@@ -55,7 +55,6 @@ export class HTPPage extends Component {
     };
 
     evaluacion = () =>{
-        const navigate = useNavigate();
         Axios.post("http://54.144.147.250:3001/respuestasHTP",{
         respuestas: this.state 
         }).then((response) => {
