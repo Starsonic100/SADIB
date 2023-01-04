@@ -56,7 +56,7 @@ export class HTPPage extends Component {
 
     evaluacion = () =>{
         const navigate = useNavigate();
-        Axios.post("http://54.144.147.250:3001/evaluacion",{
+        Axios.post("http://54.144.147.250:3001/respuestasHTP",{
         respuestas: this.state 
         }).then((response) => {
             alert("Se guardaron sus respuestas");
@@ -65,6 +65,7 @@ export class HTPPage extends Component {
         Axios.post("http://54.144.147.250:3001/resultadosHTP",{
         respuestas: this.state 
         }).then((response) => {
+            alert("Se guardaron sus respuestas");
             console.log(response);
         });
         Axios.get("http://54.144.147.250:3001/logout").then((response) => {
