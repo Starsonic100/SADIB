@@ -68,16 +68,16 @@ export class HTPPage extends Component {
             alert("Se guardaron sus respuestas");
             console.log(response);
         });
-        Axios.get("http://54.144.147.250:3001/logout").then((response) => {
-            if (response.data === 'SUCCESS') {
-            alert("Se redirigirá a la página principal")
-            navigate("/");
-            navigate(0);
-        } else {
-            navigate("/");
-            navigate(0);
-        }
-        });
+        // Axios.get("http://54.144.147.250:3001/logout").then((response) => {
+        //     if (response.data === 'SUCCESS') {
+        //     alert("Se redirigirá a la página principal")
+        //     navigate("/");
+        //     navigate(0);
+        // } else {
+        //     navigate("/");
+        //     navigate(0);
+        // }
+        // });
     };
 
     render(){
