@@ -184,6 +184,8 @@ export class Dibujo extends Component {
             };
 
             async function predecir() {
+                let boton=document.getElementById("continuar");
+                boton.disabled=true;
                 console.log("Cargando modelo...");
                 const modelo = await tf.loadLayersModel('https://raw.githubusercontent.com/Starsonic100/modelos-sadib/master/ModelosCasa/model.json');
                 console.log("Modelo cargado...");
@@ -228,6 +230,7 @@ export class Dibujo extends Component {
                 //Datos para debuggear
                 console.log("Prediccion", mayorIndice);
                 console.log("Prediccion", resultados);
+                boton.disabled=false;
             }
 
             function resample_single(canvas, width, height, resize_canvas) {
@@ -379,7 +382,7 @@ export class Dibujo extends Component {
                                     
                                     <div className="main-row">
                                         <div className="col-lg-11">
-                                            <button class="button" onClick={this.continuar}><img src={siguiente}/></button>
+                                            <button class="button" onClick={this.continuar} id="continuar"><img src={siguiente}/></button>
                                         </div>
                                     </div>
                                     

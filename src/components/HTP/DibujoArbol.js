@@ -372,7 +372,7 @@ export class DibujoArbol extends Component {
                                     
                                     <div className="main-row">
                                         <div className="col-lg-11">
-                                            <button class="button" onClick={this.continuar}><img src={siguiente}/></button>
+                                            <button class="button" onClick={this.continuar} id="continuar"><img src={siguiente}/></button>
                                         </div>
                                     </div>
                                     
