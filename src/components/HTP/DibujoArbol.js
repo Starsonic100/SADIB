@@ -180,12 +180,12 @@ export class DibujoArbol extends Component {
                       'Content-Type': 'multipart/form-data'
                     }
                 })
-                alert("Se guardo el dibujo dentro de la plataforma para su análisis");
             };
 
             async function predecir() {
                 let boton=document.getElementById("continuar");
                 boton.disabled=true;
+                alert("Espere unos segundos...");
                 console.log("Cargando modelo...");
                 const modelo = await tf.loadLayersModel('https://raw.githubusercontent.com/Starsonic100/modelos-sadib/master/ModelosArbol/model.json');
                 console.log("Modelo cargado...");
@@ -228,6 +228,7 @@ export class DibujoArbol extends Component {
                 console.log("Prediccion", mayorIndice);
                 console.log("Prediccion", resultados);
                 boton.disabled=false;
+                alert("Puede seguir realizando la prueba");
             }
     
             function resample_single(canvas, width, height, resize_canvas) {
