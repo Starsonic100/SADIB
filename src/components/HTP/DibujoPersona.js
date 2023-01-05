@@ -217,9 +217,6 @@ export class DibujoPersona extends Component {
                     dibujos('rDp','Narcisismo');
                   console.log('Narcisismo');                
                 }else if(mayorIndice==1){
-                    dibujos('rDp','Necesidad de defensa');
-                  console.log('Necesidad de defensa');                
-                }else if(mayorIndice==2){
                     dibujos('rDp','Aislamiento');
                   console.log('Aislamiento');                
                 }
