@@ -45,7 +45,6 @@ export class HTPPage extends Component {
         this.setState({
             [p]:x
         });
-        console.log(this.state[p]);
     };
 
     handleInputChange = input => e =>{
