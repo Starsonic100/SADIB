@@ -184,6 +184,8 @@ export class DibujoPersona extends Component {
             };
 
             async function predecir() {
+                let boton=document.getElementById("continuar");
+                boton.disabled=true;
                 console.log("Cargando modelo...");
                 const modelo = await tf.loadLayersModel('https://raw.githubusercontent.com/Starsonic100/modelos-sadib/master/ModelosPersona/model.json');
                 console.log("Modelo cargado...");
