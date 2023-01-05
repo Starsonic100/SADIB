@@ -338,7 +338,7 @@ export class DibujoPersona extends Component {
 
                                 <button class="button-herramientas" onClick={setToDownload}><img src={descargar} alt="Descargar dibujo" title="Descargar dibujo"/></button>
 
-                                <button class="button-herramientas" onClick={() =>{uploadFile(); setToClear();}}><img src={finalizar} alt="Finalizar dibujo" title="Finalizar dibujo"/></button>
+                                <button class="button-herramientas" onClick={() =>{uploadFile(); }}><img src={finalizar} alt="Finalizar dibujo" title="Finalizar dibujo"/></button>
                             </div>
                         </div>
                     </div> 
