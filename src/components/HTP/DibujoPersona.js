@@ -9,6 +9,7 @@ import finalizar from '../img/finalizado.png';
 import Axios from "axios";
 import * as tf from '@tensorflow/tfjs';
 import{ createTheme, MuiThemeProvider, responsiveFontSizes, Typography} from "@material-ui/core";
+import { Alert } from 'bootstrap';
 
 let theme = createTheme();
 theme = responsiveFontSizes(theme);
@@ -159,8 +160,6 @@ export class DibujoPersona extends Component {
             }
 
             const uploadFile = () => {
-                let boton=document.getElementById("continuar");
-                boton.disabled=true;
                 let resizedCanvas = document.createElement("canvas");
                 let resizedContext = resizedCanvas.getContext("2d");
                 resizedCanvas.height = "250";
@@ -214,6 +213,7 @@ export class DibujoPersona extends Component {
                 // console.log(response);
                     console.log(response.data);
                     dibujos('rDp',response.data); 
+                    Alert("Se ha cargado su dibujo");
                 })
                 .catch((error)=> {
                     console.log(error)

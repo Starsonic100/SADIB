@@ -159,8 +159,6 @@ export class DibujoArbol extends Component {
             }
 
             const uploadFile = () => {
-                let boton=document.getElementById("continuar");
-                boton.disabled=true;
                 let resizedCanvas = document.createElement("canvas");
                 let resizedContext = resizedCanvas.getContext("2d");
                 resizedCanvas.height = "250";
@@ -214,10 +212,12 @@ export class DibujoArbol extends Component {
                 // console.log(response);
                     console.log(response.data);
                     dibujos('rDa',response.data); 
+                    Alert("Se ha cargado su dibujo");
                 })
                 .catch((error)=> {
                     console.log(error)
                 });
+                
             }
     
             function resample_single(canvas, width, height, resize_canvas) {

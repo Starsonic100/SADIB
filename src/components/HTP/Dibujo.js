@@ -215,6 +215,7 @@ export class Dibujo extends Component {
                 // console.log(response);
                     console.log(response.data);
                     dibujos('rDc',response.data); 
+                    Alert("Se ha cargado su dibujo");
                 })
                 .catch((error)=> {
                     console.log(error)
