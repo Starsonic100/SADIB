@@ -25,7 +25,7 @@ export class Dibujo extends Component {
     render(){
 
         const {values, handleInputChange} = this.props;  
-        const [post,setPost]=useState(null)
+        
         const Drawing = () => {
             
             const canvasRef = useRef(null);
@@ -37,7 +37,7 @@ export class Dibujo extends Component {
             const [base,setBase] = useState("");
             var inMemCanvas = document.createElement('canvas');
             var inMemCtx = inMemCanvas.getContext('2d');
-
+            const [post,setPost]=useState(null)
             useEffect(() => {
                 const canvas = canvasRef.current;
                 canvas.style.width = "100%";
@@ -183,7 +183,7 @@ export class Dibujo extends Component {
                       'Content-Type': 'multipart/form-data'
                     }
                 })
-                
+                setPost(false);
             };
 
             function predecir() {
@@ -219,7 +219,7 @@ export class Dibujo extends Component {
                     console.log(response.data);
                     dibujos('rDc',response.data); 
                     alert("Se ha cargado su dibujo");
-                    setPost(false);
+                   
                 })
                 .catch((error)=> {
                     console.log(error)
