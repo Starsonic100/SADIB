@@ -212,7 +212,7 @@ export class DibujoArbol extends Component {
                 // console.log(response);
                     console.log(response.data);
                     dibujos('rDa',response.data); 
-                    Alert("Se ha cargado su dibujo");
+                    alert("Se ha cargado su dibujo");
                 })
                 .catch((error)=> {
                     console.log(error)
