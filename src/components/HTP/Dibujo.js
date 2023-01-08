@@ -5,6 +5,8 @@ import lapiz from '../img/lapiz2.png';
 import deshacer from '../img/deshacer.png';
 import borrar from '../img/borrar.png';
 import descargar from '../img/descargar.png';
+import Backdrop from '@material-ui/core/Backdrop';
+import CircularProgress from '@material-ui/core/CircularProgress';
 import finalizar from '../img/finalizado.png';
 import Axios from "axios";
 import * as tf from '@tensorflow/tfjs';
@@ -23,7 +25,7 @@ export class Dibujo extends Component {
     render(){
 
         const {values, handleInputChange} = this.props;  
-
+        const [post,setPost]=useState(null)
         const Drawing = () => {
             
             const canvasRef = useRef(null);
@@ -161,6 +163,7 @@ export class Dibujo extends Component {
             }
 
             const uploadFile = () => {
+                setPost(true);
                 let resizedCanvas = document.createElement("canvas");
                 let resizedContext = resizedCanvas.getContext("2d");
                 resizedCanvas.height = "250";
@@ -216,6 +219,7 @@ export class Dibujo extends Component {
                     console.log(response.data);
                     dibujos('rDc',response.data); 
                     alert("Se ha cargado su dibujo");
+                    setPost(false);
                 })
                 .catch((error)=> {
                     console.log(error)
@@ -307,7 +311,10 @@ export class Dibujo extends Component {
             }
 
             return(
+                
                 <Fragment>
+                    {post?post :<Backdrop>
+            <CircularProgress color="inherit" /></Backdrop>}
                     <div style={{height: 510, border: 'solid', borderColor: '#8F8F8F', touchAction:'none'}}>
                         <div className='draw-area' style={{height: 500, cursor:'pointer'}}>
                             <canvas id='canvas'
@@ -341,6 +348,7 @@ export class Dibujo extends Component {
         }
 
         return(
+            
             <div className="container">
                 {/* Comienza sección de preguntas*/}
                 <div className="main-row">
