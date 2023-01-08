@@ -183,21 +183,14 @@ export class Dibujo extends Component {
                 
             };
 
-            async function predecir() {
-                let boton=document.getElementById("continuar");
-                boton.disabled=true;
-                alert("Espere unos segundos...");
-                console.log("Cargando modelo...");
-                const modelo = await tf.loadLayersModel('https://raw.githubusercontent.com/Starsonic100/modelos-sadib/master/ModelosCasa/model.json');
-                console.log("Modelo cargado...");
+            function predecir() {
                 let resizedCanvas = document.createElement("canvas");
                 let resizedContext = resizedCanvas.getContext("2d");
                 resizedCanvas.height = "250";
                 resizedCanvas.width = "250";
                 let canvas=document.getElementById("canvas");
-                dibujos('bDc',canvas.toDataURL());
                 resizedContext.drawImage(canvas, 0, 0, 250, 250);
-                
+                dibujos('bDc',canvas.toDataURL());
                 //Pasar canvas a version 250x250
                 resample_single(canvas, 250, 250, resizedCanvas);
                 var imgData = resizedContext.getImageData(0,0,250,250);
@@ -214,25 +207,18 @@ export class Dibujo extends Component {
                     }
                 }
                 arr = [arr]; //Meter el arreglo en otro arreglo
-                var tensor4 = tf.tensor4d(arr);
-                var resultados = modelo.predict(tensor4).dataSync();
-                var mayorIndice = resultados.indexOf(Math.max.apply(null, resultados));
-                // Clasificación del resultado
-                if(mayorIndice==0){
-                  console.log('Extroversión');   
-                  dibujos('rDc','Extroversión');             
-                }else if(mayorIndice==1){
-                  console.log('Dependencia');
-                  dibujos('rDc','Dependencia');                   
-                }else if(mayorIndice==2){
-                  console.log('Problemas Familiares');  
-                  dibujos('rDc','Problemas Familiares');                 
-                }
-                //Datos para debuggear
-                console.log("Prediccion", mayorIndice);
-                console.log("Prediccion", resultados);
-                boton.disabled=false;
-                alert("Puede seguir realizando la prueba");
+                
+                Axios.post("http://54.144.147.250:3001/analisisCasa", {
+                    arreglo: arr
+                  })
+                .then((response) =>{
+                // console.log(response);
+                    console.log(response.data);
+                    dibujos('rDc',response.data); 
+                })
+                .catch((error)=> {
+                    console.log(error)
+                });
             }
 
             function resample_single(canvas, width, height, resize_canvas) {

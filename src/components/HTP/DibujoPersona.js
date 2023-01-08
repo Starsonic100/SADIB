@@ -182,13 +182,7 @@ export class DibujoPersona extends Component {
                 })
             };
 
-            async function predecir() {
-                let boton=document.getElementById("continuar");
-                boton.disabled=true;
-                alert("Espere unos segundos...");
-                console.log("Cargando modelo...");
-                const modelo = await tf.loadLayersModel('https://raw.githubusercontent.com/Starsonic100/modelos-sadib/master/ModelosPersona/model.json');
-                console.log("Modelo cargado...");
+            function predecir() {
                 let resizedCanvas = document.createElement("canvas");
                 let resizedContext = resizedCanvas.getContext("2d");
                 resizedCanvas.height = "250";
@@ -213,22 +207,17 @@ export class DibujoPersona extends Component {
                     }
                 }
                 arr = [arr]; //Meter el arreglo en otro arreglo
-                var tensor4 = tf.tensor4d(arr);
-                var resultados = modelo.predict(tensor4).dataSync();
-                var mayorIndice = resultados.indexOf(Math.max.apply(null, resultados));
-                // Clasificación del resultado
-                if(mayorIndice==0){
-                    dibujos('rDp','Narcisismo');
-                  console.log('Narcisismo');                
-                }else if(mayorIndice==1){
-                    dibujos('rDp','Aislamiento');
-                  console.log('Aislamiento');                
-                }
-                //Datos para debuggear
-                console.log("Prediccion", mayorIndice);
-                console.log("Prediccion", resultados);
-                boton.disabled=false;
-                alert("Puede seguir realizando la prueba");
+                Axios.post("http://54.144.147.250:3001/analisisPersona", {
+                    arreglo: arr
+                  })
+                .then((response) =>{
+                // console.log(response);
+                    console.log(response.data);
+                    dibujos('rDp',response.data); 
+                })
+                .catch((error)=> {
+                    console.log(error)
+                });
             }
     
             function resample_single(canvas, width, height, resize_canvas) {

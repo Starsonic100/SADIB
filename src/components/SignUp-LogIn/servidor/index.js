@@ -13,6 +13,7 @@ const fs = require('fs');
 const { Readable } = require('stream');
 const readline = require ('readline');
 const {google} = require('googleapis');
+const tf = require('@tensorflow/tfjs-node');
 // service account key file from Google Cloud console.
 const KEYFILEPATH = 'cryptic-lattice-361623-36680065feaa.json';
 const pdfTemplate = require('./documentos');
@@ -27,8 +28,13 @@ const auth = new google.auth.GoogleAuth({
   scopes: SCOPES
 });
 
+let modeloArbol=null;
+let modeloCasa=null;
+let modeloPersona=null;
+
+
 //app.use(cors());
-app.use(express.json());
+app.use(express.json({ limit: '200mb' }));
 app.use(
   cors({
     origin: ["http://localhost:3000"],
@@ -496,6 +502,75 @@ app.post("/asignarPrueba", (req,res) =>{
 
 });
 
+
+app.post("/analisisCasa",(req,res)=>{
+  console.log(req.body);
+  const arr= req.body.arreglo;
+  let resultado=null;
+  var tensor4 = tf.tensor4d(arr);
+                var resultados = modeloCasa.predict(tensor4).dataSync();
+                var mayorIndice = resultados.indexOf(Math.max.apply(null, resultados));
+                // Clasificación del resultado
+                if(mayorIndice==0){
+                  console.log('Extroversión');   
+                  resultado='Extroversión';             
+                }else if(mayorIndice==1){
+                  console.log('Dependencia');
+                  resultado='Dependencia';                   
+                }else if(mayorIndice==2){
+                  console.log('Problemas Familiares');  
+                  resultado='rDc','Problemas Familiares';                 
+                }
+                //Datos para debuggear
+                console.log("Prediccion", mayorIndice);
+                console.log("Prediccion", resultados);
+  res.send(resultado)
+});
+
+app.post("/analisisArbol",(req,res)=>{
+  console.log(req.body);
+  const arr= req.body.arreglo;
+  let resultado=null;
+  
+  var tensor4 = tf.tensor4d(arr);
+  var resultados = modeloArbol.predict(tensor4).dataSync();
+  var mayorIndice = resultados.indexOf(Math.max.apply(null, resultados));
+  // Clasificación del resultado
+  if(mayorIndice==0){
+    resultado='Autocontrol';
+    console.log('Autocontrol');                
+  }else if(mayorIndice==1){
+    resultado='rDa','Inseguridad';
+    console.log('Inseguridad');                
+  }
+  //Datos para debuggear
+  console.log("Prediccion", mayorIndice);
+  console.log("Prediccion", resultados);
+  res.send(resultado)
+});
+
+app.post("/analisisPersona",(req,res)=>{
+  console.log(req.body);
+  const arr= req.body.arreglo;
+  let resultado=null;
+  
+  var tensor4 = tf.tensor4d(arr);
+  var resultados = modeloPersona.predict(tensor4).dataSync();
+  var mayorIndice = resultados.indexOf(Math.max.apply(null, resultados));
+  // Clasificación del resultado
+  if(mayorIndice==0){
+    resultado='Narcisismo';
+    console.log('Narcisismo');                
+  }else if(mayorIndice==1){
+    resultado='Aislamiento';
+    console.log('Aislamiento');                
+  }
+  //Datos para debuggear
+  console.log("Prediccion", mayorIndice);
+  console.log("Prediccion", resultados);
+  res.send(resultado)
+});
+
 app.post("/dibujoCasa", upload.single('dibujo'), (req,res)=>{
   //console.log(Readable.from(req.file.buffer));
   createAndUploadFile(auth,req.file,'1f3MqFKUIB_CBkh6J0to9pek97LMdqafo').catch(console.error);
@@ -588,7 +663,23 @@ async function createAndUploadPDF(auth,buffer,fileName,parent,table,token,prueba
     }
 }
 
+async function cargarModelo(){
+  console.log("Cargando modelo de Arbol");
+  const modeloA = await tf.loadLayersModel('https://raw.githubusercontent.com/Starsonic100/modelos-sadib/master/ModelosArbol/model.json');
+  console.log("Modelo de Arbol cargado");
+  console.log("Cargando modelo de Casa");
+  const modeloC = await tf.loadLayersModel('https://raw.githubusercontent.com/Starsonic100/modelos-sadib/master/ModelosCasa/model.json');
+  console.log("Modelo de Casa cargado");
+  console.log("Cargando modelo de Persona");
+  const modeloP = await tf.loadLayersModel('https://raw.githubusercontent.com/Starsonic100/modelos-sadib/master/ModelosPersona/model.json');
+  console.log("Modelo de Persona cargado");
+  modeloArbol=modeloA;
+  modeloCasa=modeloC;
+  modeloPersona=modeloP;
+}
+
 
 app.listen(3001, () => {
   console.log("Servidor corriendo");
+  cargarModelo();
 });
