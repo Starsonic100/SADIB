@@ -83,7 +83,7 @@ class VerPaciente extends Component{
             })
             .then((response) =>{
                 alert("Se eliminó el paciente");
-                navigate("/Pacientes");
+                window.location.reload(true);
                 console.log(response);
             })
             .catch((error)=> {
