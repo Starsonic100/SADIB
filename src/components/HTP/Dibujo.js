@@ -375,7 +375,7 @@ export class Dibujo extends Component {
                                         </MuiThemeProvider>
                                         */}
                                         <MuiThemeProvider theme={theme}>
-                                            <Typography variant="h5" class="instrucciones">{"Realiza el dibujo de una casa. Al terminar da clic en el botón "}<img src={finalizar} alt="Finalizar dibujo" title="Finalizar dibujo" width="2%"/></Typography>
+                                            <Typography variant="h5" class="instrucciones">{"Realiza el dibujo de una CASA. Al terminar da clic en el botón "}<img src={finalizar} alt="Finalizar dibujo" title="Finalizar dibujo" width="2%"/></Typography>
                                         </MuiThemeProvider>
                                     </div>
                                 </div>

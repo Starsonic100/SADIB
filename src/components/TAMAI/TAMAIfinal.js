@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component, Fragment,useEffect } from 'react';
 import Axios from "axios";
 import '../css/style.css';
 import unicornio from '../img/unicornio.png';
@@ -8,6 +8,10 @@ let theme = createTheme();
 theme = responsiveFontSizes(theme);
 
 export class TAMAIfinal extends Component {
+
+    useEffect=()=>{
+        window.scrollTo(0,0);
+    };
 
     render() {
 
