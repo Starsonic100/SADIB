@@ -74,6 +74,22 @@ class VerPaciente extends Component{
             console.log(this.state.datosExpediente);
         }
 
+        const eliminar_paciente = () => {
+            Axios.delete("http://54.144.147.250:3001/eliminar",{
+                params: {
+                    id_paci: id_paciente
+                }
+            })
+            .then((response) =>{
+                alert("Se eliminó el paciente");
+                navigate("/Pacientes");
+                console.log(response);
+            })
+            .catch((error)=> {
+                console.log(error)
+            });
+        };
+
         return(
             
             <div className="container">
@@ -410,7 +426,10 @@ class VerPaciente extends Component{
                                                 </div>
                                                 
                                                 <div className="main row">
-                                                    <div className="col-lg-7">
+                                                    <div className="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                                                        <div class="text-center">
+                                                            <button type="submit" class="boton" onClick={eliminar_paciente}>Eliminar</button>
+                                                        </div>
                                                         <div class="text-center">
                                                             <button type="submit" class="boton" onClick={this.continuar}>Editar</button>
                                                         </div>
