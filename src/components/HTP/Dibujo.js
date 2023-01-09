@@ -37,7 +37,6 @@ export class Dibujo extends Component {
             const [base,setBase] = useState("");
             var inMemCanvas = document.createElement('canvas');
             var inMemCtx = inMemCanvas.getContext('2d');
-            const [post,setPost]=useState(null)
             useEffect(() => {
                 const canvas = canvasRef.current;
                 canvas.style.width = "100%";
@@ -163,7 +162,10 @@ export class Dibujo extends Component {
             }
 
             const uploadFile = () => {
-                setPost(true);
+                let botonFinal=document.getElementById("finalizar");
+                let carga=document.getElementById("cargaDibujo");
+                botonFinal.setAttribute("hidden","hidden");
+                carga.removeAttribute("hidden");
                 let resizedCanvas = document.createElement("canvas");
                 let resizedContext = resizedCanvas.getContext("2d");
                 resizedCanvas.height = "250";
@@ -183,10 +185,11 @@ export class Dibujo extends Component {
                       'Content-Type': 'multipart/form-data'
                     }
                 })
-                setPost(false);
             };
 
             function predecir() {
+                let botonFinal=document.getElementById("finalizar");
+                let carga=document.getElementById("cargaDibujo");
                 let resizedCanvas = document.createElement("canvas");
                 let resizedContext = resizedCanvas.getContext("2d");
                 resizedCanvas.height = "250";
@@ -224,6 +227,9 @@ export class Dibujo extends Component {
                 .catch((error)=> {
                     console.log(error)
                 });
+                carga.setAttribute("hidden","hidden");
+                botonFinal.removeAttribute("hidden");
+                botonFinal.disabled="true";
             }
 
             function resample_single(canvas, width, height, resize_canvas) {
@@ -313,8 +319,6 @@ export class Dibujo extends Component {
             return(
                 
                 <Fragment>
-                    {post?post :<Backdrop>
-            <CircularProgress color="inherit" /></Backdrop>}
                     <div style={{height: 510, border: 'solid', borderColor: '#8F8F8F', touchAction:'none'}}>
                         <div className='draw-area' style={{height: 500, cursor:'pointer'}}>
                             <canvas id='canvas'
@@ -339,7 +343,11 @@ export class Dibujo extends Component {
 
                                 <button class="button-herramientas" onClick={setToDownload}><img src={descargar} alt="Descargar dibujo" title="Descargar dibujo"/></button>
 
-                                <button class="button-herramientas" onClick={() =>{uploadFile();}}><img src={finalizar} alt="Finalizar dibujo" title="Finalizar dibujo"/></button>
+                                <button class="button-herramientas" onClick={uploadFile}>
+                                    <img src={finalizar} alt="Finalizar dibujo" title="Finalizar dibujo" id="finalizar"/>
+                                </button>
+                                <button class="spinner-border m-5" onClick={uploadFile} id="cargaDibujo" hidden>
+                                <span className="sr-only"></span></button>
                             </div>
                         </div>
                     </div> 
