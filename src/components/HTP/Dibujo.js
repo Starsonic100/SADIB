@@ -343,8 +343,8 @@ export class Dibujo extends Component {
 
                                 <button class="button-herramientas" onClick={setToDownload}><img src={descargar} alt="Descargar dibujo" title="Descargar dibujo"/></button>
 
-                                <button class="button-herramientas" onClick={uploadFile}>
-                                    <img src={finalizar} alt="Finalizar dibujo" title="Finalizar dibujo" id="finalizar"/>
+                                <button class="button-herramientas" onClick={uploadFile} id="finalizar">
+                                    <img src={finalizar} alt="Finalizar dibujo" title="Finalizar dibujo"/>
                                 </button>
                                 <button class="spinner-border m-5" onClick={uploadFile} id="cargaDibujo" hidden>
                                 <span className="sr-only"></span></button>
