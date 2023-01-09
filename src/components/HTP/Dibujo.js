@@ -185,6 +185,9 @@ export class Dibujo extends Component {
                       'Content-Type': 'multipart/form-data'
                     }
                 })
+                carga.setAttribute("hidden","hidden");
+                botonFinal.removeAttribute("hidden");
+                botonFinal.disabled="true";
             };
 
             function predecir() {
@@ -227,9 +230,6 @@ export class Dibujo extends Component {
                 .catch((error)=> {
                     console.log(error)
                 });
-                carga.setAttribute("hidden","hidden");
-                botonFinal.removeAttribute("hidden");
-                botonFinal.disabled="true";
             }
 
             function resample_single(canvas, width, height, resize_canvas) {
