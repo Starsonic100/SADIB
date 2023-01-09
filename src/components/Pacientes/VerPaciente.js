@@ -75,7 +75,7 @@ class VerPaciente extends Component{
         }
 
         const eliminar_paciente = () => {
-            const navigate = useNavigate();
+            
             Axios.delete("http://54.144.147.250:3001/eliminar",{
                 params: {
                     id_paci: id_paciente
