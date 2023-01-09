@@ -1,6 +1,7 @@
 import React, { Component, useEffect, useRef, Fragment, useCallback, useState  } from 'react';
 import '../css/style.css';
 import siguiente from '../img/siguiente.png';
+import anterior from '../img/anterior.png';
 import lapiz from '../img/lapiz2.png';
 import deshacer from '../img/deshacer.png';
 import borrar from '../img/borrar.png';
@@ -18,6 +19,11 @@ export class DibujoArbol extends Component {
     continuar = e => {
         e.preventDefault();
         this.props.siguiente();
+    };
+
+    regresar = e => {
+        e.preventDefault();
+        this.props.anterior();
     };
 
     render(){

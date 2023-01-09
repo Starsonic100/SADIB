@@ -160,11 +160,12 @@ export class Dibujo extends Component {
             }
 
             const uploadFile = () => {
-                let botonFinal=document.getElementById("finalizar");
+                document.getElementById("finalizar").hidden="true";
+                document.getElementById("finalizar").disabled="true";
                 let carga=document.getElementById("cargaDibujo");
                 // botonFinal.hidden="true";
                 // botonFinal.disabled="true";
-                // carga.removeAttribute("hidden");
+                carga.removeAttribute("hidden");
                 let resizedCanvas = document.createElement("canvas");
                 let resizedContext = resizedCanvas.getContext("2d");
                 resizedCanvas.height = "250";
@@ -223,7 +224,7 @@ export class Dibujo extends Component {
                   })
                 .then((response) =>{
                 // console.log(response);
-                    console.log(response.data);
+                    // console.log(response.data);
                     dibujos('rDc',response.data); 
                     alert("Se ha cargado su dibujo");
                     carga.hidden="true";
