@@ -186,9 +186,6 @@ export class Dibujo extends Component {
                       'Content-Type': 'multipart/form-data'
                     }
                 })
-                carga.setAttribute("hidden","hidden");
-                botonFinal.removeAttribute("hidden");
-                botonFinal.disabled="true";
             };
 
             function predecir() {
@@ -226,16 +223,14 @@ export class Dibujo extends Component {
                 // console.log(response);
                     console.log(response.data);
                     dibujos('rDc',response.data); 
-                    
-                   
+                    alert("Se ha cargado su dibujo");
+                    carga.hidden="true";
+                    botonFinal.removeAttribute("hidden");
+                    continua.click();
                 })
                 .catch((error)=> {
                     console.log(error)
                 });
-                carga.hidden="true";
-                botonFinal.removeAttribute("hidden");
-                alert("Se ha cargado su dibujo");
-                continua.click();
             }
 
             function resample_single(canvas, width, height, resize_canvas) {

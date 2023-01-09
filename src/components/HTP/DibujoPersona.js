@@ -38,6 +38,7 @@ export class DibujoPersona extends Component {
             var inMemCtx = inMemCanvas.getContext('2d');
 
             useEffect(() => {
+                window.scrollTo(0,0);
                 const canvas = canvasRef.current;
                 canvas.style.width = "100%";
                 canvas.style.height = "100%";
@@ -160,6 +161,11 @@ export class DibujoPersona extends Component {
             }
 
             const uploadFile = () => {
+                let botonFinal=document.getElementById("finalizar");
+                let carga=document.getElementById("cargaDibujo");
+                botonFinal.hidden="true";
+                botonFinal.disabled="true";
+                carga.removeAttribute("hidden");
                 let resizedCanvas = document.createElement("canvas");
                 let resizedContext = resizedCanvas.getContext("2d");
                 resizedCanvas.height = "250";
@@ -182,6 +188,9 @@ export class DibujoPersona extends Component {
             };
 
             function predecir() {
+                let botonFinal=document.getElementById("finalizar");
+                let carga=document.getElementById("cargaDibujo");
+                let continua=document.getElementById("continuar");
                 let resizedCanvas = document.createElement("canvas");
                 let resizedContext = resizedCanvas.getContext("2d");
                 resizedCanvas.height = "250";
@@ -214,6 +223,9 @@ export class DibujoPersona extends Component {
                     console.log(response.data);
                     dibujos('rDp',response.data); 
                     alert("Se ha cargado su dibujo");
+                    carga.hidden="true";
+                    botonFinal.removeAttribute("hidden");
+                    continua.click();
                 })
                 .catch((error)=> {
                     console.log(error)
@@ -330,7 +342,11 @@ export class DibujoPersona extends Component {
 
                                 <button class="button-herramientas" onClick={setToDownload}><img src={descargar} alt="Descargar dibujo" title="Descargar dibujo"/></button>
 
-                                <button class="button-herramientas" onClick={() =>{uploadFile(); }}><img src={finalizar} alt="Finalizar dibujo" title="Finalizar dibujo"/></button>
+                                <button class="button-herramientas" onClick={uploadFile} id="finalizar">
+                                    <img src={finalizar} alt="Finalizar dibujo" title="Finalizar dibujo"/>
+                                </button>
+                                <button class="spinner-border m-5" onClick={uploadFile} id="cargaDibujo" hidden>
+                                <span className="sr-only"></span></button>
                             </div>
                         </div>
                     </div> 
