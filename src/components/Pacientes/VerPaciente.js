@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import '../css/pacientes.css';
 import Axios from "axios";
 import{ createTheme, MuiThemeProvider, responsiveFontSizes, Typography} from "@material-ui/core";
 
 let theme = createTheme();
 theme = responsiveFontSizes(theme);
-
+const navigate = useNavigate();
 
 class VerPaciente extends Component{
-    
+   
     continuar = e => {
         e.preventDefault();
         this.props.siguiente();
