@@ -6,7 +6,7 @@ import{ createTheme, MuiThemeProvider, responsiveFontSizes, Typography} from "@m
 
 let theme = createTheme();
 theme = responsiveFontSizes(theme);
-const navigate = useNavigate();
+
 
 class VerPaciente extends Component{
    
@@ -34,7 +34,7 @@ class VerPaciente extends Component{
     }
 
     render(){
-
+        const navigate = useNavigate();
         const { values, handleInputChange } = this.props;
         const{
             values: {id_paciente}
