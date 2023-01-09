@@ -5,8 +5,6 @@ import lapiz from '../img/lapiz2.png';
 import deshacer from '../img/deshacer.png';
 import borrar from '../img/borrar.png';
 import descargar from '../img/descargar.png';
-import Backdrop from '@material-ui/core/Backdrop';
-import CircularProgress from '@material-ui/core/CircularProgress';
 import finalizar from '../img/finalizado.png';
 import Axios from "axios";
 import * as tf from '@tensorflow/tfjs';
@@ -164,9 +162,9 @@ export class Dibujo extends Component {
             const uploadFile = () => {
                 let botonFinal=document.getElementById("finalizar");
                 let carga=document.getElementById("cargaDibujo");
-                botonFinal.hidden="true";
-                botonFinal.disabled="true";
-                carga.removeAttribute("hidden");
+                // botonFinal.hidden="true";
+                // botonFinal.disabled="true";
+                // carga.removeAttribute("hidden");
                 let resizedCanvas = document.createElement("canvas");
                 let resizedContext = resizedCanvas.getContext("2d");
                 resizedCanvas.height = "250";
@@ -189,9 +187,13 @@ export class Dibujo extends Component {
             };
 
             function predecir() {
+                
                 let botonFinal=document.getElementById("finalizar");
                 let carga=document.getElementById("cargaDibujo");
                 let continua=document.getElementById("continuar");
+                botonFinal.hidden="true";
+                botonFinal.disabled="true";
+                carga.removeAttribute("hidden");
                 let resizedCanvas = document.createElement("canvas");
                 let resizedContext = resizedCanvas.getContext("2d");
                 resizedCanvas.height = "250";
@@ -347,7 +349,7 @@ export class Dibujo extends Component {
                                 <button class="button-herramientas" onClick={uploadFile} id="finalizar">
                                     <img src={finalizar} alt="Finalizar dibujo" title="Finalizar dibujo"/>
                                 </button>
-                                <button class="spinner-border m-5" onClick={uploadFile} id="cargaDibujo" hidden>
+                                <button class="spinner-border m-5" id="cargaDibujo" hidden disabled>
                                 <span className="sr-only"></span></button>
                             </div>
                         </div>
