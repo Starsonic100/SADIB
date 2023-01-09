@@ -9,11 +9,11 @@ theme = responsiveFontSizes(theme);
 
 export class TAMAIfinal extends Component {
 
-    useEffect=()=>{
-        window.scrollTo(0,0);
-    };
 
     render() {
+        useEffect(() => {
+            window.scrollTo(0,0);
+        });
 
         const {
             values: { p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,

@@ -19,11 +19,12 @@ export class TAMAI6 extends Component {
         this.props.anterior();
     };
 
-    useEffect=()=>{
-        window.scrollTo(0,0);
-    };
     
     render() {
+
+        useEffect(() => {
+            window.scrollTo(0,0);
+        });
 
         const { values, handleInputChange } = this.props;
 

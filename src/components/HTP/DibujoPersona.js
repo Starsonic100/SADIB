@@ -389,12 +389,12 @@ export class DibujoPersona extends Component {
                                         <Drawing setBase={values.p0}/>
                                     </div>
                                     
-                                    <div className="main-row">
-                                    <div className="col-lg-10">
+                                    <div className="main row">
+                                        <div className="col-lg-10">
                                             <button class="button" onClick={this.regresar}><img src={anterior}/></button>
                                         </div>
-                                        <div className="col-lg-11">
-                                            <button class="button" onClick={this.continuar} id="continuar"><img src={siguiente}/></button>
+                                        <div className="col-lg-1">
+                                            <button class="button" onClick={this.continuar}><img src={siguiente}/></button>
                                         </div>
                                     </div>
                                     

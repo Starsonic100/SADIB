@@ -19,13 +19,14 @@ export class Casa extends Component {
         this.props.anterior();
     };
 
-    useEffect=()=>{
-        window.scrollTo(0,0);
-    };
 
     render(){
 
         const { values, handleInputChange } = this.props;
+
+        useEffect(() => {
+            window.scrollTo(0,0);
+        });
 
         return(
             <div className="container">

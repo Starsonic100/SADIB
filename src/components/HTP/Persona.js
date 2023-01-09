@@ -18,12 +18,13 @@ export class Persona extends Component {
         e.preventDefault();
         this.props.anterior();
     };
-    
-    useEffect=()=>{
-        window.scrollTo(0,0);
-    };
+
 
     render(){
+
+        useEffect(() => {
+            window.scrollTo(0,0);
+        });
 
         const { values, handleInputChange } = this.props;
 
