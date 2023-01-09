@@ -370,7 +370,7 @@ export class DibujoPersona extends Component {
                                         </MuiThemeProvider>
                                         */}
                                         <MuiThemeProvider theme={theme}>
-                                            <Typography variant="h5" class="instrucciones">{"Realiza el dibujo de una persona. Al terminar da clic en el botón "}<img src={finalizar} alt="Finalizar dibujo" title="Finalizar dibujo" width="2%"/></Typography>
+                                            <Typography variant="h5" class="instrucciones">{"Realiza el dibujo de una PERSONA. Al terminar da clic en el botón "}<img src={finalizar} alt="Finalizar dibujo" title="Finalizar dibujo" width="2%"/></Typography>
                                         </MuiThemeProvider>
                                     </div>
                                 </div>
@@ -384,6 +384,9 @@ export class DibujoPersona extends Component {
                                     </div>
                                     
                                     <div className="main-row">
+                                    <div className="col-lg-10">
+                                            <button class="button" onClick={this.regresar}><img src={anterior}/></button>
+                                        </div>
                                         <div className="col-lg-11">
                                             <button class="button" onClick={this.continuar} id="continuar"><img src={siguiente}/></button>
                                         </div>

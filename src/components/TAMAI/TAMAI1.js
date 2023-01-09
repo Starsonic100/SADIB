@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component,useEffect } from 'react';
 import '../css/style.css';
 import anterior from '../img/anterior.png';
 import siguiente from '../img/siguiente.png';
@@ -12,6 +12,10 @@ export class TAMAI1 extends Component {
     continuar = e => {
         e.preventDefault();
         this.props.siguiente();
+    };
+
+    useEffect=()=>{
+        window.scrollTo(0,0);
     };
 
     render(){
