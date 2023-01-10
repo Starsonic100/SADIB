@@ -160,9 +160,9 @@ export class Dibujo extends Component {
             }
 
             const uploadFile = () => {
-                document.getElementById("finalizar").hidden="true";
-                document.getElementById("finalizar").disabled="true";
+                let botonFinal=document.getElementById("finalizar");
                 let carga=document.getElementById("cargaDibujo");
+                let continua=document.getElementById("continuar");
                 botonFinal.hidden="true";
                 botonFinal.disabled="true";
                 carga.removeAttribute("hidden");
