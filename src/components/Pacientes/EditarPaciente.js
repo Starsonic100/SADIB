@@ -58,7 +58,7 @@ function EditarPaciente(props){
             console.log(response);
         });
         alert("Se guardaron los cambios");
-        navigate("/Pacientes");
+        window.location.reload(true);
     };
 
     useEffect(() => {
