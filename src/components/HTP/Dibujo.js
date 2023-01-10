@@ -23,7 +23,7 @@ export class Dibujo extends Component {
     render(){
 
         const {values, handleInputChange} = this.props;  
-        
+        let botonCasa=0;
         const Drawing = () => {
             
             const canvasRef = useRef(null);
@@ -58,8 +58,8 @@ export class Dibujo extends Component {
                 this.props.guardarDibujos(page,x);
             }
 
-            const valorBoton=(boton,x)=>{     
-                this.props.cambioValor(boton,x);
+            const valorBoton=()=>{     
+                botonCasa=1;
             }
                    
             function resizeCanvas() {
@@ -195,7 +195,7 @@ export class Dibujo extends Component {
                 let canvas=document.getElementById("canvas");
                 resizedContext.drawImage(canvas, 0, 0, 250, 250);
                 dibujos('bDc',canvas.toDataURL());
-                valorBoton('botonCasa',1);
+                valorBoton();
                 //Pasar canvas a version 250x250
                 resample_single(canvas, 250, 250, resizedCanvas);
                 var imgData = resizedContext.getImageData(0,0,250,250);
@@ -339,7 +339,7 @@ export class Dibujo extends Component {
 
                                 <button class="button-herramientas" onClick={setToDownload}><img src={descargar} alt="Descargar dibujo" title="Descargar dibujo"/></button>
 
-                                {values.botonCasa==0 
+                                {botonCasa==0 
                                 ?
                                 <button class="button-herramientas" onClick={uploadFile} id="boton-finalizar">
                                     <img src={finalizar} alt="Finalizar dibujo" title="Finalizar dibujo"/></button> 

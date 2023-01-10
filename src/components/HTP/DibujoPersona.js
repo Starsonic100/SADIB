@@ -400,7 +400,7 @@ export class DibujoPersona extends Component {
                                         </div> 
                                         }
                                         <div className="col-lg-1">
-                                            <button class="button" onClick={this.continuar}><img src={siguiente}/></button>
+                                            <button class="button" onClick={this.continuar} id="continuar"><img src={siguiente}/></button>
                                         </div>
                                     </div>
                                     
