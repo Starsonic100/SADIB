@@ -55,10 +55,10 @@ function EditarPaciente(props){
             temail: TEmail,
             ttelefono: TTelefono
         }).then((response) => {
-            alert("Se guardaron los cambios");
-            navigate("/Pacientes");
             console.log(response);
         });
+        alert("Se guardaron los cambios");
+        navigate("/Pacientes");
     };
 
     useEffect(() => {
