@@ -1,4 +1,4 @@
-import React, { Component,useEffect } from 'react';
+import React, { Component,useEffect, useState } from 'react';
 import '../css/style.css';
 import anterior from '../img/anterior.png';
 import siguiente from '../img/siguiente.png';
@@ -16,11 +16,14 @@ export class TAMAI1 extends Component {
 
 
     render(){
-
+        const [num,setNum] = useState(0);
         const TAMAI = () => {
 
             useEffect(() => {
-                window.scrollTo(0,0);
+                if(num==0){
+                    window.scrollTo(0,0);
+                }
+                setNum(1);
             });
 
         }
