@@ -22,7 +22,7 @@ export class HTPPage extends Component {
         p41: '',p42: '',p43: '',p44: '',p45: '',p46: '',p47: '',p48: '',p49: '',p50: '',
         p51: '',p52: '',p53: '',p54: '',p55: '',p56: '',p57: '',p58: '',p59: '',p60: '',
         p61: '',p62: '',p63: '',p64: '',p65: '',p66: '',p67: '',p68: '',bDc:'', rDc: '',
-        bDa: '',rDa: '',bDp: '',rDp:''
+        bDa: '',rDa: '',bDp: '',rDp:'',  botonCasa: 0, botonArbol: 0, botonPersona: 0
     }
 
     /*Pasa a la siguiente página */
@@ -46,6 +46,13 @@ export class HTPPage extends Component {
             [p]:x
         });
     };
+
+    cambioValor = (p,x) => {
+        this.setState({
+            [p]:x
+        });
+    };
+
 
     handleInputChange = input => e =>{
         this.setState({
@@ -89,7 +96,7 @@ export class HTPPage extends Component {
             p41,p42,p43,p44,p45,p46,p47,p48,p49,p50,
             p51,p52,p53,p54,p55,p56,p57,p58,p59,p60,
             p61,p62,p63,p64,p65,p66,p67,p68,bDc, rDc,
-            bDa,rDa,bDp,rDp} =this.state;
+            bDa,rDa,bDp,rDp,botonCasa,botonArbol,botonPersona} =this.state;
 
         const values = {p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,
                     p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,
@@ -98,7 +105,7 @@ export class HTPPage extends Component {
                     p41,p42,p43,p44,p45,p46,p47,p48,p49,p50,
                     p51,p52,p53,p54,p55,p56,p57,p58,p59,p60,
                     p61,p62,p63,p64,p65,p66,p67,p68,bDc, rDc,
-                    bDa,rDa,bDp,rDp}
+                    bDa,rDa,bDp,rDp,botonCasa,botonArbol,botonPersona}
         
         switch (this.state.page){
             case 1:
@@ -107,6 +114,7 @@ export class HTPPage extends Component {
                         handleInputChange={this.handleInputChange}
                         siguiente={this.siguiente}
                         guardarDibujos={this.guardarDibujos}
+                        cambioValor = {this.cambioValor}
                         values={values}
                     />
                 );
@@ -117,6 +125,7 @@ export class HTPPage extends Component {
                         siguiente={this.siguiente}
                         anterior={this.anterior}
                         guardarDibujos={this.guardarDibujos}
+                        cambioValor = {this.cambioValor}
                         values={values}
                     />
                 );
@@ -127,6 +136,7 @@ export class HTPPage extends Component {
                         siguiente={this.siguiente}
                         anterior={this.anterior}
                         guardarDibujos={this.guardarDibujos}
+                        cambioValor = {this.cambioValor}
                         values={values}
                     />
                 );

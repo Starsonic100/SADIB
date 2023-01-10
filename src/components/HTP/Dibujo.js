@@ -57,6 +57,10 @@ export class Dibujo extends Component {
             const dibujos=(page,x)=>{     
                 this.props.guardarDibujos(page,x);
             }
+
+            const valorBoton=(boton,x)=>{     
+                this.props.cambioValor(boton,x);
+            }
                    
             function resizeCanvas() {
                 let canvas=document.getElementById("canvas");
@@ -202,6 +206,7 @@ export class Dibujo extends Component {
                 let canvas=document.getElementById("canvas");
                 resizedContext.drawImage(canvas, 0, 0, 250, 250);
                 dibujos('bDc',canvas.toDataURL());
+                valorBoton('botonCasa',1);
                 //Pasar canvas a version 250x250
                 resample_single(canvas, 250, 250, resizedCanvas);
                 var imgData = resizedContext.getImageData(0,0,250,250);
@@ -347,11 +352,14 @@ export class Dibujo extends Component {
 
                                 <button class="button-herramientas" onClick={setToDownload}><img src={descargar} alt="Descargar dibujo" title="Descargar dibujo"/></button>
 
-                                <button class="button-herramientas" onClick={uploadFile} id="finalizar">
-                                    <img src={finalizar} alt="Finalizar dibujo" title="Finalizar dibujo"/>
-                                </button>
-                                <button class="spinner-border m-5" id="cargaDibujo" hidden disabled>
+                                {values.botonCasa==0 
+                                ?
+                                <button class="button-herramientas" onClick={uploadFile} id="boton-finalizar">
+                                    <img src={finalizar} alt="Finalizar dibujo" title="Finalizar dibujo"/></button> 
+                                :
+                                <button class="spinner-border m-5" id="cargaDibujo" >
                                 <span className="sr-only"></span></button>
+                                }
                             </div>
                         </div>
                     </div> 
