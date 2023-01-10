@@ -314,7 +314,7 @@ export class Casa extends Component {
                                             <ul class="htp">
                                                 <li>
                                                     <MuiThemeProvider theme={theme}>
-                                                        <Typography variant="h6" class="tamai">{"21. Interrogatorio acerca de la distribución. (Dibujo y designación, por ejemplo, ¿Qué cuarto esta representado por cada ventana? ¿Quién se encuentra ahí generalmente?)"}</Typography>
+                                                        <Typography variant="h6" class="tamai">{"21. ¿Qué cuarto esta representado por cada ventana? ¿Quién se encuentra ahí generalmente?"}</Typography>
                                                     </MuiThemeProvider>
                                                 </li>
                                                 <textarea class="form-control" name="p21" onChange={handleInputChange('p21')} defaultValue={values.p21}></textarea>

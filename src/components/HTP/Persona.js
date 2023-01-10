@@ -353,7 +353,7 @@ export class Persona extends Component {
                                             <ul class="htp">
                                                 <li>
                                                     <MuiThemeProvider theme={theme}>
-                                                        <Typography variant="h6" class="tamai">{"68. (Pídale al sujeto que dibuje al Sol y la línea base en cada dibujo) Suponga que el Sol fuera alguna persona que usted conoce ¿quién sería? "}</Typography>
+                                                        <Typography variant="h6" class="tamai">{"68. ¿Su dibujo tiene un sol? si es así, suponga que el sol fuera alguna persona que usted conoce ¿quién sería? "}</Typography>
                                                     </MuiThemeProvider>
                                                 </li>
                                                 <textarea class="form-control" name="p68" onChange={handleInputChange('p68')} defaultValue={values.p68}></textarea>
