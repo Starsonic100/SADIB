@@ -33,7 +33,7 @@ export class TAMAI4 extends Component {
 
         return(
             <div className="container">
-                
+                <TAMAI/>
                 <div className="main row">
                     <div className="col-12">
                         <div className="container">

@@ -33,7 +33,7 @@ export class Arbol extends Component {
 
         return(
             <div className="container">
-                
+                <Arbol/>
                 {/* Comienza sección de preguntas*/}
                 <div className="main row">
                     <div className="col-12">
