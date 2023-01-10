@@ -189,12 +189,12 @@ export class Dibujo extends Component {
 
             function predecir() {
                 
-                // let botonFinal=document.getElementById("finalizar");
-                // let carga=document.getElementById("cargaDibujo");
-                // let continua=document.getElementById("continuar");
-                // botonFinal.hidden="true";
-                // botonFinal.disabled="true";
-                // carga.removeAttribute("hidden");
+                let botonFinal=document.getElementById("finalizar");
+                let carga=document.getElementById("cargaDibujo");
+                let continua=document.getElementById("continuar");
+                botonFinal.hidden="true";
+                botonFinal.disabled="true";
+                carga.removeAttribute("hidden");
                 let resizedCanvas = document.createElement("canvas");
                 let resizedContext = resizedCanvas.getContext("2d");
                 resizedCanvas.height = "250";
