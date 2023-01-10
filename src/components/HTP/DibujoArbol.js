@@ -43,7 +43,6 @@ export class DibujoArbol extends Component {
             var inMemCtx = inMemCanvas.getContext('2d');
 
             useEffect(() => {
-                window.scrollTo(0,0);
                 const canvas = canvasRef.current;
                 canvas.style.width = "100%";
                 canvas.style.height = "100%";

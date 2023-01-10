@@ -11,13 +11,7 @@ export class TAMAIfinal extends Component {
 
 
     render() {
-        const TAMAI = () => {
-
-            useEffect(() => {
-                window.scrollTo(0,0);
-            });
-
-        }
+    
 
         const {
             values: { p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,
@@ -1050,7 +1044,6 @@ export class TAMAIfinal extends Component {
 
         return(
             <div className="container">
-                <TAMAI/>
                 <div className="main row">
                     <div className="col-12">
                         <div className="container">

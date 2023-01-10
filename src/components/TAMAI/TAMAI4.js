@@ -22,18 +22,10 @@ export class TAMAI4 extends Component {
     
     render() {
 
-        const TAMAI = () => {
-
-            useEffect(() => {
-                window.scrollTo(0,0);
-            });
-
-        }
         const { values, handleInputChange } = this.props;
 
         return(
             <div className="container">
-                <TAMAI/>
                 <div className="main row">
                     <div className="col-12">
                         <div className="container">

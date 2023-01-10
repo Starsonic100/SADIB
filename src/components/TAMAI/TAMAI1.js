@@ -22,7 +22,6 @@ export class TAMAI1 extends Component {
 
         return(
             <div className="container">
-                <TAMAI/>
                 {/* Comienza sección de preguntas*/}
                 <div className="main row">
                     <div className="col-12">
