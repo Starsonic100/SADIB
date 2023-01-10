@@ -175,16 +175,16 @@ export class Dibujo extends Component {
                 let dibujoB = resizedCanvas.toDataURL();
                 let dibujo = dataURItoBlob(dibujoB);
                 let fd = new FormData(document.forms[0]);
-                // predecir();
-                // fd.append('dibujo', dibujo);
-                // Axios({
-                //     url: 'http://54.144.147.250:3001/dibujoCasa',
-                //     method: "POST",
-                //     data: fd,
-                //     headers: {
-                //       'Content-Type': 'multipart/form-data'
-                //     }
-                // })
+                predecir();
+                fd.append('dibujo', dibujo);
+                Axios({
+                    url: 'http://54.144.147.250:3001/dibujoCasa',
+                    method: "POST",
+                    data: fd,
+                    headers: {
+                      'Content-Type': 'multipart/form-data'
+                    }
+                })
             };
 
             function predecir() {
