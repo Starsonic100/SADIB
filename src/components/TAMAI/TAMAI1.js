@@ -16,17 +16,7 @@ export class TAMAI1 extends Component {
 
 
     render(){
-        const [num,setNum] = useState(0);
-        const TAMAI = () => {
-
-            useEffect(() => {
-                if(num==0){
-                    window.scrollTo(0,0);
-                }
-                setNum(1);
-            });
-
-        }
+       
 
         const { values, handleInputChange } = this.props;
 
