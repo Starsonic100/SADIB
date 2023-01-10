@@ -233,8 +233,6 @@ export class DibujoArbol extends Component {
                     console.log(response.data);
                     dibujos('rDa',response.data); 
                     alert("Se ha cargado su dibujo");
-                    carga.hidden="true";
-                    botonFinal.removeAttribute("hidden");
                     continua.click();
                 })
                 .catch((error)=> {

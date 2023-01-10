@@ -234,8 +234,6 @@ export class DibujoPersona extends Component {
                     console.log(response.data);
                     dibujos('rDp',response.data); 
                     alert("Se ha cargado su dibujo");
-                    carga.hidden="true";
-                    botonFinal.removeAttribute("hidden");
                     continua.click();
                 })
                 .catch((error)=> {

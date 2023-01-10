@@ -232,8 +232,6 @@ export class Dibujo extends Component {
                     // console.log(response.data);
                     dibujos('rDc',response.data); 
                     alert("Se ha cargado su dibujo");
-                    carga.hidden="true";
-                    botonFinal.removeAttribute("hidden");
                     continua.click();
                 })
                 .catch((error)=> {
