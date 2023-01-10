@@ -47,6 +47,7 @@ export class TAMAIPage extends Component {
         this.setState({
             page: page - 1
         });
+        window.scrollTo(0,0);
     };
 
     handleInputChange = input => e =>{
