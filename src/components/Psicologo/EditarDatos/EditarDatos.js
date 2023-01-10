@@ -10,19 +10,20 @@ theme = responsiveFontSizes(theme);
 
 const EditarDatos = ({ submitForm }) => {
     
-    const { handleChange, handleSubmit, valores, errores } = useEditarDatos(
+    const { handleChange, handleSubmit, valores, errores, setValores } = useEditarDatos(
       submitForm,
       validar
     );
 
     useEffect(() => {
       Axios.get("http://54.144.147.250:3001/editarPsic").then((response) => {
-          {valores.Fusuario=response.data.user[0].id_usuario};
-          {valores.Fnombre=response.data.user[0].nombre};
-          {valores.Fapellido=response.data.user[0].apellidop};
-          {valores.Fsapellido=response.data.user[0].apellidom};
-          {valores.Fcorreo=response.data.user[0].correo};
-          {valores.Ftelefono=response.data.user[0].telefono};
+        setValores({Fusuario:response.data.user[0].id_usuario,
+            Fnombre:response.data.user[0].nombre,
+            Fapellido:response.data.user[0].apellidop,
+            Fsapellido:response.data.user[0].apellidom,
+            Fcorreo:response.data.user[0].correo,
+            Ftelefono:response.data.user[0].telefono,
+            Fcontrasenia:''});
       });
     }, []);
 

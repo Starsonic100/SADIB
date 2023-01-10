@@ -53,7 +53,7 @@ const useEditarDatos = (callback, validar) => {
         [errores]
       );
     
-      return { handleChange, handleSubmit, valores, errores };
+      return { handleChange, handleSubmit, valores, errores, setValores };
 }
 
 export default useEditarDatos;

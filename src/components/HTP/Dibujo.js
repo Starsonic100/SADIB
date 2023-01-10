@@ -57,6 +57,10 @@ export class Dibujo extends Component {
             const dibujos=(page,x)=>{     
                 this.props.guardarDibujos(page,x);
             }
+
+            const valorBoton=(boton,x)=>{     
+                this.props.cambioValor(boton,x);
+            }
                    
             function resizeCanvas() {
                 let canvas=document.getElementById("canvas");
@@ -160,12 +164,7 @@ export class Dibujo extends Component {
             }
 
             const uploadFile = () => {
-                document.getElementById("finalizar").hidden="true";
-                document.getElementById("finalizar").disabled="true";
-                let carga=document.getElementById("cargaDibujo");
-                // botonFinal.hidden="true";
-                // botonFinal.disabled="true";
-                carga.removeAttribute("hidden");
+                let continua=document.getElementById("continuar");
                 let resizedCanvas = document.createElement("canvas");
                 let resizedContext = resizedCanvas.getContext("2d");
                 resizedCanvas.height = "250";
@@ -188,13 +187,7 @@ export class Dibujo extends Component {
             };
 
             function predecir() {
-                
-                let botonFinal=document.getElementById("finalizar");
-                let carga=document.getElementById("cargaDibujo");
                 let continua=document.getElementById("continuar");
-                botonFinal.hidden="true";
-                botonFinal.disabled="true";
-                carga.removeAttribute("hidden");
                 let resizedCanvas = document.createElement("canvas");
                 let resizedContext = resizedCanvas.getContext("2d");
                 resizedCanvas.height = "250";
@@ -202,6 +195,7 @@ export class Dibujo extends Component {
                 let canvas=document.getElementById("canvas");
                 resizedContext.drawImage(canvas, 0, 0, 250, 250);
                 dibujos('bDc',canvas.toDataURL());
+                valorBoton('botonCasa',1);
                 //Pasar canvas a version 250x250
                 resample_single(canvas, 250, 250, resizedCanvas);
                 var imgData = resizedContext.getImageData(0,0,250,250);
@@ -227,8 +221,6 @@ export class Dibujo extends Component {
                     // console.log(response.data);
                     dibujos('rDc',response.data); 
                     alert("Se ha cargado su dibujo");
-                    carga.hidden="true";
-                    botonFinal.removeAttribute("hidden");
                     continua.click();
                 })
                 .catch((error)=> {
@@ -347,11 +339,14 @@ export class Dibujo extends Component {
 
                                 <button class="button-herramientas" onClick={setToDownload}><img src={descargar} alt="Descargar dibujo" title="Descargar dibujo"/></button>
 
-                                <button class="button-herramientas" onClick={uploadFile} id="finalizar">
-                                    <img src={finalizar} alt="Finalizar dibujo" title="Finalizar dibujo"/>
-                                </button>
-                                <button class="spinner-border m-5" id="cargaDibujo" hidden disabled>
+                                {values.botonCasa==0 
+                                ?
+                                <button class="button-herramientas" onClick={uploadFile} id="boton-finalizar">
+                                    <img src={finalizar} alt="Finalizar dibujo" title="Finalizar dibujo"/></button> 
+                                :
+                                <button class="spinner-border m-5" id="cargaDibujo" >
                                 <span className="sr-only"></span></button>
+                                }
                             </div>
                         </div>
                     </div> 

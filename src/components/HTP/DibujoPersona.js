@@ -44,7 +44,6 @@ export class DibujoPersona extends Component {
             var inMemCtx = inMemCanvas.getContext('2d');
 
             useEffect(() => {
-                window.scrollTo(0,0);
                 const canvas = canvasRef.current;
                 canvas.style.width = "100%";
                 canvas.style.height = "100%";
@@ -65,6 +64,10 @@ export class DibujoPersona extends Component {
 
             const dibujos=(page,x)=>{     
                 this.props.guardarDibujos(page,x);
+            }
+
+            const valorBoton=(boton,x)=>{     
+                this.props.cambioValor(boton,x);
             }
                    
             function resizeCanvas() {
@@ -167,11 +170,6 @@ export class DibujoPersona extends Component {
             }
 
             const uploadFile = () => {
-                let botonFinal=document.getElementById("finalizar");
-                let carga=document.getElementById("cargaDibujo");
-                botonFinal.hidden="true";
-                botonFinal.disabled="true";
-                carga.removeAttribute("hidden");
                 let resizedCanvas = document.createElement("canvas");
                 let resizedContext = resizedCanvas.getContext("2d");
                 resizedCanvas.height = "250";
@@ -194,8 +192,8 @@ export class DibujoPersona extends Component {
             };
 
             function predecir() {
-                let botonFinal=document.getElementById("finalizar");
-                let carga=document.getElementById("cargaDibujo");
+                // let botonFinal=document.getElementById("finalizar");
+                // let carga=document.getElementById("cargaDibujo");
                 let continua=document.getElementById("continuar");
                 let resizedCanvas = document.createElement("canvas");
                 let resizedContext = resizedCanvas.getContext("2d");
@@ -203,6 +201,7 @@ export class DibujoPersona extends Component {
                 resizedCanvas.width = "250";
                 let canvas=document.getElementById("canvas");
                 dibujos('bDp',canvas.toDataURL());
+                valorBoton('botonPersona',1);
                 resizedContext.drawImage(canvas, 0, 0, 250, 250);
                 
                 //Pasar canvas a version 250x250
@@ -229,8 +228,6 @@ export class DibujoPersona extends Component {
                     console.log(response.data);
                     dibujos('rDp',response.data); 
                     alert("Se ha cargado su dibujo");
-                    carga.hidden="true";
-                    botonFinal.removeAttribute("hidden");
                     continua.click();
                 })
                 .catch((error)=> {
@@ -348,11 +345,14 @@ export class DibujoPersona extends Component {
 
                                 <button class="button-herramientas" onClick={setToDownload}><img src={descargar} alt="Descargar dibujo" title="Descargar dibujo"/></button>
 
-                                <button class="button-herramientas" onClick={uploadFile} id="finalizar">
-                                    <img src={finalizar} alt="Finalizar dibujo" title="Finalizar dibujo"/>
-                                </button>
-                                <button class="spinner-border m-5" onClick={uploadFile} id="cargaDibujo" hidden>
+                                {values.botonPersona==0 
+                                ?
+                                <button class="button-herramientas" onClick={uploadFile} id="boton-finalizar">
+                                    <img src={finalizar} alt="Finalizar dibujo" title="Finalizar dibujo"/></button> 
+                                :
+                                <button class="spinner-border m-5" id="cargaDibujo" >
                                 <span className="sr-only"></span></button>
+                                }
                             </div>
                         </div>
                     </div> 
@@ -390,11 +390,17 @@ export class DibujoPersona extends Component {
                                     </div>
                                     
                                     <div className="main row">
+                                    {values.botonArbol==0 
+                                        ?
                                         <div className="col-lg-10">
                                             <button class="button" onClick={this.regresar}><img src={anterior}/></button>
-                                        </div>
+                                        </div> :
+                                        <div className="col-lg-10">
+                                            <button class="button" onClick={this.regresar} disabled><img src={anterior}/></button>
+                                        </div> 
+                                        }
                                         <div className="col-lg-1">
-                                            <button class="button" onClick={this.continuar}><img src={siguiente}/></button>
+                                            <button class="button" onClick={this.continuar} id="continuar"><img src={siguiente}/></button>
                                         </div>
                                     </div>
                                     

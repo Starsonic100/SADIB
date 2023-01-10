@@ -22,15 +22,10 @@ export class Persona extends Component {
 
     render(){
 
-        useEffect(() => {
-            window.scrollTo(0,0);
-        });
-
         const { values, handleInputChange } = this.props;
 
         return(
             <div className="container">
-                
                 {/* Comienza sección de preguntas*/}
                 <div className="main row">
                     <div className="col-12">
