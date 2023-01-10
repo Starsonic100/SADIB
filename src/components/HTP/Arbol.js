@@ -21,9 +21,13 @@ export class Arbol extends Component {
 
     render(){
 
-        useEffect(() => {
-            window.scrollTo(0,0);
-        });
+        const Arbol = () => {
+
+            useEffect(() => {
+                window.scrollTo(0,0);
+            });
+
+        }
 
         const { values, handleInputChange } = this.props;
 

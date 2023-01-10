@@ -21,9 +21,13 @@ export class TAMAI5 extends Component {
 
     
     render() {
-        useEffect(() => {
-            window.scrollTo(0,0);
-        });
+        const TAMAI = () => {
+
+            useEffect(() => {
+                window.scrollTo(0,0);
+            });
+
+        }
 
         const { values, handleInputChange } = this.props;
 
