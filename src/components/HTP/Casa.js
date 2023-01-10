@@ -24,17 +24,10 @@ export class Casa extends Component {
 
         const { values, handleInputChange } = this.props;
 
-        const Casa = () => {
-
-            useEffect(() => {
-                window.scrollTo(0,0);
-            });
-
-        }
+        
 
         return(
             <div className="container">
-                <Casa/>
                 {/* Comienza sección de preguntas*/}
                 <div className="main row">
                     <div className="col-12">
