@@ -10,7 +10,7 @@ theme = responsiveFontSizes(theme);
 
 const EditarDatos = ({ submitForm }) => {
     
-    const { handleChange, handleSubmit, valores, errores } = useEditarDatos(
+    const { handleChange, handleSubmit, valores, errores, setValores } = useEditarDatos(
       submitForm,
       validar
     );
