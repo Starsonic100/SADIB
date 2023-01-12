@@ -1,7 +1,9 @@
 # SADIB
 Prototipo SADIB.
 
-Insertar comandos:
+Insertar comando:
+
+npm install (Instala los paquetes del package.json)
 
 npm install react-router-dom@6
 
@@ -24,3 +26,21 @@ npm install react-hook-form
 npm install @material-ui/core -force
 
 npm install react-hooks-svgdrawing --save
+
+--------------SERVIDOR--------------------
+
+npm i html-pdf
+
+npm i body-parser
+
+npm i cookie-parser
+
+npm i express-session
+
+npm i fs
+
+npm i multer
+
+npm i googleapis
+
+npm i @tensorflow/tfjs-node
